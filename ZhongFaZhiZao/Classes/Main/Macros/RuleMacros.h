@@ -21,7 +21,7 @@
 #define KWidth_ScaleW [UIScreen mainScreen].bounds.size.width/375.0f
 #define KWidth_ScaleH [UIScreen mainScreen].bounds.size.height/667.0f
 
-
+#define KFloat(a) a * KWidth_ScaleW
 /// 刷新框架的适配iOS11,第一个参数是当下的控制器适配iOS11 一下的，第二个参数表示scrollview或子类
 #define AdjustsScrollViewInsetNever(controller,view) if(@available(iOS 11.0, *)) {view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;} else if([controller isKindOfClass:[UIViewController class]]) {controller.automaticallyAdjustsScrollViewInsets = false;}
 

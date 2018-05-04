@@ -17,4 +17,5 @@
 }
 
 @property (nonatomic, copy)NSString *sectionType;
+
 @end

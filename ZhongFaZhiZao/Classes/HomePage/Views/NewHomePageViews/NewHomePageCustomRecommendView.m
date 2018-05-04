@@ -31,7 +31,7 @@
     _goodsNameLabel.numberOfLines = 1;
     _goodsNameLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_goodsNameLabel];
-    _goodsNameLabel.text = @"库卡码垛机器人";
+    
     //2.折购提示
     NSString *tipStr = @"下单立项8折";
     CGFloat tipLabelGapFromTop = 14.7/2.0 * KWidth_ScaleH;
@@ -56,6 +56,17 @@
     _goodsIconImageView.centerX = _tipLabel.centerX;
     _goodsIconImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:_goodsIconImageView];
-    [_goodsIconImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+    
+}
+
+- (void)setRecommedDatas:(NewHomePageRecommendDatas *)recommedDatas{
+    if (_recommedDatas != recommedDatas) {
+        _recommedDatas = recommedDatas;
+        _goodsNameLabel.text = _recommedDatas.name;
+        
+        _tipLabel.text = _recommedDatas.RecommendDescription;
+        
+        [_goodsIconImageView sd_setImageWithURL:[NSURL URLWithString:_recommedDatas.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+    }
 }
 @end

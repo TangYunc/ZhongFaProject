@@ -23,9 +23,11 @@ extern NSString *const HomePageadInfo_API;
 extern NSString *const HomePageSearch_API;//搜索
 extern NSString *const HomePageGetClassify_API;//首页弹窗分类获取
 extern NSString *const HomePageSubmitClassify_API;//首页弹窗分类提交
-extern NSString *const HomePageAD_API;//为您推荐（广告）
+extern NSString *const HomePageRecommend_API;//为您推荐（广告）
 extern NSString *const HomePageSmartHeadlineNews_API;//智造头条
-
+extern NSString *const HomePageScienceResult_API;//首页科技推荐(科技成果)
+extern NSString *const HomePageSolve_API;//首页解决方案
+extern NSString *const HomePageSmartShoppingMall_API;//首页智造商城数据
 
 //***************************推送************************//
 

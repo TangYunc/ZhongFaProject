@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomePageHeaderModel.h"
+
 typedef NS_ENUM(int,ZF){
     
     ScienceResult = 0+1000,
@@ -18,7 +20,9 @@ typedef NS_ENUM(int,ZF){
 };
 @interface NewHomePageHeaderView : UIView
 
-@property (nonatomic,strong) NSArray *adResultArr;
+@property (nonatomic, strong) HomePageHeaderModel *model;
+@property (nonatomic,strong) NSArray *smartShoppingMallArr;//智造商城
+@property (nonatomic,strong) NSArray *recommendArr;
 @property (nonatomic,strong) NSArray *smartHeadlineNewsResultArr;
 
 @end

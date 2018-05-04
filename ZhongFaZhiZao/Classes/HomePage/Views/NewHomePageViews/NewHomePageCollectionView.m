@@ -105,17 +105,12 @@
     return self;
 }
 
-- (void)setModel:(NewHomePageHeaderResult *)model{
+#pragma mark -- 数据
+- (void)setModel:(HomePageHeaderModel *)model{
     
     if (_model != model) {
         _model = model;
-//        self.headerView.model = _model;
-    }
-}
-- (void)setAdResultArr:(NSArray *)adResultArr{
-    if (_adResultArr != adResultArr) {
-        _adResultArr = adResultArr;
-        self.headerView.adResultArr = _adResultArr;
+        self.headerView.model = _model;
     }
 }
 
@@ -123,6 +118,20 @@
     if (_smartHeadlineNewsResultArr != smartHeadlineNewsResultArr) {
         _smartHeadlineNewsResultArr = smartHeadlineNewsResultArr;
         self.headerView.smartHeadlineNewsResultArr = smartHeadlineNewsResultArr;
+    }
+}
+
+- (void)setRecommendArr:(NSArray *)recommendArr{
+    if (_recommendArr != recommendArr) {
+        _recommendArr = recommendArr;
+        self.headerView.recommendArr = _recommendArr;
+    }
+}
+
+- (void)setSmartShoppingMallArr:(NSArray *)smartShoppingMallArr{
+    if (_smartShoppingMallArr != smartShoppingMallArr) {
+        _smartShoppingMallArr = smartShoppingMallArr;
+        self.headerView.smartShoppingMallArr = _smartShoppingMallArr;
     }
 }
 
@@ -250,9 +259,11 @@
         _smartMallScrollView.backgroundColor = BACK_COLOR;
         _smartMallScrollView.contentSize = CGSizeMake(4 * kScreenWidth, 0);
         [cell addSubview:_smartMallScrollView];
-        NSArray *titleArr = @[@"智能制造装备",@"工业软件",@"工业机器人",@"电子元器件",@"工业软件",@"工业机器人",@"电子元器件"];
-        for (int i = 0; i < titleArr.count; i++) {
+//        NSArray *titleArr = @[@"智能制造装备",@"工业软件",@"工业机器人",@"电子元器件",@"工业软件",@"工业机器人",@"电子元器件"];
+        NSInteger tempCount = self.smartShoppingMallArr.count;
+        for (int i = 0; i < tempCount; i++) {
              SamrtShoppingMallView *samrtShoppingMallView = [[SamrtShoppingMallView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, 342/2.0 * KWidth_ScaleH)];
+            samrtShoppingMallView.theDatas = self.smartShoppingMallArr[i];
             [_smartMallScrollView addSubview:samrtShoppingMallView];
         }
         // 让系统调用layoutSubView方法
@@ -262,6 +273,7 @@
         //科技成果
         static NSString * CellIdentifier = @"scienceResultGoodsCell";
         ScienceResultGoodsCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.datas = self.scienceResultArr[indexPath.row];
         // 让系统调用layoutSubView方法
         [cell setNeedsLayout];
         return cell;
@@ -289,9 +301,10 @@
         _solveScrollView.backgroundColor = BACK_COLOR;
         _solveScrollView.contentSize = CGSizeMake(32/2.0 * KWidth_ScaleW * 2 + 21/2.0 * KWidth_ScaleW + 2 * (569/2.0 * KWidth_ScaleW), 0);
         [cell addSubview:_solveScrollView];
-        
         for (int i = 0; i < 2; i++) {
+            
             SolveView *solveView = [[SolveView alloc] initWithFrame:CGRectMake(32/2.0 * KWidth_ScaleW + i * ((569 + 21)/2.0 * KWidth_ScaleW), 0, 569/2.0 * KWidth_ScaleW, 396/2.0 * KWidth_ScaleH)];
+            solveView.solveDatas = self.solveArr[i];
             [_solveScrollView addSubview:solveView];
         }
         // 让系统调用layoutSubView方法
@@ -533,6 +546,30 @@
     
     WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:urlStr title:title];
     [self.viewControler.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - scrollView滑动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    float y = scrollView.contentOffset.y;
+    if(y<70){
+        self.navBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomePageNavBar"]];
+        
+        self.navigationView.alpha = 1;
+    }
+    else{
+        self.navigationView.backgroundColor = BLUE_COLOR;
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            
+            CGFloat alphas = (scrollView.contentOffset.y / 135 < 1)?scrollView.contentOffset.y/135:1;
+            
+            self.navigationView.backgroundColor = BLUE_COLOR;
+            
+            self.navigationView.alpha = alphas;
+        } completion:^(BOOL finished) {
+        }];
+    }
 }
 
 - (void)dealloc

@@ -90,110 +90,144 @@
     [_fourBJView addSubview:_fourGoodsNameLabel];
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    //一、
-    CGFloat firstBJViewWidth = 373/2.0 * KWidth_ScaleW;
-    CGFloat firstBJViewHeight = 342/2.0 * KWidth_ScaleH;
-    _firstBJView.frame = CGRectMake(0, 0, firstBJViewWidth, firstBJViewHeight);
-    //1.
-    CGFloat goodsImgWidth = 298/2.0 * KWidth_ScaleW;
-    CGFloat goodsImgHeight = 179/2.0 * KWidth_ScaleH;
-    CGFloat goodsImgGapFromLeft = 44/2.0 * KWidth_ScaleW;
-    CGFloat goodsImgGapFromTop = 18/2.0 * KWidth_ScaleH;
-    _firstGoodsImgImageView.frame = CGRectMake(goodsImgGapFromLeft, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
-    [_firstGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
-    //2.
-    NSString *goodsNameStr = @"库卡kuka kr 300-20垛机器人垛机器";
-    CGFloat goodsNameLabelGapFromTop = 6/2.0 * KWidth_ScaleH;
-    CGFloat goodsNameLabelWidth = goodsImgWidth;
-    CGSize goodsNameLblWidthSize = [_firstGoodsNameLabel sizeThatFits:CGSizeMake(goodsNameLabelWidth,MAXFLOAT)];
-    _firstGoodsNameLabel.frame = CGRectMake(_firstGoodsImgImageView.left,_firstGoodsImgImageView.bottom + goodsNameLabelGapFromTop, goodsNameLabelWidth, goodsNameLblWidthSize.height);
-    _firstGoodsNameLabel.text = goodsNameStr;
-    [_firstGoodsNameLabel sizeToFit];
-    //3.
-    NSString *goodsPriceStr = @" 3,2000.00";
-    if (goodsPriceStr == nil || goodsPriceStr == Nil) {
-        goodsPriceStr = @"";
+- (void)setTheDatas:(NewHomePageSmartShoppingMallDatas *)theDatas{
+    if (_theDatas != theDatas) {
+        _theDatas = theDatas;
+        
+        NSArray *lists = _theDatas.ad_list;
+        NewHomePageSmartShoppingMallAd_list *adList1;
+        NewHomePageSmartShoppingMallAd_list *adList2;
+        NewHomePageSmartShoppingMallAd_list *adList3;
+        NewHomePageSmartShoppingMallAd_list *adList4;
+        if (lists.count == 0) {
+            adList1 = nil;
+            adList2 = nil;
+            adList3 = nil;
+            adList4 = nil;
+        }
+        if (lists.count == 1) {
+            adList1 = lists[0];
+            adList2 = nil;
+            adList3 = nil;
+            adList4 = nil;
+        }else if (lists.count == 2){
+            adList1 = lists[0];
+            adList2 = lists[1];
+            adList3 = nil;
+            adList4 = nil;
+        }else if (lists.count == 3){
+            adList1 = lists[0];
+            adList2 = lists[1];
+            adList3 = lists[2];
+            adList4 = nil;
+        }else if (lists.count == 4){
+            adList1 = lists[0];
+            adList2 = lists[1];
+            adList3 = lists[2];
+            adList4 = lists[3];
+        }
+        //一、
+        CGFloat firstBJViewWidth = 373/2.0 * KWidth_ScaleW;
+        CGFloat firstBJViewHeight = 342/2.0 * KWidth_ScaleH;
+        _firstBJView.frame = CGRectMake(0, 0, firstBJViewWidth, firstBJViewHeight);
+        //1.
+        CGFloat goodsImgWidth = 298/2.0 * KWidth_ScaleW;
+        CGFloat goodsImgHeight = 179/2.0 * KWidth_ScaleH;
+        CGFloat goodsImgGapFromLeft = 44/2.0 * KWidth_ScaleW;
+        CGFloat goodsImgGapFromTop = 18/2.0 * KWidth_ScaleH;
+        _firstGoodsImgImageView.frame = CGRectMake(goodsImgGapFromLeft, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
+        [_firstGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList1.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        //2.
+        NSString *goodsNameStr = adList1.name;
+        CGFloat goodsNameLabelGapFromTop = 6/2.0 * KWidth_ScaleH;
+        CGFloat goodsNameLabelWidth = goodsImgWidth;
+        CGSize goodsNameLblWidthSize = [_firstGoodsNameLabel sizeThatFits:CGSizeMake(goodsNameLabelWidth,MAXFLOAT)];
+        _firstGoodsNameLabel.frame = CGRectMake(_firstGoodsImgImageView.left,_firstGoodsImgImageView.bottom + goodsNameLabelGapFromTop, goodsNameLabelWidth, goodsNameLblWidthSize.height);
+        _firstGoodsNameLabel.text = goodsNameStr;
+        [_firstGoodsNameLabel sizeToFit];
+        //3.
+        NSString *goodsPriceStr = adList1.price;
+        if (goodsPriceStr == nil || goodsPriceStr == Nil) {
+            goodsPriceStr = @"";
+        }
+        CGFloat goodsPriceLabelHeight = 15 * KWidth_ScaleH;
+        NSString *profitStr = [NSString stringWithFormat:@"¥%@",goodsPriceStr];
+        CGSize goodsPriceLblWidthSize = [_firstGoodsPriceLabel sizeThatFits:CGSizeMake(MAXFLOAT,goodsPriceLabelHeight)];
+        
+        _firstGoodsPriceLabel.frame = CGRectMake(_firstGoodsNameLabel.left, _firstGoodsNameLabel.bottom, goodsPriceLblWidthSize.width, goodsPriceLabelHeight);
+        NSMutableAttributedString *attr2 = [[NSMutableAttributedString alloc] initWithString:profitStr];
+        [attr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15.f] range:NSMakeRange(0, 1)];
+        //    [attr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.f] range:NSMakeRange(1, attr2.length - 1)];
+        _firstGoodsPriceLabel.attributedText = attr2;
+        [_firstGoodsPriceLabel sizeToFit];
+        
+        
+        //二、
+        CGFloat secondBJViewWidth = 377/2.0 * KWidth_ScaleW;
+        CGFloat secondBJViewHeight = 165/2.0 * KWidth_ScaleH;
+        _secondBJView.frame = CGRectMake(_firstBJView.right + 1, 0, secondBJViewWidth, secondBJViewHeight);
+        //1.
+        NSString *secondGoodsNameStr = adList2.name;
+        //    CGFloat goodsNameLabelGapFromTop = 43/2.0 * KWidth_ScaleH;
+        CGFloat secondGoodsNameLabelGapFromLeft = 34/2.0 * KWidth_ScaleH;
+        CGFloat secondGoodsNameLabelWidth = 139/2.0 * KWidth_ScaleW;
+        CGSize secondGoodsNameLblWidthSize = [_secondGoodsNameLabel sizeThatFits:CGSizeMake(secondGoodsNameLabelWidth,MAXFLOAT)];
+        _secondGoodsNameLabel.frame = CGRectMake(secondGoodsNameLabelGapFromLeft,0, secondGoodsNameLabelWidth, secondGoodsNameLblWidthSize.height);
+        _secondGoodsNameLabel.text = secondGoodsNameStr;
+        [_secondGoodsNameLabel sizeToFit];
+        _secondGoodsNameLabel.centerY = _secondBJView.frame.size.height / 2.0;
+        //2.
+        CGFloat secondGoodsImgWidth = 170/2.0 * KWidth_ScaleW;
+        CGFloat secondGoodsImgHeight = 138/2.0 * KWidth_ScaleH;
+        CGFloat secondGoodsImgGapFromRight = 16/2.0 * KWidth_ScaleW;
+        _secondGoodsImgImageView.frame = CGRectMake(_secondGoodsNameLabel.right + secondGoodsImgGapFromRight, 0, secondGoodsImgWidth, secondGoodsImgHeight);
+        _secondGoodsImgImageView.centerY = _secondBJView.frame.size.height / 2.0;
+        [_secondGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList2.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        
+        
+        //三、
+        CGFloat thirdBJViewWidth = 188/2.0 * KWidth_ScaleW;
+        CGFloat thirdBJViewHeight = 176/2.0 * KWidth_ScaleH;
+        _thirdBJView.frame = CGRectMake(_secondBJView.left, _secondBJView.bottom + 1, thirdBJViewWidth, thirdBJViewHeight);
+        //1.
+        CGFloat thirdGoodsImgWidth = 102/2.0 * KWidth_ScaleW;
+        CGFloat thirdGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
+        CGFloat thirdGoodsImgGapFromTop = 15/2.0 * KWidth_ScaleH;
+        _thirdGoodsImgImageView.frame = CGRectMake(0, thirdGoodsImgGapFromTop, thirdGoodsImgWidth, thirdGoodsImgHeight);
+        [_thirdGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList3.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        _thirdGoodsImgImageView.centerX = _thirdBJView.frame.size.width / 2.0;
+        //2.
+        NSString *thirdGoodsNameStr = adList3.name;
+        CGFloat thirdGoodsNameLabelGapFromBottom = 22/2.0 * KWidth_ScaleH;
+        CGFloat thirdGoodsNameLabelHeight = 37/2.0 * KWidth_ScaleH;
+        CGSize thirdGoodsNameLblWidthSize = [_thirdGoodsNameLabel sizeThatFits:CGSizeMake(MAXFLOAT,thirdGoodsNameLabelHeight)];
+        _thirdGoodsNameLabel.frame = CGRectMake(0,0, thirdGoodsNameLblWidthSize.width, thirdGoodsNameLabelHeight);
+        _thirdGoodsNameLabel.text = thirdGoodsNameStr;
+        [_thirdGoodsNameLabel sizeToFit];
+        _thirdGoodsNameLabel.bottom = _thirdBJView.frame.size.height - thirdGoodsNameLabelGapFromBottom;
+        _thirdGoodsNameLabel.centerX = _thirdBJView.frame.size.width / 2.0;
+        
+        //四、
+        CGFloat fourBJViewWidth = 188/2.0 * KWidth_ScaleW;
+        CGFloat fourBJViewHeight = 176/2.0 * KWidth_ScaleH;
+        _fourBJView.frame = CGRectMake(_thirdBJView.right + 1, _thirdBJView.top, fourBJViewWidth, fourBJViewHeight);
+        //1.
+        CGFloat fourGoodsImgWidth = 102/2.0 * KWidth_ScaleW;
+        CGFloat fourGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
+        CGFloat fourGoodsImgGapFromTop = 15/2.0 * KWidth_ScaleH;
+        _fourGoodsImgImageView.frame = CGRectMake(0, fourGoodsImgGapFromTop, fourGoodsImgWidth, fourGoodsImgHeight);
+        [_fourGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList4.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        _fourGoodsImgImageView.centerX = _fourBJView.frame.size.width / 2.0;
+        //2.
+        NSString *fourGoodsNameStr = adList4.name;
+        CGFloat fourGoodsNameLabelGapFromBottom = 22/2.0 * KWidth_ScaleH;
+        CGFloat fourGoodsNameLabelHeight = 37/2.0 * KWidth_ScaleH;
+        CGSize fourGoodsNameLblWidthSize = [_fourGoodsNameLabel sizeThatFits:CGSizeMake(MAXFLOAT,fourGoodsNameLabelHeight)];
+        _fourGoodsNameLabel.frame = CGRectMake(0,0, fourGoodsNameLblWidthSize.width, fourGoodsNameLabelHeight);
+        _fourGoodsNameLabel.text = fourGoodsNameStr;
+        [_fourGoodsNameLabel sizeToFit];
+        _fourGoodsNameLabel.bottom = _fourBJView.frame.size.height - fourGoodsNameLabelGapFromBottom;
+        _fourGoodsNameLabel.centerX = _fourBJView.frame.size.width / 2.0;
     }
-    CGFloat goodsPriceLabelHeight = 15 * KWidth_ScaleH;
-    NSString *profitStr = [NSString stringWithFormat:@"¥%@",goodsPriceStr];
-    CGSize goodsPriceLblWidthSize = [_firstGoodsPriceLabel sizeThatFits:CGSizeMake(MAXFLOAT,goodsPriceLabelHeight)];
-    
-    _firstGoodsPriceLabel.frame = CGRectMake(_firstGoodsNameLabel.left, _firstGoodsNameLabel.bottom, goodsPriceLblWidthSize.width, goodsPriceLabelHeight);
-    NSMutableAttributedString *attr2 = [[NSMutableAttributedString alloc] initWithString:profitStr];
-    [attr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15.f] range:NSMakeRange(0, 1)];
-    //    [attr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.f] range:NSMakeRange(1, attr2.length - 1)];
-    _firstGoodsPriceLabel.attributedText = attr2;
-    [_firstGoodsPriceLabel sizeToFit];
-    
-    
-    //二、
-    CGFloat secondBJViewWidth = 377/2.0 * KWidth_ScaleW;
-    CGFloat secondBJViewHeight = 165/2.0 * KWidth_ScaleH;
-    _secondBJView.frame = CGRectMake(_firstBJView.right + 1, 0, secondBJViewWidth, secondBJViewHeight);
-    //1.
-    NSString *secondGoodsNameStr = @"西门子链接总线 6ES7";
-    //    CGFloat goodsNameLabelGapFromTop = 43/2.0 * KWidth_ScaleH;
-    CGFloat secondGoodsNameLabelGapFromLeft = 34/2.0 * KWidth_ScaleH;
-    CGFloat secondGoodsNameLabelWidth = 139/2.0 * KWidth_ScaleW;
-    CGSize secondGoodsNameLblWidthSize = [_secondGoodsNameLabel sizeThatFits:CGSizeMake(secondGoodsNameLabelWidth,MAXFLOAT)];
-    _secondGoodsNameLabel.frame = CGRectMake(secondGoodsNameLabelGapFromLeft,0, secondGoodsNameLabelWidth, secondGoodsNameLblWidthSize.height);
-    _secondGoodsNameLabel.text = secondGoodsNameStr;
-    [_secondGoodsNameLabel sizeToFit];
-    _secondGoodsNameLabel.centerY = _secondBJView.frame.size.height / 2.0;
-    //2.
-    CGFloat secondGoodsImgWidth = 170/2.0 * KWidth_ScaleW;
-    CGFloat secondGoodsImgHeight = 138/2.0 * KWidth_ScaleH;
-    CGFloat secondGoodsImgGapFromRight = 16/2.0 * KWidth_ScaleW;
-    _secondGoodsImgImageView.frame = CGRectMake(_secondGoodsNameLabel.right + secondGoodsImgGapFromRight, 0, secondGoodsImgWidth, secondGoodsImgHeight);
-    _secondGoodsImgImageView.centerY = _secondBJView.frame.size.height / 2.0;
-    [_secondGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
-    
-    
-    //三、
-    CGFloat thirdBJViewWidth = 188/2.0 * KWidth_ScaleW;
-    CGFloat thirdBJViewHeight = 176/2.0 * KWidth_ScaleH;
-    _thirdBJView.frame = CGRectMake(_secondBJView.left, _secondBJView.bottom + 1, thirdBJViewWidth, thirdBJViewHeight);
-    //1.
-    CGFloat thirdGoodsImgWidth = 102/2.0 * KWidth_ScaleW;
-    CGFloat thirdGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
-    CGFloat thirdGoodsImgGapFromTop = 15/2.0 * KWidth_ScaleH;
-    _thirdGoodsImgImageView.frame = CGRectMake(0, thirdGoodsImgGapFromTop, thirdGoodsImgWidth, thirdGoodsImgHeight);
-    [_thirdGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
-    _thirdGoodsImgImageView.centerX = _thirdBJView.frame.size.width / 2.0;
-    //2.
-    NSString *thirdGoodsNameStr = @"标准电机";
-    CGFloat thirdGoodsNameLabelGapFromBottom = 22/2.0 * KWidth_ScaleH;
-    CGFloat thirdGoodsNameLabelHeight = 37/2.0 * KWidth_ScaleH;
-    CGSize thirdGoodsNameLblWidthSize = [_thirdGoodsNameLabel sizeThatFits:CGSizeMake(MAXFLOAT,thirdGoodsNameLabelHeight)];
-    _thirdGoodsNameLabel.frame = CGRectMake(0,0, thirdGoodsNameLblWidthSize.width, thirdGoodsNameLabelHeight);
-    _thirdGoodsNameLabel.text = thirdGoodsNameStr;
-    [_thirdGoodsNameLabel sizeToFit];
-    _thirdGoodsNameLabel.bottom = _thirdBJView.frame.size.height - thirdGoodsNameLabelGapFromBottom;
-    _thirdGoodsNameLabel.centerX = _thirdBJView.frame.size.width / 2.0;
-    
-    //四、
-    CGFloat fourBJViewWidth = 188/2.0 * KWidth_ScaleW;
-    CGFloat fourBJViewHeight = 176/2.0 * KWidth_ScaleH;
-    _fourBJView.frame = CGRectMake(_thirdBJView.right + 1, _thirdBJView.top, fourBJViewWidth, fourBJViewHeight);
-    //1.
-    CGFloat fourGoodsImgWidth = 102/2.0 * KWidth_ScaleW;
-    CGFloat fourGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
-    CGFloat fourGoodsImgGapFromTop = 15/2.0 * KWidth_ScaleH;
-    _fourGoodsImgImageView.frame = CGRectMake(0, fourGoodsImgGapFromTop, fourGoodsImgWidth, fourGoodsImgHeight);
-    [_fourGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
-    _fourGoodsImgImageView.centerX = _fourBJView.frame.size.width / 2.0;
-    //2.
-    NSString *fourGoodsNameStr = @"标准电机";
-    CGFloat fourGoodsNameLabelGapFromBottom = 22/2.0 * KWidth_ScaleH;
-    CGFloat fourGoodsNameLabelHeight = 37/2.0 * KWidth_ScaleH;
-    CGSize fourGoodsNameLblWidthSize = [_fourGoodsNameLabel sizeThatFits:CGSizeMake(MAXFLOAT,fourGoodsNameLabelHeight)];
-    _fourGoodsNameLabel.frame = CGRectMake(0,0, fourGoodsNameLblWidthSize.width, fourGoodsNameLabelHeight);
-    _fourGoodsNameLabel.text = fourGoodsNameStr;
-    [_fourGoodsNameLabel sizeToFit];
-    _fourGoodsNameLabel.bottom = _fourBJView.frame.size.height - fourGoodsNameLabelGapFromBottom;
-    _fourGoodsNameLabel.centerX = _fourBJView.frame.size.width / 2.0;
 }
-
 @end

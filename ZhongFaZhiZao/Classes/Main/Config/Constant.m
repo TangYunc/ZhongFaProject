@@ -31,8 +31,11 @@ NSString *const HomePageadInfo_API = @"/api/adInfo/41,44";
 NSString *const HomePageSearch_API = @"/made/search?q=&isFirst=true&icNum=0&nicNum=0&icUsedNum=0&nicUsedNum=0";
 NSString *const HomePageGetClassify_API = @"/popups?access-token=";
 NSString *const HomePageSubmitClassify_API = @"/popups?access-token=";
-NSString *const HomePageAD_API = @"/recommends?access-token=";
-NSString *const HomePageSmartHeadlineNews_API = @"/news/tt?access-token=";
+NSString *const HomePageRecommend_API = @"/indexs/recommend?access-token=";
+NSString *const HomePageSmartHeadlineNews_API = @"/indexs/tt?access-token=";
+NSString *const HomePageScienceResult_API = @"/indexs/tech?access-token=";
+NSString *const HomePageSolve_API = @"/indexs/solution?access-token=";
+NSString *const HomePageSmartShoppingMall_API = @"/indexs/shop?access-token=";
 //***************************推送************************//
 
 

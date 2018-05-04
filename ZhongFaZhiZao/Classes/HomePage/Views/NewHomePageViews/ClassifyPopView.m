@@ -168,7 +168,7 @@
 {
     if (!_menuTableView) {
         CGFloat menuTableViewWidth = 140/2.0 * KWidth_ScaleW;
-        CGFloat menuTalbeViewGapFromLeft = 414/2.0 * KWidth_ScaleH;
+        CGFloat menuTalbeViewGapFromLeft = 414/2.0 * KWidth_ScaleW;
         _menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(menuTalbeViewGapFromLeft, self.roleBtn.bottom, menuTableViewWidth, 60/2.0 * 4) style:UITableViewStylePlain];
         _menuTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _menuTableView.backgroundColor = [UIColor whiteColor];

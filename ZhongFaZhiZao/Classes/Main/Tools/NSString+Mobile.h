@@ -13,4 +13,6 @@
 // 判断手机号是否合法
 - (BOOL)isMobileNumber;
 - (BOOL) isMobileNum;
+
++ (NSString *)replaceUnicode:(NSString *)TransformUnicodeString;
 @end

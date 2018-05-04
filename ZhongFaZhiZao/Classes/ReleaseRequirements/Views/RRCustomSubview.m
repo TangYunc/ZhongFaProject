@@ -120,10 +120,10 @@
     CGFloat userNameViewGapFromTop = 30/2.0 * KWidth_ScaleH;
     CGFloat userNameViewHeight = 66/2.0 * KWidth_ScaleH;
     _userNameView.frame = CGRectMake(0, userNameViewGapFromTop, kScreenWidth, userNameViewHeight);
-    CGFloat userNameLabelWidth = 120/2.0 * KWidth_ScaleH;
-    CGFloat userNameLabelGapFromLeft = 94/2.0 * KWidth_ScaleH;
+    CGFloat userNameLabelWidth = 120/2.0 * KWidth_ScaleW;
+    CGFloat userNameLabelGapFromLeft = 94/2.0 * KWidth_ScaleW;
     _userNameLabel.frame = CGRectMake(userNameLabelGapFromLeft, 0, userNameLabelWidth, userNameViewHeight);
-    CGFloat userNameTFWidth = 450/2.0 * KWidth_ScaleH;
+    CGFloat userNameTFWidth = 450/2.0 * KWidth_ScaleW;
     _userNameTF.frame = CGRectMake(_userNameLabel.right, 0, userNameTFWidth, userNameViewHeight);
     
     
@@ -140,8 +140,8 @@
     _vericationCodeTF.frame = CGRectMake(_vericationCodeLabel.right, 0, _userNameTF.width, _userNameTF.height);
     
     CGFloat confirmBtnWidth = 446/2.0 * KWidth_ScaleW;
-    CGFloat confirmBtnHeight = 70/2.0 * KWidth_ScaleW;
-    CGFloat confirmBtnGapFromTop = 39/2.0 * KWidth_ScaleW;
+    CGFloat confirmBtnHeight = 70/2.0 * KWidth_ScaleH;
+    CGFloat confirmBtnGapFromTop = 39/2.0 * KWidth_ScaleH;
     _confirmBtn.frame = CGRectMake(0, _vericationCodeView.bottom + confirmBtnGapFromTop, confirmBtnWidth, confirmBtnHeight);
     _confirmBtn.centerX = _vericationCodeView.centerX;
     _confirmBtn.layer.cornerRadius = confirmBtnWidth / 12;
@@ -185,15 +185,16 @@
 
 - (void)confirmBtnAction:(UIButton *)button{
     //    NSLog(@"找回密码");
+    if (self.block) {
+        self.block(button);
+    }
     [self endEditing:YES]; // 关闭键盘
     
     NSString *mobile = [_phoneNumTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *pwd =[_userNameTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *verication =[_vericationCodeTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
-    
     //如果是11位的手机号码
-    NSString *phoneNum = _phoneNumTF.text;
     if ([mobile isMobileNum] == NO) {
         [MBProgressHUD showError:@"请确认您输入的是正确的手机信息"];
         return ;
@@ -204,7 +205,7 @@
         return ;
     }
     
-    [MBProgressHUD showMessage:@"正在帮你重置密码!"];
+    [MBProgressHUD showMessage:@"正在发布..."];
     
     // 1.请求参数
     NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
@@ -216,7 +217,13 @@
 //    NSString *url = [NSString stringWithFormat:@"%@%@",BaseApiTwo,FindPW];
     
     // 发送请求
+}
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
+    [_userNameTF resignFirstResponder];
+    [_phoneNumTF resignFirstResponder];
+    [_vericationCodeTF resignFirstResponder];
 }
 @end

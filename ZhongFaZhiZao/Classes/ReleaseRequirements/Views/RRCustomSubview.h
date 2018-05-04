@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^RRCustomSubviewClock)(UIButton *btn);
 @interface RRCustomSubview : UIView
 
-
+@property (nonatomic,copy) RRCustomSubviewClock block;
 @end

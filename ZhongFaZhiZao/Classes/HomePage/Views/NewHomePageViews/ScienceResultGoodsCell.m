@@ -63,9 +63,9 @@
     CGFloat goodsImgGapFromLeft = 24/2.0 * KWidth_ScaleW;
     CGFloat goodsImgGapFromTop = 41/2.0 * KWidth_ScaleH;
     _goodsImgImageView.frame = CGRectMake(goodsImgGapFromLeft, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
-    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:self.datas.image] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
     //2.
-    NSString *goodsNameStr = @"库卡kuka kr 300-20垛机器人垛机器";
+    NSString *goodsNameStr = self.datas.product_name;
     CGFloat goodsNameLabelGapFromTop = 23.5/2.0 * KWidth_ScaleH;
     CGFloat goodsNameLabelGapFromLeft = 44/2.0 * KWidth_ScaleH;
     CGFloat goodsNameLabelHeight = 37/2.0 * KWidth_ScaleH;
@@ -74,7 +74,7 @@
     _goodsNameLabel.text = goodsNameStr;
     [_goodsNameLabel sizeToFit];
     //3.
-    NSString *goodsTypeStr = @"  技术转移机构推荐    ";
+    NSString *goodsTypeStr = self.datas.label;
     CGFloat goodsTypeLblHeight = 36/2.0 * KWidth_ScaleH;
     CGFloat goodsTypeLabelGapFromTop = 20/2.0 * KWidth_ScaleH;
     CGSize goodsTypeLblWidthSize = [_goodsTypeLabel sizeThatFits:CGSizeMake(MAXFLOAT,goodsTypeLblHeight)];
@@ -83,7 +83,7 @@
     [_goodsTypeLabel sizeToFit];
     _goodsTypeLabel.layer.cornerRadius = _goodsTypeLabel.width / 12.0;
     //4.
-    NSString *goodsPriceStr = @"3,2000.00";
+    NSString *goodsPriceStr = self.datas.price;
     if (goodsPriceStr == nil || goodsPriceStr == Nil) {
         goodsPriceStr = @"";
     }
@@ -96,7 +96,7 @@
     _goodsPriceLabel.text = profitStr;
     [_goodsPriceLabel sizeToFit];
     //5.
-    NSString *locationStr = @"北京";
+    NSString *locationStr = self.datas.corp_city_name;
     CGFloat locationLabelGapFrombottom = 34.5/2.0 * KWidth_ScaleH;
     CGFloat locationLabelGapFromRight = 30/2.0 * KWidth_ScaleW;
     CGFloat locationLabelHeight = 30/2.0 * KWidth_ScaleH;

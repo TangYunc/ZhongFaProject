@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewHomePageRecommendResult.h"
 
 @interface NewHomePageCustomRecommendView : UIView
 {
@@ -14,4 +15,6 @@
     UILabel *_tipLabel;
     UIImageView *_goodsIconImageView;
 }
+
+@property (nonatomic,strong) NewHomePageRecommendDatas *recommedDatas;
 @end

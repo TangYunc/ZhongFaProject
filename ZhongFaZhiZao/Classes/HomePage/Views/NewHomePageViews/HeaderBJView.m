@@ -8,6 +8,8 @@
 
 #import "HeaderBJView.h"
 #import "NewHomePageCollectionSectionHeaderView.h"
+#import "NewHomePageSmartShoppingMallResult.h"
+
 @interface HeaderBJView ()
 {
     UIView *_line;
@@ -37,11 +39,7 @@
     
     //1.
     [self setUpSectionHeaderView];
-    _titleArr = @[@"智能制造装备",@"工业软件",@"工业机器人",@"电子元器件",@"工业软件",@"工业机器人",@"电子元器件"];
-    if (_titleArr.count != 0) {
-        
-        [self setUpTheHeaderItmes];
-    }
+    
 }
 
 //SectionheaderView
@@ -97,6 +95,24 @@
         [_headerScrollView addSubview:titleLabel];
     }
     [_headerScrollView setContentSize:CGSizeMake(width,0)];
+}
+
+#pragma mark -- 加载数据
+- (void)setSmartShoppingMallArr:(NSArray *)smartShoppingMallArr{
+    if (_smartShoppingMallArr != smartShoppingMallArr) {
+        _smartShoppingMallArr = smartShoppingMallArr;
+        NSMutableArray *mArr = [NSMutableArray array];
+        for (NewHomePageSmartShoppingMallDatas *theDates in _smartShoppingMallArr) {
+            [mArr addObject:theDates.name];
+        }
+//        _titleArr = @[@"智能制造装备",@"工业软件",@"工业机器人",@"电子元器件",@"工业软件",@"工业机器人",@"电子元器件"];
+        _titleArr = [mArr copy];
+        if (_titleArr.count != 0) {
+            
+            [self setUpTheHeaderItmes];
+        }
+    }
+    
 }
 #pragma mark -- 手势
 - (void)headerViewClick{

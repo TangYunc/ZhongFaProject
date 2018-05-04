@@ -15,8 +15,11 @@
 #import "MessageCenterViewController.h"
 #import "NewHomePageClassifyResult.h"
 #import "ClassifyPopView.h"
-#import "NewHomePageADResult.h"
+#import "NewHomePageRecommendResult.h"
 #import "NewHomePageSmartHeadlineNewsResult.h"
+#import "NewHomePageScienceResult.h"
+#import "NewHomeSolveResult.h"
+#import "NewHomePageSmartShoppingMallResult.h"
 
 @interface HomeViewController ()
 
@@ -75,16 +78,21 @@
 
 - (void)allLoadDataAPI{
     
-    //    [self loadadData];
-    //    [self loadCityData];
-    [self loadTheADData];
-    [self loadSmartHeadlineNewsData];
     [self loadClassifyPopViewDate];
+    [self loadadData];
+    [self loadSmartHeadlineNewsData];
+    [self loadSmartShoppingMallData];
+    [self loadTheRecommendData];
+    [self loadScienceResultData];
+    [self loadSolveData];
+    [self loadCityData];
 }
 
 - (void)setupSubViews{
 //    _collectionView = [[HomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
     _collectionView = [[NewHomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
+    _collectionView.navigationView = self.navigationView;
+    _collectionView.navBarView = self.navBarView;
     [self.view addSubview:_collectionView];
 }
 
@@ -150,10 +158,10 @@
         [window addSubview:classifyPopView];
     }
 }
-#pragma mark-获取数据
+
 #pragma mark - loadData
 - (void)loadadData{
-    
+    //轮播图
     [TNetworking postWithUrl:[NSString stringWithFormat:@"%@%@",BaseApi,HomePageadInfo_API] params:nil success:^(id response) {
         HomePageHeaderModel *result = [HomePageHeaderModel mj_objectWithKeyValues:response];
         if (result.resultCode == 1000) {
@@ -170,32 +178,28 @@
     } showHUD:NO];
 }
 
-- (void)loadTheADData{
+- (void)loadTheRecommendData{
     
     NSString *apiToken = [KUserDefault objectForKey:APIToken];
     if (apiToken == nil) {
         return;
     }
     
-    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageAD_API,apiToken];
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageRecommend_API,apiToken];
     [TNetworking getWithUrl:url params:nil success:^(id response) {
-        [NewHomePageADDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [NewHomePageRecommendDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
-                     @"adId" : @"id",@"adDescription" : @"description"
+                     @"RecommendId" : @"id",@"RecommendDescription" : @"description"
                      };
         }];
 
-        NewHomePageADResult *result = [NewHomePageADResult mj_objectWithKeyValues:response];
-        if ([result.message isEqualToString:@"OK"]) {
-            
-            self.adResultArr = [NSArray array];
-            self.adResultArr = result.data.datas;
-            _collectionView.adResultArr = self.adResultArr;
-            [_collectionView reloadData];
-            
+        NewHomePageRecommendResult *result = [NewHomePageRecommendResult mj_objectWithKeyValues:response];
+        if (result.success) {
+
+            _collectionView.recommendArr = result.data.datas;
         }else{
             
-            [WKProgressHUD popMessage:@"广告位请求失败" inView:self.view duration:HUD_DURATION animated:YES];
+            NSLog(@"%@",result.message);
         }
     } fail:^(NSError *error) {
         NSLog(@"error = %@",error);
@@ -232,6 +236,107 @@
         [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
     } showHUD:NO];
 }
+
+- (void)loadSmartShoppingMallData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSmartShoppingMall_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        [NewHomePageSmartShoppingMallDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"smartMallId" : @"id"
+                     };
+        }];
+        [NewHomePageSmartShoppingMallDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"adListId" : @"id"
+                     };
+        }];
+        
+        NewHomePageSmartShoppingMallResult *result = [NewHomePageSmartShoppingMallResult mj_objectWithKeyValues:response];
+        if (result.success) {
+            
+            _collectionView.smartShoppingMallArr = result.data.datas;
+            [_collectionView reloadData];
+        }else{
+            
+            NSLog(@"%@",result.message);
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
+
+- (void)loadScienceResultData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageScienceResult_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        [NewHomePageScienceResultDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"scienceResultId" : @"id"
+                     };
+        }];
+        
+        NewHomePageScienceResult *result = [NewHomePageScienceResult mj_objectWithKeyValues:response];
+        if (result.success) {
+            
+            _collectionView.scienceResultArr = result.data.datas;
+            [_collectionView reloadData];
+        }else{
+            
+            NSLog(@"%@",result.message);
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
+
+- (void)loadSolveData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSolve_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        [NewHomePageSolveDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                    @"solveDatasDescription":@"description"
+                     };
+        }];
+        [NewHomePageSolution_data mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"solutionDataId" : @"id",@"solutionDataDescription":@"description"
+                     };
+        }];
+        
+        NewHomeSolveResult *result = [NewHomeSolveResult mj_objectWithKeyValues:response];
+        if (result.success) {
+            
+            _collectionView.solveArr = result.data.datas;
+            [_collectionView reloadData];
+        }else{
+            
+            NSLog(@"%@",result.message);
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
+
 - (void)loadCityData{
     
     [TNetworking postWithUrl:[NSString stringWithFormat:@"%@%@",BaseApi,electronic_API] params:nil success:^(id response) {
@@ -254,7 +359,7 @@
             }
             
             self.collectionView.cityArray = _cityArray;
-            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:6];
+            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:3];
             
             [UIView performWithoutAnimation:^{
                 

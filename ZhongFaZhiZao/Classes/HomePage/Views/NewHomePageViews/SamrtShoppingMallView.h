@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewHomePageSmartShoppingMallResult.h"
 
 @interface SamrtShoppingMallView : UIView
 {
@@ -27,4 +28,6 @@
     UIImageView *_fourGoodsImgImageView;
     UILabel *_fourGoodsNameLabel;
 }
+
+@property (nonatomic, strong)NewHomePageSmartShoppingMallDatas *theDatas;
 @end

@@ -34,14 +34,14 @@
 //    CGFloat textBJViewHeight = 377.5/2.0 * KWidth_ScaleH;
     CGFloat discribLabelHeight = 99/2.0 * KWidth_ScaleH;
     CGFloat discribLabelGapFromLeft = 32/2.0 * KWidth_ScaleW;
-    _discribLabel = [[UILabel alloc] initWithFrame:CGRectMake(discribLabelGapFromLeft, 0, kScreenWidth, discribLabelHeight)];
+    _discribLabel = [[UILabel alloc] initWithFrame:CGRectMake(discribLabelGapFromLeft, 0, kScreenWidth - discribLabelGapFromLeft, discribLabelHeight)];
     _discribLabel.textAlignment = NSTextAlignmentLeft;
     _discribLabel.textColor = [UIColor colorWithHexString:@"#666666"];
     _discribLabel.font = [UIFont systemFontOfSize:14.f];
     [self addSubview:_discribLabel];
     //3.
     CGFloat textViewGapFromTop = 15/2.0 * KWidth_ScaleW;
-    CGFloat textViewWidth = (kScreenWidth - discribLabelGapFromLeft * 2) / 2.0;
+    CGFloat textViewWidth = self.frame.size.width - discribLabelGapFromLeft * 2;
     CGFloat textViewHeight = 256/2.0 * KWidth_ScaleH;
     _textView = [[UITextView alloc] initWithFrame:CGRectMake(_discribLabel.left, _discribLabel.bottom + textViewGapFromTop, textViewWidth, textViewHeight)];
     _textView.font = [UIFont systemFontOfSize:16.f];

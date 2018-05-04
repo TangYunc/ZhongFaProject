@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewHomeSolveResult.h"
 
 @interface SolveView : UIView
 {
@@ -15,10 +16,9 @@
     UILabel *_companyNameLabel;
     UILabel *_companyInfoLabel;
     UIImageView *_companyImageView;
-    UILabel *_solveFirstLabel;
-    UILabel *_solvePriceFirstLabel;
+    UIView *_solutionBJView;
     UIView *_gapLineView;
-    UILabel *_solveSecondLabel;
-    UILabel *_solvePriceSecondLabel;
 }
+
+@property (nonatomic, strong)NewHomePageSolveDatas *solveDatas;
 @end

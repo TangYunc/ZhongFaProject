@@ -10,4 +10,6 @@
 
 @interface HeaderBJView : UIView
 
+@property (nonatomic,strong) NSArray *smartShoppingMallArr;//智造商城
+
 @end

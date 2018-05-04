@@ -13,12 +13,13 @@
 #import "NewHomePageCustomRecommendView.h"
 #import "NewHomePageCustomRecommendGapView.h"
 #import "HeaderBJView.h"
-#import "NewHomePageADResult.h"
+#import "NewHomePageRecommendResult.h"
 #import "NewHomePageSmartHeadlineNewsResult.h"
 
 @interface NewHomePageHeaderView (){
     HomePageImgRunLoopView *_imgRunView;
     UIButton *_fifButton;
+    HeaderBJView *_headerBJView;
 }
 @property (nonatomic,strong) UIView *adView;     //广告
 //上下滚动广告栏
@@ -152,16 +153,12 @@
     //6.推荐商品
     CGFloat recommendBJImgHeight = 413/2.0 * KWidth_ScaleH;
     UIImageView *recommendBJImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, gapView1.bottom, kScreenWidth, recommendBJImgHeight)];
+    recommendBJImg.tag = 100;
     recommendBJImg.image = [UIImage imageNamed:@"NewHomePageRecommendBJImgIcon"];
     recommendBJImg.userInteractionEnabled = YES;
     [self addSubview:recommendBJImg];
     
-    CGFloat fromLeftGapWidth = 32/2.0 * KWidth_ScaleW;
-    CGFloat fromTopGapWidth = 91.4/2.0 * KWidth_ScaleH;
-    CGFloat gapWidth = 13.5/2.0 * KWidth_ScaleW;
-    CGFloat itemWidth = (kScreenWidth - gapWidth * 2 - fromLeftGapWidth * 2) / 3.0;
-    NSInteger temptCount = 3;
-    CGFloat itemHeight = 285.5/2.0 * KWidth_ScaleH;
+    
     for (UIView *subView in recommendBJImg.subviews) {
         [subView removeFromSuperview];
     }
@@ -169,21 +166,12 @@
     NewHomePageCustomRecommendGapView *recommendGapView = [[NewHomePageCustomRecommendGapView alloc] initWithFrame:CGRectMake(0, recommendGapViewFromTop, 105.5 * KWidth_ScaleW, 42/2.0 * KWidth_ScaleH)];
     recommendGapView.centerX = recommendBJImg.centerX;
     [recommendBJImg addSubview:recommendGapView];
-    for (NSInteger i = 0; i < temptCount; i++) {
-        NewHomePageCustomRecommendView *itemView = [[NewHomePageCustomRecommendView alloc] initWithFrame:CGRectMake(fromLeftGapWidth + i * (itemWidth + gapWidth), fromTopGapWidth, itemWidth, itemHeight)];
-        itemView.layer.cornerRadius = 5 * KWidth_ScaleW;
-        itemView.clipsToBounds = YES;
-        itemView.tag = 10 + i;
-        [recommendBJImg addSubview:itemView];
-        itemView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(itemViewTapAction:)];
-        [itemView addGestureRecognizer:tap];
-    }
+    
     //7.智造商城sectionHeaderView
-    HeaderBJView *headerBJView = [[HeaderBJView alloc]initWithFrame:CGRectMake(0, recommendBJImg.bottom + 39.0/2.0 * KWidth_ScaleH, kScreenWidth,(80 + 76)/2.0 * KWidth_ScaleH)];
-    headerBJView.backgroundColor = [UIColor whiteColor];
-    headerBJView.userInteractionEnabled = YES;
-    [self addSubview:headerBJView];
+    _headerBJView = [[HeaderBJView alloc]initWithFrame:CGRectMake(0, recommendBJImg.bottom + 39.0/2.0 * KWidth_ScaleH, kScreenWidth,(80 + 76)/2.0 * KWidth_ScaleH)];
+    _headerBJView.backgroundColor = [UIColor whiteColor];
+    _headerBJView.userInteractionEnabled = YES;
+    [self addSubview:_headerBJView];
     
 }
 
@@ -196,21 +184,55 @@
 }
 
 #pragma mark-获取数据
-- (void)setAdResultArr:(NSArray *)adResultArr{
-    if (_adResultArr != adResultArr) {
-        _adResultArr = adResultArr;
-        for (NewHomePageADDatas *tempData in _adResultArr) {
-            [self.imgMarr addObject:tempData.res_path];
+- (void)setModel:(HomePageHeaderModel *)model{
+    
+    if (_model != model) {
+        _model = model;
+        for (HomePageHeaderAd41Infos *ad41Info in self.model.data.ad_id_41) {
+            [self.imgMarr addObject:ad41Info.img_path];
         }
         _imgRunView.imgUrlArray = self.imgMarr;
         WS(weakself);
         [_imgRunView  touchImageIndexBlock:^(NSInteger index) {
             NSLog(@"%ld",(long)index);
-            NewHomePageADDatas *tempData = self.adResultArr[index];
-            [weakself choiceTheImageUrl:tempData.click_link];
+            HomePageHeaderAd41Infos *ad41Info = self.model.data.ad_id_41[index];
+            [weakself choiceTheImageUrl:ad41Info.url];
         }];
     }
 }
+
+- (void)setSmartShoppingMallArr:(NSArray *)smartShoppingMallArr{
+    if (_smartShoppingMallArr != smartShoppingMallArr) {
+        _smartShoppingMallArr = smartShoppingMallArr;
+        _headerBJView.smartShoppingMallArr = _smartShoppingMallArr;
+    }
+}
+- (void)setRecommendArr:(NSArray *)recommendArr{
+    if (_recommendArr != recommendArr) {
+        _recommendArr = recommendArr;
+        UIImageView *recommendBJImg = (UIImageView *)[self viewWithTag:100];
+        CGFloat fromLeftGapWidth = 32/2.0 * KWidth_ScaleW;
+        CGFloat fromTopGapWidth = 91.4/2.0 * KWidth_ScaleH;
+        CGFloat gapWidth = 13.5/2.0 * KWidth_ScaleW;
+        CGFloat itemWidth = (kScreenWidth - gapWidth * 2 - fromLeftGapWidth * 2) / 3.0;
+        
+        CGFloat itemHeight = 285.5/2.0 * KWidth_ScaleH;
+        NSInteger temptCount = _recommendArr.count;
+         for (NSInteger i = 0; i < temptCount; i++) {
+             NewHomePageRecommendDatas *recommedDatas = _recommendArr[i];
+             NewHomePageCustomRecommendView *itemView = [[NewHomePageCustomRecommendView alloc] initWithFrame:CGRectMake(fromLeftGapWidth + i * (itemWidth + gapWidth), fromTopGapWidth, itemWidth, itemHeight)];
+             itemView.layer.cornerRadius = 5 * KWidth_ScaleW;
+             itemView.clipsToBounds = YES;
+             itemView.tag = 10 + i;
+             itemView.recommedDatas = recommedDatas;
+             [recommendBJImg addSubview:itemView];
+             itemView.userInteractionEnabled = YES;
+             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(itemViewTapAction:)];
+             [itemView addGestureRecognizer:tap];
+         }
+    }
+}
+
 
 - (void)setSmartHeadlineNewsResultArr:(NSArray *)smartHeadlineNewsResultArr{
     if (_smartHeadlineNewsResultArr != smartHeadlineNewsResultArr) {
@@ -271,18 +293,12 @@
 
 #pragma mark -- 手势
 - (void)itemViewTapAction:(UITapGestureRecognizer *)tap{
-    
-    NSLog(@"点击了第%ld个视图",tap.view.tag);
+    NewHomePageRecommendDatas *recommedDatas = self.recommendArr[tap.view.tag - 10];
+    [self choiceTheImageUrl:recommedDatas.click_link];
+//    NSLog(@"点击了第%ld个视图",tap.view.tag);
 }
 
 #pragma mark -- method
-- (void)choiceTheImageIndex:(NSInteger)index{
-    NewHomePageADDatas *tempData = self.adResultArr[index];
-    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",tempData.click_link] title:@"广告"];
-    
-    [self.viewControler.navigationController pushViewController:vc animated:YES];
-}
-
 - (void)choiceTheImageUrl:(NSString *)url{
     WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",url] title:@"广告"];
     

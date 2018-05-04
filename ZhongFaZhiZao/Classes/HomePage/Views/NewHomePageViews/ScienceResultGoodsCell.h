@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewHomePageScienceResult.h"
 
 @interface ScienceResultGoodsCell : UICollectionViewCell
 {
@@ -17,4 +18,6 @@
     UIImageView *_locationImageView;
     UILabel *_locationLabel;
 }
+
+@property (nonatomic, strong)NewHomePageScienceResultDatas *datas;
 @end

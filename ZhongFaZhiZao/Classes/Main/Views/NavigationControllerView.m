@@ -129,7 +129,9 @@
     if (self.viewController) {
         
         if ([self.viewController isMemberOfClass:[RRViewController class]]) {
-            [self.viewController dismissViewControllerAnimated:YES completion:nil];
+            [self.viewController dismissViewControllerAnimated:YES completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"closeRRViewController" object:nil];
+            }];
         }else{
             
             [self.viewController.navigationController popViewControllerAnimated:YES];

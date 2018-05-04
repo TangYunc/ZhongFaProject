@@ -56,7 +56,7 @@
 		2DB56800207DB65800EC28C2 /* SamrtShoppingMallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567FF207DB65800EC28C2 /* SamrtShoppingMallView.m */; };
 		2DB56803207DBD9700EC28C2 /* SamrtShoppingMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56802207DBD9700EC28C2 /* SamrtShoppingMallCell.m */; };
 		2DB56806207DF0F800EC28C2 /* NewHomePageClassifyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56805207DF0F800EC28C2 /* NewHomePageClassifyResult.m */; };
-		2DB56809207E155800EC28C2 /* NewHomePageADResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56808207E155800EC28C2 /* NewHomePageADResult.m */; };
+		2DB56809207E155800EC28C2 /* NewHomePageRecommendResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56808207E155800EC28C2 /* NewHomePageRecommendResult.m */; };
 		2DB5680C207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */; };
 		2DB56810207EF7E500EC28C2 /* RRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5680F207EF7E500EC28C2 /* RRViewController.m */; };
 		2DB56813207F2B7200EC28C2 /* RRCustomizedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56812207F2B7200EC28C2 /* RRCustomizedViewController.m */; };
@@ -69,6 +69,8 @@
 		2DB5682B207F3C8300EC28C2 /* RRCustomSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5682A207F3C8300EC28C2 /* RRCustomSubview.m */; };
 		2DB56831207F411B00EC28C2 /* RRPropertyEditSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56830207F411B00EC28C2 /* RRPropertyEditSubview.m */; };
 		2DB56834207F687A00EC28C2 /* RRTextViewEditSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56833207F687A00EC28C2 /* RRTextViewEditSubview.m */; };
+		2DB5683E20804EC500EC28C2 /* ScrollPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5683D20804EC500EC28C2 /* ScrollPickView.m */; };
+		2DB5684120804EE500EC28C2 /* CityPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5684020804EE500EC28C2 /* CityPickView.m */; };
 		2DD3E7EC204799BC00199AB6 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EB204799BC00199AB6 /* Constant.m */; };
 		2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EF20479C2B00199AB6 /* RootTabBarController.m */; };
 		2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7F220479C7900199AB6 /* BaseNavigationController.m */; };
@@ -122,6 +124,12 @@
 		2DE8DB9F204D4E02008C70D2 /* FinanceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8DB9E204D4E02008C70D2 /* FinanceCollectionViewCell.m */; };
 		2DE8DBA2204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8DBA1204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m */; };
 		2DE8DBA5204E3169008C70D2 /* HomePageImgRunLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8DBA4204E3169008C70D2 /* HomePageImgRunLoopView.m */; };
+		2DF2830C2080589E0048E340 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF2830B2080589E0048E340 /* CityModel.m */; };
+		2DF2830E208059B00048E340 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DF2830D208059B00048E340 /* City.plist */; };
+		2DF28311208073FA0048E340 /* SexPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF28310208073FA0048E340 /* SexPickView.m */; };
+		2DF283142080A1430048E340 /* NewHomePageScienceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF283132080A1430048E340 /* NewHomePageScienceResult.m */; };
+		2DF283172080A61B0048E340 /* NewHomeSolveResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF283162080A61B0048E340 /* NewHomeSolveResult.m */; };
+		2DF2831A2080C3A80048E340 /* NewHomePageSmartShoppingMallResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF283192080C3A80048E340 /* NewHomePageSmartShoppingMallResult.m */; };
 		3E09FF5E66E121938187A274 /* libPods-ZhongFaZhiZao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 308053370DC135194DDA0298 /* libPods-ZhongFaZhiZao.a */; };
 /* End PBXBuildFile section */
 
@@ -244,8 +252,8 @@
 		2DB56802207DBD9700EC28C2 /* SamrtShoppingMallCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallCell.m; sourceTree = "<group>"; };
 		2DB56804207DF0F800EC28C2 /* NewHomePageClassifyResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageClassifyResult.h; sourceTree = "<group>"; };
 		2DB56805207DF0F800EC28C2 /* NewHomePageClassifyResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageClassifyResult.m; sourceTree = "<group>"; };
-		2DB56807207E155800EC28C2 /* NewHomePageADResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageADResult.h; sourceTree = "<group>"; };
-		2DB56808207E155800EC28C2 /* NewHomePageADResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageADResult.m; sourceTree = "<group>"; };
+		2DB56807207E155800EC28C2 /* NewHomePageRecommendResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageRecommendResult.h; sourceTree = "<group>"; };
+		2DB56808207E155800EC28C2 /* NewHomePageRecommendResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageRecommendResult.m; sourceTree = "<group>"; };
 		2DB5680A207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageSmartHeadlineNewsResult.h; sourceTree = "<group>"; };
 		2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageSmartHeadlineNewsResult.m; sourceTree = "<group>"; };
 		2DB5680E207EF7E500EC28C2 /* RRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRViewController.h; sourceTree = "<group>"; };
@@ -270,6 +278,10 @@
 		2DB56830207F411B00EC28C2 /* RRPropertyEditSubview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRPropertyEditSubview.m; sourceTree = "<group>"; };
 		2DB56832207F687A00EC28C2 /* RRTextViewEditSubview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRTextViewEditSubview.h; sourceTree = "<group>"; };
 		2DB56833207F687A00EC28C2 /* RRTextViewEditSubview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRTextViewEditSubview.m; sourceTree = "<group>"; };
+		2DB5683C20804EC500EC28C2 /* ScrollPickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollPickView.h; sourceTree = "<group>"; };
+		2DB5683D20804EC500EC28C2 /* ScrollPickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollPickView.m; sourceTree = "<group>"; };
+		2DB5683F20804EE500EC28C2 /* CityPickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityPickView.h; sourceTree = "<group>"; };
+		2DB5684020804EE500EC28C2 /* CityPickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityPickView.m; sourceTree = "<group>"; };
 		2DC353AB2050D9FE00F498C3 /* JPUSHService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPUSHService.h; path = Pods/JPush/JPUSHService.h; sourceTree = "<group>"; };
 		2DC353AD2050DA2600F498C3 /* libjpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.8.a"; path = "Pods/JPush/libjpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		2DC353AF2050DAB100F498C3 /* ZhongFaZhiZao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhongFaZhiZao.entitlements; sourceTree = "<group>"; };
@@ -378,6 +390,17 @@
 		2DE8DBA1204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowLedgeCustomCollectionViewCell.m; sourceTree = "<group>"; };
 		2DE8DBA3204E3169008C70D2 /* HomePageImgRunLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageImgRunLoopView.h; sourceTree = "<group>"; };
 		2DE8DBA4204E3169008C70D2 /* HomePageImgRunLoopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageImgRunLoopView.m; sourceTree = "<group>"; };
+		2DF2830A2080589E0048E340 /* CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		2DF2830B2080589E0048E340 /* CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		2DF2830D208059B00048E340 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
+		2DF2830F208073FA0048E340 /* SexPickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SexPickView.h; sourceTree = "<group>"; };
+		2DF28310208073FA0048E340 /* SexPickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SexPickView.m; sourceTree = "<group>"; };
+		2DF283122080A1430048E340 /* NewHomePageScienceResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageScienceResult.h; sourceTree = "<group>"; };
+		2DF283132080A1430048E340 /* NewHomePageScienceResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageScienceResult.m; sourceTree = "<group>"; };
+		2DF283152080A61B0048E340 /* NewHomeSolveResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomeSolveResult.h; sourceTree = "<group>"; };
+		2DF283162080A61B0048E340 /* NewHomeSolveResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomeSolveResult.m; sourceTree = "<group>"; };
+		2DF283182080C3A80048E340 /* NewHomePageSmartShoppingMallResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageSmartShoppingMallResult.h; sourceTree = "<group>"; };
+		2DF283192080C3A80048E340 /* NewHomePageSmartShoppingMallResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageSmartShoppingMallResult.m; sourceTree = "<group>"; };
 		308053370DC135194DDA0298 /* libPods-ZhongFaZhiZao.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhongFaZhiZao.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		400CC1F22D3F6105D82B48C8 /* Pods-ZhongFaZhiZao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhongFaZhiZao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhongFaZhiZao/Pods-ZhongFaZhiZao.debug.xcconfig"; sourceTree = "<group>"; };
 		4386C1E446480C804CC5D784 /* Pods-ZhongFaZhiZao.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhongFaZhiZao.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhongFaZhiZao/Pods-ZhongFaZhiZao.release.xcconfig"; sourceTree = "<group>"; };
@@ -479,8 +502,8 @@
 				2DE8DBA4204E3169008C70D2 /* HomePageImgRunLoopView.m */,
 				2DE8DB88204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.h */,
 				2DE8DB89204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.m */,
-				2DE8DB8C204D4DB6008C70D2 /* SupplyCollectionViewCell.m */,
 				2DE8DB8B204D4DB6008C70D2 /* SupplyCollectionViewCell.h */,
+				2DE8DB8C204D4DB6008C70D2 /* SupplyCollectionViewCell.m */,
 				2DE8DBA0204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.h */,
 				2DE8DBA1204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m */,
 				2DE8DB91204D4DD2008C70D2 /* ScienceCollectionViewCell.h */,
@@ -599,6 +622,7 @@
 		2D5D578620478BDD00F683F4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2DB5683520804E3700EC28C2 /* 选择器 */,
 				2D456CC5204E40ED002F2FB5 /* HeadLineView */,
 				2DD3E80520479E9700199AB6 /* UIViewExt.h */,
 				2DD3E80420479E9600199AB6 /* UIViewExt.m */,
@@ -695,6 +719,46 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2DB5683520804E3700EC28C2 /* 选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5683820804E6100EC28C2 /* 性别选择器 */,
+				2DB5683720804E4F00EC28C2 /* 滚轮选择器 */,
+				2DB5683620804E4100EC28C2 /* 城市选择器 */,
+			);
+			path = "选择器";
+			sourceTree = "<group>";
+		};
+		2DB5683620804E4100EC28C2 /* 城市选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				2DF2830D208059B00048E340 /* City.plist */,
+				2DB5683F20804EE500EC28C2 /* CityPickView.h */,
+				2DB5684020804EE500EC28C2 /* CityPickView.m */,
+				2DF2830A2080589E0048E340 /* CityModel.h */,
+				2DF2830B2080589E0048E340 /* CityModel.m */,
+			);
+			path = "城市选择器";
+			sourceTree = "<group>";
+		};
+		2DB5683720804E4F00EC28C2 /* 滚轮选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5683C20804EC500EC28C2 /* ScrollPickView.h */,
+				2DB5683D20804EC500EC28C2 /* ScrollPickView.m */,
+			);
+			path = "滚轮选择器";
+			sourceTree = "<group>";
+		};
+		2DB5683820804E6100EC28C2 /* 性别选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				2DF2830F208073FA0048E340 /* SexPickView.h */,
+				2DF28310208073FA0048E340 /* SexPickView.m */,
+			);
+			path = "性别选择器";
 			sourceTree = "<group>";
 		};
 		2DD3E7ED20479BE900199AB6 /* Controllers */ = {
@@ -939,10 +1003,16 @@
 				2D15B230207A1C35001E45F0 /* NewHomePageHeaderResult.m */,
 				2DB56804207DF0F800EC28C2 /* NewHomePageClassifyResult.h */,
 				2DB56805207DF0F800EC28C2 /* NewHomePageClassifyResult.m */,
-				2DB56807207E155800EC28C2 /* NewHomePageADResult.h */,
-				2DB56808207E155800EC28C2 /* NewHomePageADResult.m */,
+				2DB56807207E155800EC28C2 /* NewHomePageRecommendResult.h */,
+				2DB56808207E155800EC28C2 /* NewHomePageRecommendResult.m */,
 				2DB5680A207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.h */,
 				2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */,
+				2DF283122080A1430048E340 /* NewHomePageScienceResult.h */,
+				2DF283132080A1430048E340 /* NewHomePageScienceResult.m */,
+				2DF283152080A61B0048E340 /* NewHomeSolveResult.h */,
+				2DF283162080A61B0048E340 /* NewHomeSolveResult.m */,
+				2DF283182080C3A80048E340 /* NewHomePageSmartShoppingMallResult.h */,
+				2DF283192080C3A80048E340 /* NewHomePageSmartShoppingMallResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1080,6 +1150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D5D575C20478AAB00F683F4 /* LaunchScreen.storyboard in Resources */,
+				2DF2830E208059B00048E340 /* City.plist in Resources */,
 				2DD3E84D2048022D00199AB6 /* MBProgressHUD.bundle in Resources */,
 				2D5D575920478AAB00F683F4 /* Assets.xcassets in Resources */,
 				2D5D575720478AAB00F683F4 /* Main.storyboard in Resources */,
@@ -1211,6 +1282,7 @@
 				2DD3E85C2048F44A00199AB6 /* NSString+Mobile.m in Sources */,
 				2DD3E80D2047A14400199AB6 /* HomeViewController.m in Sources */,
 				2DE8DB8A204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.m in Sources */,
+				2DF2830C2080589E0048E340 /* CityModel.m in Sources */,
 				2D15B24C207B67EE001E45F0 /* ScienceResultFuctionView.m in Sources */,
 				2D456CD4204E5D1E002F2FB5 /* FinanceDetailTwoViewController.m in Sources */,
 				2DD3E87120491DE900199AB6 /* MineSecondSectionCell.m in Sources */,
@@ -1225,16 +1297,19 @@
 				2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */,
 				2DE8DB8D204D4DB6008C70D2 /* SupplyCollectionViewCell.m in Sources */,
 				2DD3E8592048ED2C00199AB6 /* ForgetPwViewController.m in Sources */,
+				2DF28311208073FA0048E340 /* SexPickView.m in Sources */,
 				2DB56813207F2B7200EC28C2 /* RRCustomizedViewController.m in Sources */,
 				2DB56831207F411B00EC28C2 /* RRPropertyEditSubview.m in Sources */,
 				2D5D575420478AAB00F683F4 /* ViewController.m in Sources */,
 				2DD3E84B2048022D00199AB6 /* MBProgressHUD.m in Sources */,
 				2DD3E853204808AC00199AB6 /* UserInfo.m in Sources */,
+				2DB5684120804EE500EC28C2 /* CityPickView.m in Sources */,
 				2DD3E874204920F300199AB6 /* MineFirstSectionCell.m in Sources */,
 				2D15B21C2079DB5F001E45F0 /* NewHomePageHeaderView.m in Sources */,
 				2DD3E8502048022D00199AB6 /* WKWaitingProgressHUD.m in Sources */,
 				2D15B255207C96A3001E45F0 /* ClassifyPopView.m in Sources */,
 				2DD3E84F2048022D00199AB6 /* WKMessageProgressHUD.m in Sources */,
+				2DB5683E20804EC500EC28C2 /* ScrollPickView.m in Sources */,
 				2D15B2192079BDE3001E45F0 /* CustomReleaseRequirementsButton.m in Sources */,
 				2DD3E80620479E9700199AB6 /* UIViewExt.m in Sources */,
 				2DD3E86820491B3E00199AB6 /* MineTableView.m in Sources */,
@@ -1250,13 +1325,15 @@
 				2D15B21F2079DB7F001E45F0 /* NewHomePageCollectionView.m in Sources */,
 				2D12B40E205A17F700FA0F0C /* ArchiverAndUnArchiver.m in Sources */,
 				2DD3E8162047A1AE00199AB6 /* MineViewController.m in Sources */,
-				2DB56809207E155800EC28C2 /* NewHomePageADResult.m in Sources */,
+				2DB56809207E155800EC28C2 /* NewHomePageRecommendResult.m in Sources */,
 				2DD3E8192047A94A00199AB6 /* UIColor+Hex.m in Sources */,
+				2DF283172080A61B0048E340 /* NewHomeSolveResult.m in Sources */,
 				2DE8DB9C204D4DF8008C70D2 /* ElectronicCollectionViewCell.m in Sources */,
 				2DD3E8652049151900199AB6 /* WKWebViewViewController.m in Sources */,
 				2D5D575F20478AAB00F683F4 /* main.m in Sources */,
 				2DE8DBA2204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m in Sources */,
 				2DB56806207DF0F800EC28C2 /* NewHomePageClassifyResult.m in Sources */,
+				2DF2831A2080C3A80048E340 /* NewHomePageSmartShoppingMallResult.m in Sources */,
 				2DD3E8132047A19B00199AB6 /* PurchaseViewController.m in Sources */,
 				2DD3E8222047D7A700199AB6 /* MineCustomCollectionBtn.m in Sources */,
 				2D5D575120478AAB00F683F4 /* AppDelegate.m in Sources */,
@@ -1283,6 +1360,7 @@
 				2DE8DB7E204D2482008C70D2 /* LaunchIntroductionView.m in Sources */,
 				2D456CCA204E40ED002F2FB5 /* ZYJHeadLineModel.m in Sources */,
 				2D15B246207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m in Sources */,
+				2DF283142080A1430048E340 /* NewHomePageScienceResult.m in Sources */,
 				2DD3E87D204940D100199AB6 /* ZhongFaDataBase.m in Sources */,
 				2D15B234207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m in Sources */,
 				2DB56800207DB65800EC28C2 /* SamrtShoppingMallView.m in Sources */,

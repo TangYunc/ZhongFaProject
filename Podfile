@@ -4,6 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 			target ‘ZhongFaZhiZao’ do
             
+              pod 'YYModel'
               pod 'SDWebImage'
               pod 'JSONModel'
               pod 'MJExtension'
