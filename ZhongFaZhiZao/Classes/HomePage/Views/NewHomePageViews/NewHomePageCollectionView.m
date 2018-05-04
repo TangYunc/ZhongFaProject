@@ -74,6 +74,7 @@
         CGFloat headerViewHeight = (413 + 18.1 + 501 + 352 + 39 + 80 + 76)/2.0 * KWidth_ScaleH;
         self.headerView = [[NewHomePageHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, headerViewHeight)];
         self.headerView.backgroundColor = BACK_COLOR;
+        
         //注册cell
         [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
         [self registerClass:[SamrtShoppingMallFirstCell class] forCellWithReuseIdentifier:@"samrtShoppingMallCell"];
@@ -144,9 +145,8 @@
     {
         UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
         
-        
         [headerView addSubview:self.headerView];
-        
+        self.headerView.cityArray = self.cityArray;
         reusableview = headerView;
         
         return reusableview;
@@ -459,7 +459,9 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 1.0f;
+    
 }
+
 #pragma mark -- UIScrollViewDelegate
 // 手指离开滑动视图的时候调用的协议方法
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate

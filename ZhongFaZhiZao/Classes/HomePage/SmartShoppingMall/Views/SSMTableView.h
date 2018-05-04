@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSMResult.h"
 
 @interface SSMTableView : UITableView
 
+@property (nonatomic, strong) SSMDatas *theDatas;
 @end

@@ -36,6 +36,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSLog(@"theTokenAPP:%@",[KUserDefault objectForKey:@"token"]);
     //注册第三方SDK
     [self configureSDKsWithApplication:application options:launchOptions];
     
@@ -52,6 +53,7 @@
     
     //开始
     [self start];
+    NSLog(@"theTokenppa:%@",[KUserDefault objectForKey:@"token"]);
     return YES;
 }
 -(void)start{

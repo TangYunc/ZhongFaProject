@@ -86,9 +86,8 @@
         [cookieDic setObject:cookie.value forKey:cookie.name];
     }
     if ([KUserDefault objectForKey:@"token"]) {
-        NSLog(@"theTokenPur:%@",[KUserDefault objectForKey:@"token"]);
         [cookieDic setObject:[KUserDefault objectForKey:@"token"] forKey:@"zfa_token"];
-        NSLog(@"theTokenPur1:%@",[KUserDefault objectForKey:@"zfa_token"]);
+        NSLog(@"theTokenPur1:%@,%@",[cookieDic objectForKey:@"zfa_token"],[KUserDefault objectForKey:@"token"]);
     }
     else{
         [cookieDic setObject:@"" forKey:@"zfa_token"];

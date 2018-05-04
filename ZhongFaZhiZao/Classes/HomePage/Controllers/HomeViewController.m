@@ -11,7 +11,8 @@
 #import "NewHomePageCollectionView.h"
 #import "ZYJHeadLineModel.h"
 #import "HomePageHeaderModel.h"
-#import "WXPayViewController.h"
+//#import "WXPayViewController.h"
+#import "QRCodeReaderViewController.h"
 #import "MessageCenterViewController.h"
 #import "NewHomePageClassifyResult.h"
 #import "ClassifyPopView.h"
@@ -21,7 +22,7 @@
 #import "NewHomeSolveResult.h"
 #import "NewHomePageSmartShoppingMallResult.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<QRCodeReaderDelegate>
 
 //@property (nonatomic,strong) HomePageCollectionView *collectionView;
 @property (nonatomic,strong) NewHomePageCollectionView *collectionView;
@@ -89,7 +90,7 @@
 }
 
 - (void)setupSubViews{
-//    _collectionView = [[HomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
+
     _collectionView = [[NewHomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight - 49 - SafeAreaBottomHeight)];
     _collectionView.navigationView = self.navigationView;
     _collectionView.navBarView = self.navBarView;
@@ -432,9 +433,9 @@
     //    [self.navigationController pushViewController:QRvc animated:YES];
     
     //    [WKProgressHUD popMessage:@"敬请期待" inView:self.view duration:HUD_DURATION animated:YES];
-    WXPayViewController *vcCtrl = [[WXPayViewController alloc] init];
-    [self.navigationController pushViewController:vcCtrl animated:YES];
-    /*
+//    WXPayViewController *vcCtrl = [[WXPayViewController alloc] init];
+//    [self.navigationController pushViewController:vcCtrl animated:YES];
+    
      QRCodeReaderViewController *reader = [QRCodeReaderViewController new];\
      reader.modalPresentationStyle = UIModalPresentationFormSheet;
      reader.delegate = self;
@@ -446,7 +447,7 @@
      }];
      
      //[self presentViewController:reader animated:YES completion:NULL];
-     [self.navigationController pushViewController:reader animated:YES];*/
+     [self.navigationController pushViewController:reader animated:YES];
 }
 
 //跳转到搜索页
@@ -469,32 +470,6 @@
     MessageCenterViewController *vc = [[MessageCenterViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-#pragma mark - scrollView滑动
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    float y = scrollView.contentOffset.y;
-    if(y<70){
-        self.navBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomePageNavBar"]];
-        
-        self.navigationView.alpha = 1;
-    }
-    else{
-        self.navigationView.backgroundColor = BLUE_COLOR;
-        
-        [UIView animateWithDuration:0.1 animations:^{
-            
-            CGFloat alphas = (scrollView.contentOffset.y / 135 < 1)?scrollView.contentOffset.y/135:1;
-            
-            self.navigationView.backgroundColor = BLUE_COLOR;
-            
-            self.navigationView.alpha = alphas;
-        } completion:^(BOOL finished) {
-        }];
-    }
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

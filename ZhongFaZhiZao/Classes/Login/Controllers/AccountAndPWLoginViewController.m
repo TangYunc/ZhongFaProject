@@ -311,7 +311,7 @@
                 [KUserDefault setObject:_userInfo.mobile forKey:@"mobile"];
                 
                 [KUserDefault synchronize];
-                
+                NSLog(@"theTokenLogin:%@",[KUserDefault objectForKey:@"token"]);
                 [self passregisterid];
                 
                 [self getRongToken];

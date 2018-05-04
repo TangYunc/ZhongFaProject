@@ -236,10 +236,11 @@
         return;
     }
     
-    if (self.project_demand_child_id == nil) {
-        NSLog(@"project_demand_child_id的值%@为空",self.project_demand_child_id);
-        [MBProgressHUD showError:@"请选择您项目的需求子类型!"];
-        return;
+    if (self.project_demand_child_id.length > 0) {
+//        NSLog(@"project_demand_child_id的值%@为空",self.project_demand_child_id);
+        [tempPara setObject:self.project_demand_child_id forKey:@"project_demand_child_id"];
+//        [MBProgressHUD showError:@"请选择您项目的需求子类型!"];
+//        return;
     }
     
     if (self.briefly == nil) {
@@ -262,20 +263,23 @@
     [tempPara setObject:uidStr forKey:@"uid"];
     [tempPara setObject:self.project_stage_id forKey:@"project_stage_id"];
     [tempPara setObject:self.project_demand_id forKey:@"project_demand_id"];
-    [tempPara setObject:self.project_demand_child_id forKey:@"project_demand_child_id"];
     [tempPara setObject:self.briefly forKey:@"briefly"];
     [tempPara setObject:self.industry_id forKey:@"industry_id"];
     [tempPara setObject:userName forKey:@"contact"];
     [tempPara setObject:phoneNum forKey:@"mobile"];
     
-    NSString *url = [NSString stringWithFormat:@"%@%@",BaseTwoApi,RRCustomizedConfirmRelease_API];
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,RRCustomizedConfirmRelease_API,apiToken];
     
     // 发送请求
     [MBProgressHUD showMessage:@"正在发布..."];
     [TNetworking postWithUrl:url params:tempPara success:^(id response) {
         [MBProgressHUD hideHUD];
         if ([response[@"message"] isEqualToString:@"Created"]) {
-            
+            [MBProgressHUD showSuccess:@"发布成功!"];
         }else{
             if (response[@"message"]) {
                 [MBProgressHUD showError:response[@"message"]];
@@ -286,6 +290,7 @@
         [WKProgressHUD popMessage:@"请检查网络连接" inView:self duration:HUD_DURATION animated:YES];
     } showHUD:NO];
 }
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

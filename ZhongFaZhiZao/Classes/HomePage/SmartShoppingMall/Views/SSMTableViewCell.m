@@ -88,7 +88,7 @@
     //1.
     _goodsImageView.frame = CGRectMake(fromLeftGapDistance, fromTopGapDistance, imageHeight, imageHeight);
     NSString *goodImageUrlStr = @"";
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodImageUrlStr] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"] options:SDWebImageRefreshCached];
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodImageUrlStr] placeholderImage:[UIImage imageNamed:@"DefaultMediumIcon"] options:SDWebImageRefreshCached];
     //2.
     NSString *goodsNameStr = @"ZA28-12.5全新现货滚丝机各种型号滚丝机滚轧机";
     CGFloat goodsNameLabelGapFromLeft = 28/2.0 * KWidth_ScaleW;

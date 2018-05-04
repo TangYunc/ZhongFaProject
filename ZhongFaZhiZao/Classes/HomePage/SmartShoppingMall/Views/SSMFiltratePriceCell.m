@@ -88,4 +88,5 @@
     [_minValueTF resignFirstResponder];
     [_maxValueTF resignFirstResponder];
 }
+
 @end

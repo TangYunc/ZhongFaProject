@@ -9,6 +9,7 @@
 #import "SSMFiltrateViewController.h"
 #import "SSMFiltrateTabelView.h"
 #import "SSMClassifyViewController.h"
+#import "SSMSearchViewController.h"
 
 @interface SSMFiltrateViewController ()
 {
@@ -90,6 +91,8 @@
     
     if (button.tag == 10) {
         NSLog(@"点击的是搜索");
+        SSMSearchViewController *searchVC = [[SSMSearchViewController alloc] init];
+        [self.navigationController pushViewController:searchVC animated:YES];
     }else if (button.tag == 11){
         NSLog(@"点击的是分类");
         SSMClassifyViewController *classifyTVC = [[SSMClassifyViewController alloc] init];

@@ -8,6 +8,7 @@
 
 #import "SSMClassifyViewController.h"
 #import "SSMClassifyCell.h"
+#import "SSMSearchViewController.h"
 
 @interface SSMClassifyViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -176,7 +177,8 @@
 - (void)BarButtonItemClick:(UIButton *)button{
     
     NSLog(@"点击的是搜索");
-    
+    SSMSearchViewController *searchVC = [[SSMSearchViewController alloc] init];
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
 
 - (void)sectionClick:(UITapGestureRecognizer *)tap{

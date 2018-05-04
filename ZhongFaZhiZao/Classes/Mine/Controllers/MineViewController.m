@@ -32,11 +32,11 @@
     // Do any additional setup after loading the view.
     // 初始化TableView
     [self setupTableView];
-    NSLog(@"theToken:%@",[KUserDefault objectForKey:@"token"]);
-    if ([KUserDefault objectForKey:@"token"]) {
-        
-        [self loadData];
-    }
+    NSLog(@"theTokenMine:%@",[KUserDefault objectForKey:@"token"]);
+//    if ([KUserDefault objectForKey:@"token"]) {
+//
+//        [self loadData];
+//    }
     
     //    定义通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"sucess" object:nil];
@@ -45,6 +45,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self loadData];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

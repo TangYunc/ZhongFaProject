@@ -16,6 +16,7 @@
 #import "NewHomePageRecommendResult.h"
 #import "NewHomePageSmartHeadlineNewsResult.h"
 #import "SSMViewController.h"
+#import "HomePageElectronicViewController.h"
 
 @interface NewHomePageHeaderView (){
     HomePageImgRunLoopView *_imgRunView;
@@ -281,6 +282,9 @@
     }
     else if (button.tag == PhysicalMarket){
         NSLog(@"点击的是实体市场");
+        HomePageElectronicViewController *electronicVC = [[HomePageElectronicViewController alloc] init];
+        electronicVC.cityArray = self.cityArray;
+        [self.viewControler.navigationController pushViewController:electronicVC animated:YES];
     }
     else{
         apiStr = [NSString stringWithFormat:@"%@%@",BaseApi,HomePageSupplyChainList_API];

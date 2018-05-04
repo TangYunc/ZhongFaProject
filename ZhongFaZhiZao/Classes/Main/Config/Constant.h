@@ -28,6 +28,7 @@ extern NSString *const HomePageSmartHeadlineNews_API;//智造头条
 extern NSString *const HomePageScienceResult_API;//首页科技推荐(科技成果)
 extern NSString *const HomePageSolve_API;//首页解决方案
 extern NSString *const HomePageSmartShoppingMall_API;//首页智造商城数据
+extern NSString *const HomePageSSM_API;//智造商城列表页
 
 //***************************发布需求************************//
 extern NSString *const RRCustomized_API;//定制需求表单页面
@@ -91,5 +92,6 @@ extern NSString *const memberIndex_api;  //注册
 
 //other
 extern NSString *const APIToken;  //token获取
+extern NSString *const historySearch;                    // 历史搜索字符串
 
 

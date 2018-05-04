@@ -36,6 +36,7 @@ NSString *const HomePageSmartHeadlineNews_API = @"/indexs/tt?access-token=";
 NSString *const HomePageScienceResult_API = @"/indexs/tech?access-token=";
 NSString *const HomePageSolve_API = @"/indexs/solution?access-token=";
 NSString *const HomePageSmartShoppingMall_API = @"/indexs/shop?access-token=";
+NSString *const HomePageSSM_API = @"/shops?access-token=";
 
 //***************************发布需求************************//
 NSString *const RRCustomized_API = @"/recruits?access-token=";
@@ -102,3 +103,4 @@ NSString *const memberIndex_api = @"/made/index";
 
 //other
 NSString *const APIToken = @"APIToken";
+NSString *const historySearch = @"HistorySearch";

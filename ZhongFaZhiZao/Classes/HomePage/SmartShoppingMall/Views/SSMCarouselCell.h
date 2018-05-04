@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSMResult.h"
 
 @interface SSMCarouselCell : UITableViewCell
 
+@property(nonatomic, strong) NSArray *datas;
 @end

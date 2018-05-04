@@ -43,6 +43,12 @@
 		2D456CED204FDF6E002F2FB5 /* WXPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D456CEB204FDF6D002F2FB5 /* WXPayViewController.m */; };
 		2D592EDA208610B400FD1410 /* RRRecruitmentResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592ED9208610B400FD1410 /* RRRecruitmentResult.m */; };
 		2D592EDD208610C200FD1410 /* RRAgencyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EDC208610C200FD1410 /* RRAgencyResult.m */; };
+		2D592EE02086D70800FD1410 /* SSMSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EDF2086D70800FD1410 /* SSMSearchViewController.m */; };
+		2D592EE62086DD0500FD1410 /* CustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EE52086DD0500FD1410 /* CustomSearchBar.m */; };
+		2D592EE92086E65300FD1410 /* SSMSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EE82086E65300FD1410 /* SSMSearchResultViewController.m */; };
+		2D592EEC20871F2300FD1410 /* SSMSearchNoResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EEB20871F2300FD1410 /* SSMSearchNoResultCell.m */; };
+		2D592EEF2087309700FD1410 /* HomePageElectronicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EEE2087309700FD1410 /* HomePageElectronicViewController.m */; };
+		2D592EF220874F7400FD1410 /* SSMResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EF120874F7400FD1410 /* SSMResult.m */; };
 		2D5D575120478AAB00F683F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D575020478AAB00F683F4 /* AppDelegate.m */; };
 		2D5D575420478AAB00F683F4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D575320478AAB00F683F4 /* ViewController.m */; };
 		2D5D575720478AAB00F683F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5D575520478AAB00F683F4 /* Main.storyboard */; };
@@ -243,6 +249,18 @@
 		2D592ED9208610B400FD1410 /* RRRecruitmentResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRRecruitmentResult.m; sourceTree = "<group>"; };
 		2D592EDB208610C200FD1410 /* RRAgencyResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRAgencyResult.h; sourceTree = "<group>"; };
 		2D592EDC208610C200FD1410 /* RRAgencyResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRAgencyResult.m; sourceTree = "<group>"; };
+		2D592EDE2086D70800FD1410 /* SSMSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMSearchViewController.h; sourceTree = "<group>"; };
+		2D592EDF2086D70800FD1410 /* SSMSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMSearchViewController.m; sourceTree = "<group>"; };
+		2D592EE42086DD0500FD1410 /* CustomSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSearchBar.h; sourceTree = "<group>"; };
+		2D592EE52086DD0500FD1410 /* CustomSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSearchBar.m; sourceTree = "<group>"; };
+		2D592EE72086E65300FD1410 /* SSMSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMSearchResultViewController.h; sourceTree = "<group>"; };
+		2D592EE82086E65300FD1410 /* SSMSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMSearchResultViewController.m; sourceTree = "<group>"; };
+		2D592EEA20871F2300FD1410 /* SSMSearchNoResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMSearchNoResultCell.h; sourceTree = "<group>"; };
+		2D592EEB20871F2300FD1410 /* SSMSearchNoResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMSearchNoResultCell.m; sourceTree = "<group>"; };
+		2D592EED2087309700FD1410 /* HomePageElectronicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageElectronicViewController.h; sourceTree = "<group>"; };
+		2D592EEE2087309700FD1410 /* HomePageElectronicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageElectronicViewController.m; sourceTree = "<group>"; };
+		2D592EF020874F7400FD1410 /* SSMResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMResult.h; sourceTree = "<group>"; };
+		2D592EF120874F7400FD1410 /* SSMResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMResult.m; sourceTree = "<group>"; };
 		2D5D574C20478AAB00F683F4 /* ZhongFaZhiZao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhongFaZhiZao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5D574F20478AAB00F683F4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D5D575020478AAB00F683F4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -853,6 +871,8 @@
 				2D15B2182079BDE3001E45F0 /* CustomReleaseRequirementsButton.m */,
 				2DD3E7FB20479D6700199AB6 /* CustomTabBar.h */,
 				2DD3E7FC20479D6700199AB6 /* CustomTabBar.m */,
+				2D592EE42086DD0500FD1410 /* CustomSearchBar.h */,
+				2D592EE52086DD0500FD1410 /* CustomSearchBar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1045,6 +1065,8 @@
 				2D456CEB204FDF6D002F2FB5 /* WXPayViewController.m */,
 				2DD3E80B2047A14400199AB6 /* HomeViewController.h */,
 				2DD3E80C2047A14400199AB6 /* HomeViewController.m */,
+				2D592EED2087309700FD1410 /* HomePageElectronicViewController.h */,
+				2D592EEE2087309700FD1410 /* HomePageElectronicViewController.m */,
 				2D2755C4204945AD00D7E791 /* MessageCenterViewController.h */,
 				2D2755C5204945AD00D7E791 /* MessageCenterViewController.m */,
 				2D456CCC204E5761002F2FB5 /* KnowLedgeViewController.h */,
@@ -1116,6 +1138,10 @@
 				2DF1C73E20847AE800710B9B /* SSMTableViewController.m */,
 				2DF1C7312084478000710B9B /* SSMFiltrateViewController.h */,
 				2DF1C7322084478000710B9B /* SSMFiltrateViewController.m */,
+				2D592EDE2086D70800FD1410 /* SSMSearchViewController.h */,
+				2D592EDF2086D70800FD1410 /* SSMSearchViewController.m */,
+				2D592EE72086E65300FD1410 /* SSMSearchResultViewController.h */,
+				2D592EE82086E65300FD1410 /* SSMSearchResultViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1125,6 +1151,8 @@
 			children = (
 				2DF1C74C2084BED400710B9B /* SSMFiltrateCellResult.h */,
 				2DF1C74D2084BED400710B9B /* SSMFiltrateCellResult.m */,
+				2D592EF020874F7400FD1410 /* SSMResult.h */,
+				2D592EF120874F7400FD1410 /* SSMResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1154,6 +1182,8 @@
 				2DF1C74720849D9400710B9B /* SSMFiltrateCell.m */,
 				2DF1C74F20857B5800710B9B /* SSMFiltratePriceCell.h */,
 				2DF1C75020857B5800710B9B /* SSMFiltratePriceCell.m */,
+				2D592EEA20871F2300FD1410 /* SSMSearchNoResultCell.h */,
+				2D592EEB20871F2300FD1410 /* SSMSearchNoResultCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1401,6 +1431,7 @@
 				2DE8DB99204D4DED008C70D2 /* SolveCollectionViewCell.m in Sources */,
 				2DF1C72A2081FEA500710B9B /* SSMSecondSectionView.m in Sources */,
 				2D592EDA208610B400FD1410 /* RRRecruitmentResult.m in Sources */,
+				2D592EEC20871F2300FD1410 /* SSMSearchNoResultCell.m in Sources */,
 				2DD3E83C2047F3E600199AB6 /* NavigationControllerView.m in Sources */,
 				2DD3E84E2048022D00199AB6 /* WKProgressHUD.m in Sources */,
 				2DB56810207EF7E500EC28C2 /* RRViewController.m in Sources */,
@@ -1467,6 +1498,7 @@
 				2D15B252207C659F001E45F0 /* SolveView.m in Sources */,
 				2DD3E8322047E66D00199AB6 /* AccountAndPWLognScrollView.m in Sources */,
 				2D456CD7204E5D2F002F2FB5 /* FinanceDetailOneViewController.m in Sources */,
+				2D592EF220874F7400FD1410 /* SSMResult.m in Sources */,
 				2DE8DBA5204E3169008C70D2 /* HomePageImgRunLoopView.m in Sources */,
 				2DD3E8562048ED1B00199AB6 /* RegisterViewController.m in Sources */,
 				2D15B21F2079DB7F001E45F0 /* NewHomePageCollectionView.m in Sources */,
@@ -1474,6 +1506,7 @@
 				2DD3E8162047A1AE00199AB6 /* MineViewController.m in Sources */,
 				2DB56809207E155800EC28C2 /* NewHomePageRecommendResult.m in Sources */,
 				2DF1C7572085C41A00710B9B /* RRSubRequestResult.m in Sources */,
+				2D592EE92086E65300FD1410 /* SSMSearchResultViewController.m in Sources */,
 				2DF1C7242081B06400710B9B /* SSMBannerModelSecondCell.m in Sources */,
 				2DF1C71B2081A86900710B9B /* SSMTableView.m in Sources */,
 				2DD3E8192047A94A00199AB6 /* UIColor+Hex.m in Sources */,
@@ -1490,10 +1523,12 @@
 				2D2755C6204945AD00D7E791 /* MessageCenterViewController.m in Sources */,
 				2D456CCE204E5761002F2FB5 /* KnowLedgeViewController.m in Sources */,
 				2DB56825207F3C1200EC28C2 /* RRRecruitmentScrollView.m in Sources */,
+				2D592EE62086DD0500FD1410 /* CustomSearchBar.m in Sources */,
 				2D15B243207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m in Sources */,
 				2D15B240207A2582001E45F0 /* ScienceResultFunctionCell.m in Sources */,
 				2DD3E81F2047D2BA00199AB6 /* MineHeaderView.m in Sources */,
 				2DE8DB84204D48A4008C70D2 /* HomePageCollectionView.m in Sources */,
+				2D592EEF2087309700FD1410 /* HomePageElectronicViewController.m in Sources */,
 				2DF1C73F20847AE800710B9B /* SSMTableViewController.m in Sources */,
 				2DE8DB93204D4DD2008C70D2 /* ScienceCollectionViewCell.m in Sources */,
 				2DD3E8622048FD1500199AB6 /* RegisterScrollView.m in Sources */,
@@ -1505,6 +1540,7 @@
 				2DB56819207F2BE700EC28C2 /* RRAgencyViewController.m in Sources */,
 				2D15B249207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m in Sources */,
 				2DD3E7FD20479D6700199AB6 /* CustomTabBar.m in Sources */,
+				2D592EE02086D70800FD1410 /* SSMSearchViewController.m in Sources */,
 				2D456CD1204E5809002F2FB5 /* FinanceViewController.m in Sources */,
 				2D15B237207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m in Sources */,
 				2D456CE1204E89F4002F2FB5 /* HomePageHeaderModel.m in Sources */,

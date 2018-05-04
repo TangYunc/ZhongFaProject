@@ -18,11 +18,14 @@ typedef NS_ENUM(int,ZF){
     SamrtShoppingMall,
     SupplyChain
 };
+
 @interface NewHomePageHeaderView : UIView
 
 @property (nonatomic, strong) HomePageHeaderModel *model;
 @property (nonatomic,strong) NSArray *smartShoppingMallArr;//智造商城
 @property (nonatomic,strong) NSArray *recommendArr;
 @property (nonatomic,strong) NSArray *smartHeadlineNewsResultArr;
+
+@property (nonatomic,strong) NSMutableArray *cityArray;
 
 @end
