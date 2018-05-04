@@ -61,15 +61,25 @@
     // 控制某个tabbar 不可以侧滑
     self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
     [self setNavigationBarTitle:@"首页"];
-//    [self loadadData];
-//    [self loadCityData];
-    [self loadTheADData];
-    [self loadSmartHeadlineNewsData];
+    
     // 初始化子视图
     [self setupSubViews];
     [self setUpNavgationView];
-    [self loadClassifyPopViewDate];
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        [self loadDateAPIToken];
+    }else{
+        [self allLoadDataAPI];
+    }
+}
+
+- (void)allLoadDataAPI{
     
+    //    [self loadadData];
+    //    [self loadCityData];
+    [self loadTheADData];
+    [self loadSmartHeadlineNewsData];
+    [self loadClassifyPopViewDate];
 }
 
 - (void)setupSubViews{
@@ -285,6 +295,25 @@
             [self showClassifyPopView];
 //            NSIndexSet *indexSet=[[NSIndexSet alloc] initWithIndex:0];
 //            [_collectionView reloadSections:indexSet];
+        }
+    } fail:^(NSError *error) {
+        
+    } showHUD:NO];
+}
+
+#pragma mark -- 加载APIToken数据
+- (void)loadDateAPIToken{
+    
+    //获取与接口约定的Token
+    NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
+    [tempPara setObject:@"admin" forKey:@"username"];
+    [tempPara setObject:@"admin" forKey:@"password"];
+    [TNetworking postWithUrl:accessToken_API params:tempPara success:^(id response) {
+        if ([response[@"success"] boolValue]) {
+            NSString *theAPIToken = response[@"data"][@"token"];
+            [KUserDefault setObject:theAPIToken forKey:APIToken];
+            [KUserDefault synchronize];
+            [self allLoadDataAPI];
         }
     } fail:^(NSError *error) {
         

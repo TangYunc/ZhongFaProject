@@ -242,16 +242,10 @@
 -(void)plusBtnClick
 {
     NSLog(@"plusBtnClick");
-    
-    // 是在首页点击了“+”
-    if (self.btnTag == 0) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-        });
-    }else if (self.btnTag == 1) {   // 是在我的页面点击的“+”
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-        });
+//    RRViewController
+    //如果tabbar的代理实现了对应的代理方法，那么就调用代理的该方法
+    if ([self.delegate respondsToSelector:@selector(tabBarPlusBtnClick:)]) {
+        [self.delegate tabBarPlusBtnClick:self];
     }
     
 }

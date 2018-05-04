@@ -44,7 +44,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     // 初始化导航栏
-    [self setupNavigationBar];
+//    [self setupNavigationBar];
 
     
 }
@@ -52,7 +52,7 @@
 - (UIView *)navBarView {
     if (!_navBarView) {
         _navBarView = [[UIView alloc] init];
-        _navBarView.backgroundColor = [UIColor redColor];
+        _navBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"NavBG"]];
         _navBarView.frame = CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight);
     }
     return _navBarView;
@@ -78,8 +78,8 @@
     if (viewControllers.count > 1){
         
         UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        leftButton.frame = CGRectMake(0, 0, 12, 21);
-        [leftButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        leftButton.frame = CGRectMake(0, SafeAreaTopHeight-65/2.0-6, 94/2.0, 65/2.0);
+        [leftButton setImage:[UIImage imageNamed:@"BackNV"] forState:UIControlStateNormal];
         leftButton.adjustsImageWhenHighlighted = NO;
         [leftButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
@@ -102,14 +102,8 @@
             backButton.frame = CGRectMake(0, 0, 56, 56);
             // 设置标题图片
             
-            [backButton setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
-            [backButton setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateHighlighted];
-            [backButton setTitle:@"返回" forState:UIControlStateNormal];
-            backButton.titleLabel.font = [UIFont systemFontOfSize:15];
-            [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
-            backButton.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-            
+            [backButton setImage:[UIImage imageNamed:@"BackNV"] forState:UIControlStateNormal];
+            [backButton setImage:[UIImage imageNamed:@"BackNV"] forState:UIControlStateHighlighted];
             // 设置事件
             [backButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
             // 创建导航按钮设置到左侧
@@ -127,7 +121,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(42, 20, kScreenWidth - 84, NavigationBar_HEIGHT )];
     titleLabel.text = title;
     titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont systemFontOfSize:18.f];
+    titleLabel.font = [UIFont systemFontOfSize:17.f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.navBarView addSubview:titleLabel];
 }

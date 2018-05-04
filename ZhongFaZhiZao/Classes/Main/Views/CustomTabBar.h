@@ -15,6 +15,7 @@
 -(void)tabBar:(CustomTabBar *)tabBar from:(NSInteger)from to:(NSInteger)to;
 -(void)tabBarPresentViewController:(CustomTabBar *)tabBar;
 -(void)selectTabItem:(NSInteger)index;
+- (void)tabBarPlusBtnClick:(CustomTabBar *)tabBar;
 
 @end
 

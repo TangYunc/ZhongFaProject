@@ -26,6 +26,8 @@
 @property (nonatomic, strong) NSMutableDictionary *choiceResultDic;
 
 @property (nonatomic, strong) NSNumber *choiceCategoryNum;
+@property (nonatomic, strong) NSIndexPath *theIndexPath;
+
 @end
 
 @implementation ClassifyPopView
@@ -39,7 +41,7 @@
         [self addSubview:self.bjView];
         [self addSubview:self.cancelBtn];
         self.choiceCategoryNum = @0;
-        NSArray *roleArr = @[@"生产商",@"代理商",@"贸易商",@"服务商",@"个人",@"专家",@"工程师",@"科研单位/学校"];
+        NSArray *roleArr = @[@"贸易商",@"生产商",@"代理商",@"设计商",@"服务商"];
         NSInteger tempCount = roleArr.count;
         for (NSInteger i = 0; i < tempCount; i ++) {
             ClassifyMenuResult *menuData = [[ClassifyMenuResult alloc] init];
@@ -257,7 +259,7 @@
 {
     //取消选中
     [tableView deselectRowAtIndexPath:indexPath animated:YES];    
-    
+    self.theIndexPath = indexPath;
     for (ClassifyMenuResult *menuResult in self.menuArr) {
         menuResult.isSelected = NO;
     }
@@ -266,7 +268,7 @@
     self.menuTableView.hidden = YES;
     [self.menuTableView reloadData];
     [self.roleBtn setTitle:menuResult.title forState:UIControlStateNormal];
-    [self.choiceResultDic setObject:menuResult.title forKey:@"roleTpye"];
+    [self.choiceResultDic setObject:menuResult.title forKey:@"roleType"];
     self.roleBtn.selected = !self.roleBtn.selected;
 }
 
@@ -285,14 +287,33 @@
     }
     
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSubmitClassify_API,apiToken];
-    
+    NSInteger corp_type = self.theIndexPath.row + 1;
+    if (self.theIndexPath.row == 4) {
+        corp_type = 12;
+    }
     NSString *uuidStr = [self getUUID];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:@(corp_type) forKey:@"corp_type"];
     [params setObject:uuidStr forKey:@"uuid"];
     [params setObject:classifyId forKey:@"interested"];
     [params setObject:@1 forKey:@"access_type"];
     [TNetworking postWithUrl:url params:params success:^(id response) {
-        
+        if ([response[@"message"] isEqualToString:@"Created"]) {
+            
+            NSString *corpTypeStr = response[@"data"][@"corp_type"];
+            NSString *accessTypeStr = response[@"data"][@"access_type"];
+            NSString *createTimeStr = response[@"data"][@"create_time"];
+            NSString *idStr = response[@"data"][@"id"];
+            NSString *interestedStr = response[@"data"][@"interested"];
+            NSString *uuidStr = response[@"data"][@"uuid"];
+            [KUserDefault setObject:corpTypeStr forKey:@"corp_type"];
+            [KUserDefault setObject:accessTypeStr forKey:@"access_type"];
+            [KUserDefault setObject:createTimeStr forKey:@"create_time"];
+            [KUserDefault setObject:idStr forKey:@"id"];
+            [KUserDefault setObject:interestedStr forKey:@"interested"];
+            [KUserDefault setObject:uuidStr forKey:@"uuid"];
+            [KUserDefault synchronize];
+        }
     } fail:^(NSError *error) {
         
     } showHUD:NO];
@@ -302,11 +323,14 @@
 - (void)confirmClick:(UIButton *)button{
     
     NSLog(@"点击确认按钮");
-    [self.choiceResultDic setObject:self.choiceRoleResult forKey:@"roleType"];
-    
-    if (self.choiceResultDic == nil) {
-        button.enabled = NO;
-        [MBProgressHUD showError:@"请选择您的角色或您偏爱的职业!"];
+    [self.choiceResultDic setObject:self.choiceRoleResult forKey:@"categoryType"];
+    NSString *roleTypeStr = [self.choiceResultDic objectForKey:@"roleType"];
+    if (roleTypeStr == nil) {
+        [MBProgressHUD showError:@"请选择您的角色!"];
+        return;
+    }
+    if (self.choiceRoleResult.count == 0) {
+        [MBProgressHUD showError:@"请选择您您偏爱的职业!"];
         return;
     }
     NSString *classifyId = [self.choiceRoleResult componentsJoinedByString:@","];

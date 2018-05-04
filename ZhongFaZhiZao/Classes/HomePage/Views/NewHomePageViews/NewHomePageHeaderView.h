@@ -10,10 +10,10 @@
 typedef NS_ENUM(int,ZF){
     
     ScienceResult = 0+1000,
-    Solve,
-    SamrtShoppingMall,
     SmartInformation,
+    Solve,
     PhysicalMarket,
+    SamrtShoppingMall,
     SupplyChain
 };
 @interface NewHomePageHeaderView : UIView

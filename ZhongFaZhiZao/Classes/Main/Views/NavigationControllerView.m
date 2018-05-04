@@ -7,6 +7,7 @@
 //
 
 #import "NavigationControllerView.h"
+#import "RRViewController.h"
 
 @implementation NavigationControllerView
 {
@@ -127,7 +128,12 @@
     
     if (self.viewController) {
         
-        [self.viewController.navigationController popViewControllerAnimated:YES];
+        if ([self.viewController isMemberOfClass:[RRViewController class]]) {
+            [self.viewController dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            
+            [self.viewController.navigationController popViewControllerAnimated:YES];
+        }
     }
     
 }

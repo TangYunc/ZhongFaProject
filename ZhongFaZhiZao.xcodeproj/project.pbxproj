@@ -58,6 +58,17 @@
 		2DB56806207DF0F800EC28C2 /* NewHomePageClassifyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56805207DF0F800EC28C2 /* NewHomePageClassifyResult.m */; };
 		2DB56809207E155800EC28C2 /* NewHomePageADResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56808207E155800EC28C2 /* NewHomePageADResult.m */; };
 		2DB5680C207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */; };
+		2DB56810207EF7E500EC28C2 /* RRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5680F207EF7E500EC28C2 /* RRViewController.m */; };
+		2DB56813207F2B7200EC28C2 /* RRCustomizedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56812207F2B7200EC28C2 /* RRCustomizedViewController.m */; };
+		2DB56816207F2BA500EC28C2 /* RRRecruitmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56815207F2BA500EC28C2 /* RRRecruitmentViewController.m */; };
+		2DB56819207F2BE700EC28C2 /* RRAgencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56818207F2BE700EC28C2 /* RRAgencyViewController.m */; };
+		2DB5681F207F2D2300EC28C2 /* RRSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5681E207F2D2300EC28C2 /* RRSegmentView.m */; };
+		2DB56822207F3BFA00EC28C2 /* RRCustomizedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56821207F3BFA00EC28C2 /* RRCustomizedScrollView.m */; };
+		2DB56825207F3C1200EC28C2 /* RRRecruitmentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56824207F3C1200EC28C2 /* RRRecruitmentScrollView.m */; };
+		2DB56828207F3C2800EC28C2 /* RRAgencyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56827207F3C2800EC28C2 /* RRAgencyScrollView.m */; };
+		2DB5682B207F3C8300EC28C2 /* RRCustomSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5682A207F3C8300EC28C2 /* RRCustomSubview.m */; };
+		2DB56831207F411B00EC28C2 /* RRPropertyEditSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56830207F411B00EC28C2 /* RRPropertyEditSubview.m */; };
+		2DB56834207F687A00EC28C2 /* RRTextViewEditSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56833207F687A00EC28C2 /* RRTextViewEditSubview.m */; };
 		2DD3E7EC204799BC00199AB6 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EB204799BC00199AB6 /* Constant.m */; };
 		2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EF20479C2B00199AB6 /* RootTabBarController.m */; };
 		2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7F220479C7900199AB6 /* BaseNavigationController.m */; };
@@ -237,6 +248,28 @@
 		2DB56808207E155800EC28C2 /* NewHomePageADResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageADResult.m; sourceTree = "<group>"; };
 		2DB5680A207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageSmartHeadlineNewsResult.h; sourceTree = "<group>"; };
 		2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageSmartHeadlineNewsResult.m; sourceTree = "<group>"; };
+		2DB5680E207EF7E500EC28C2 /* RRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRViewController.h; sourceTree = "<group>"; };
+		2DB5680F207EF7E500EC28C2 /* RRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRViewController.m; sourceTree = "<group>"; };
+		2DB56811207F2B7200EC28C2 /* RRCustomizedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRCustomizedViewController.h; sourceTree = "<group>"; };
+		2DB56812207F2B7200EC28C2 /* RRCustomizedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRCustomizedViewController.m; sourceTree = "<group>"; };
+		2DB56814207F2BA500EC28C2 /* RRRecruitmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRRecruitmentViewController.h; sourceTree = "<group>"; };
+		2DB56815207F2BA500EC28C2 /* RRRecruitmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRRecruitmentViewController.m; sourceTree = "<group>"; };
+		2DB56817207F2BE700EC28C2 /* RRAgencyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRAgencyViewController.h; sourceTree = "<group>"; };
+		2DB56818207F2BE700EC28C2 /* RRAgencyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRAgencyViewController.m; sourceTree = "<group>"; };
+		2DB5681D207F2D2300EC28C2 /* RRSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRSegmentView.h; sourceTree = "<group>"; };
+		2DB5681E207F2D2300EC28C2 /* RRSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRSegmentView.m; sourceTree = "<group>"; };
+		2DB56820207F3BFA00EC28C2 /* RRCustomizedScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRCustomizedScrollView.h; sourceTree = "<group>"; };
+		2DB56821207F3BFA00EC28C2 /* RRCustomizedScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRCustomizedScrollView.m; sourceTree = "<group>"; };
+		2DB56823207F3C1200EC28C2 /* RRRecruitmentScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRRecruitmentScrollView.h; sourceTree = "<group>"; };
+		2DB56824207F3C1200EC28C2 /* RRRecruitmentScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRRecruitmentScrollView.m; sourceTree = "<group>"; };
+		2DB56826207F3C2800EC28C2 /* RRAgencyScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRAgencyScrollView.h; sourceTree = "<group>"; };
+		2DB56827207F3C2800EC28C2 /* RRAgencyScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRAgencyScrollView.m; sourceTree = "<group>"; };
+		2DB56829207F3C8300EC28C2 /* RRCustomSubview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRCustomSubview.h; sourceTree = "<group>"; };
+		2DB5682A207F3C8300EC28C2 /* RRCustomSubview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRCustomSubview.m; sourceTree = "<group>"; };
+		2DB5682F207F411B00EC28C2 /* RRPropertyEditSubview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRPropertyEditSubview.h; sourceTree = "<group>"; };
+		2DB56830207F411B00EC28C2 /* RRPropertyEditSubview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRPropertyEditSubview.m; sourceTree = "<group>"; };
+		2DB56832207F687A00EC28C2 /* RRTextViewEditSubview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRTextViewEditSubview.h; sourceTree = "<group>"; };
+		2DB56833207F687A00EC28C2 /* RRTextViewEditSubview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRTextViewEditSubview.m; sourceTree = "<group>"; };
 		2DC353AB2050D9FE00F498C3 /* JPUSHService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPUSHService.h; path = Pods/JPush/JPUSHService.h; sourceTree = "<group>"; };
 		2DC353AD2050DA2600F498C3 /* libjpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.8.a"; path = "Pods/JPush/libjpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		2DC353AF2050DAB100F498C3 /* ZhongFaZhiZao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhongFaZhiZao.entitlements; sourceTree = "<group>"; };
@@ -539,6 +572,7 @@
 		2D5D578420478B9000F683F4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2DB5680D207EF78E00EC28C2 /* ReleaseRequirements */,
 				2D5D578520478BBA00F683F4 /* Main */,
 				2DD3E8072047A00D00199AB6 /* HomePage */,
 				2DD3E80A2047A0AE00199AB6 /* Counseling */,
@@ -608,6 +642,59 @@
 				2DD3E7EB204799BC00199AB6 /* Constant.m */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		2DB5680D207EF78E00EC28C2 /* ReleaseRequirements */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5681C207F2CBE00EC28C2 /* Models */,
+				2DB5681B207F2CBC00EC28C2 /* Views */,
+				2DB5681A207F2CBA00EC28C2 /* Controllers */,
+			);
+			path = ReleaseRequirements;
+			sourceTree = "<group>";
+		};
+		2DB5681A207F2CBA00EC28C2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5680E207EF7E500EC28C2 /* RRViewController.h */,
+				2DB5680F207EF7E500EC28C2 /* RRViewController.m */,
+				2DB56811207F2B7200EC28C2 /* RRCustomizedViewController.h */,
+				2DB56812207F2B7200EC28C2 /* RRCustomizedViewController.m */,
+				2DB56814207F2BA500EC28C2 /* RRRecruitmentViewController.h */,
+				2DB56815207F2BA500EC28C2 /* RRRecruitmentViewController.m */,
+				2DB56817207F2BE700EC28C2 /* RRAgencyViewController.h */,
+				2DB56818207F2BE700EC28C2 /* RRAgencyViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2DB5681B207F2CBC00EC28C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5681D207F2D2300EC28C2 /* RRSegmentView.h */,
+				2DB5681E207F2D2300EC28C2 /* RRSegmentView.m */,
+				2DB56820207F3BFA00EC28C2 /* RRCustomizedScrollView.h */,
+				2DB56821207F3BFA00EC28C2 /* RRCustomizedScrollView.m */,
+				2DB56823207F3C1200EC28C2 /* RRRecruitmentScrollView.h */,
+				2DB56824207F3C1200EC28C2 /* RRRecruitmentScrollView.m */,
+				2DB56826207F3C2800EC28C2 /* RRAgencyScrollView.h */,
+				2DB56827207F3C2800EC28C2 /* RRAgencyScrollView.m */,
+				2DB56832207F687A00EC28C2 /* RRTextViewEditSubview.h */,
+				2DB56833207F687A00EC28C2 /* RRTextViewEditSubview.m */,
+				2DB56829207F3C8300EC28C2 /* RRCustomSubview.h */,
+				2DB5682A207F3C8300EC28C2 /* RRCustomSubview.m */,
+				2DB5682F207F411B00EC28C2 /* RRPropertyEditSubview.h */,
+				2DB56830207F411B00EC28C2 /* RRPropertyEditSubview.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2DB5681C207F2CBE00EC28C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2DD3E7ED20479BE900199AB6 /* Controllers */ = {
@@ -1092,11 +1179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB56816207F2BA500EC28C2 /* RRRecruitmentViewController.m in Sources */,
 				2DE8DB7B204D1FA1008C70D2 /* MainWebViewController.m in Sources */,
 				2D2755CF20494B2600D7E791 /* CustomButton.m in Sources */,
 				2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */,
 				2D15B24F207B75B5001E45F0 /* HeaderBJView.m in Sources */,
+				2DB56834207F687A00EC28C2 /* RRTextViewEditSubview.m in Sources */,
 				2DD3E87A204934BC00199AB6 /* UMengShareViewController.m in Sources */,
+				2DB5681F207F2D2300EC28C2 /* RRSegmentView.m in Sources */,
 				2DD3E80020479D8A00199AB6 /* UIBarButtonItem+TYC.m in Sources */,
 				2DD3E7F620479C8B00199AB6 /* BaseViewController.m in Sources */,
 				2DD3E877204921D800199AB6 /* MineOrderCustomBtn.m in Sources */,
@@ -1106,6 +1196,8 @@
 				2DE8DB99204D4DED008C70D2 /* SolveCollectionViewCell.m in Sources */,
 				2DD3E83C2047F3E600199AB6 /* NavigationControllerView.m in Sources */,
 				2DD3E84E2048022D00199AB6 /* WKProgressHUD.m in Sources */,
+				2DB56810207EF7E500EC28C2 /* RRViewController.m in Sources */,
+				2DB5682B207F3C8300EC28C2 /* RRCustomSubview.m in Sources */,
 				2DD3E7FA20479D5300199AB6 /* CustomBarButton.m in Sources */,
 				2DD3E8392047E8C300199AB6 /* UIImage+Extension.m in Sources */,
 				2DE8DB87204D4CCB008C70D2 /* HomePageHeaderView.m in Sources */,
@@ -1115,6 +1207,7 @@
 				2DD3E85F2048F7D500199AB6 /* UIButton+TYC.m in Sources */,
 				2D15B23D207A2570001E45F0 /* ScienceResultGoodsCell.m in Sources */,
 				2D456CCB204E40ED002F2FB5 /* ZYJHeadLineView.m in Sources */,
+				2DB56828207F3C2800EC28C2 /* RRAgencyScrollView.m in Sources */,
 				2DD3E85C2048F44A00199AB6 /* NSString+Mobile.m in Sources */,
 				2DD3E80D2047A14400199AB6 /* HomeViewController.m in Sources */,
 				2DE8DB8A204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.m in Sources */,
@@ -1132,6 +1225,8 @@
 				2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */,
 				2DE8DB8D204D4DB6008C70D2 /* SupplyCollectionViewCell.m in Sources */,
 				2DD3E8592048ED2C00199AB6 /* ForgetPwViewController.m in Sources */,
+				2DB56813207F2B7200EC28C2 /* RRCustomizedViewController.m in Sources */,
+				2DB56831207F411B00EC28C2 /* RRPropertyEditSubview.m in Sources */,
 				2D5D575420478AAB00F683F4 /* ViewController.m in Sources */,
 				2DD3E84B2048022D00199AB6 /* MBProgressHUD.m in Sources */,
 				2DD3E853204808AC00199AB6 /* UserInfo.m in Sources */,
@@ -1144,6 +1239,7 @@
 				2DD3E80620479E9700199AB6 /* UIViewExt.m in Sources */,
 				2DD3E86820491B3E00199AB6 /* MineTableView.m in Sources */,
 				2D15B222207A1045001E45F0 /* NewHomePageCustomRecommendView.m in Sources */,
+				2DB56822207F3BFA00EC28C2 /* RRCustomizedScrollView.m in Sources */,
 				2D15B22B207A1B4C001E45F0 /* SolveCell.m in Sources */,
 				2DD3E8102047A16600199AB6 /* CounselingViewController.m in Sources */,
 				2D15B252207C659F001E45F0 /* SolveView.m in Sources */,
@@ -1166,6 +1262,7 @@
 				2D5D575120478AAB00F683F4 /* AppDelegate.m in Sources */,
 				2D2755C6204945AD00D7E791 /* MessageCenterViewController.m in Sources */,
 				2D456CCE204E5761002F2FB5 /* KnowLedgeViewController.m in Sources */,
+				2DB56825207F3C1200EC28C2 /* RRRecruitmentScrollView.m in Sources */,
 				2D15B243207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m in Sources */,
 				2D15B240207A2582001E45F0 /* ScienceResultFunctionCell.m in Sources */,
 				2DD3E81F2047D2BA00199AB6 /* MineHeaderView.m in Sources */,
@@ -1176,6 +1273,7 @@
 				2DD3E8292047E34700199AB6 /* MessageLoginViewController.m in Sources */,
 				2D2755CC2049470400D7E791 /* IMDetailViewController.m in Sources */,
 				2D2755C9204945FA00D7E791 /* MessageCenterCell.m in Sources */,
+				2DB56819207F2BE700EC28C2 /* RRAgencyViewController.m in Sources */,
 				2D15B249207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m in Sources */,
 				2DD3E7FD20479D6700199AB6 /* CustomTabBar.m in Sources */,
 				2D456CD1204E5809002F2FB5 /* FinanceViewController.m in Sources */,

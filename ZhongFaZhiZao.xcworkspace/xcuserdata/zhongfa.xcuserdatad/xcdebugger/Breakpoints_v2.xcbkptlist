@@ -35,221 +35,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-            timestampString = "545138498.0847909"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
-            landmarkName = "-loadClassifyPopViewDate:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[ClassifyPopView loadClassifyPopViewDate:]_block_invoke"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/ZhongFaZhiZao/ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-                  timestampString = "545138498.318682"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "296"
-                  endingLineNumber = "296"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[ClassifyPopView loadClassifyPopViewDate:]_block_invoke_2"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/ZhongFaZhiZao/ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-                  timestampString = "545138498.321927"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "298"
-                  endingLineNumber = "298"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-            timestampString = "545138498.085278"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "-loadClassifyPopViewDate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-            timestampString = "545138498.085389"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "-confirmClick:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-            timestampString = "545138498.085454"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "-loadClassifyPopViewDate:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ClassifyPopView loadClassifyPopViewDate:]"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/ZhongFaZhiZao/ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-                  timestampString = "545138498.34641"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "294"
-                  endingLineNumber = "294"
-                  offsetFromSymbolStart = "481">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[ClassifyPopView loadClassifyPopViewDate:]_block_invoke"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/ZhongFaZhiZao/ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/ClassifyPopView.m"
-                  timestampString = "545138498.351208"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "296"
-                  endingLineNumber = "296"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-            timestampString = "545138498.085517"
+            timestampString = "545224802.906229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-loadadData"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomeViewController loadadData]"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/ZhongFaZhiZao/ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-                  timestampString = "545138498.3620239"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__32-[HomeViewController loadadData]_block_invoke"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/ZhongFaZhiZao/ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-                  timestampString = "545138498.365922"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-            timestampString = "545138498.085856"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-loadadData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-            timestampString = "545138498.085934"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-loadadData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-            timestampString = "545138498.086005"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "-loadSmartHeadlineNewsData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZhongFaZhiZao/Classes/Main/Controllers/BaseViewController.m"
+            timestampString = "545224802.907519"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-backAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

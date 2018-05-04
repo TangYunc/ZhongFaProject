@@ -65,8 +65,8 @@
     self.mainBtnView.layer.borderColor = UIColorFromRGBA(206, 243, 253, 1.0).CGColor;
     self.mainBtnView.layer.shadowOffset = CGSizeMake(1, 5);
     [self addSubview:self.mainBtnView];
-    NSArray *mainBtnImageArr = @[@"NewHomePageScienceResultIcon",@"NewHomePageSolutionIcon",@"NewHomePageSmartShoppinMallIcon",@"NewHomePageSmartInformationIcon",@"NewHomePagePhysicalMarketIcon",@"NewHomePageSupplyChainIcon"];
-    NSArray *mainBtnArr = @[@"科技成果",@"解决方案",@"智造商城",@"智造资讯",@"实体市场",@"供应链"];
+    NSArray *mainBtnImageArr = @[@"NewHomePageScienceResultIcon",@"NewHomePageSmartInformationIcon",@"NewHomePageSolutionIcon",@"NewHomePagePhysicalMarketIcon",@"NewHomePageSmartShoppinMallIcon",@"NewHomePageSupplyChainIcon"];
+    NSArray *mainBtnArr = @[@"科技成果",@"智造资讯",@"解决方案",@"实体市场",@"智造商城",@"供应链"];
     
     int flag = 0;
     CGFloat mainBtnGapWidthFromTop = 34/2.0 * KWidth_ScaleH;
