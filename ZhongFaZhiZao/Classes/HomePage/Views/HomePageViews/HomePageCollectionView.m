@@ -550,9 +550,9 @@
         return CGSizeMake(kScreenWidth, 180*KWidth_ScaleH+8+40+164+80*KWidth_ScaleH+8);
     }else if (section == 6){
         
-        return CGSizeMake(kScreenWidth, 80*KWidth_ScaleH+53);
+        return CGSizeMake(kScreenWidth, 80/2.0 * KWidth_ScaleH + 53);
     }
-    return CGSizeMake(kScreenWidth, 80*KWidth_ScaleH);
+    return CGSizeMake(kScreenWidth, 80/2.0 * KWidth_ScaleH);
 }
 
 //设置页尾高度

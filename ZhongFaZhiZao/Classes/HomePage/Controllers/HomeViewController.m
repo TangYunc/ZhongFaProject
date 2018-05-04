@@ -7,7 +7,8 @@
 //
 
 #import "HomeViewController.h"
-#import "HomePageCollectionView.h"
+//#import "HomePageCollectionView.h"
+#import "NewHomePageCollectionView.h"
 #import "ZYJHeadLineModel.h"
 #import "HomePageHeaderModel.h"
 #import "WXPayViewController.h"
@@ -15,7 +16,8 @@
 
 @interface HomeViewController ()
 
-@property (nonatomic,strong) HomePageCollectionView *collectionView;
+//@property (nonatomic,strong) HomePageCollectionView *collectionView;
+@property (nonatomic,strong) NewHomePageCollectionView *collectionView;
 @property (nonatomic,copy) NSArray *adid41Arr;  //广告位41
 @property (nonatomic,copy) NSArray *adid44Arr;  //广告位44
 @property (nonatomic,strong) NSMutableArray *cityArray;
@@ -53,14 +55,15 @@
     self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
     [self setNavigationBarTitle:@"首页"];
     [self loadadData];
-    [self loadCityData];
+//    [self loadCityData];
     // 初始化子视图
     [self setupSubViews];
     [self setUpNavgationView];
 }
 
 - (void)setupSubViews{
-    _collectionView = [[HomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
+//    _collectionView = [[HomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
+    _collectionView = [[NewHomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
     [self.view addSubview:_collectionView];
 }
 
@@ -82,17 +85,9 @@
     
     
     [self.view addSubview:self.navigationView];
-    UIButton *QRcode = [UIButton buttonWithType:UIButtonTypeCustom];
-    QRcode.frame = CGRectMake(14,(SafeAreaTopHeight - 40)+(59/2.0-57/2.0)/2.0, 59/2.0, 57/2.0);
-    QRcode.backgroundColor = [UIColor clearColor];
-    [QRcode setBackgroundImage:[UIImage imageNamed:@"HomePageScanQRcodeIcon"] forState:UIControlStateNormal];
-    QRcode.imageView.frame = QRcode.bounds;
-    QRcode.hidden = NO;
-    [QRcode addTarget:self action:@selector(scanning) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationView addSubview:QRcode];
     
     self.pushSerchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.pushSerchBtn.frame = CGRectMake(59*KWidth_ScaleW,(SafeAreaTopHeight - 40), 539/2.0*KWidth_ScaleW, 59/2.0);
+    self.pushSerchBtn.frame = CGRectMake(35/2.0*KWidth_ScaleW,(SafeAreaTopHeight - 40)+(59/2.0-57/2.0)/2.0, 630/2.0*KWidth_ScaleW, 59/2.0);
     self.pushSerchBtn.backgroundColor = [UIColor clearColor];
     [self.pushSerchBtn setBackgroundImage:[UIImage imageNamed:@"HomePageSearchIcon"] forState:UIControlStateNormal];
     
@@ -103,7 +98,15 @@
     
     [self.navigationView addSubview:self.pushSerchBtn];
     
-    
+    UIButton *QRcode = [UIButton buttonWithType:UIButtonTypeCustom];
+    QRcode.frame = CGRectMake(kScreenWidth-20*KWidth_ScaleW-29/2.0*KWidth_ScaleW, (SafeAreaTopHeight - 40)+(59/2.0-24)/2.0, 59/2.0, 57/2.0);
+    QRcode.backgroundColor = [UIColor clearColor];
+    [QRcode setBackgroundImage:[UIImage imageNamed:@"HomePageScanQRcodeIcon"] forState:UIControlStateNormal];
+    QRcode.imageView.frame = QRcode.bounds;
+    QRcode.hidden = NO;
+    [QRcode addTarget:self action:@selector(scanning) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationView addSubview:QRcode];
+    /*
     UIButton *pushBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     pushBtn.frame = CGRectMake(kScreenWidth-20*KWidth_ScaleW-14*KWidth_ScaleW, (SafeAreaTopHeight - 40)+(59/2.0-24)/2.0, 20*KWidth_ScaleW, 27);
     pushBtn.backgroundColor = [UIColor clearColor];
@@ -112,7 +115,7 @@
     pushBtn.hidden = NO;
     [pushBtn addTarget:self action:@selector(jPushButton) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.navigationView addSubview:pushBtn];
+    [self.navigationView addSubview:pushBtn];*/
 }
 
 #pragma mark-获取数据

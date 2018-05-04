@@ -26,7 +26,7 @@
     [btn setBackgroundColor:[UIColor yellowColor]];
     [btn setTitleColor:[UIColor brownColor] forState:UIControlStateNormal];
     [btn setTitle:@"wxPay" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(wxPay:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(wxPay1:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 }
 - (void)viewDidDisappear:(BOOL)animated{
@@ -35,6 +35,14 @@
     _webView.delegate = nil;
     [_webView removeFromSuperview];
     
+}
+- (void)wxPay1:(UIButton *)btn{
+    NSDictionary *parameters = @{@"username":@"18210031277",@"password":@"666666"};
+    [TNetworking postWithUrl:@"http://api.nzfa.com/users/login" params:parameters success:^(id response) {
+        NSLog(@"response:%@",response);
+    } fail:^(NSError *error) {
+        
+    } showHUD:NO];
 }
 - (void)wxPay:(UIButton *)btn{
     

@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2D12B40E205A17F700FA0F0C /* ArchiverAndUnArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D12B40D205A17F700FA0F0C /* ArchiverAndUnArchiver.m */; };
+		2D15B2192079BDE3001E45F0 /* CustomReleaseRequirementsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B2182079BDE3001E45F0 /* CustomReleaseRequirementsButton.m */; };
+		2D15B21C2079DB5F001E45F0 /* NewHomePageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B21B2079DB5F001E45F0 /* NewHomePageHeaderView.m */; };
+		2D15B21F2079DB7F001E45F0 /* NewHomePageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B21E2079DB7F001E45F0 /* NewHomePageCollectionView.m */; };
+		2D15B222207A1045001E45F0 /* NewHomePageCustomRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B221207A1045001E45F0 /* NewHomePageCustomRecommendView.m */; };
+		2D15B22B207A1B4C001E45F0 /* SolveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B22A207A1B4C001E45F0 /* SolveCell.m */; };
+		2D15B231207A1C35001E45F0 /* NewHomePageHeaderResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B230207A1C35001E45F0 /* NewHomePageHeaderResult.m */; };
+		2D15B234207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B233207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m */; };
+		2D15B237207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B236207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m */; };
+		2D15B23A207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B239207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m */; };
+		2D15B23D207A2570001E45F0 /* ScienceResultGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B23C207A2570001E45F0 /* ScienceResultGoodsCell.m */; };
+		2D15B240207A2582001E45F0 /* ScienceResultFunctionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B23F207A2582001E45F0 /* ScienceResultFunctionCell.m */; };
+		2D15B243207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B242207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m */; };
+		2D15B246207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B245207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m */; };
+		2D15B249207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B248207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m */; };
+		2D15B24C207B67EE001E45F0 /* ScienceResultFuctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B24B207B67EE001E45F0 /* ScienceResultFuctionView.m */; };
+		2D15B24F207B75B5001E45F0 /* HeaderBJView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B24E207B75B5001E45F0 /* HeaderBJView.m */; };
 		2D2755C6204945AD00D7E791 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2755C5204945AD00D7E791 /* MessageCenterViewController.m */; };
 		2D2755C9204945FA00D7E791 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2755C8204945FA00D7E791 /* MessageCenterCell.m */; };
 		2D2755CC2049470400D7E791 /* IMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2755CB2049470400D7E791 /* IMDetailViewController.m */; };
@@ -109,6 +125,38 @@
 /* Begin PBXFileReference section */
 		2D12B40C205A17F700FA0F0C /* ArchiverAndUnArchiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchiverAndUnArchiver.h; sourceTree = "<group>"; };
 		2D12B40D205A17F700FA0F0C /* ArchiverAndUnArchiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArchiverAndUnArchiver.m; sourceTree = "<group>"; };
+		2D15B2172079BDE3001E45F0 /* CustomReleaseRequirementsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomReleaseRequirementsButton.h; sourceTree = "<group>"; };
+		2D15B2182079BDE3001E45F0 /* CustomReleaseRequirementsButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomReleaseRequirementsButton.m; sourceTree = "<group>"; };
+		2D15B21A2079DB5F001E45F0 /* NewHomePageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageHeaderView.h; sourceTree = "<group>"; };
+		2D15B21B2079DB5F001E45F0 /* NewHomePageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageHeaderView.m; sourceTree = "<group>"; };
+		2D15B21D2079DB7F001E45F0 /* NewHomePageCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageCollectionView.h; sourceTree = "<group>"; };
+		2D15B21E2079DB7F001E45F0 /* NewHomePageCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageCollectionView.m; sourceTree = "<group>"; };
+		2D15B220207A1045001E45F0 /* NewHomePageCustomRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageCustomRecommendView.h; sourceTree = "<group>"; };
+		2D15B221207A1045001E45F0 /* NewHomePageCustomRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageCustomRecommendView.m; sourceTree = "<group>"; };
+		2D15B229207A1B4C001E45F0 /* SolveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolveCell.h; sourceTree = "<group>"; };
+		2D15B22A207A1B4C001E45F0 /* SolveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolveCell.m; sourceTree = "<group>"; };
+		2D15B22F207A1C35001E45F0 /* NewHomePageHeaderResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageHeaderResult.h; sourceTree = "<group>"; };
+		2D15B230207A1C35001E45F0 /* NewHomePageHeaderResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageHeaderResult.m; sourceTree = "<group>"; };
+		2D15B232207A24BB001E45F0 /* SamrtShoppingMallFirstCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamrtShoppingMallFirstCell.h; sourceTree = "<group>"; };
+		2D15B233207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallFirstCell.m; sourceTree = "<group>"; };
+		2D15B235207A24CA001E45F0 /* SamrtShoppingMallSecondCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamrtShoppingMallSecondCell.h; sourceTree = "<group>"; };
+		2D15B236207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallSecondCell.m; sourceTree = "<group>"; };
+		2D15B238207A24D7001E45F0 /* SamrtShoppingMallThirdCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamrtShoppingMallThirdCell.h; sourceTree = "<group>"; };
+		2D15B239207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallThirdCell.m; sourceTree = "<group>"; };
+		2D15B23B207A2570001E45F0 /* ScienceResultGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScienceResultGoodsCell.h; sourceTree = "<group>"; };
+		2D15B23C207A2570001E45F0 /* ScienceResultGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScienceResultGoodsCell.m; sourceTree = "<group>"; };
+		2D15B23E207A2582001E45F0 /* ScienceResultFunctionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScienceResultFunctionCell.h; sourceTree = "<group>"; };
+		2D15B23F207A2582001E45F0 /* ScienceResultFunctionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScienceResultFunctionCell.m; sourceTree = "<group>"; };
+		2D15B241207B1060001E45F0 /* NewHomePageCustomRecommendGapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageCustomRecommendGapView.h; sourceTree = "<group>"; };
+		2D15B242207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageCustomRecommendGapView.m; sourceTree = "<group>"; };
+		2D15B244207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageCollectionSectionHeaderView.h; sourceTree = "<group>"; };
+		2D15B245207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageCollectionSectionHeaderView.m; sourceTree = "<group>"; };
+		2D15B247207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScienceResultCustomFounctionBtn.h; sourceTree = "<group>"; };
+		2D15B248207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScienceResultCustomFounctionBtn.m; sourceTree = "<group>"; };
+		2D15B24A207B67EE001E45F0 /* ScienceResultFuctionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScienceResultFuctionView.h; sourceTree = "<group>"; };
+		2D15B24B207B67EE001E45F0 /* ScienceResultFuctionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScienceResultFuctionView.m; sourceTree = "<group>"; };
+		2D15B24D207B75B5001E45F0 /* HeaderBJView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderBJView.h; sourceTree = "<group>"; };
+		2D15B24E207B75B5001E45F0 /* HeaderBJView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderBJView.m; sourceTree = "<group>"; };
 		2D2755C4204945AD00D7E791 /* MessageCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenterViewController.h; sourceTree = "<group>"; };
 		2D2755C5204945AD00D7E791 /* MessageCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
 		2D2755C7204945FA00D7E791 /* MessageCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenterCell.h; sourceTree = "<group>"; };
@@ -314,6 +362,34 @@
 		2D25572A2079B18200A2A60C /* NewHomePageViews */ = {
 			isa = PBXGroup;
 			children = (
+				2D15B21A2079DB5F001E45F0 /* NewHomePageHeaderView.h */,
+				2D15B21B2079DB5F001E45F0 /* NewHomePageHeaderView.m */,
+				2D15B24D207B75B5001E45F0 /* HeaderBJView.h */,
+				2D15B24E207B75B5001E45F0 /* HeaderBJView.m */,
+				2D15B241207B1060001E45F0 /* NewHomePageCustomRecommendGapView.h */,
+				2D15B242207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m */,
+				2D15B220207A1045001E45F0 /* NewHomePageCustomRecommendView.h */,
+				2D15B221207A1045001E45F0 /* NewHomePageCustomRecommendView.m */,
+				2D15B21D2079DB7F001E45F0 /* NewHomePageCollectionView.h */,
+				2D15B21E2079DB7F001E45F0 /* NewHomePageCollectionView.m */,
+				2D15B244207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.h */,
+				2D15B245207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m */,
+				2D15B232207A24BB001E45F0 /* SamrtShoppingMallFirstCell.h */,
+				2D15B233207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m */,
+				2D15B235207A24CA001E45F0 /* SamrtShoppingMallSecondCell.h */,
+				2D15B236207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m */,
+				2D15B238207A24D7001E45F0 /* SamrtShoppingMallThirdCell.h */,
+				2D15B239207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m */,
+				2D15B23B207A2570001E45F0 /* ScienceResultGoodsCell.h */,
+				2D15B23C207A2570001E45F0 /* ScienceResultGoodsCell.m */,
+				2D15B23E207A2582001E45F0 /* ScienceResultFunctionCell.h */,
+				2D15B23F207A2582001E45F0 /* ScienceResultFunctionCell.m */,
+				2D15B24A207B67EE001E45F0 /* ScienceResultFuctionView.h */,
+				2D15B24B207B67EE001E45F0 /* ScienceResultFuctionView.m */,
+				2D15B247207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.h */,
+				2D15B248207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m */,
+				2D15B229207A1B4C001E45F0 /* SolveCell.h */,
+				2D15B22A207A1B4C001E45F0 /* SolveCell.m */,
 			);
 			path = NewHomePageViews;
 			sourceTree = "<group>";
@@ -515,6 +591,8 @@
 				2DD3E83B2047F3E600199AB6 /* NavigationControllerView.m */,
 				2DD3E7F820479D5300199AB6 /* CustomBarButton.h */,
 				2DD3E7F920479D5300199AB6 /* CustomBarButton.m */,
+				2D15B2172079BDE3001E45F0 /* CustomReleaseRequirementsButton.h */,
+				2D15B2182079BDE3001E45F0 /* CustomReleaseRequirementsButton.m */,
 				2DD3E7FB20479D6700199AB6 /* CustomTabBar.h */,
 				2DD3E7FC20479D6700199AB6 /* CustomTabBar.m */,
 			);
@@ -731,6 +809,8 @@
 				2D456CE0204E89F4002F2FB5 /* HomePageHeaderModel.m */,
 				2D12B40C205A17F700FA0F0C /* ArchiverAndUnArchiver.h */,
 				2D12B40D205A17F700FA0F0C /* ArchiverAndUnArchiver.m */,
+				2D15B22F207A1C35001E45F0 /* NewHomePageHeaderResult.h */,
+				2D15B230207A1C35001E45F0 /* NewHomePageHeaderResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -970,6 +1050,7 @@
 				2DE8DB7B204D1FA1008C70D2 /* MainWebViewController.m in Sources */,
 				2D2755CF20494B2600D7E791 /* CustomButton.m in Sources */,
 				2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */,
+				2D15B24F207B75B5001E45F0 /* HeaderBJView.m in Sources */,
 				2DD3E87A204934BC00199AB6 /* UMengShareViewController.m in Sources */,
 				2DD3E80020479D8A00199AB6 /* UIBarButtonItem+TYC.m in Sources */,
 				2DD3E7F620479C8B00199AB6 /* BaseViewController.m in Sources */,
@@ -987,17 +1068,21 @@
 				2DE8DB9F204D4E02008C70D2 /* FinanceCollectionViewCell.m in Sources */,
 				2D456CE7204FCDBC002F2FB5 /* MineLastSectionCell.m in Sources */,
 				2DD3E85F2048F7D500199AB6 /* UIButton+TYC.m in Sources */,
+				2D15B23D207A2570001E45F0 /* ScienceResultGoodsCell.m in Sources */,
 				2D456CCB204E40ED002F2FB5 /* ZYJHeadLineView.m in Sources */,
 				2DD3E85C2048F44A00199AB6 /* NSString+Mobile.m in Sources */,
 				2DD3E80D2047A14400199AB6 /* HomeViewController.m in Sources */,
 				2DE8DB8A204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.m in Sources */,
+				2D15B24C207B67EE001E45F0 /* ScienceResultFuctionView.m in Sources */,
 				2D456CD4204E5D1E002F2FB5 /* FinanceDetailTwoViewController.m in Sources */,
 				2DD3E87120491DE900199AB6 /* MineSecondSectionCell.m in Sources */,
 				2DD3E7EC204799BC00199AB6 /* Constant.m in Sources */,
 				2D5D579020478D0A00F683F4 /* UIView+TYCViewController.m in Sources */,
 				2D456CDA204E5D8C002F2FB5 /* CommitKnowledgeViewController.m in Sources */,
+				2D15B23A207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m in Sources */,
 				2DE8DB96204D4DDD008C70D2 /* IntelligenceCollectionViewCell.m in Sources */,
 				2D456CE4204FC118002F2FB5 /* MinePersonalInfoModel.m in Sources */,
+				2D15B231207A1C35001E45F0 /* NewHomePageHeaderResult.m in Sources */,
 				2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */,
 				2DE8DB8D204D4DB6008C70D2 /* SupplyCollectionViewCell.m in Sources */,
 				2DD3E8592048ED2C00199AB6 /* ForgetPwViewController.m in Sources */,
@@ -1005,15 +1090,20 @@
 				2DD3E84B2048022D00199AB6 /* MBProgressHUD.m in Sources */,
 				2DD3E853204808AC00199AB6 /* UserInfo.m in Sources */,
 				2DD3E874204920F300199AB6 /* MineFirstSectionCell.m in Sources */,
+				2D15B21C2079DB5F001E45F0 /* NewHomePageHeaderView.m in Sources */,
 				2DD3E8502048022D00199AB6 /* WKWaitingProgressHUD.m in Sources */,
 				2DD3E84F2048022D00199AB6 /* WKMessageProgressHUD.m in Sources */,
+				2D15B2192079BDE3001E45F0 /* CustomReleaseRequirementsButton.m in Sources */,
 				2DD3E80620479E9700199AB6 /* UIViewExt.m in Sources */,
 				2DD3E86820491B3E00199AB6 /* MineTableView.m in Sources */,
+				2D15B222207A1045001E45F0 /* NewHomePageCustomRecommendView.m in Sources */,
+				2D15B22B207A1B4C001E45F0 /* SolveCell.m in Sources */,
 				2DD3E8102047A16600199AB6 /* CounselingViewController.m in Sources */,
 				2DD3E8322047E66D00199AB6 /* AccountAndPWLognScrollView.m in Sources */,
 				2D456CD7204E5D2F002F2FB5 /* FinanceDetailOneViewController.m in Sources */,
 				2DE8DBA5204E3169008C70D2 /* HomePageImgRunLoopView.m in Sources */,
 				2DD3E8562048ED1B00199AB6 /* RegisterViewController.m in Sources */,
+				2D15B21F2079DB7F001E45F0 /* NewHomePageCollectionView.m in Sources */,
 				2D12B40E205A17F700FA0F0C /* ArchiverAndUnArchiver.m in Sources */,
 				2DD3E8162047A1AE00199AB6 /* MineViewController.m in Sources */,
 				2DD3E8192047A94A00199AB6 /* UIColor+Hex.m in Sources */,
@@ -1026,6 +1116,8 @@
 				2D5D575120478AAB00F683F4 /* AppDelegate.m in Sources */,
 				2D2755C6204945AD00D7E791 /* MessageCenterViewController.m in Sources */,
 				2D456CCE204E5761002F2FB5 /* KnowLedgeViewController.m in Sources */,
+				2D15B243207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m in Sources */,
+				2D15B240207A2582001E45F0 /* ScienceResultFunctionCell.m in Sources */,
 				2DD3E81F2047D2BA00199AB6 /* MineHeaderView.m in Sources */,
 				2DE8DB84204D48A4008C70D2 /* HomePageCollectionView.m in Sources */,
 				2DE8DB93204D4DD2008C70D2 /* ScienceCollectionViewCell.m in Sources */,
@@ -1033,12 +1125,16 @@
 				2DD3E8292047E34700199AB6 /* MessageLoginViewController.m in Sources */,
 				2D2755CC2049470400D7E791 /* IMDetailViewController.m in Sources */,
 				2D2755C9204945FA00D7E791 /* MessageCenterCell.m in Sources */,
+				2D15B249207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m in Sources */,
 				2DD3E7FD20479D6700199AB6 /* CustomTabBar.m in Sources */,
 				2D456CD1204E5809002F2FB5 /* FinanceViewController.m in Sources */,
+				2D15B237207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m in Sources */,
 				2D456CE1204E89F4002F2FB5 /* HomePageHeaderModel.m in Sources */,
 				2DE8DB7E204D2482008C70D2 /* LaunchIntroductionView.m in Sources */,
 				2D456CCA204E40ED002F2FB5 /* ZYJHeadLineModel.m in Sources */,
+				2D15B246207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m in Sources */,
 				2DD3E87D204940D100199AB6 /* ZhongFaDataBase.m in Sources */,
+				2D15B234207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m in Sources */,
 				2DD3E82C2047E36900199AB6 /* AccountAndPWLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

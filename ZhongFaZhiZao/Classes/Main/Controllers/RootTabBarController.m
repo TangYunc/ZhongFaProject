@@ -12,7 +12,8 @@
 #import "CustomTabBar.h"
 
 #import "HomeViewController.h"
-#import "CounselingViewController.h"
+//#import "CounselingViewController.h"
+#import "MessageCenterViewController.h"
 #import "PurchaseViewController.h"
 #import "MineViewController.h"
 
@@ -72,13 +73,15 @@
         homeVC.view.backgroundColor = [UIColor whiteColor];
         [self addOneChildViewController:homeVC title:@"首页" norImage:@"HomeNormal" selectedImage:@"HomeSelected"];
         //02 咨询
-        CounselingViewController *counselingVC = [[CounselingViewController alloc] init];
-        counselingVC.view.backgroundColor = [UIColor whiteColor];
-        [self addOneChildViewController:counselingVC title:@"咨询" norImage:@"CounselingNormal" selectedImage:@"CounselingSelected"];
+        MessageCenterViewController *messageVC = [[MessageCenterViewController alloc] init];
+        messageVC.view.backgroundColor = [UIColor whiteColor];
+//        CounselingViewController *counselingVC = [[CounselingViewController alloc] init];
+//        counselingVC.view.backgroundColor = [UIColor whiteColor];
+        [self addOneChildViewController:messageVC title:@"消息" norImage:@"CounselingNormal" selectedImage:@"CounselingSelected"];
         //03 采购料单
         PurchaseViewController *purchaseVC = [[PurchaseViewController alloc] init];
         purchaseVC.view.backgroundColor = [UIColor whiteColor];
-        [self addOneChildViewController:purchaseVC title:@"采购料单" norImage:@"PurchaseNormal" selectedImage:@"PurchaseSelected"];
+        [self addOneChildViewController:purchaseVC title:@"购物车" norImage:@"PurchaseNormal" selectedImage:@"PurchaseSelected"];
         //02 我的
         MineViewController *mineVC = [[MineViewController alloc] init];
         mineVC.view.backgroundColor = [UIColor whiteColor];

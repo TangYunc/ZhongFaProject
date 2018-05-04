@@ -13,6 +13,7 @@
 
 // 发布需求按钮
 @property (nonatomic, weak) UIButton *plusBtn;
+@property (nonatomic, weak) UILabel *plusLabel;
 @property (nonatomic, strong) NSMutableArray *tabBarButtons;
 @property (nonatomic, weak) CustomBarButton *currentSelectedBtn;
 @property (nonatomic, assign) NSInteger btnTag;         // 点击的是tabbar的哪一个按钮
@@ -28,7 +29,7 @@
         // 1.设置背景
         [self setupBg];
         // 2.添加发布需求按钮
-//        [self setupPlusBtn];
+        [self setupPlusBtn];
     }
     return self;
 }
@@ -57,6 +58,17 @@
     // 4.添加
     [self addSubview:plusBtn];
     self.plusBtn = plusBtn;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.textColor = UIColorFromRGBA(146, 146, 146, 1.0);
+    label.font = [UIFont systemFontOfSize:10.0];
+    label.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:label];
+    label.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(plusBtnClick)];
+    [label addGestureRecognizer:tap];
+    self.plusLabel = label;
+    
 }
 
 -(void)layoutSubviews
@@ -66,7 +78,7 @@
     // 1.设置选项卡的frame
     [self setupTabBarBtnFrame];
     // 2.设置发布需求按钮的frame
-//    [self setupPlusBtnFrame];
+    [self setupPlusBtnFrame];
 }
 
 /** 设置发布需求按钮的frame */
@@ -95,14 +107,19 @@
     
     // 1.2设置加号按钮的位置
     self.plusBtn.centerX = self.width * 0.5;
-    self.plusBtn.centerY = self.height * 0.35;
+    self.plusBtn.centerY = self.height * 0.2;
+    
+    self.plusLabel.frame = CGRectMake(0, self.plusBtn.bottom + 2, currentSize.width, 10);
+    self.plusLabel.centerX = self.plusBtn.centerX;
+    self.plusLabel.text = @"发布需求";
+    
     
 }
 -(void)setupTabBarBtnFrame
 {
     NSUInteger count = self.tabBarButtons.count;
-//    CGFloat btnWidth = self.width / (count + 1);
-    CGFloat btnWidth = self.width / count;
+    CGFloat btnWidth = self.width / (count + 1);
+//    CGFloat btnWidth = self.width / count;
     CGFloat btnHeight = self.height;
     for (int i = 0; i < count; i ++) {
         // 1.取出对应的按钮
@@ -112,9 +129,9 @@
         CGFloat btnH = btnHeight;
         CGFloat btnY = 0;
         CGFloat btnX = i * btnW;
-//        if (i >= count / 2) {
-//                btnX = (i + 1) * btnW;
-//            }
+        if (i >= count / 2) {
+                btnX = (i + 1) * btnW;
+            }
         
         // 3.设置frame
         btn.frame = CGRectMake(btnX, btnY, btnW, btnH);

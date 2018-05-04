@@ -8,6 +8,10 @@
 
 #import "ZYJHeadLineView.h"
 
+#define HotBtnWidth 43/2.0 * KWidth_ScaleW
+#define HotBtnHeight 22/2.0 * KWidth_ScaleH
+#define HotBtnGapWithOther 14/2.0 * KWidth_ScaleH
+
 @interface ZYJHeadLineView(){
     NSTimer *_timer;     //定时器
     int count;
@@ -34,6 +38,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self createUI];
+        
     }
     return self;
 }
@@ -160,55 +165,46 @@
     
     //此处是类型按钮(不需要点击)
     self.currentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    self.currentView.frame.size.height-30
-    self.currentBtn.frame = CGRectMake(10, (self.currentView.frame.size.height-12)/2.0, 30, 12);
-    self.currentBtn.titleLabel.font = [UIFont systemFontOfSize:8.0];
+    self.currentBtn.frame = CGRectMake(10, 3, HotBtnWidth, HotBtnHeight);
     self.currentBtn.layer.masksToBounds = YES;
-    self.currentBtn.layer.cornerRadius = 1.5;
+    self.currentBtn.layer.cornerRadius = 2.5;
 //    self.currentBtn.layer.borderWidth = 1;
-    [self.currentBtn setBackgroundColor:[UIColor colorWithHexString:@"#f3a536"]];
 //    self.currentBtn.layer.borderColor = [UIColor redColor].CGColor;
+    [self.currentBtn setBackgroundColor:[UIColor colorWithHexString:@"#FF6600"]];
     [self.currentBtn setTitle:model.type forState:UIControlStateNormal];
     [self.currentBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.currentBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.currentBtn.titleLabel.font = [UIFont systemFontOfSize:8.f];
     [self.currentView addSubview:self.currentBtn];
     
     //内容标题
-//    self.currentLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.currentBtn.frame.origin.x+self.currentBtn.frame.size.width+10, 3, self.currentView.frame.size.width-(self.currentBtn.frame.origin.x+self.currentBtn.frame.size.width+10+10), self.currentView.frame.size.height-30)];
-//    self.currentLabel.text = model.title;
-//    self.currentLabel.textAlignment = NSTextAlignmentLeft;
-//    self.currentLabel.textColor = [UIColor blackColor];
-//    self.currentLabel.font = [UIFont systemFontOfSize:12];
-//    [self.currentView addSubview:self.currentLabel];
-    
-    
-    self.currentLabel = [[UILabel alloc]initWithFrame:CGRectMake(5+CGRectGetMaxX(self.currentBtn.frame), (40-15)/2.0, kScreenWidth-8-(5+CGRectGetMaxX(self.currentBtn.frame)), 15)];
+    self.currentLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.currentBtn.frame.origin.x+self.currentBtn.frame.size.width+10, self.currentBtn.top, self.currentView.frame.size.width-(self.currentBtn.frame.origin.x+self.currentBtn.frame.size.width+10+10), HotBtnHeight)];
     self.currentLabel.text = model.title;
-    self.currentLabel.numberOfLines = 1;
     self.currentLabel.textAlignment = NSTextAlignmentLeft;
-    self.currentLabel.textColor = [UIColor blackColor];
-    self.currentLabel.font = [UIFont systemFontOfSize:12];
+    self.currentLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    self.currentLabel.font = [UIFont systemFontOfSize:12.f];
     [self.currentView addSubview:self.currentLabel];
     
-//    //此处是类型按钮(不需要点击)
-//    self.currentTwoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    self.currentTwoBtn.frame = CGRectMake(10, 28, 30, self.currentView.frame.size.height-30);
-//    self.currentTwoBtn.layer.masksToBounds = YES;
-//    self.currentTwoBtn.layer.cornerRadius = 5;
+    
+    //此处是类型按钮(不需要点击)
+    self.currentTwoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.currentTwoBtn.frame = CGRectMake(10, self.currentBtn.bottom + HotBtnGapWithOther, HotBtnWidth, HotBtnHeight);
+    self.currentTwoBtn.layer.masksToBounds = YES;
+    self.currentTwoBtn.layer.cornerRadius = 2.5;
 //    self.currentTwoBtn.layer.borderWidth = 1;
 //    self.currentTwoBtn.layer.borderColor = [UIColor redColor].CGColor;
-//    [self.currentTwoBtn setTitle:model.type forState:UIControlStateNormal];
-//    [self.currentTwoBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//    self.currentTwoBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-//    [self.currentView addSubview:self.currentTwoBtn];
-//    
-//    //内容标题
-//    self.currentTwoLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.currentTwoBtn.frame.origin.x+self.currentTwoBtn.frame.size.width+10, 28, self.currentView.frame.size.width-(self.currentTwoBtn.frame.origin.x+self.currentTwoBtn.frame.size.width+10+10), self.currentView.frame.size.height-30)];
-//    self.currentTwoLabel.text = model.title;
-//    self.currentTwoLabel.textAlignment = NSTextAlignmentLeft;
-//    self.currentTwoLabel.textColor = [UIColor blackColor];
-//    self.currentTwoLabel.font = [UIFont systemFontOfSize:12];
-//    [self.currentView addSubview:self.currentTwoLabel];
+    [self.currentTwoBtn setBackgroundColor:[UIColor colorWithHexString:@"#FF6600"]];
+    [self.currentTwoBtn setTitle:model.type forState:UIControlStateNormal];
+    [self.currentTwoBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.currentTwoBtn.titleLabel.font = [UIFont systemFontOfSize:8.f];
+    [self.currentView addSubview:self.currentTwoBtn];
+    
+    //内容标题
+    self.currentTwoLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.currentTwoBtn.frame.origin.x+self.currentTwoBtn.frame.size.width+10, self.currentTwoBtn.top, self.currentView.frame.size.width-(self.currentTwoBtn.frame.origin.x+self.currentTwoBtn.frame.size.width+10+10), HotBtnHeight)];
+    self.currentTwoLabel.text = model.title;
+    self.currentTwoLabel.textAlignment = NSTextAlignmentLeft;
+    self.currentTwoLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    self.currentTwoLabel.font = [UIFont systemFontOfSize:12.f];
+    [self.currentView addSubview:self.currentTwoLabel];
 }
 
 - (void)createHidenView
@@ -218,45 +214,46 @@
     
     //此处是类型按钮(不需要点击)
     self.hidenBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.hidenBtn.frame = CGRectMake(10, (self.currentView.frame.size.height-12)/2.0, 30, 12);
+    self.hidenBtn.frame = CGRectMake(10, 3, HotBtnWidth, HotBtnHeight);
     self.hidenBtn.layer.masksToBounds = YES;
-    self.hidenBtn.layer.cornerRadius = 1.5;
+    self.hidenBtn.layer.cornerRadius = 2.5;
 //    self.hidenBtn.layer.borderWidth = 1;
-    [self.hidenBtn setBackgroundColor:[UIColor colorWithHexString:@"#f3a536"]];
 //    self.hidenBtn.layer.borderColor = [UIColor redColor].CGColor;
+    [self.hidenBtn setBackgroundColor:[UIColor colorWithHexString:@"#FF6600"]];
     [self.hidenBtn setTitle:@"" forState:UIControlStateNormal];
     [self.hidenBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.hidenBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.hidenBtn.titleLabel.font = [UIFont systemFontOfSize:8.f];
     [self.hidenView addSubview:self.hidenBtn];
     
     //内容标题
-    self.hidenLabel = [[UILabel alloc]initWithFrame:CGRectMake(5+CGRectGetMaxX(self.hidenBtn.frame), (40-15)/2.0, kScreenWidth-8-(5+CGRectGetMaxX(self.hidenBtn.frame)), 15)];
+    self.hidenLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.hidenBtn.frame.origin.x+self.hidenBtn.frame.size.width+10, self.hidenBtn.top, self.hidenView.frame.size.width-(self.hidenBtn.frame.origin.x+self.hidenBtn.frame.size.width+10+10), HotBtnHeight)];
     self.hidenLabel.text = @"";
     self.hidenLabel.textAlignment = NSTextAlignmentLeft;
-    self.hidenLabel.textColor = [UIColor blackColor];
-    self.hidenLabel.font = [UIFont systemFontOfSize:12];
+    self.hidenLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    self.hidenLabel.font = [UIFont systemFontOfSize:12.f];
     [self.hidenView addSubview:self.hidenLabel];
     
     
-//    //此处是类型按钮(不需要点击)
-//    self.hidenTwoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    self.hidenTwoBtn.frame = CGRectMake(10, 28, 30, self.hidenView.frame.size.height-30);
-//    self.hidenTwoBtn.layer.masksToBounds = YES;
-//    self.hidenTwoBtn.layer.cornerRadius = 5;
+    //此处是类型按钮(不需要点击)
+    self.hidenTwoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.hidenTwoBtn.frame = CGRectMake(10, self.currentBtn.bottom + HotBtnGapWithOther, HotBtnWidth, HotBtnHeight);
+    self.hidenTwoBtn.layer.masksToBounds = YES;
+    self.hidenTwoBtn.layer.cornerRadius = 2.5;
+    [self.hidenTwoBtn setBackgroundColor:[UIColor colorWithHexString:@"#FF6600"]];
 //    self.hidenTwoBtn.layer.borderWidth = 1;
 //    self.hidenTwoBtn.layer.borderColor = [UIColor redColor].CGColor;
-//    [self.hidenTwoBtn setTitle:@"" forState:UIControlStateNormal];
-//    [self.hidenTwoBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//    self.hidenTwoBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-//    [self.hidenView addSubview:self.hidenTwoBtn];
-//    
-//    //内容标题
-//    self.hidenTwoLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.hidenTwoBtn.frame.origin.x+self.hidenTwoBtn.frame.size.width+10, 28, self.hidenView.frame.size.width-(self.hidenTwoBtn.frame.origin.x+self.hidenTwoBtn.frame.size.width+10+10), self.hidenView.frame.size.height-30)];
-//    self.hidenTwoLabel.text = @"";
-//    self.hidenTwoLabel.textAlignment = NSTextAlignmentLeft;
-//    self.hidenTwoLabel.textColor = [UIColor blackColor];
-//    self.hidenTwoLabel.font = [UIFont systemFontOfSize:12];
-//    [self.hidenView addSubview:self.hidenTwoLabel];
+    [self.hidenTwoBtn setTitle:@"" forState:UIControlStateNormal];
+    [self.hidenTwoBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.hidenTwoBtn.titleLabel.font = [UIFont systemFontOfSize:8.f];
+    [self.hidenView addSubview:self.hidenTwoBtn];
+    
+    //内容标题
+    self.hidenTwoLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.hidenTwoBtn.frame.origin.x+self.hidenTwoBtn.frame.size.width+10, self.hidenTwoBtn.top, self.hidenView.frame.size.width-(self.hidenTwoBtn.frame.origin.x+self.hidenTwoBtn.frame.size.width+10+10), HotBtnHeight)];
+    self.hidenTwoLabel.text = @"";
+    self.hidenTwoLabel.textAlignment = NSTextAlignmentLeft;
+    self.hidenTwoLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    self.hidenTwoLabel.font = [UIFont systemFontOfSize:12.f];
+    [self.hidenView addSubview:self.hidenTwoLabel];
 }
 
 #pragma mark - 停止定时器
@@ -270,6 +267,13 @@
     }
 }
 
-
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end
+

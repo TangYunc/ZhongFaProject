@@ -35,62 +35,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/Mine/Views/MineHeaderView.m"
-            timestampString = "544520064.236056"
+            filePath = "ZhongFaZhiZao/Classes/Main/Tools/TNetworking.m"
+            timestampString = "544964391.71703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-initSubViews"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "+baseRequestType:url:params:success:fail:showHUD:resopnseJson:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-            timestampString = "544847787.916456"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "-scrollViewDidScroll:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomeViewController scrollViewDidScroll:]"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/%E4%B8%AD%E5%8F%91%E7%89%88%E6%9C%AC/ZhongFaZhiZao20180408/ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-                  timestampString = "544847788.741269"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "236"
-                  endingLineNumber = "236"
-                  offsetFromSymbolStart = "568">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__42-[HomeViewController scrollViewDidScroll:]_block_invoke"
-                  moduleName = "ZhongFaZhiZao"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xianshengzheng/Desktop/%E4%B8%AD%E5%8F%91%E7%89%88%E6%9C%AC/ZhongFaZhiZao20180408/ZhongFaZhiZao/Classes/HomePage/Controllers/HomeViewController.m"
-                  timestampString = "544847788.743629"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "236"
-                  endingLineNumber = "236"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
