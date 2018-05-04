@@ -16,18 +16,19 @@
 #import "ElectronicCollectionViewCell.h"
 #import "NewHomePageCollectionSectionHeaderView.h"
 #import "SolveView.h"
+#import "SamrtShoppingMallView.h"
+#import "SamrtShoppingMallCell.h"
 
-
-@interface NewHomePageCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
+@interface NewHomePageCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>{
     
     UICollectionViewFlowLayout *_flowLayout;
     UIButton *_fifButton;
-    
+    UIScrollView *_solveScrollView;
+    UIScrollView *_smartMallScrollView;
 }
 @property (nonatomic,assign) NSInteger cityNumber;
 @property (nonatomic,strong) UIButton *tmpbtn;
 //
-@property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,strong) NewHomePageCollectionSectionHeaderView *collectionHeaderView;
 @end
 @implementation NewHomePageCollectionView
@@ -75,9 +76,12 @@
         self.headerView.backgroundColor = BACK_COLOR;
         //注册cell
         [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+        [self registerClass:[SamrtShoppingMallFirstCell class] forCellWithReuseIdentifier:@"samrtShoppingMallCell"];
+        /*
         [self registerClass:[SamrtShoppingMallFirstCell class] forCellWithReuseIdentifier:@"samrtShoppingMallFirstCell"];
         [self registerClass:[SamrtShoppingMallSecondCell class] forCellWithReuseIdentifier:@"samrtShoppingMallSecondCell"];
         [self registerClass:[SamrtShoppingMallThirdCell class] forCellWithReuseIdentifier:@"samrtShoppingMallThirdCell"];
+         */
         [self registerClass:[ScienceResultGoodsCell class] forCellWithReuseIdentifier:@"scienceResultGoodsCell"];
         [self registerClass:[ScienceResultFunctionCell class] forCellWithReuseIdentifier:@"scienceResultFunctionCell"];
         [self registerClass:[SolveCell class] forCellWithReuseIdentifier:@"solveCell"];
@@ -92,6 +96,10 @@
         [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView1"];
         
         [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView2"];
+        
+        //注册通知
+        //监听点击智造商城头视图的按钮状态
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smartMallChangeTabItem:) name:@"changeTabItemRefreshData" object:nil];
         
     }
     return self;
@@ -197,7 +205,7 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 4;
+        return 1;
     }else if (section == 1){
         return 7;
     }else if (section == 2){
@@ -215,24 +223,24 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    if (indexPath.section == 0) {
         //智造商城
-        static NSString * CellIdentifier = @"samrtShoppingMallFirstCell";
-        SamrtShoppingMallFirstCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-        // 让系统调用layoutSubView方法
-        [cell setNeedsLayout];
-        return cell;
-    }else if (indexPath.section == 0 && indexPath.row == 1){
-        //智造商城
-        static NSString * CellIdentifier = @"samrtShoppingMallSecondCell";
-        SamrtShoppingMallSecondCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-        // 让系统调用layoutSubView方法
-        [cell setNeedsLayout];
-        return cell;
-    }else if (indexPath.section == 0 && indexPath.row >= 2){
-        //智造商城
-        static NSString * CellIdentifier = @"samrtShoppingMallThirdCell";
-        SamrtShoppingMallThirdCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+        static NSString * CellIdentifier = @"samrtShoppingMallCell";
+        SamrtShoppingMallCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+        _smartMallScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 342/2.0 * KWidth_ScaleH)];
+        _smartMallScrollView.pagingEnabled = NO;
+        _smartMallScrollView.bounces = NO;
+        _smartMallScrollView.scrollEnabled = NO;
+        _smartMallScrollView.userInteractionEnabled = YES;
+        //    _scrollView.showsHorizontalScrollIndicator = NO;
+        _smartMallScrollView.backgroundColor = BACK_COLOR;
+        _smartMallScrollView.contentSize = CGSizeMake(4 * kScreenWidth, 0);
+        [cell addSubview:_smartMallScrollView];
+        NSArray *titleArr = @[@"智能制造装备",@"工业软件",@"工业机器人",@"电子元器件",@"工业软件",@"工业机器人",@"电子元器件"];
+        for (int i = 0; i < titleArr.count; i++) {
+             SamrtShoppingMallView *samrtShoppingMallView = [[SamrtShoppingMallView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, 342/2.0 * KWidth_ScaleH)];
+            [_smartMallScrollView addSubview:samrtShoppingMallView];
+        }
         // 让系统调用layoutSubView方法
         [cell setNeedsLayout];
         return cell;
@@ -259,18 +267,18 @@
         static NSString * CellIdentifier = @"solveCell";
         SolveCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
         
-        _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 396/2.0 * KWidth_ScaleH)];
-        _scrollView.pagingEnabled = NO;
-        _scrollView.bounces = NO;
-        _scrollView.userInteractionEnabled = YES;
+        _solveScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 396/2.0 * KWidth_ScaleH)];
+        _solveScrollView.pagingEnabled = NO;
+        _solveScrollView.bounces = NO;
+        _solveScrollView.userInteractionEnabled = YES;
         //    _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.backgroundColor = BACK_COLOR;
-        _scrollView.contentSize = CGSizeMake(32/2.0 * KWidth_ScaleW * 2 + 21/2.0 * KWidth_ScaleW + 2 * (569/2.0 * KWidth_ScaleW), 0);
-        [cell addSubview:_scrollView];
+        _solveScrollView.backgroundColor = BACK_COLOR;
+        _solveScrollView.contentSize = CGSizeMake(32/2.0 * KWidth_ScaleW * 2 + 21/2.0 * KWidth_ScaleW + 2 * (569/2.0 * KWidth_ScaleW), 0);
+        [cell addSubview:_solveScrollView];
         
         for (int i = 0; i < 2; i++) {
             SolveView *solveView = [[SolveView alloc] initWithFrame:CGRectMake(32/2.0 * KWidth_ScaleW + i * ((569 + 21)/2.0 * KWidth_ScaleW), 0, 569/2.0 * KWidth_ScaleW, 396/2.0 * KWidth_ScaleH)];
-            [_scrollView addSubview:solveView];
+            [_solveScrollView addSubview:solveView];
         }
         // 让系统调用layoutSubView方法
         [cell setNeedsLayout];
@@ -296,14 +304,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            return CGSizeMake(373/2.0 * KWidth_ScaleW - 1, 342/2.0 * KWidth_ScaleH);
-        }else if (indexPath.row == 1){
-            return CGSizeMake(377/2.0 * KWidth_ScaleW, 165/2.0 * KWidth_ScaleH - 1);
-        }
-        CGFloat itemWidth = (377/2.0 * KWidth_ScaleW - 1) / 2.0;
-        CGFloat itemHeight = (342 - 165)/2.0 * KWidth_ScaleH - 1;
-        return CGSizeMake(itemWidth, itemHeight);
+        return CGSizeMake(kScreenWidth, 342/2.0 * KWidth_ScaleH);
     }else if (indexPath.section == 1){
         
         if (indexPath.row < 2){
@@ -432,7 +433,36 @@
 {
     return 1.0f;
 }
+#pragma mark -- UIScrollViewDelegate
+// 手指离开滑动视图的时候调用的协议方法
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    // decelerate:  时候有减速效果
+    NSLog(@"手指离开滑动视图，当前减速效果:%d",decelerate);
+    if (decelerate == NO) {
+        // 视图停止滑动的时候执行一些操作
+        [self scrollDidSroll];
+    }
+}
 
+// 减速结束
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSLog(@"停止减速，滑动视图停止了");
+    
+    // 视图停止滑动的时候执行一些操作
+    [self scrollDidSroll];
+}
+
+// 当前滑动视图停止滑动的时候执行一些操作
+- (void)scrollDidSroll
+{
+    NSLog(@"滑动视图停止滑动的时候执行一些操作");
+    
+    // 获取_smartMallScrollView视图index
+//    int Index = (int)_smartMallScrollView.contentOffset.x / kScreenWidth;
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"smartMallScrollIndex" object:@(Index)];
+}
 
 #pragma mark -- 按钮事件
 - (void)fifBtnClick:(UIButton *)button{
@@ -473,10 +503,26 @@
         NSLog(@"电子市场手势");
     }
 }
+
+#pragma mark -- 通知
+- (void)smartMallChangeTabItem:(NSNotification *)notify{
+    
+    id ChangeTabItemIndex = notify.object;
+    if ([ChangeTabItemIndex isKindOfClass:[NSNumber class]]) {
+        NSInteger index = [ChangeTabItemIndex integerValue];
+        CGPoint point = CGPointMake(kScreenWidth * index, 0);
+        [_smartMallScrollView setContentOffset:point animated:YES];
+    }
+}
+#pragma mark -- method
 - (void)pushToWKWebViewCtrlUrl:(NSString *)urlStr withTitle:(NSString *)title{
     
     WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:urlStr title:title];
     [self.viewControler.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

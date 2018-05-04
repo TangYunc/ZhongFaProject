@@ -53,6 +53,8 @@
 		2D5D57A02047931000F683F4 /* TNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D579F2047931000F683F4 /* TNetworking.m */; };
 		2DB567FA207CBDB200EC28C2 /* ClassifyMenuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567F9207CBDB200EC28C2 /* ClassifyMenuTableCell.m */; };
 		2DB567FD207CBEDE00EC28C2 /* ClassifyMenuResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567FC207CBEDE00EC28C2 /* ClassifyMenuResult.m */; };
+		2DB56800207DB65800EC28C2 /* SamrtShoppingMallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567FF207DB65800EC28C2 /* SamrtShoppingMallView.m */; };
+		2DB56803207DBD9700EC28C2 /* SamrtShoppingMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56802207DBD9700EC28C2 /* SamrtShoppingMallCell.m */; };
 		2DD3E7EC204799BC00199AB6 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EB204799BC00199AB6 /* Constant.m */; };
 		2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EF20479C2B00199AB6 /* RootTabBarController.m */; };
 		2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7F220479C7900199AB6 /* BaseNavigationController.m */; };
@@ -222,6 +224,10 @@
 		2DB567F9207CBDB200EC28C2 /* ClassifyMenuTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyMenuTableCell.m; sourceTree = "<group>"; };
 		2DB567FB207CBEDE00EC28C2 /* ClassifyMenuResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyMenuResult.h; sourceTree = "<group>"; };
 		2DB567FC207CBEDE00EC28C2 /* ClassifyMenuResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyMenuResult.m; sourceTree = "<group>"; };
+		2DB567FE207DB65800EC28C2 /* SamrtShoppingMallView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamrtShoppingMallView.h; sourceTree = "<group>"; };
+		2DB567FF207DB65800EC28C2 /* SamrtShoppingMallView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallView.m; sourceTree = "<group>"; };
+		2DB56801207DBD9700EC28C2 /* SamrtShoppingMallCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamrtShoppingMallCell.h; sourceTree = "<group>"; };
+		2DB56802207DBD9700EC28C2 /* SamrtShoppingMallCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallCell.m; sourceTree = "<group>"; };
 		2DC353AB2050D9FE00F498C3 /* JPUSHService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPUSHService.h; path = Pods/JPush/JPUSHService.h; sourceTree = "<group>"; };
 		2DC353AD2050DA2600F498C3 /* libjpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.8.a"; path = "Pods/JPush/libjpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		2DC353AF2050DAB100F498C3 /* ZhongFaZhiZao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhongFaZhiZao.entitlements; sourceTree = "<group>"; };
@@ -386,12 +392,16 @@
 				2D15B21E2079DB7F001E45F0 /* NewHomePageCollectionView.m */,
 				2D15B244207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.h */,
 				2D15B245207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m */,
+				2DB56801207DBD9700EC28C2 /* SamrtShoppingMallCell.h */,
+				2DB56802207DBD9700EC28C2 /* SamrtShoppingMallCell.m */,
 				2D15B232207A24BB001E45F0 /* SamrtShoppingMallFirstCell.h */,
 				2D15B233207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m */,
 				2D15B235207A24CA001E45F0 /* SamrtShoppingMallSecondCell.h */,
 				2D15B236207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m */,
 				2D15B238207A24D7001E45F0 /* SamrtShoppingMallThirdCell.h */,
 				2D15B239207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m */,
+				2DB567FE207DB65800EC28C2 /* SamrtShoppingMallView.h */,
+				2DB567FF207DB65800EC28C2 /* SamrtShoppingMallView.m */,
 				2D15B23B207A2570001E45F0 /* ScienceResultGoodsCell.h */,
 				2D15B23C207A2570001E45F0 /* ScienceResultGoodsCell.m */,
 				2D15B23E207A2582001E45F0 /* ScienceResultFunctionCell.h */,
@@ -1159,6 +1169,8 @@
 				2D15B246207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m in Sources */,
 				2DD3E87D204940D100199AB6 /* ZhongFaDataBase.m in Sources */,
 				2D15B234207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m in Sources */,
+				2DB56800207DB65800EC28C2 /* SamrtShoppingMallView.m in Sources */,
+				2DB56803207DBD9700EC28C2 /* SamrtShoppingMallCell.m in Sources */,
 				2DD3E82C2047E36900199AB6 /* AccountAndPWLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

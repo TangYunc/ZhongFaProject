@@ -18,6 +18,10 @@
 @property (nonatomic, strong) UITableView *menuTableView;
 @property (nonatomic, strong) UIButton *roleBtn;
 @property (nonatomic, strong) NSMutableArray *menuArr;
+@property (nonatomic, strong) NSMutableArray *choiceRoleResult;
+@property (nonatomic, strong) NSMutableDictionary *choiceResultDic;
+
+@property (nonatomic, strong) NSNumber *choiceCategoryNum;
 @end
 
 @implementation ClassifyPopView
@@ -30,8 +34,10 @@
         [self addSubview:self.maskView];
         [self addSubview:self.bjView];
         [self addSubview:self.cancelBtn];
+        self.choiceCategoryNum = @0;
         NSArray *roleArr = @[@"生产商",@"代理商",@"贸易商",@"服务商",@"个人",@"专家",@"工程师",@"科研单位/学校"];
-        for (int i = 0; i < 4; i ++) {
+        NSInteger tempCount = roleArr.count;
+        for (NSInteger i = 0; i < tempCount; i ++) {
             ClassifyMenuResult *menuData = [[ClassifyMenuResult alloc] init];
             menuData.title = roleArr[i];
             [self.menuArr addObject:menuData];   
@@ -176,19 +182,16 @@
 {
     if (!_menuTableView) {
         CGFloat menuTableViewWidth = 140/2.0 * KWidth_ScaleW;
-//        CGFloat menuTableViewHeight = 118/2.0 * KWidth_ScaleH;
-        CGFloat menuTalbeViewGapFromTop = 48/2.0 * KWidth_ScaleH;
-        CGFloat menuTalbeViewGapFromRight = 10/2.0 * KWidth_ScaleH;
-        _menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, menuTalbeViewGapFromTop, menuTableViewWidth, 60/2.0 * 4) style:UITableViewStylePlain];
+        CGFloat menuTalbeViewGapFromLeft = 414/2.0 * KWidth_ScaleH;
+        _menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(menuTalbeViewGapFromLeft, self.roleBtn.bottom, menuTableViewWidth, 60/2.0 * 4) style:UITableViewStylePlain];
         _menuTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _menuTableView.backgroundColor = [UIColor whiteColor];
         _menuTableView.layer.borderWidth = 1;
-        _menuTableView.layer.borderColor = [UIColor colorWithHexString:@"#FFFFFF"].CGColor;
+        _menuTableView.layer.borderColor = [UIColor colorWithHexString:@"#D5D5D5"].CGColor;
         _menuTableView.delegate = self;
         _menuTableView.dataSource = self;
         _menuTableView.tableFooterView = [[UIView alloc] init];
-        [self.roleBtn addSubview:_menuTableView];
-        _menuTableView.right = self.roleBtn.right - menuTalbeViewGapFromRight;
+        [self.bjView addSubview:_menuTableView];
     }
     return _menuTableView;
 }
@@ -199,6 +202,22 @@
         _menuArr = [[NSMutableArray alloc] init];
     }
     return _menuArr;
+}
+
+-(NSMutableArray *)choiceRoleResult
+{
+    if (!_choiceRoleResult) {
+        _choiceRoleResult = [[NSMutableArray alloc] init];
+    }
+    return _choiceRoleResult;
+}
+
+-(NSMutableDictionary *)choiceResultDic
+{
+    if (!_choiceResultDic) {
+        _choiceResultDic = [[NSMutableDictionary alloc] init];
+    }
+    return _choiceResultDic;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
@@ -216,6 +235,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.menuResult = self.menuArr[indexPath.row];
+    
     return cell;
 }
 
@@ -233,6 +253,7 @@
     self.menuTableView.hidden = YES;
     [self.menuTableView reloadData];
     [self.roleBtn setTitle:menuResult.title forState:UIControlStateNormal];
+    [self.choiceResultDic setObject:menuResult.title forKey:@"roleTpye"];
     self.roleBtn.selected = !self.roleBtn.selected;
 }
 
@@ -244,6 +265,8 @@
 - (void)confirmClick:(UIButton *)button{
     
     NSLog(@"点击确认按钮");
+    [self.choiceResultDic setObject:self.choiceRoleResult forKey:@"roleType"];
+    [KUserDefault setObject:@YES forKey:ShowClassifyPopView];
     [self removeFromSuperview];
 }
 
@@ -253,7 +276,7 @@
 }
 
 - (void)roleClick:(UIButton *)button{
-    NSLog(@"点击选择角色");
+    
     button.selected = !button.selected;
     if (button.selected) {
         self.menuTableView.hidden = NO;
@@ -266,11 +289,21 @@
 - (void)categoryBtnClick:(UIButton *)button{
     
     button.selected = !button.selected;
+    if ([self.choiceCategoryNum intValue] > 3) {
+        button.enabled = NO;
+        [MBProgressHUD showError:@"最多只能选四个哦!"];
+        return;
+    }
     if (button.selected) {
         button.layer.borderColor = [UIColor colorWithHexString:@"#31B3EF"].CGColor;
+        self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] + 1];
+        [self.choiceRoleResult addObject:button.currentTitle];
     }else{
         button.layer.borderColor = [UIColor colorWithHexString:@"#999999"].CGColor;
+        self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] - 1];
+        [self.choiceRoleResult removeObject:button.currentTitle];
     }
+    
     if (button.tag == 10) {
         NSLog(@"通信电子");
     }
@@ -288,5 +321,20 @@
     jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\\"  withString:@""];
     NSArray *array = [jsonString componentsSeparatedByString:@","];
     return  (array.count == 0 ) ? nil : array;
+}
+
+//提示控件
+- (void)popAlertViewWithTitle:(NSString *)title Message:(NSString *)message{
+    
+    //弹出alert视图提示输入账号密码
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alert addAction:cancel];
+    [alert addAction:confirm];
+    
+    [self.alertVC presentViewController:alert animated:YES completion:nil];
 }
 @end

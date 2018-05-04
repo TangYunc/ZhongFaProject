@@ -87,5 +87,7 @@
 
 #define HUD_DURATION         1.0
 
+#define ShowClassifyPopView @"classifyPopView"//第一次进入的时候需要用户选择角色以及偏好的行业，如果用户没有选择，则下次会继续提示用户
+
 
 

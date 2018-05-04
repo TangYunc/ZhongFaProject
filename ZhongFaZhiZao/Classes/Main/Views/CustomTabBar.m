@@ -54,7 +54,6 @@
     // 监听点击事件
     [plusBtn addTarget:self action:@selector(plusBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
-    
     // 4.添加
     [self addSubview:plusBtn];
     self.plusBtn = plusBtn;

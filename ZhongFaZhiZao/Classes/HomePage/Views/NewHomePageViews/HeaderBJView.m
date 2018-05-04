@@ -27,6 +27,10 @@
     if (self) {
         //初始化子视图
         [self _initSubViews];
+        //通知
+        //监听点击智造商城滑动视图的状态
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(smartMallScrollIndex:) name:@"smartMallScrollIndex" object:nil];
+        
     }
     return self;
 }
@@ -99,10 +103,14 @@
 - (void)headerViewClick{
     
     NSLog(@"点击的是智造商城");
-    ClassifyPopView *classifyPopView = [[ClassifyPopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    classifyPopView.alertVC = self.viewControler;
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [window addSubview:classifyPopView];
+    BOOL isShowClassify = [KUserDefault objectForKey:ShowClassifyPopView];
+    if (!isShowClassify) {
+        
+        ClassifyPopView *classifyPopView = [[ClassifyPopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        classifyPopView.alertVC = self.viewControler;
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window addSubview:classifyPopView];
+    }
 }
 - (void)titleLabelClicked:(UITapGestureRecognizer*)sender{
     UILabel *titleLabel = (UILabel*)sender.view;
@@ -149,8 +157,26 @@
     CGPoint offset = CGPointMake(offsetx, _headerScrollView.contentOffset.y);
     [_headerScrollView setContentOffset:offset animated:YES];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTabItemRefreshData" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTabItemRefreshData" object:@(index)];
     });
     
+}
+
+#pragma mark -- 通知
+- (void)smartMallScrollIndex:(NSNotification *)notify{
+    
+    id scrollIndex = notify.object;
+    if ([scrollIndex isKindOfClass:[NSNumber class]]) {
+        
+        NSInteger index = [scrollIndex integerValue];
+        UILabel *titleLabel = [_headerScrollView viewWithTag:2000 + index];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleLabelClicked:)];
+        [titleLabel addGestureRecognizer:tap];
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
