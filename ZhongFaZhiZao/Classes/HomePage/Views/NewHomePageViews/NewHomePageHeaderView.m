@@ -15,6 +15,7 @@
 #import "HeaderBJView.h"
 #import "NewHomePageRecommendResult.h"
 #import "NewHomePageSmartHeadlineNewsResult.h"
+#import "SSMViewController.h"
 
 @interface NewHomePageHeaderView (){
     HomePageImgRunLoopView *_imgRunView;
@@ -268,9 +269,8 @@
         
     }
     else if (button.tag == SamrtShoppingMall){
-        NSLog(@"点击的是智造商城");
-//        KnowLedgeViewController *vc = [[KnowLedgeViewController alloc]init];
-//        [self.viewControler.navigationController pushViewController:vc animated:YES];
+        SSMViewController *vc = [[SSMViewController alloc]init];
+        [self.viewControler.navigationController pushViewController:vc animated:YES];
         
     }
     else if (button.tag == SmartInformation){

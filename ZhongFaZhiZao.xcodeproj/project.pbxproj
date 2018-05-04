@@ -124,6 +124,21 @@
 		2DE8DB9F204D4E02008C70D2 /* FinanceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8DB9E204D4E02008C70D2 /* FinanceCollectionViewCell.m */; };
 		2DE8DBA2204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8DBA1204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m */; };
 		2DE8DBA5204E3169008C70D2 /* HomePageImgRunLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8DBA4204E3169008C70D2 /* HomePageImgRunLoopView.m */; };
+		2DF1C718208199D300710B9B /* SSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C717208199D300710B9B /* SSMViewController.m */; };
+		2DF1C71B2081A86900710B9B /* SSMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C71A2081A86900710B9B /* SSMTableView.m */; };
+		2DF1C71E2081AEBA00710B9B /* SSMCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C71D2081AEBA00710B9B /* SSMCarouselCell.m */; };
+		2DF1C7212081B03B00710B9B /* SSMBannerModelFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7202081B03B00710B9B /* SSMBannerModelFirstCell.m */; };
+		2DF1C7242081B06400710B9B /* SSMBannerModelSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7232081B06400710B9B /* SSMBannerModelSecondCell.m */; };
+		2DF1C7272081F94000710B9B /* SSMSecondSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7262081F94000710B9B /* SSMSecondSectionCell.m */; };
+		2DF1C72A2081FEA500710B9B /* SSMSecondSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7292081FEA500710B9B /* SSMSecondSectionView.m */; };
+		2DF1C7332084478000710B9B /* SSMFiltrateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7322084478000710B9B /* SSMFiltrateViewController.m */; };
+		2DF1C73920844E4B00710B9B /* SSMClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C73820844E4B00710B9B /* SSMClassifyViewController.m */; };
+		2DF1C73C208450FD00710B9B /* SSMClassifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C73B208450FD00710B9B /* SSMClassifyCell.m */; };
+		2DF1C73F20847AE800710B9B /* SSMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C73E20847AE800710B9B /* SSMTableViewController.m */; };
+		2DF1C7422084800900710B9B /* SSMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7412084800900710B9B /* SSMTableViewCell.m */; };
+		2DF1C74520849C9D00710B9B /* SSMFiltrateTabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C74420849C9D00710B9B /* SSMFiltrateTabelView.m */; };
+		2DF1C74820849D9400710B9B /* SSMFiltrateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C74720849D9400710B9B /* SSMFiltrateCell.m */; };
+		2DF1C74E2084BED400710B9B /* SSMFiltrateCellResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C74D2084BED400710B9B /* SSMFiltrateCellResult.m */; };
 		2DF2830C2080589E0048E340 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF2830B2080589E0048E340 /* CityModel.m */; };
 		2DF2830E208059B00048E340 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DF2830D208059B00048E340 /* City.plist */; };
 		2DF28311208073FA0048E340 /* SexPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF28310208073FA0048E340 /* SexPickView.m */; };
@@ -390,6 +405,36 @@
 		2DE8DBA1204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowLedgeCustomCollectionViewCell.m; sourceTree = "<group>"; };
 		2DE8DBA3204E3169008C70D2 /* HomePageImgRunLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageImgRunLoopView.h; sourceTree = "<group>"; };
 		2DE8DBA4204E3169008C70D2 /* HomePageImgRunLoopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageImgRunLoopView.m; sourceTree = "<group>"; };
+		2DF1C716208199D300710B9B /* SSMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMViewController.h; sourceTree = "<group>"; };
+		2DF1C717208199D300710B9B /* SSMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMViewController.m; sourceTree = "<group>"; };
+		2DF1C7192081A86900710B9B /* SSMTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMTableView.h; sourceTree = "<group>"; };
+		2DF1C71A2081A86900710B9B /* SSMTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMTableView.m; sourceTree = "<group>"; };
+		2DF1C71C2081AEBA00710B9B /* SSMCarouselCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMCarouselCell.h; sourceTree = "<group>"; };
+		2DF1C71D2081AEBA00710B9B /* SSMCarouselCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMCarouselCell.m; sourceTree = "<group>"; };
+		2DF1C71F2081B03B00710B9B /* SSMBannerModelFirstCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMBannerModelFirstCell.h; sourceTree = "<group>"; };
+		2DF1C7202081B03B00710B9B /* SSMBannerModelFirstCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMBannerModelFirstCell.m; sourceTree = "<group>"; };
+		2DF1C7222081B06400710B9B /* SSMBannerModelSecondCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMBannerModelSecondCell.h; sourceTree = "<group>"; };
+		2DF1C7232081B06400710B9B /* SSMBannerModelSecondCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMBannerModelSecondCell.m; sourceTree = "<group>"; };
+		2DF1C7252081F94000710B9B /* SSMSecondSectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMSecondSectionCell.h; sourceTree = "<group>"; };
+		2DF1C7262081F94000710B9B /* SSMSecondSectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMSecondSectionCell.m; sourceTree = "<group>"; };
+		2DF1C7282081FEA500710B9B /* SSMSecondSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMSecondSectionView.h; sourceTree = "<group>"; };
+		2DF1C7292081FEA500710B9B /* SSMSecondSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMSecondSectionView.m; sourceTree = "<group>"; };
+		2DF1C7312084478000710B9B /* SSMFiltrateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMFiltrateViewController.h; sourceTree = "<group>"; };
+		2DF1C7322084478000710B9B /* SSMFiltrateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMFiltrateViewController.m; sourceTree = "<group>"; };
+		2DF1C73720844E4B00710B9B /* SSMClassifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMClassifyViewController.h; sourceTree = "<group>"; };
+		2DF1C73820844E4B00710B9B /* SSMClassifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMClassifyViewController.m; sourceTree = "<group>"; };
+		2DF1C73A208450FD00710B9B /* SSMClassifyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMClassifyCell.h; sourceTree = "<group>"; };
+		2DF1C73B208450FD00710B9B /* SSMClassifyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMClassifyCell.m; sourceTree = "<group>"; };
+		2DF1C73D20847AE700710B9B /* SSMTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMTableViewController.h; sourceTree = "<group>"; };
+		2DF1C73E20847AE800710B9B /* SSMTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMTableViewController.m; sourceTree = "<group>"; };
+		2DF1C7402084800900710B9B /* SSMTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMTableViewCell.h; sourceTree = "<group>"; };
+		2DF1C7412084800900710B9B /* SSMTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMTableViewCell.m; sourceTree = "<group>"; };
+		2DF1C74320849C9D00710B9B /* SSMFiltrateTabelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMFiltrateTabelView.h; sourceTree = "<group>"; };
+		2DF1C74420849C9D00710B9B /* SSMFiltrateTabelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMFiltrateTabelView.m; sourceTree = "<group>"; };
+		2DF1C74620849D9400710B9B /* SSMFiltrateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMFiltrateCell.h; sourceTree = "<group>"; };
+		2DF1C74720849D9400710B9B /* SSMFiltrateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMFiltrateCell.m; sourceTree = "<group>"; };
+		2DF1C74C2084BED400710B9B /* SSMFiltrateCellResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMFiltrateCellResult.h; sourceTree = "<group>"; };
+		2DF1C74D2084BED400710B9B /* SSMFiltrateCellResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMFiltrateCellResult.m; sourceTree = "<group>"; };
 		2DF2830A2080589E0048E340 /* CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
 		2DF2830B2080589E0048E340 /* CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
 		2DF2830D208059B00048E340 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
@@ -792,6 +837,7 @@
 		2DD3E8072047A00D00199AB6 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1C7122081996600710B9B /* SmartShoppingMall */,
 				2DE8DB81204D4866008C70D2 /* Views */,
 				2DE8DB80204D485C008C70D2 /* Models */,
 				2DE8DB7F204D4850008C70D2 /* Controllers */,
@@ -1026,6 +1072,67 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2DF1C7122081996600710B9B /* SmartShoppingMall */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1C7152081998800710B9B /* Views */,
+				2DF1C7142081998700710B9B /* Models */,
+				2DF1C7132081998400710B9B /* Controllers */,
+			);
+			path = SmartShoppingMall;
+			sourceTree = "<group>";
+		};
+		2DF1C7132081998400710B9B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1C716208199D300710B9B /* SSMViewController.h */,
+				2DF1C717208199D300710B9B /* SSMViewController.m */,
+				2DF1C73720844E4B00710B9B /* SSMClassifyViewController.h */,
+				2DF1C73820844E4B00710B9B /* SSMClassifyViewController.m */,
+				2DF1C73D20847AE700710B9B /* SSMTableViewController.h */,
+				2DF1C73E20847AE800710B9B /* SSMTableViewController.m */,
+				2DF1C7312084478000710B9B /* SSMFiltrateViewController.h */,
+				2DF1C7322084478000710B9B /* SSMFiltrateViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2DF1C7142081998700710B9B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1C74C2084BED400710B9B /* SSMFiltrateCellResult.h */,
+				2DF1C74D2084BED400710B9B /* SSMFiltrateCellResult.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2DF1C7152081998800710B9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1C7192081A86900710B9B /* SSMTableView.h */,
+				2DF1C71A2081A86900710B9B /* SSMTableView.m */,
+				2DF1C71C2081AEBA00710B9B /* SSMCarouselCell.h */,
+				2DF1C71D2081AEBA00710B9B /* SSMCarouselCell.m */,
+				2DF1C71F2081B03B00710B9B /* SSMBannerModelFirstCell.h */,
+				2DF1C7202081B03B00710B9B /* SSMBannerModelFirstCell.m */,
+				2DF1C7222081B06400710B9B /* SSMBannerModelSecondCell.h */,
+				2DF1C7232081B06400710B9B /* SSMBannerModelSecondCell.m */,
+				2DF1C7252081F94000710B9B /* SSMSecondSectionCell.h */,
+				2DF1C7262081F94000710B9B /* SSMSecondSectionCell.m */,
+				2DF1C7282081FEA500710B9B /* SSMSecondSectionView.h */,
+				2DF1C7292081FEA500710B9B /* SSMSecondSectionView.m */,
+				2DF1C73A208450FD00710B9B /* SSMClassifyCell.h */,
+				2DF1C73B208450FD00710B9B /* SSMClassifyCell.m */,
+				2DF1C7402084800900710B9B /* SSMTableViewCell.h */,
+				2DF1C7412084800900710B9B /* SSMTableViewCell.m */,
+				2DF1C74320849C9D00710B9B /* SSMFiltrateTabelView.h */,
+				2DF1C74420849C9D00710B9B /* SSMFiltrateTabelView.m */,
+				2DF1C74620849D9400710B9B /* SSMFiltrateCell.h */,
+				2DF1C74720849D9400710B9B /* SSMFiltrateCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		52B6029DD4C06A98F209CEE0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1253,9 +1360,11 @@
 				2DB56816207F2BA500EC28C2 /* RRRecruitmentViewController.m in Sources */,
 				2DE8DB7B204D1FA1008C70D2 /* MainWebViewController.m in Sources */,
 				2D2755CF20494B2600D7E791 /* CustomButton.m in Sources */,
+				2DF1C74E2084BED400710B9B /* SSMFiltrateCellResult.m in Sources */,
 				2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */,
 				2D15B24F207B75B5001E45F0 /* HeaderBJView.m in Sources */,
 				2DB56834207F687A00EC28C2 /* RRTextViewEditSubview.m in Sources */,
+				2DF1C7212081B03B00710B9B /* SSMBannerModelFirstCell.m in Sources */,
 				2DD3E87A204934BC00199AB6 /* UMengShareViewController.m in Sources */,
 				2DB5681F207F2D2300EC28C2 /* RRSegmentView.m in Sources */,
 				2DD3E80020479D8A00199AB6 /* UIBarButtonItem+TYC.m in Sources */,
@@ -1265,6 +1374,7 @@
 				2D456CED204FDF6E002F2FB5 /* WXPayViewController.m in Sources */,
 				2DD3E84C2048022D00199AB6 /* MBProgressHUD+MJ.m in Sources */,
 				2DE8DB99204D4DED008C70D2 /* SolveCollectionViewCell.m in Sources */,
+				2DF1C72A2081FEA500710B9B /* SSMSecondSectionView.m in Sources */,
 				2DD3E83C2047F3E600199AB6 /* NavigationControllerView.m in Sources */,
 				2DD3E84E2048022D00199AB6 /* WKProgressHUD.m in Sources */,
 				2DB56810207EF7E500EC28C2 /* RRViewController.m in Sources */,
@@ -1273,14 +1383,17 @@
 				2DD3E8392047E8C300199AB6 /* UIImage+Extension.m in Sources */,
 				2DE8DB87204D4CCB008C70D2 /* HomePageHeaderView.m in Sources */,
 				2D5D57A02047931000F683F4 /* TNetworking.m in Sources */,
+				2DF1C718208199D300710B9B /* SSMViewController.m in Sources */,
 				2DE8DB9F204D4E02008C70D2 /* FinanceCollectionViewCell.m in Sources */,
 				2D456CE7204FCDBC002F2FB5 /* MineLastSectionCell.m in Sources */,
+				2DF1C7272081F94000710B9B /* SSMSecondSectionCell.m in Sources */,
 				2DD3E85F2048F7D500199AB6 /* UIButton+TYC.m in Sources */,
 				2D15B23D207A2570001E45F0 /* ScienceResultGoodsCell.m in Sources */,
 				2D456CCB204E40ED002F2FB5 /* ZYJHeadLineView.m in Sources */,
 				2DB56828207F3C2800EC28C2 /* RRAgencyScrollView.m in Sources */,
 				2DD3E85C2048F44A00199AB6 /* NSString+Mobile.m in Sources */,
 				2DD3E80D2047A14400199AB6 /* HomeViewController.m in Sources */,
+				2DF1C7422084800900710B9B /* SSMTableViewCell.m in Sources */,
 				2DE8DB8A204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.m in Sources */,
 				2DF2830C2080589E0048E340 /* CityModel.m in Sources */,
 				2D15B24C207B67EE001E45F0 /* ScienceResultFuctionView.m in Sources */,
@@ -1303,20 +1416,26 @@
 				2D5D575420478AAB00F683F4 /* ViewController.m in Sources */,
 				2DD3E84B2048022D00199AB6 /* MBProgressHUD.m in Sources */,
 				2DD3E853204808AC00199AB6 /* UserInfo.m in Sources */,
+				2DF1C73C208450FD00710B9B /* SSMClassifyCell.m in Sources */,
 				2DB5684120804EE500EC28C2 /* CityPickView.m in Sources */,
 				2DD3E874204920F300199AB6 /* MineFirstSectionCell.m in Sources */,
 				2D15B21C2079DB5F001E45F0 /* NewHomePageHeaderView.m in Sources */,
+				2DF1C74820849D9400710B9B /* SSMFiltrateCell.m in Sources */,
 				2DD3E8502048022D00199AB6 /* WKWaitingProgressHUD.m in Sources */,
 				2D15B255207C96A3001E45F0 /* ClassifyPopView.m in Sources */,
 				2DD3E84F2048022D00199AB6 /* WKMessageProgressHUD.m in Sources */,
+				2DF1C71E2081AEBA00710B9B /* SSMCarouselCell.m in Sources */,
 				2DB5683E20804EC500EC28C2 /* ScrollPickView.m in Sources */,
 				2D15B2192079BDE3001E45F0 /* CustomReleaseRequirementsButton.m in Sources */,
 				2DD3E80620479E9700199AB6 /* UIViewExt.m in Sources */,
+				2DF1C74520849C9D00710B9B /* SSMFiltrateTabelView.m in Sources */,
 				2DD3E86820491B3E00199AB6 /* MineTableView.m in Sources */,
 				2D15B222207A1045001E45F0 /* NewHomePageCustomRecommendView.m in Sources */,
 				2DB56822207F3BFA00EC28C2 /* RRCustomizedScrollView.m in Sources */,
+				2DF1C7332084478000710B9B /* SSMFiltrateViewController.m in Sources */,
 				2D15B22B207A1B4C001E45F0 /* SolveCell.m in Sources */,
 				2DD3E8102047A16600199AB6 /* CounselingViewController.m in Sources */,
+				2DF1C73920844E4B00710B9B /* SSMClassifyViewController.m in Sources */,
 				2D15B252207C659F001E45F0 /* SolveView.m in Sources */,
 				2DD3E8322047E66D00199AB6 /* AccountAndPWLognScrollView.m in Sources */,
 				2D456CD7204E5D2F002F2FB5 /* FinanceDetailOneViewController.m in Sources */,
@@ -1326,6 +1445,8 @@
 				2D12B40E205A17F700FA0F0C /* ArchiverAndUnArchiver.m in Sources */,
 				2DD3E8162047A1AE00199AB6 /* MineViewController.m in Sources */,
 				2DB56809207E155800EC28C2 /* NewHomePageRecommendResult.m in Sources */,
+				2DF1C7242081B06400710B9B /* SSMBannerModelSecondCell.m in Sources */,
+				2DF1C71B2081A86900710B9B /* SSMTableView.m in Sources */,
 				2DD3E8192047A94A00199AB6 /* UIColor+Hex.m in Sources */,
 				2DF283172080A61B0048E340 /* NewHomeSolveResult.m in Sources */,
 				2DE8DB9C204D4DF8008C70D2 /* ElectronicCollectionViewCell.m in Sources */,
@@ -1344,6 +1465,7 @@
 				2D15B240207A2582001E45F0 /* ScienceResultFunctionCell.m in Sources */,
 				2DD3E81F2047D2BA00199AB6 /* MineHeaderView.m in Sources */,
 				2DE8DB84204D48A4008C70D2 /* HomePageCollectionView.m in Sources */,
+				2DF1C73F20847AE800710B9B /* SSMTableViewController.m in Sources */,
 				2DE8DB93204D4DD2008C70D2 /* ScienceCollectionViewCell.m in Sources */,
 				2DD3E8622048FD1500199AB6 /* RegisterScrollView.m in Sources */,
 				2DB5680C207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m in Sources */,

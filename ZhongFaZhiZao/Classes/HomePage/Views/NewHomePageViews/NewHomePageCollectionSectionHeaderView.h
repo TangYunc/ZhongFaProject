@@ -16,6 +16,7 @@
     UIImageView *_auxiliaryView;
 }
 
+@property (nonatomic, copy)NSString *title;
 @property (nonatomic, copy)NSString *sectionType;
 
 @end

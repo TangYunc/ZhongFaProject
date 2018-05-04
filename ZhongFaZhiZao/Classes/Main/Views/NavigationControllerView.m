@@ -18,7 +18,7 @@
     if (self = [super initWithFrame:frame]) {
         
         UIView *navView = [[UIView alloc]initWithFrame:frame];
-//        navView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"NavBG"]];
+        navView.backgroundColor = [UIColor blueColor];
         [self addSubview:navView];
         
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, navView.frame.size.width, navView.frame.size.height)];
@@ -44,8 +44,6 @@
         _midLabel.textAlignment = NSTextAlignmentCenter;
         _midLabel.font = [UIFont systemFontOfSize:18.0];
         [navView addSubview:_midLabel];
-        
-
     }
 
     return self;

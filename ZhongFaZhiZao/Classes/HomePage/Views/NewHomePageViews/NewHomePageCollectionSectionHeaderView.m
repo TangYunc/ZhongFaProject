@@ -94,6 +94,11 @@
         subtitle = @"";
         _subtitleLabel.hidden = YES;
         _auxiliaryView.hidden = YES;
+    }else if ([self.sectionType isEqualToString:@"SSMBannerModelCell"]){
+        title = self.title;
+        subtitle = @"";
+        _subtitleLabel.hidden = YES;
+        _auxiliaryView.hidden = YES;
     }
     _titleLabel.text = title;
     _subtitleLabel.text = @"聚全球最优科技资源";
