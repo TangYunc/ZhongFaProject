@@ -61,8 +61,26 @@
         [weakSelf choiceTheImageUrl:@""];
     }];
     
-    CGFloat brandViewHeight = 68/2.0 * kScreenHeight;
+    CGFloat brandViewHeight = 68/2.0 * KWidth_ScaleH;
     _brandView.frame = CGRectMake(0, _imgRunView.bottom, self.width, brandViewHeight);
+    NSArray *brandNames = @[@"正品保障",@"资金安全",@"七天退换"];
+    NSArray *brandImages = @[@"SSMCarouselFirstBrand",@"SSMCarouselSecondBrand",@"SSMCarouselThirdBrand"];
+    CGFloat btnWidth = (96 + 7 + 32)/2.0 * KWidth_ScaleW;
+    CGFloat btnHeight = 33/2.0 * KWidth_ScaleH;
+    CGFloat btnGapFromLeft = 124/2.0 * KWidth_ScaleW;
+    CGFloat btnGapWithOther = 58/2.0 * KWidth_ScaleW;
+    CGFloat btnGapFromTop = (_brandView.height - btnHeight) / 2.0;
+    NSInteger tempCount = brandNames.count;
+    for (NSInteger i = 0; i < tempCount; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(btnGapFromLeft + i * (btnWidth + btnGapWithOther), btnGapFromTop, btnWidth, btnHeight);
+        button.tag = 10 + i;
+        [button setTitle:brandNames[i] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:brandImages[i]] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithHexString:@"#333333"] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:KFloat(12.f)];
+        [_brandView addSubview:button];
+    }
     
     CGFloat gapViewHeight = 20/2.0 * kScreenHeight;
     _gapView.frame = CGRectMake(0, _brandView.bottom, self.width, gapViewHeight);
@@ -76,6 +94,7 @@
     return _imgMarr;
 }
 
+#pragma mark -- 按钮事件
 #pragma mark -- method
 - (void)choiceTheImageUrl:(NSString *)url{
     WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",url] title:@"广告"];

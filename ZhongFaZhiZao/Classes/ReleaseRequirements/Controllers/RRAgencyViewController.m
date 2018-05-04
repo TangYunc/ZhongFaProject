@@ -8,9 +8,12 @@
 
 #import "RRAgencyViewController.h"
 #import "RRAgencyScrollView.h"
+#import "RRAgencyResult.h"
 
 @interface RRAgencyViewController ()<UIScrollViewDelegate>
-
+{
+    RRAgencyScrollView *_agencyScr;
+}
 @end
 
 @implementation RRAgencyViewController
@@ -20,20 +23,57 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithHexString:@"#F6F6F6"];
     [self setUpSubviews];
+    [self loadAgencyData];
 }
 - (void)setUpSubviews{
     
     CGFloat customizedScrGapFromTop = 20/2.0 * KWidth_ScaleH;
-    RRAgencyScrollView *agencyScr = [[RRAgencyScrollView alloc] initWithFrame:CGRectMake(0, customizedScrGapFromTop, kScreenWidth, kScreenHeight - customizedScrGapFromTop)];
-    agencyScr.delegate = self;
-    agencyScr.pagingEnabled = NO;
-    agencyScr.bounces = YES;
-    agencyScr.userInteractionEnabled = YES;
+    _agencyScr = [[RRAgencyScrollView alloc] initWithFrame:CGRectMake(0, customizedScrGapFromTop, kScreenWidth, kScreenHeight - customizedScrGapFromTop - SafeAreaBottomHeight)];
+    _agencyScr.delegate = self;
+    _agencyScr.pagingEnabled = NO;
+    _agencyScr.bounces = YES;
+    _agencyScr.userInteractionEnabled = YES;
     //    _scrollView.showsHorizontalScrollIndicator = NO;
-    agencyScr.contentSize = CGSizeMake(0,1.2 * kScreenHeight);
-    [self.view addSubview:agencyScr];
+    _agencyScr.contentSize = CGSizeMake(0,1.2 * kScreenHeight);
+    [self.view addSubview:_agencyScr];
     
 }
+
+#pragma mark -- loadData
+- (void)loadAgencyData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,RRRecruits_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        [RRAgencyIndustryCate mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"industryCateId" : @"id"
+                     };
+        }];
+        [RRAgencyInvestmentPriceType mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"investmentPriceTypeId" : @"id"
+                     };
+        }];
+        
+        RRAgencyResult *result = [RRAgencyResult mj_objectWithKeyValues:response];
+        if (result.success) {
+            _agencyScr.datas = result.data.datas;
+        }else{
+            
+            NSLog(@"%@",result.message);
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
+
 #pragma mark -- UIScrollViewDelegate
 // 手指离开滑动视图的时候调用的协议方法
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate

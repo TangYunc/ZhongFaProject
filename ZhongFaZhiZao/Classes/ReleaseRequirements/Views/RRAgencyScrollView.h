@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RRAgencyResult.h"
 
 @interface RRAgencyScrollView : UIScrollView
 
+@property (nonatomic, strong) RRAgencyDatas *datas;
 @end

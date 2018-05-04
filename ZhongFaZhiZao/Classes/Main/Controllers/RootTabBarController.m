@@ -73,7 +73,7 @@
         HomeViewController *homeVC = [[HomeViewController alloc] init];
         homeVC.view.backgroundColor = [UIColor whiteColor];
         [self addOneChildViewController:homeVC title:@"首页" norImage:@"HomeNormal" selectedImage:@"HomeSelected"];
-        //02 咨询
+        //02 消息
         MessageCenterViewController *messageVC = [[MessageCenterViewController alloc] init];
         messageVC.view.backgroundColor = [UIColor whiteColor];
 //        CounselingViewController *counselingVC = [[CounselingViewController alloc] init];

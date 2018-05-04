@@ -41,6 +41,8 @@
 		2D456CE4204FC118002F2FB5 /* MinePersonalInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D456CE3204FC118002F2FB5 /* MinePersonalInfoModel.m */; };
 		2D456CE7204FCDBC002F2FB5 /* MineLastSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D456CE6204FCDBC002F2FB5 /* MineLastSectionCell.m */; };
 		2D456CED204FDF6E002F2FB5 /* WXPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D456CEB204FDF6D002F2FB5 /* WXPayViewController.m */; };
+		2D592EDA208610B400FD1410 /* RRRecruitmentResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592ED9208610B400FD1410 /* RRRecruitmentResult.m */; };
+		2D592EDD208610C200FD1410 /* RRAgencyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EDC208610C200FD1410 /* RRAgencyResult.m */; };
 		2D5D575120478AAB00F683F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D575020478AAB00F683F4 /* AppDelegate.m */; };
 		2D5D575420478AAB00F683F4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D575320478AAB00F683F4 /* ViewController.m */; };
 		2D5D575720478AAB00F683F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5D575520478AAB00F683F4 /* Main.storyboard */; };
@@ -139,6 +141,9 @@
 		2DF1C74520849C9D00710B9B /* SSMFiltrateTabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C74420849C9D00710B9B /* SSMFiltrateTabelView.m */; };
 		2DF1C74820849D9400710B9B /* SSMFiltrateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C74720849D9400710B9B /* SSMFiltrateCell.m */; };
 		2DF1C74E2084BED400710B9B /* SSMFiltrateCellResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C74D2084BED400710B9B /* SSMFiltrateCellResult.m */; };
+		2DF1C75120857B5800710B9B /* SSMFiltratePriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C75020857B5800710B9B /* SSMFiltratePriceCell.m */; };
+		2DF1C7542085BF4300710B9B /* RRRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7532085BF4300710B9B /* RRRequestResult.m */; };
+		2DF1C7572085C41A00710B9B /* RRSubRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C7562085C41A00710B9B /* RRSubRequestResult.m */; };
 		2DF2830C2080589E0048E340 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF2830B2080589E0048E340 /* CityModel.m */; };
 		2DF2830E208059B00048E340 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DF2830D208059B00048E340 /* City.plist */; };
 		2DF28311208073FA0048E340 /* SexPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF28310208073FA0048E340 /* SexPickView.m */; };
@@ -234,6 +239,10 @@
 		2D456CE6204FCDBC002F2FB5 /* MineLastSectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineLastSectionCell.m; sourceTree = "<group>"; };
 		2D456CEB204FDF6D002F2FB5 /* WXPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXPayViewController.m; sourceTree = "<group>"; };
 		2D456CEC204FDF6E002F2FB5 /* WXPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXPayViewController.h; sourceTree = "<group>"; };
+		2D592ED8208610B400FD1410 /* RRRecruitmentResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRRecruitmentResult.h; sourceTree = "<group>"; };
+		2D592ED9208610B400FD1410 /* RRRecruitmentResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRRecruitmentResult.m; sourceTree = "<group>"; };
+		2D592EDB208610C200FD1410 /* RRAgencyResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRAgencyResult.h; sourceTree = "<group>"; };
+		2D592EDC208610C200FD1410 /* RRAgencyResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRAgencyResult.m; sourceTree = "<group>"; };
 		2D5D574C20478AAB00F683F4 /* ZhongFaZhiZao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhongFaZhiZao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5D574F20478AAB00F683F4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D5D575020478AAB00F683F4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -435,6 +444,12 @@
 		2DF1C74720849D9400710B9B /* SSMFiltrateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMFiltrateCell.m; sourceTree = "<group>"; };
 		2DF1C74C2084BED400710B9B /* SSMFiltrateCellResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMFiltrateCellResult.h; sourceTree = "<group>"; };
 		2DF1C74D2084BED400710B9B /* SSMFiltrateCellResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMFiltrateCellResult.m; sourceTree = "<group>"; };
+		2DF1C74F20857B5800710B9B /* SSMFiltratePriceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMFiltratePriceCell.h; sourceTree = "<group>"; };
+		2DF1C75020857B5800710B9B /* SSMFiltratePriceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMFiltratePriceCell.m; sourceTree = "<group>"; };
+		2DF1C7522085BF4300710B9B /* RRRequestResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRRequestResult.h; sourceTree = "<group>"; };
+		2DF1C7532085BF4300710B9B /* RRRequestResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRRequestResult.m; sourceTree = "<group>"; };
+		2DF1C7552085C41A00710B9B /* RRSubRequestResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRSubRequestResult.h; sourceTree = "<group>"; };
+		2DF1C7562085C41A00710B9B /* RRSubRequestResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRSubRequestResult.m; sourceTree = "<group>"; };
 		2DF2830A2080589E0048E340 /* CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
 		2DF2830B2080589E0048E340 /* CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
 		2DF2830D208059B00048E340 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
@@ -762,6 +777,14 @@
 		2DB5681C207F2CBE00EC28C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1C7522085BF4300710B9B /* RRRequestResult.h */,
+				2DF1C7532085BF4300710B9B /* RRRequestResult.m */,
+				2DF1C7552085C41A00710B9B /* RRSubRequestResult.h */,
+				2DF1C7562085C41A00710B9B /* RRSubRequestResult.m */,
+				2D592ED8208610B400FD1410 /* RRRecruitmentResult.h */,
+				2D592ED9208610B400FD1410 /* RRRecruitmentResult.m */,
+				2D592EDB208610C200FD1410 /* RRAgencyResult.h */,
+				2D592EDC208610C200FD1410 /* RRAgencyResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1129,6 +1152,8 @@
 				2DF1C74420849C9D00710B9B /* SSMFiltrateTabelView.m */,
 				2DF1C74620849D9400710B9B /* SSMFiltrateCell.h */,
 				2DF1C74720849D9400710B9B /* SSMFiltrateCell.m */,
+				2DF1C74F20857B5800710B9B /* SSMFiltratePriceCell.h */,
+				2DF1C75020857B5800710B9B /* SSMFiltratePriceCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1375,6 +1400,7 @@
 				2DD3E84C2048022D00199AB6 /* MBProgressHUD+MJ.m in Sources */,
 				2DE8DB99204D4DED008C70D2 /* SolveCollectionViewCell.m in Sources */,
 				2DF1C72A2081FEA500710B9B /* SSMSecondSectionView.m in Sources */,
+				2D592EDA208610B400FD1410 /* RRRecruitmentResult.m in Sources */,
 				2DD3E83C2047F3E600199AB6 /* NavigationControllerView.m in Sources */,
 				2DD3E84E2048022D00199AB6 /* WKProgressHUD.m in Sources */,
 				2DB56810207EF7E500EC28C2 /* RRViewController.m in Sources */,
@@ -1401,6 +1427,7 @@
 				2DD3E87120491DE900199AB6 /* MineSecondSectionCell.m in Sources */,
 				2DD3E7EC204799BC00199AB6 /* Constant.m in Sources */,
 				2D5D579020478D0A00F683F4 /* UIView+TYCViewController.m in Sources */,
+				2D592EDD208610C200FD1410 /* RRAgencyResult.m in Sources */,
 				2D456CDA204E5D8C002F2FB5 /* CommitKnowledgeViewController.m in Sources */,
 				2D15B23A207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m in Sources */,
 				2DE8DB96204D4DDD008C70D2 /* IntelligenceCollectionViewCell.m in Sources */,
@@ -1435,6 +1462,7 @@
 				2DF1C7332084478000710B9B /* SSMFiltrateViewController.m in Sources */,
 				2D15B22B207A1B4C001E45F0 /* SolveCell.m in Sources */,
 				2DD3E8102047A16600199AB6 /* CounselingViewController.m in Sources */,
+				2DF1C75120857B5800710B9B /* SSMFiltratePriceCell.m in Sources */,
 				2DF1C73920844E4B00710B9B /* SSMClassifyViewController.m in Sources */,
 				2D15B252207C659F001E45F0 /* SolveView.m in Sources */,
 				2DD3E8322047E66D00199AB6 /* AccountAndPWLognScrollView.m in Sources */,
@@ -1445,6 +1473,7 @@
 				2D12B40E205A17F700FA0F0C /* ArchiverAndUnArchiver.m in Sources */,
 				2DD3E8162047A1AE00199AB6 /* MineViewController.m in Sources */,
 				2DB56809207E155800EC28C2 /* NewHomePageRecommendResult.m in Sources */,
+				2DF1C7572085C41A00710B9B /* RRSubRequestResult.m in Sources */,
 				2DF1C7242081B06400710B9B /* SSMBannerModelSecondCell.m in Sources */,
 				2DF1C71B2081A86900710B9B /* SSMTableView.m in Sources */,
 				2DD3E8192047A94A00199AB6 /* UIColor+Hex.m in Sources */,
@@ -1468,6 +1497,7 @@
 				2DF1C73F20847AE800710B9B /* SSMTableViewController.m in Sources */,
 				2DE8DB93204D4DD2008C70D2 /* ScienceCollectionViewCell.m in Sources */,
 				2DD3E8622048FD1500199AB6 /* RegisterScrollView.m in Sources */,
+				2DF1C7542085BF4300710B9B /* RRRequestResult.m in Sources */,
 				2DB5680C207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m in Sources */,
 				2DD3E8292047E34700199AB6 /* MessageLoginViewController.m in Sources */,
 				2D2755CC2049470400D7E791 /* IMDetailViewController.m in Sources */,

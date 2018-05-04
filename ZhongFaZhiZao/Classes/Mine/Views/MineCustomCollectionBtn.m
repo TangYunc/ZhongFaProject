@@ -16,17 +16,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        NSString *title = @"商品收藏";
+        CGSize titleStrSize =[title sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:KFloat(14.f)]}];
         // 创建子视图
         // 1.创建图片视图
-        _titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 14 * KWidth_ScaleH, 13, 13)];
+        _titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 14 * KWidth_ScaleH, 13, 13)];
         _titleImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_titleImageView];
+        _titleImageView.centerX = self.frame.size.width / 2.0 - titleStrSize.width / 2.0 - 13 / 2.0;
         
         // 2.创建标题文本
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(_titleImageView.right + 5, 14 * KWidth_ScaleH, self.width - _titleImageView.right - 5, 13)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(_titleImageView.right + 5, 14 * KWidth_ScaleH, titleStrSize.width, 13)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = TEXT_GREY_COLOR;
-        _titleLabel.font = [UIFont systemFontOfSize:14.f];
+        _titleLabel.font = [UIFont systemFontOfSize:KFloat(14.f)];
         [self addSubview:_titleLabel];
         
     }

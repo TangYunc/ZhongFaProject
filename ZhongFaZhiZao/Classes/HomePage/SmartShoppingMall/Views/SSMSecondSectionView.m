@@ -43,6 +43,11 @@
     _goodsPriceLabel.textColor = [UIColor colorWithHexString:@"#FF6600"];
     _goodsPriceLabel.font = [UIFont systemFontOfSize:KFloat(11.f)];
     [self addSubview:_goodsPriceLabel];
+    //5.
+    _coverBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_coverBtn setBackgroundColor:[UIColor clearColor]];
+    [_coverBtn addTarget:self action:@selector(currentViewClock:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_coverBtn];
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
@@ -81,6 +86,16 @@
     //    [attr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.f] range:NSMakeRange(1, attr2.length - 1)];
     _goodsPriceLabel.attributedText = attr2;
     [_goodsPriceLabel sizeToFit];
+    //5.
+    _coverBtn.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    _coverBtn.tag = self.tag;
 }
 
+#pragma mark -- 按钮事件
+- (void)currentViewClock:(UIButton *)button{
+    
+    if (self.block) {
+        self.block(button);
+    }
+}
 @end

@@ -57,7 +57,9 @@
     _noImgeView = [[UIImageView alloc]init];
     _noLabel = [[UILabel alloc]init];
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(12*KWidth_ScaleW, SafeAreaTopHeight, kScreenWidth-12*KWidth_ScaleW*2, kScreenHeight-SafeAreaTopHeight) style:UITableViewStylePlain];
+    NSInteger childVCCount =  self.navigationController.childViewControllers.count;
+    CGFloat tabBarHeight = childVCCount > 1 ? 0 : 49;
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(12*KWidth_ScaleW, SafeAreaTopHeight, kScreenWidth - 12 * KWidth_ScaleW * 2, kScreenHeight - SafeAreaTopHeight - SafeAreaBottomHeight - tabBarHeight) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
@@ -88,9 +90,17 @@
 
 - (void)setupNavigationBar {
     
-    NavigationControllerView *navView = [[NavigationControllerView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andLeftBtn:@"消息中心"];
-    navView.viewController = self;
-    [self.view addSubview:navView];
+    NSInteger childVCCount =  self.navigationController.childViewControllers.count;
+    if (childVCCount > 1) {
+        NavigationControllerView *navView = [[NavigationControllerView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andLeftBtn:@"消息中心"];
+        navView.viewController = self;
+        [self.view addSubview:navView];
+    }else{
+        NavigationControllerView *navView = [[NavigationControllerView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andtitle:@"消息中心"];
+        navView.viewController = self;
+        [self.view addSubview:navView];
+    }
+    
 }
 
 #pragma mark - datasource

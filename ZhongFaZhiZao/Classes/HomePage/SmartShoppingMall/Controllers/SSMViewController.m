@@ -36,7 +36,7 @@
 }
 #pragma mark -初始化子视图
 - (void)setUpUI{
-    _SSMTableView = [[SSMTableView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - SafeAreaTopHeight) style:UITableViewStylePlain];
+    _SSMTableView = [[SSMTableView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - SafeAreaTopHeight - SafeAreaBottomHeight) style:UITableViewStylePlain];
     _SSMTableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:_SSMTableView];
 }

@@ -41,7 +41,7 @@
 - (void)setUpUI{
     
     self.imageNameStr = @"MineAuxiliaryIcon";//默认功能管理辅助视图的图片的名字
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - SafeAreaTopHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - SafeAreaTopHeight - SafeAreaBottomHeight) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor colorWithHexString:@"#F4F4F4"];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
@@ -56,22 +56,16 @@
     
     NavigationControllerView *navView = [[NavigationControllerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andLeftBtn:@"分类"];
     navView.viewController = self;
-    NSArray *imageNames = @[@"SSMRightNavSearchIcon"];
-    CGFloat gapWidth = 24/2.0 * KWidth_ScaleW;
     CGFloat rightBtnWidth = 35/2.0 * KWidth_ScaleW;
     CGFloat rightBtnHeight = 35/2.0 * KWidth_ScaleW;
-    CGFloat rightBtnGapFromLeft = kScreenWidth - (24 + 35 * 2 + 35)/2.0 * KWidth_ScaleW;
-    for (NSInteger i = 0; i < imageNames.count; i++) {
+    CGFloat rightBtnGapFromLeft = kScreenWidth - (24 + 35)/2.0 * KWidth_ScaleW;
         
-        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        rightBtn.frame = CGRectMake(rightBtnGapFromLeft + i * (rightBtnWidth + gapWidth), SafeAreaTopHeight -rightBtnHeight - 34/2.0 * KWidth_ScaleH, rightBtnWidth, rightBtnHeight);
-        rightBtn.tag = 10 + i;
-        rightBtn.imageView.frame = rightBtn.bounds;
-        rightBtn.hidden = NO;
-        [rightBtn setBackgroundImage:[UIImage imageNamed:imageNames[i]] forState:UIControlStateNormal];
-        [rightBtn addTarget:self action:@selector(BarButtonItemClick:) forControlEvents:UIControlEventTouchUpInside];
-        [navView addSubview:rightBtn];
-    }
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(rightBtnGapFromLeft, SafeAreaTopHeight -rightBtnHeight - 34/2.0 * KWidth_ScaleH, rightBtnWidth, rightBtnHeight);
+    rightBtn.imageView.frame = rightBtn.bounds;
+    [rightBtn setBackgroundImage:[UIImage imageNamed:@"SSMRightNavSearchIcon"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(BarButtonItemClick:) forControlEvents:UIControlEventTouchUpInside];
+    [navView addSubview:rightBtn];
     [self.view addSubview:navView];
 }
 
@@ -181,9 +175,8 @@
 #pragma mark -- 按钮事件
 - (void)BarButtonItemClick:(UIButton *)button{
     
-    if (button.tag == 10) {
-        NSLog(@"点击的是搜索");
-    }
+    NSLog(@"点击的是搜索");
+    
 }
 
 - (void)sectionClick:(UITapGestureRecognizer *)tap{

@@ -10,4 +10,5 @@
 
 @interface MessageCenterViewController : BaseViewController
 
+@property (nonatomic, copy) NSString *fromWhere;
 @end

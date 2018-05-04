@@ -10,6 +10,7 @@
 
 #import "SSMFiltrateTabelView.h"
 #import "SSMFiltrateCell.h"
+#import "SSMFiltratePriceCell.h"
 
 @interface SSMFiltrateTabelView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -46,15 +47,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    if (indexPath.section == 0) {
-//
-//    }else if (indexPath.section == 1){
-//
-//    }else if (indexPath.section == 2){
-//
-//    }else{
-//
-//    }
+    if (indexPath.section == 3) {
+        static NSString *identifier = @"SSMFiltratePriceCellId";
+        SSMFiltratePriceCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[SSMFiltratePriceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        return cell;
+    }
     static NSString *identifier = @"SSMFiltrateCellId";
     SSMFiltrateCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -72,7 +72,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat cellHeight = 0;
-    cellHeight = 175;
+    if (indexPath.section == 3) {
+        cellHeight = 141/2.0 * KWidth_ScaleH;
+    }else{
+        cellHeight = 175;        
+    }
     return cellHeight;
     
 }

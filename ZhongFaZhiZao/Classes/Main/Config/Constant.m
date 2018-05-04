@@ -36,6 +36,12 @@ NSString *const HomePageSmartHeadlineNews_API = @"/indexs/tt?access-token=";
 NSString *const HomePageScienceResult_API = @"/indexs/tech?access-token=";
 NSString *const HomePageSolve_API = @"/indexs/solution?access-token=";
 NSString *const HomePageSmartShoppingMall_API = @"/indexs/shop?access-token=";
+
+//***************************发布需求************************//
+NSString *const RRCustomized_API = @"/recruits?access-token=";
+NSString *const RRSubCustomized_API = @"/recruits/subclass?access-token=";
+NSString *const RRCustomizedConfirmRelease_API = @"/recruits?access-token=";
+NSString *const RRRecruits_API = @"/recruit-agents?access-token=";
 //***************************推送************************//
 
 

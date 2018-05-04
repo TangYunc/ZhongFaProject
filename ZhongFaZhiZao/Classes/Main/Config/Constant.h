@@ -29,6 +29,14 @@ extern NSString *const HomePageScienceResult_API;//首页科技推荐(科技成�
 extern NSString *const HomePageSolve_API;//首页解决方案
 extern NSString *const HomePageSmartShoppingMall_API;//首页智造商城数据
 
+//***************************发布需求************************//
+extern NSString *const RRCustomized_API;//定制需求表单页面
+extern NSString *const RRSubCustomized_API;//定制需求子分类获取
+extern NSString *const RRCustomizedConfirmRelease_API;//定制需求表单提交接口
+extern NSString *const RRRecruits_API;//招代理表单页面
+
+
+
 //***************************推送************************//
 
 

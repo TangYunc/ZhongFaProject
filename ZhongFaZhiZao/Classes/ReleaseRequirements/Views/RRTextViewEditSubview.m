@@ -91,7 +91,9 @@
     if([text2 isEqual:@""]){
         return;
     }
-    
+    if (self.block) {
+        self.block(textView, text2);
+    }
     //控件自适应输入的文本的内容的高度，只要在textViewDidChange的代理方法中加入调整控件大小的代理即可
     //计算文本的高度
     //    CGSize constraintSize;

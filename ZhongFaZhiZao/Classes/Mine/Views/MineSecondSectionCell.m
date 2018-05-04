@@ -28,7 +28,7 @@
     //图片视图
     _iconImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _iconImageView.clipsToBounds = YES;
-    _iconImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _iconImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.contentView addSubview:_iconImageView];
     
     //名字

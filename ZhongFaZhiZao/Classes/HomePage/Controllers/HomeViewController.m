@@ -90,7 +90,7 @@
 
 - (void)setupSubViews{
 //    _collectionView = [[HomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
-    _collectionView = [[NewHomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight-49)];
+    _collectionView = [[NewHomePageCollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight - 49 - SafeAreaBottomHeight)];
     _collectionView.navigationView = self.navigationView;
     _collectionView.navBarView = self.navBarView;
     [self.view addSubview:_collectionView];

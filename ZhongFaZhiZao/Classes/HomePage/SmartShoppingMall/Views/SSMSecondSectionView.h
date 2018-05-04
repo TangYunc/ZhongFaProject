@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SSMSecondSectionViewBlock)(UIButton *button);
 @interface SSMSecondSectionView : UIView
 {
     UIImageView *_goodsImgImageView;
     UILabel *_goodsNameLabel;
     UILabel *_salesVolumeLabel;
     UILabel *_goodsPriceLabel;
+    UIButton *_coverBtn;
 }
+@property (nonatomic, copy) SSMSecondSectionViewBlock block;
 @end

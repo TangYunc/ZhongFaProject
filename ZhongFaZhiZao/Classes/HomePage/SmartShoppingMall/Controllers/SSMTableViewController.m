@@ -16,6 +16,7 @@
     UITableView *_tableView;
     UIView *_headerBJView;
 }
+@property (nonatomic, assign) BOOL isSelectedPriceBtn;
 @end
 
 @implementation SSMTableViewController
@@ -29,9 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.isSelectedPriceBtn = NO;
     [self setUpUI];
     // 初始化导航栏
     [self setupNavigationBar];
+    
 }
 
 #pragma mark -初始化子视图
@@ -55,22 +58,28 @@
         [headerBtn addTarget:self action:@selector(headerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [_headerBJView addSubview:headerBtn];
     }
+    
     UIButton *defaultBtn = (UIButton *)[_headerBJView viewWithTag:20];
     defaultBtn.selected = YES;
     UIButton *priceBtn = (UIButton *)[_headerBJView viewWithTag:21];
-    [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceRiseBtnIcon"] forState:UIControlStateNormal];
-    [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceDownBtnIcon"] forState:UIControlStateSelected];
+    [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceNormalBtnIcon"] forState:UIControlStateNormal];
+    if (self.isSelectedPriceBtn) {
+        [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceRiseBtnIcon"] forState:UIControlStateSelected];
+    }else{
+        [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceDownBtnIcon"] forState:UIControlStateSelected];
+    }
     priceBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -40);
     priceBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
     UIButton *filtrateBtn = (UIButton *)[_headerBJView viewWithTag:22];
-    [filtrateBtn setImage:[UIImage imageNamed:@"SSMHeaderfiltrateBtnIcon"] forState:UIControlStateNormal];
+    [filtrateBtn setImage:[UIImage imageNamed:@"SSMHeaderfiltrateBtnNormalIcon"] forState:UIControlStateNormal];
+    [filtrateBtn setImage:[UIImage imageNamed:@"SSMHeaderfiltrateBtnSelectedIcon"] forState:UIControlStateSelected];
     filtrateBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -5);
     filtrateBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
 //    [filtrateBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceDownBtnIcon"] forState:UIControlStateSelected];
     UIView *headerBottomView = [[UIView alloc] initWithFrame:CGRectMake(0, priceBtn.bottom, kScreenWidth, 0.5)];
     [self.view addSubview:headerBottomView];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _headerBJView.bottom, kScreenWidth, kScreenHeight - SafeAreaTopHeight - _headerBJView.height) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _headerBJView.bottom, kScreenWidth, kScreenHeight - SafeAreaTopHeight - _headerBJView.height - SafeAreaBottomHeight) style:UITableViewStylePlain];
     _tableView.backgroundColor = [UIColor colorWithHexString:@"#F4F4F4"];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
@@ -170,16 +179,32 @@
         NSLog(@"点击的是默认");
         priceBtn.selected = NO;
         filtrateBtn.selected = NO;
+        self.isSelectedPriceBtn = NO;
     }else if (button.tag == 21){
         NSLog(@"点击的是价格");
         defaultBtn.selected = NO;
         filtrateBtn.selected = NO;
+        priceBtn.selected = YES;
+        self.isSelectedPriceBtn = !self.isSelectedPriceBtn;
     }else if (button.tag == 22){
        NSLog(@"点击的是筛选");
         defaultBtn.selected = NO;
         priceBtn.selected = NO;
+        self.isSelectedPriceBtn = NO;
         SSMFiltrateViewController *filtrateVC = [[SSMFiltrateViewController alloc] init];
         [self.navigationController pushViewController:filtrateVC animated:YES];
+    }
+}
+
+- (void)setIsSelectedPriceBtn:(BOOL)isSelectedPriceBtn{
+    if (_isSelectedPriceBtn != isSelectedPriceBtn) {
+        _isSelectedPriceBtn = isSelectedPriceBtn;
+         UIButton *priceBtn = (UIButton *)[_headerBJView viewWithTag:21];
+        if (!self.isSelectedPriceBtn) {
+            [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceRiseBtnIcon"] forState:UIControlStateSelected];
+        }else{
+            [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceDownBtnIcon"] forState:UIControlStateSelected];
+        }
     }
 }
 - (void)didReceiveMemoryWarning {

@@ -45,9 +45,7 @@
 #pragma mark -初始化子视图
 - (void)creatWebView{
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight-49-SafeAreaBottomHeight-SafeAreaTopHeight)];
+    self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - 49 - SafeAreaBottomHeight - SafeAreaTopHeight)];
     
     self.webView.navigationDelegate = self;
     self.webView.UIDelegate = self;
@@ -59,9 +57,6 @@
     [self.webView.scrollView setAlwaysBounceVertical:YES];
     
     [self.webView setAllowsBackForwardNavigationGestures:true];
-    
-    
-    self.view.backgroundColor = [UIColor whiteColor];
     
     _isLoaing=NO;
     
@@ -91,7 +86,9 @@
         [cookieDic setObject:cookie.value forKey:cookie.name];
     }
     if ([KUserDefault objectForKey:@"token"]) {
+        NSLog(@"theTokenPur:%@",[KUserDefault objectForKey:@"token"]);
         [cookieDic setObject:[KUserDefault objectForKey:@"token"] forKey:@"zfa_token"];
+        NSLog(@"theTokenPur1:%@",[KUserDefault objectForKey:@"zfa_token"]);
     }
     else{
         [cookieDic setObject:@"" forKey:@"zfa_token"];

@@ -32,6 +32,7 @@
     // Do any additional setup after loading the view.
     // 初始化TableView
     [self setupTableView];
+    NSLog(@"theToken:%@",[KUserDefault objectForKey:@"token"]);
     if ([KUserDefault objectForKey:@"token"]) {
         
         [self loadData];
@@ -55,7 +56,7 @@
     
     // TableView
     self.tableView = [[MineTableView alloc] init];
-    self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - TabBar_HEIGHT);
+    self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - TabBar_HEIGHT - SafeAreaBottomHeight);
     [self.view addSubview:self.tableView];
     
     NSLog(@"宽：%f----高：%f",KWidth_ScaleW,KWidth_ScaleH);
@@ -88,11 +89,17 @@
         }else if (result.resultCode == 1002){
             
             NSLog(@"未登录");
-//            _contentView.loginBtn.hidden = NO;
-//            _contentView.nameLabel.hidden = YES;
-//            _contentView.informationBtn.hidden = YES;
+            _contentView.loginBtn.hidden = NO;
+            _contentView.nameLabel.hidden = YES;
+            _contentView.informationBtn.hidden = YES;
 //            _exitBtn.hidden = YES;
-            
+//            [KUserDefault removeObjectForKey:@"uid"];
+//            [KUserDefault removeObjectForKey:@"token"];
+//            [KUserDefault removeObjectForKey:@"uname"];
+//            [KUserDefault removeObjectForKey:@"contacts"];
+//            [KUserDefault removeObjectForKey:@"mobile"];
+//            [KUserDefault synchronize];
+//            [self.tableView reloadData];
 //            _redLbl1.hidden = YES;
 //            _redLbl2.hidden = YES;
 //            _redLbl3.hidden = YES;

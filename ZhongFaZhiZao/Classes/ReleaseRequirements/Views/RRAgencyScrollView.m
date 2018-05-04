@@ -22,6 +22,10 @@
 @property (nonatomic, assign) Float32 keyboardHeight;
 @property (nonatomic, assign) Float32 inputViewMaxY;
 
+@property (nonatomic, strong) NSMutableArray *datasNameMarr;//存储名字数组
+@property (nonatomic, strong) NSMutableArray *datasIdMarr;//存储ID数组
+
+
 @end
 
 @implementation RRAgencyScrollView
@@ -53,7 +57,8 @@
     for (NSInteger i = 0; i < tempCount; i++) {
         
         RRPropertyEditSubview *propertyEditView = [[RRPropertyEditSubview alloc] initWithFrame:CGRectMake(0, i * propertyEditViewHeight, kScreenWidth, propertyEditViewHeight)];
-        propertyEditView.block = ^{
+        propertyEditView.block = ^(NSInteger itemId, NSString *itemName) {
+            
             [weakSelf endEditing:YES];
         };
         propertyEditView.tag = 10 + i;
@@ -103,6 +108,26 @@
     [self addSubview:_rrCustomSubview];
 }
 
+- (void)setDatas:(RRAgencyDatas *)datas{
+    
+    if (_datas != datas) {
+        _datas = datas;
+        
+    }
+}
+
+- (NSMutableArray *)datasNameMarr{
+    if (!_datasNameMarr) {
+        _datasNameMarr = [NSMutableArray array];
+    }
+    return _datasNameMarr;
+}
+- (NSMutableArray *)datasIdMarr{
+    if (!_datasIdMarr) {
+        _datasIdMarr = [NSMutableArray array];
+    }
+    return _datasIdMarr;
+}
 #pragma mark -- 手势
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self endEditing:YES];

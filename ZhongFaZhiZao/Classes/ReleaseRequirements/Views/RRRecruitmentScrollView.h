@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RRRecruitmentResult.h"
 
 @interface RRRecruitmentScrollView : UIScrollView
+
+@property (nonatomic, strong) RRRecruitmentDatas *datas;
 
 @end

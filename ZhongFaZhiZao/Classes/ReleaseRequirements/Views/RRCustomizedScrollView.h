@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RRRequestResult.h"
+#import "RRSubRequestResult.h"
 
 @interface RRCustomizedScrollView : UIScrollView
 
+@property (nonatomic, strong) RRRequestDatas *datas;
 @end

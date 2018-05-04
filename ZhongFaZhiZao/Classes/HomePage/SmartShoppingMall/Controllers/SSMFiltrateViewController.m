@@ -36,9 +36,29 @@
 
 #pragma mark -初始化子视图
 - (void)setUpUI{
-    _filtrateTableView = [[SSMFiltrateTabelView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - SafeAreaTopHeight) style:UITableViewStylePlain];
+    NSArray *btnNameArr = @[@"重置",@"确定"];
+    NSArray *btnBJColorArr = @[@"#FFFFFF",@"#31B3EF"];
+    NSArray *btnTitleColorArr = @[@"#999999",@"#FFFFFF"];
+    NSInteger tempCount = btnNameArr.count;
+    CGFloat btnWidth = kScreenWidth / tempCount;
+    CGFloat btnHeight = 128 / 2.0 * KWidth_ScaleH;
+    
+    _filtrateTableView = [[SSMFiltrateTabelView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - SafeAreaTopHeight - btnHeight - SafeAreaBottomHeight) style:UITableViewStylePlain];
     _filtrateTableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:_filtrateTableView];
+    
+    
+    for (NSInteger i = 0; i < tempCount; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(i * btnWidth, kScreenHeight - btnHeight - SafeAreaBottomHeight, btnWidth, btnHeight);
+        button.tag = 10 + i;
+        [button setTitle:btnNameArr[i] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithHexString:btnTitleColorArr[i]] forState:UIControlStateNormal];
+        [button setBackgroundColor:[UIColor colorWithHexString:btnBJColorArr[i]]];
+        [button addTarget:self action:@selector(bottomClick:) forControlEvents:UIControlEventTouchUpInside];
+        button.titleLabel.font = [UIFont systemFontOfSize:KFloat(14.f)];
+        [self.view addSubview:button];
+    }
 }
 
 #pragma mark -初始化导航栏
@@ -74,6 +94,14 @@
         NSLog(@"点击的是分类");
         SSMClassifyViewController *classifyTVC = [[SSMClassifyViewController alloc] init];
         [self.navigationController pushViewController:classifyTVC animated:YES];
+    }
+}
+
+- (void)bottomClick:(UIButton *)button{
+    if (button.tag == 10) {
+        NSLog(@"点击重置");
+    }else if (button.tag == 11){
+        NSLog(@"点击确认");
     }
 }
 - (void)didReceiveMemoryWarning {

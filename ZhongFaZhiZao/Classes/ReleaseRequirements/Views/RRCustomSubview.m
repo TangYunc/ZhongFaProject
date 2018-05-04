@@ -24,6 +24,10 @@
     UITextField *_vericationCodeTF;
     UIButton *_confirmBtn;
 }
+
+@property (nonatomic, copy) NSString *phoneNum;
+@property (nonatomic,copy) NSString *vfCode;
+@property (nonatomic,copy) NSString *userNameStr;
 @end
 
 @implementation RRCustomSubview
@@ -148,78 +152,96 @@
 }
 #pragma mark -- 按钮事件
 - (void)obtainBtn:(UIButton *)button{
-    [self endEditing:YES]; // 关闭键盘
     
-    [_obtainBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_obtainBtn setBackgroundColor:[UIColor lightGrayColor]];
-    _obtainBtn.userInteractionEnabled = NO;
-
-    // 1.请求参数
-    NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
-    [tempPara setObject:_phoneNumTF.text forKey:@"mobile"];
-//    NSString *url = [NSString stringWithFormat:@"%@%@",BaseApi,LoginSmscode];
+    self.phoneNum = _phoneNumTF.text;
     
-    // 发送请求
-    [TNetworking postWithUrl:nil params:tempPara success:^(id response) {
-        NSLog(@"验证码====%@",response);
+    if ([self.phoneNum isEqualToString:@""]) {
+        [WKProgressHUD popMessage:@"请输入手机号" inView:self.superview duration:HUD_DURATION animated:YES];
+    }else if (![self.phoneNum isMobileNum]){
+        [WKProgressHUD popMessage:@"请输入正确的手机号" inView:self.superview duration:HUD_DURATION animated:YES];
+    }else{
         
-        if ([response[@"succ"] intValue] == 1) {
+        [self endEditing:YES]; // 关闭键盘
+        
+        [_obtainBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_obtainBtn setBackgroundColor:[UIColor lightGrayColor]];
+        _obtainBtn.userInteractionEnabled = NO;
+        
+        // 1.请求参数
+        NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
+        [tempPara setObject:_phoneNumTF.text forKey:@"mobile"];
+        NSString *url = [NSString stringWithFormat:@"%@%@/%@",BaseApi,loginSmscode_api,self.phoneNum];
+        
+        // 发送请求
+        [TNetworking postWithUrl:url params:tempPara success:^(id response) {
+            NSLog(@"验证码====%@",response);
             
-            [MBProgressHUD showSuccess:@"验证码已发送!"];
-            
-            [_obtainBtn startWithTime:59 title:@"获取验证码" countDownTitle:@"s" mainColor:nil countColor:nil withObjectStr:nil];
-            
-        }else {
-            if (response[@"datas"][@"error"]) {
-                [MBProgressHUD showError:response[@"datas"][@"error"]];
+            if ([response[@"resultCode"] intValue] == 1000) {
+                
+                [MBProgressHUD showSuccess:@"验证码已发送!"];
+                
+                [_obtainBtn startWithTime:59 title:@"获取验证码" countDownTitle:@"s" mainColor:nil countColor:nil withObjectStr:nil];
+                
+            }else {
+                if (response[@"datas"][@"error"]) {
+                    [MBProgressHUD showError:response[@"datas"][@"error"]];
+                }
+                [_obtainBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                _obtainBtn.userInteractionEnabled = YES;
+                
             }
-            [_obtainBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            _obtainBtn.userInteractionEnabled = YES;
-            
-        }
-    } fail:^(NSError *error) {
-        
-    } showHUD:NO] ;
-    
+        } fail:^(NSError *error) {
+            [WKProgressHUD popMessage:@"请检查网络连接" inView:self.superview duration:HUD_DURATION animated:YES];
+            NSLog(@"error == %@",error);
+        } showHUD:NO] ;
+    }
 }
 
 - (void)confirmBtnAction:(UIButton *)button{
-    //    NSLog(@"找回密码");
-    if (self.block) {
-        self.block(button);
+    
+    self.phoneNum = _phoneNumTF.text;
+    self.vfCode = _vericationCodeTF.text;
+    self.userNameStr = _userNameTF.text;
+    
+    if ([self.phoneNum isEqualToString:@""]) {
+        [WKProgressHUD popMessage:@"请输入手机号" inView:self.superview duration:HUD_DURATION animated:YES];
+    }else if ([self.vfCode isEqualToString:@""]){
+        [WKProgressHUD popMessage:@"请输入验证码" inView:self.superview duration:HUD_DURATION animated:YES];
+    }else if (![self.phoneNum isMobileNumber]){
+        [WKProgressHUD popMessage:@"请输入正确的手机号" inView:self.superview duration:HUD_DURATION animated:YES];
+    }else if ([self.userNameStr isEqualToString:@""]){
+        [WKProgressHUD popMessage:@"请输入联系人" inView:self.superview duration:HUD_DURATION animated:YES];
+    }else{
+        if (self.block) {
+            self.block(button, self.phoneNum, self.userNameStr, self.vfCode);
+        }
+        [self endEditing:YES]; // 关闭键盘
+        
     }
-    [self endEditing:YES]; // 关闭键盘
-    
-    NSString *mobile = [_phoneNumTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *pwd =[_userNameTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *verication =[_vericationCodeTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
-    //如果是11位的手机号码
-    if ([mobile isMobileNum] == NO) {
-        [MBProgressHUD showError:@"请确认您输入的是正确的手机信息"];
-        return ;
-    }
-    
-    if(verication.length != 6){
-        [MBProgressHUD showError:@"请输入正确的验证码"];
-        return ;
-    }
-    
-    [MBProgressHUD showMessage:@"正在发布..."];
-    
-    // 1.请求参数
-    NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
-    
-    [tempPara setObject:mobile forKey:@"mobile"];
-    [tempPara setObject:verication forKey:@"auth_code"];
-    [tempPara setObject:pwd forKey:@"new_password"];
-    [tempPara setObject:@"modify" forKey:@"type"];
-//    NSString *url = [NSString stringWithFormat:@"%@%@",BaseApiTwo,FindPW];
-    
-    // 发送请求
 }
 
+//内容发生改变编辑
+- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason{
+    
+    NSString *text = textField.text;
+    NSString *text2 = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    if([text2 isEqual:@""]){
+        return;
+    }
+    if (textField == _userNameTF) {
+        self.userNameStr = text2;
+    }else if (textField == _phoneNumTF){
+        self.phoneNum = text2;
+    }else if (textField == _vericationCodeTF){
+        self.vfCode = text2;
+    }
+}
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSLog(@"%@",textField.text);
+    return YES;
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [_userNameTF resignFirstResponder];

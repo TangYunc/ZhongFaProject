@@ -378,7 +378,7 @@ static NSMutableDictionary<NSString*, LXURLSessionTask*> *tasks;
         
         token = [NSString stringWithFormat:@"%@",[KUserDefault objectForKey:@"token"]];
     }
-    
+    NSLog(@"theTokenTN:%@,%@",[KUserDefault objectForKey:@"token"],token);
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"zfa_token"];
     //    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     //    [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];

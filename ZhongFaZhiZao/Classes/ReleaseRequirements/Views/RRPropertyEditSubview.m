@@ -11,6 +11,10 @@
 #import "CityPickView.h"
 #import "NSString+Mobile.h"
 
+@interface RRPropertyEditSubview ()
+
+@end
+
 @implementation RRPropertyEditSubview
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -96,15 +100,16 @@
     }
 }
 
+
 #pragma mark -- 按钮事件
 - (void)coverBtnAction:(UIButton *)button{
 
-    if (self.block) {
-        self.block();
+    NSArray *questionArray = [self.theNameDatas copy];
+    if (questionArray.count == 0) {
+        return;
     }
-    NSArray *questionArray = @[@"选项一",@"选项二",@"选项三",@"选项四",@"选项五",@"选项六",@"选项七"];
     if (self.showScroll) {
-        [self setUpPickView:questionArray withDefaultDesc:questionArray[1]];
+        [self setUpPickView:questionArray withDefaultDesc:questionArray[0]];
     }else{
         [self setUpCityPickView];
     }
@@ -114,13 +119,19 @@
     //滚轮样式的选择器
     ScrollPickView *scrollPickView = [[ScrollPickView alloc] initWithQuestionArray:questionArray withDefaultDesc:defaultDesc];
     [scrollPickView showView];
+    WS(weakSelf);
     scrollPickView.confirmBlock = ^(NSInteger selectedQuestion) {
         _contentLabel.text = questionArray[selectedQuestion];
+        NSInteger tagId = [[weakSelf.theIdDatas copy][selectedQuestion] integerValue];
+//        _contentLabel.tag = tagId;
+        if (weakSelf.block) {
+            weakSelf.block(tagId, questionArray[selectedQuestion]);
+        }
     };
 }
 
 - (void)setUpCityPickView{
-    //滚轮样式的选择器
+    //城市样式的选择器
     [CityPickView showPickViewWithComplete:^(NSArray *arr) {
         
         NSString *str = [NSString replaceUnicode:[NSString stringWithFormat:@"%@%@%@",arr[0],arr[1],arr[2]]];

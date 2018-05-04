@@ -20,6 +20,10 @@
 }
 @property (nonatomic, assign) Float32 keyboardHeight;
 @property (nonatomic, assign) Float32 inputViewMaxY;
+
+@property (nonatomic, strong) NSMutableArray *datasNameMarr;//存储名字数组
+@property (nonatomic, strong) NSMutableArray *datasIdMarr;//存储ID数组
+
 @end
 
 @implementation RRRecruitmentScrollView
@@ -51,7 +55,8 @@
     for (NSInteger i = 0; i < tempCount; i++) {
         
         RRPropertyEditSubview *propertyEditView = [[RRPropertyEditSubview alloc] initWithFrame:CGRectMake(0, i * propertyEditViewHeight, kScreenWidth, propertyEditViewHeight)];
-        propertyEditView.block = ^{
+        propertyEditView.block = ^(NSInteger itemId, NSString *itemName) {
+            
             [weakSelf endEditing:YES];
         };
         propertyEditView.tag = 10 + i;
@@ -113,6 +118,69 @@
     CGFloat rrCustomSubviewGapFromTop = 20/2.0 * KWidth_ScaleH;
     _rrCustomSubview = [[RRCustomSubview alloc] initWithFrame:CGRectMake(0, textViewEditSubview.bottom + rrCustomSubviewGapFromTop, kScreenWidth, rrCustomSubviewHeight)];
     [self addSubview:_rrCustomSubview];
+}
+
+- (void)setDatas:(RRRecruitmentDatas *)datas{
+    
+    if (_datas != datas) {
+        _datas = datas;
+        WS(weakSelf);
+        //1.请选择您的行业
+        self.datasIdMarr = nil;
+        self.datasNameMarr = nil;
+        RRPropertyEditSubview *secondView = (RRPropertyEditSubview *)[self viewWithTag:11];
+        for (RRRecruitmentIndustryCate *item in _datas.industry_cate) {
+            [self.datasNameMarr addObject:item.name];
+            [self.datasIdMarr addObject:item.industryCateId];
+        }
+        secondView.theNameDatas = [self.datasNameMarr copy];
+        secondView.theIdDatas = [self.datasIdMarr copy];
+        secondView.block = ^(NSInteger itemId, NSString *itemName) {
+//            weakSelf.project_stage_id = [NSString stringWithFormat:@"%ld",(long)itemId];
+        };
+        //2.招代理地区
+        self.datasIdMarr = nil;
+        self.datasNameMarr = nil;
+        RRPropertyEditSubview *fourView = (RRPropertyEditSubview *)[self viewWithTag:13];
+//        _datas.cooperation_list.one
+        for (RRRecruitmentProvinceList *item in _datas.province_list) {
+            [self.datasNameMarr addObject:item.name];
+            [self.datasIdMarr addObject:item.provinceListId];
+        }
+        fourView.theNameDatas = [self.datasNameMarr copy];
+        fourView.theIdDatas = [self.datasIdMarr copy];
+        fourView.block = ^(NSInteger itemId, NSString *itemName) {
+//            weakSelf.project_demand_id = [NSString stringWithFormat:@"%ld",(long)itemId];
+//            [weakSelf loadSubRecruitsData:[NSString stringWithFormat:@"%ld",(long)itemId]];
+        };
+        
+        //代理模式
+        self.datasIdMarr = nil;
+        self.datasNameMarr = nil;
+        RRPropertyEditSubview *fiveView = (RRPropertyEditSubview *)[self viewWithTag:14];
+        for (RRRequestIndustryCate *item in _datas.industry_cate) {
+            [self.datasNameMarr addObject:item.name];
+            [self.datasIdMarr addObject:item.industryCateId];
+        }
+        fiveView.theNameDatas = [self.datasNameMarr copy];
+        fiveView.theIdDatas = [self.datasIdMarr copy];
+        fiveView.block = ^(NSInteger itemId, NSString *itemName) {
+//            weakSelf.industry_id = [NSString stringWithFormat:@"%ld",(long)itemId];
+        };
+    }
+}
+
+- (NSMutableArray *)datasNameMarr{
+    if (!_datasNameMarr) {
+        _datasNameMarr = [NSMutableArray array];
+    }
+    return _datasNameMarr;
+}
+- (NSMutableArray *)datasIdMarr{
+    if (!_datasIdMarr) {
+        _datasIdMarr = [NSMutableArray array];
+    }
+    return _datasIdMarr;
 }
 
 #pragma mark -- 手势

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RRRequestResult.h"
+#import "RRSubRequestResult.h"
 
-typedef void(^RRPropertyEditSubviewBlock)(void);
-
+typedef void(^RRPropertyEditSubviewBlock)(NSInteger itemId, NSString *itemName);
 @interface RRPropertyEditSubview : UIView
 {
     UILabel *_titleLabel;
@@ -24,4 +25,7 @@ typedef void(^RRPropertyEditSubviewBlock)(void);
 @property(nonatomic,assign)BOOL showAuxiliaryIcon;//是否显示右侧的辅助图标
 @property(nonatomic,assign)BOOL showScroll;//显示滚动视图还是城市选择视图
 @property(nonatomic,assign)BOOL isClickCoverBtn;//coverBtn是否可以点击
+
+@property (nonatomic, strong) NSArray *theNameDatas;
+@property (nonatomic, strong) NSArray *theIdDatas;
 @end

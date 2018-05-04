@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^RRTextViewEditSubviewBlock)(UIView *currentView,NSString *content);
 @interface RRTextViewEditSubview : UIView
 
+@property (nonatomic, copy)RRTextViewEditSubviewBlock block;
 @property (nonatomic, copy)NSString *discribStr;
 @property (nonatomic, copy)NSString *placeholderStr;
 @end

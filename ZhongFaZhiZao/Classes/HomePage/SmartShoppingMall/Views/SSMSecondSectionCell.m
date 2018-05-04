@@ -53,6 +53,8 @@
     [_moreBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_moreBtn setTitle:@"更多" forState:UIControlStateNormal];
     [_moreBtn setImage:[UIImage imageNamed:@"SSMMoreIcon"] forState:UIControlStateNormal];
+    _moreBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+    _moreBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -40);
     [_moreBtn addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [_bjView addSubview:_moreBtn];
     
@@ -81,12 +83,13 @@
     NSInteger tempCount = 3;
     
     CGFloat sectionViewWidth = 230/2.0 * KWidth_ScaleW;
-    CGFloat sectionViewHeight = 423/2.0 * KWidth_ScaleW;
+    CGFloat sectionViewHeight = 423/2.0 * KWidth_ScaleH;
     for (NSInteger i = 0; i < tempCount; i++) {
         SSMSecondSectionView *sectionView = [[SSMSecondSectionView alloc] initWithFrame:CGRectMake(30/2.0 * KWidth_ScaleW + i * (sectionViewWidth + 0.5), _titleLabel.bottom + 32/2.0 * KWidth_ScaleH, sectionViewWidth, sectionViewHeight)];
         sectionView.tag = 30 + i;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:sectionView action:@selector(tapClick:)];
-        [sectionView addGestureRecognizer: tap];
+        sectionView.block = ^(UIButton *button) {
+            NSLog(@"点击了第%ld个视图",button.tag);
+        };
         [_bjView addSubview:sectionView];
     }
 }
@@ -96,10 +99,7 @@
     NSLog(@"点击更多按钮");
 }
 
-#pragma mark -- 手势
-- (void)tapClick:(UITapGestureRecognizer *)tap{
-    NSLog(@"点击了%ld",tap.view.tag);
-}
+
 - (void)viewColorChangeFromCoror:(UIColor *)fromColor toColor:(UIColor *)toColor withTheView:(UIView *)view{
     
     //初始化CAGradientlayer对象，使它的大小为UIView的大小
