@@ -12,7 +12,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor whiteColor];
         [self setUpCell];
     }
     return self;
@@ -28,7 +28,7 @@
     _goodsNameLabel.textAlignment = NSTextAlignmentLeft;
     _goodsNameLabel.textColor = [UIColor colorWithHexString:@"#333333"];
     _goodsNameLabel.numberOfLines = 2;
-    _goodsNameLabel.font = [UIFont systemFontOfSize:13.f];
+    _goodsNameLabel.font = [UIFont boldSystemFontOfSize:14.f];
     [self.contentView addSubview:_goodsNameLabel];
     //3.商品可值得推荐类型
     _goodsTypeLabel = [[UILabel alloc] init];
@@ -63,47 +63,49 @@
     CGFloat goodsImgGapFromLeft = 24/2.0 * KWidth_ScaleW;
     CGFloat goodsImgGapFromTop = 41/2.0 * KWidth_ScaleH;
     _goodsImgImageView.frame = CGRectMake(goodsImgGapFromLeft, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
-    _goodsImgImageView.image = [UIImage imageNamed:@"NewHomePageAuxiliaryIcon"];
+    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
     //2.
     NSString *goodsNameStr = @"库卡kuka kr 300-20垛机器人垛机器";
     CGFloat goodsNameLabelGapFromTop = 23.5/2.0 * KWidth_ScaleH;
     CGFloat goodsNameLabelGapFromLeft = 44/2.0 * KWidth_ScaleH;
     CGFloat goodsNameLabelHeight = 37/2.0 * KWidth_ScaleH;
     CGSize goodsNameLblWidthSize = [_goodsNameLabel sizeThatFits:CGSizeMake(MAXFLOAT,goodsNameLabelHeight)];
-    _goodsNameLabel.frame = CGRectMake(_goodsImgImageView.left + goodsNameLabelGapFromLeft,goodsNameLabelGapFromTop, goodsNameLblWidthSize.width, goodsNameLabelHeight);
+    _goodsNameLabel.frame = CGRectMake(_goodsImgImageView.right + goodsNameLabelGapFromLeft,goodsNameLabelGapFromTop, goodsNameLblWidthSize.width, goodsNameLabelHeight);
     _goodsNameLabel.text = goodsNameStr;
     [_goodsNameLabel sizeToFit];
     //3.
-    NSString *goodsTypeStr = @"技术转移机构推荐";
+    NSString *goodsTypeStr = @"  技术转移机构推荐    ";
     CGFloat goodsTypeLblHeight = 36/2.0 * KWidth_ScaleH;
+    CGFloat goodsTypeLabelGapFromTop = 20/2.0 * KWidth_ScaleH;
     CGSize goodsTypeLblWidthSize = [_goodsTypeLabel sizeThatFits:CGSizeMake(MAXFLOAT,goodsTypeLblHeight)];
-    _goodsTypeLabel.frame = CGRectMake(_goodsNameLabel.left,_goodsNameLabel.bottom, goodsTypeLblWidthSize.width, goodsTypeLblHeight);
+    _goodsTypeLabel.frame = CGRectMake(_goodsNameLabel.left,_goodsNameLabel.bottom + goodsTypeLabelGapFromTop, goodsTypeLblWidthSize.width, goodsTypeLblHeight);
     _goodsTypeLabel.text = goodsTypeStr;
     [_goodsTypeLabel sizeToFit];
-    _goodsTypeLabel.layer.cornerRadius = _goodsTypeLabel.width / 8.0;
+    _goodsTypeLabel.layer.cornerRadius = _goodsTypeLabel.width / 12.0;
     //4.
     NSString *goodsPriceStr = @"3,2000.00";
     if (goodsPriceStr == nil || goodsPriceStr == Nil) {
         goodsPriceStr = @"";
     }
     CGFloat goodsPriceLabelHeight = 15 * KWidth_ScaleH;
+    CGFloat goodsPriceLabelGapFromBottom = 34.5/2.0 * KWidth_ScaleH;
     NSString *profitStr = [NSString stringWithFormat:@"¥%@",goodsPriceStr];
     CGSize goodsPriceLblWidthSize = [_goodsPriceLabel sizeThatFits:CGSizeMake(MAXFLOAT,goodsPriceLabelHeight)];
-    CGFloat goodsPriceLabelGapFromTop = 13/2.0 * KWidth_ScaleH;
-    _goodsPriceLabel.frame = CGRectMake(_goodsTypeLabel.left, _goodsTypeLabel.bottom + goodsPriceLabelGapFromTop, goodsPriceLblWidthSize.width, goodsPriceLabelHeight);
+    _goodsPriceLabel.frame = CGRectMake(_goodsTypeLabel.left, 0, goodsPriceLblWidthSize.width, goodsPriceLabelHeight);
+    _goodsPriceLabel.bottom = self.frame.size.height - goodsPriceLabelGapFromBottom;
     _goodsPriceLabel.text = profitStr;
     [_goodsPriceLabel sizeToFit];
     //5.
     NSString *locationStr = @"北京";
-    CGFloat locationLabelGapFrombottom = 36/2.0 * KWidth_ScaleH;
-    CGFloat locationLabelGapFromRight = 30/2.0 * KWidth_ScaleH;
+    CGFloat locationLabelGapFrombottom = 34.5/2.0 * KWidth_ScaleH;
+    CGFloat locationLabelGapFromRight = 30/2.0 * KWidth_ScaleW;
     CGFloat locationLabelHeight = 30/2.0 * KWidth_ScaleH;
     CGSize locationLblWidthSize = [_locationLabel sizeThatFits:CGSizeMake(MAXFLOAT,locationLabelHeight)];
     _locationLabel.frame = CGRectMake(0,0, locationLblWidthSize.width, locationLabelHeight);
-    _locationLabel.right = self.frame.size.width - locationLabelGapFromRight;
     _locationLabel.bottom = self.frame.size.height - locationLabelGapFrombottom;
     _locationLabel.text = locationStr;
     [_locationLabel sizeToFit];
+    _locationLabel.right = self.frame.size.width - locationLabelGapFromRight;
     //6.
     CGFloat locationImgWidth = 22/2.0 * KWidth_ScaleW;
     CGFloat locationImgHeight = 28/2.0 * KWidth_ScaleH;

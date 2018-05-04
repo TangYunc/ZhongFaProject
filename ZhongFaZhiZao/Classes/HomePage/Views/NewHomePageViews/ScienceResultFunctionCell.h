@@ -10,4 +10,7 @@
 
 @interface ScienceResultFunctionCell : UICollectionViewCell
 
+@property(nonatomic, copy)NSString *titleImage;
+@property(nonatomic, copy)NSString *title;
+
 @end

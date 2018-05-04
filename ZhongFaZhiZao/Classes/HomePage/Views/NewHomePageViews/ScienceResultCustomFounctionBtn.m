@@ -18,16 +18,12 @@
         self.backgroundColor = [UIColor whiteColor];
         // 创建子视图
         // 1.创建图片视图
-        CGFloat imageViewWidth = 110/2.0 * KWidth_ScaleW;
-        CGFloat imageViewGapFromTop = 26.1/2.0 * KWidth_ScaleW;
-        _titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.width - imageViewWidth) / 2.0, imageViewGapFromTop, imageViewWidth, imageViewWidth)];
+        _titleImageView = [[UIImageView alloc] initWithFrame:frame];
         _titleImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_titleImageView];
         
         // 2.创建标题文本
-        CGFloat titleLabelGapFromTop = 10/2.0 * KWidth_ScaleH;
-        CGFloat titleLabelHeight = 33/2.0 * KWidth_ScaleH;
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _titleImageView.bottom + titleLabelGapFromTop, self.width, titleLabelHeight)];
+        _titleLabel = [[UILabel alloc] initWithFrame:frame];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor colorWithHexString:@"#666666"];
         _titleLabel.font = [UIFont systemFontOfSize:12.f];
@@ -37,6 +33,16 @@
     return self;
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat imageViewWidth = 110/2.0 * KWidth_ScaleW;
+    CGFloat imageViewGapFromTop = 26.1/2.0 * KWidth_ScaleW;
+    _titleImageView.frame = CGRectMake((self.width - imageViewWidth) / 2.0, imageViewGapFromTop, imageViewWidth, imageViewWidth);
+    
+    CGFloat titleLabelGapFromTop = 10/2.0 * KWidth_ScaleH;
+    CGFloat titleLabelHeight = 33/2.0 * KWidth_ScaleH;
+    _titleLabel.frame = CGRectMake(0, _titleImageView.bottom + titleLabelGapFromTop, self.width, titleLabelHeight);
+}
 // 设置标题文本
 - (void)setTitle:(NSString *)title
 {

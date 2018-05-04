@@ -24,6 +24,8 @@
 		2D15B249207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B248207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m */; };
 		2D15B24C207B67EE001E45F0 /* ScienceResultFuctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B24B207B67EE001E45F0 /* ScienceResultFuctionView.m */; };
 		2D15B24F207B75B5001E45F0 /* HeaderBJView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B24E207B75B5001E45F0 /* HeaderBJView.m */; };
+		2D15B252207C659F001E45F0 /* SolveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B251207C659F001E45F0 /* SolveView.m */; };
+		2D15B255207C96A3001E45F0 /* ClassifyPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D15B254207C96A3001E45F0 /* ClassifyPopView.m */; };
 		2D2755C6204945AD00D7E791 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2755C5204945AD00D7E791 /* MessageCenterViewController.m */; };
 		2D2755C9204945FA00D7E791 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2755C8204945FA00D7E791 /* MessageCenterCell.m */; };
 		2D2755CC2049470400D7E791 /* IMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2755CB2049470400D7E791 /* IMDetailViewController.m */; };
@@ -49,6 +51,8 @@
 		2D5D577420478AAB00F683F4 /* ZhongFaZhiZaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D577320478AAB00F683F4 /* ZhongFaZhiZaoUITests.m */; };
 		2D5D579020478D0A00F683F4 /* UIView+TYCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D578F20478D0A00F683F4 /* UIView+TYCViewController.m */; };
 		2D5D57A02047931000F683F4 /* TNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D579F2047931000F683F4 /* TNetworking.m */; };
+		2DB567FA207CBDB200EC28C2 /* ClassifyMenuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567F9207CBDB200EC28C2 /* ClassifyMenuTableCell.m */; };
+		2DB567FD207CBEDE00EC28C2 /* ClassifyMenuResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567FC207CBEDE00EC28C2 /* ClassifyMenuResult.m */; };
 		2DD3E7EC204799BC00199AB6 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EB204799BC00199AB6 /* Constant.m */; };
 		2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EF20479C2B00199AB6 /* RootTabBarController.m */; };
 		2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7F220479C7900199AB6 /* BaseNavigationController.m */; };
@@ -157,6 +161,10 @@
 		2D15B24B207B67EE001E45F0 /* ScienceResultFuctionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScienceResultFuctionView.m; sourceTree = "<group>"; };
 		2D15B24D207B75B5001E45F0 /* HeaderBJView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderBJView.h; sourceTree = "<group>"; };
 		2D15B24E207B75B5001E45F0 /* HeaderBJView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderBJView.m; sourceTree = "<group>"; };
+		2D15B250207C659F001E45F0 /* SolveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolveView.h; sourceTree = "<group>"; };
+		2D15B251207C659F001E45F0 /* SolveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolveView.m; sourceTree = "<group>"; };
+		2D15B253207C96A3001E45F0 /* ClassifyPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyPopView.h; sourceTree = "<group>"; };
+		2D15B254207C96A3001E45F0 /* ClassifyPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyPopView.m; sourceTree = "<group>"; };
 		2D2755C4204945AD00D7E791 /* MessageCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenterViewController.h; sourceTree = "<group>"; };
 		2D2755C5204945AD00D7E791 /* MessageCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
 		2D2755C7204945FA00D7E791 /* MessageCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenterCell.h; sourceTree = "<group>"; };
@@ -210,6 +218,10 @@
 		2D5D579720478EA400F683F4 /* RuleMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuleMacros.h; sourceTree = "<group>"; };
 		2D5D579E2047931000F683F4 /* TNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNetworking.h; sourceTree = "<group>"; };
 		2D5D579F2047931000F683F4 /* TNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNetworking.m; sourceTree = "<group>"; };
+		2DB567F8207CBDB200EC28C2 /* ClassifyMenuTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyMenuTableCell.h; sourceTree = "<group>"; };
+		2DB567F9207CBDB200EC28C2 /* ClassifyMenuTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyMenuTableCell.m; sourceTree = "<group>"; };
+		2DB567FB207CBEDE00EC28C2 /* ClassifyMenuResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassifyMenuResult.h; sourceTree = "<group>"; };
+		2DB567FC207CBEDE00EC28C2 /* ClassifyMenuResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassifyMenuResult.m; sourceTree = "<group>"; };
 		2DC353AB2050D9FE00F498C3 /* JPUSHService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPUSHService.h; path = Pods/JPush/JPUSHService.h; sourceTree = "<group>"; };
 		2DC353AD2050DA2600F498C3 /* libjpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.8.a"; path = "Pods/JPush/libjpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		2DC353AF2050DAB100F498C3 /* ZhongFaZhiZao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhongFaZhiZao.entitlements; sourceTree = "<group>"; };
@@ -390,6 +402,14 @@
 				2D15B248207B4ED2001E45F0 /* ScienceResultCustomFounctionBtn.m */,
 				2D15B229207A1B4C001E45F0 /* SolveCell.h */,
 				2D15B22A207A1B4C001E45F0 /* SolveCell.m */,
+				2D15B250207C659F001E45F0 /* SolveView.h */,
+				2D15B251207C659F001E45F0 /* SolveView.m */,
+				2D15B253207C96A3001E45F0 /* ClassifyPopView.h */,
+				2D15B254207C96A3001E45F0 /* ClassifyPopView.m */,
+				2DB567F8207CBDB200EC28C2 /* ClassifyMenuTableCell.h */,
+				2DB567F9207CBDB200EC28C2 /* ClassifyMenuTableCell.m */,
+				2DB567FB207CBEDE00EC28C2 /* ClassifyMenuResult.h */,
+				2DB567FC207CBEDE00EC28C2 /* ClassifyMenuResult.m */,
 			);
 			path = NewHomePageViews;
 			sourceTree = "<group>";
@@ -407,8 +427,8 @@
 				2DE8DBA4204E3169008C70D2 /* HomePageImgRunLoopView.m */,
 				2DE8DB88204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.h */,
 				2DE8DB89204D4DA6008C70D2 /* SupplyScrollCollectionViewCell.m */,
-				2DE8DB8B204D4DB6008C70D2 /* SupplyCollectionViewCell.h */,
 				2DE8DB8C204D4DB6008C70D2 /* SupplyCollectionViewCell.m */,
+				2DE8DB8B204D4DB6008C70D2 /* SupplyCollectionViewCell.h */,
 				2DE8DBA0204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.h */,
 				2DE8DBA1204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m */,
 				2DE8DB91204D4DD2008C70D2 /* ScienceCollectionViewCell.h */,
@@ -1082,6 +1102,7 @@
 				2D15B23A207A24D7001E45F0 /* SamrtShoppingMallThirdCell.m in Sources */,
 				2DE8DB96204D4DDD008C70D2 /* IntelligenceCollectionViewCell.m in Sources */,
 				2D456CE4204FC118002F2FB5 /* MinePersonalInfoModel.m in Sources */,
+				2DB567FD207CBEDE00EC28C2 /* ClassifyMenuResult.m in Sources */,
 				2D15B231207A1C35001E45F0 /* NewHomePageHeaderResult.m in Sources */,
 				2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */,
 				2DE8DB8D204D4DB6008C70D2 /* SupplyCollectionViewCell.m in Sources */,
@@ -1092,6 +1113,7 @@
 				2DD3E874204920F300199AB6 /* MineFirstSectionCell.m in Sources */,
 				2D15B21C2079DB5F001E45F0 /* NewHomePageHeaderView.m in Sources */,
 				2DD3E8502048022D00199AB6 /* WKWaitingProgressHUD.m in Sources */,
+				2D15B255207C96A3001E45F0 /* ClassifyPopView.m in Sources */,
 				2DD3E84F2048022D00199AB6 /* WKMessageProgressHUD.m in Sources */,
 				2D15B2192079BDE3001E45F0 /* CustomReleaseRequirementsButton.m in Sources */,
 				2DD3E80620479E9700199AB6 /* UIViewExt.m in Sources */,
@@ -1099,6 +1121,7 @@
 				2D15B222207A1045001E45F0 /* NewHomePageCustomRecommendView.m in Sources */,
 				2D15B22B207A1B4C001E45F0 /* SolveCell.m in Sources */,
 				2DD3E8102047A16600199AB6 /* CounselingViewController.m in Sources */,
+				2D15B252207C659F001E45F0 /* SolveView.m in Sources */,
 				2DD3E8322047E66D00199AB6 /* AccountAndPWLognScrollView.m in Sources */,
 				2D456CD7204E5D2F002F2FB5 /* FinanceDetailOneViewController.m in Sources */,
 				2DE8DBA5204E3169008C70D2 /* HomePageImgRunLoopView.m in Sources */,
@@ -1130,6 +1153,7 @@
 				2D456CD1204E5809002F2FB5 /* FinanceViewController.m in Sources */,
 				2D15B237207A24CA001E45F0 /* SamrtShoppingMallSecondCell.m in Sources */,
 				2D456CE1204E89F4002F2FB5 /* HomePageHeaderModel.m in Sources */,
+				2DB567FA207CBDB200EC28C2 /* ClassifyMenuTableCell.m in Sources */,
 				2DE8DB7E204D2482008C70D2 /* LaunchIntroductionView.m in Sources */,
 				2D456CCA204E40ED002F2FB5 /* ZYJHeadLineModel.m in Sources */,
 				2D15B246207B2D06001E45F0 /* NewHomePageCollectionSectionHeaderView.m in Sources */,

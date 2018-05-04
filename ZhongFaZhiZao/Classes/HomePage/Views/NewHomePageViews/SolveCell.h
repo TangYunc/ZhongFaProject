@@ -9,16 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SolveCell : UICollectionViewCell
-{
-    UIView *_companyBJView;
-    UIImageView *_companyLogoImageView;
-    UILabel *_companyNameLabel;
-    UILabel *_companyInfoLabel;
-    UIImageView *_companyImageView;
-    UILabel *_solveFirstLabel;
-    UILabel *_solvePriceFirstLabel;
-    UIView *_gapLineView;
-    UILabel *_solveSecondLabel;
-    UILabel *_solvePriceSecondLabel;
-}
+
 @end

@@ -13,7 +13,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor whiteColor];
         [self setUpCell];
     }
     return self;
@@ -26,7 +26,7 @@
     [self.contentView addSubview:_goodsImgImageView];
     //2.商品名
     _goodsNameLabel = [[UILabel alloc] init];
-    _goodsNameLabel.textAlignment = NSTextAlignmentLeft;
+    _goodsNameLabel.textAlignment = NSTextAlignmentRight;
     _goodsNameLabel.textColor = [UIColor colorWithHexString:@"#333333"];
     _goodsNameLabel.numberOfLines = 2;
     _goodsNameLabel.font = [UIFont systemFontOfSize:13.f];
@@ -34,7 +34,7 @@
     //3.商品价格
     _goodsPriceLabel = [[UILabel alloc] init];
     _goodsPriceLabel.textAlignment = NSTextAlignmentLeft;
-    _goodsPriceLabel.textColor = [UIColor colorWithHexString:@"#002A00"];
+    _goodsPriceLabel.textColor = [UIColor colorWithHexString:@"#FF6600"];
     _goodsPriceLabel.font = [UIFont systemFontOfSize:14.f];
     [self.contentView addSubview:_goodsPriceLabel];
 }
@@ -46,13 +46,13 @@
     CGFloat goodsImgGapFromLeft = 44/2.0 * KWidth_ScaleW;
     CGFloat goodsImgGapFromTop = 18/2.0 * KWidth_ScaleH;
     _goodsImgImageView.frame = CGRectMake(goodsImgGapFromLeft, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
-    _goodsImgImageView.image = [UIImage imageNamed:@"NewHomePageAuxiliaryIcon"];
+    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
     //2.
     NSString *goodsNameStr = @"库卡kuka kr 300-20垛机器人垛机器";
     CGFloat goodsNameLabelGapFromTop = 6/2.0 * KWidth_ScaleH;
     CGFloat goodsNameLabelWidth = goodsImgWidth;
     CGSize goodsNameLblWidthSize = [_goodsNameLabel sizeThatFits:CGSizeMake(goodsNameLabelWidth,MAXFLOAT)];
-    _goodsNameLabel.frame = CGRectMake(_goodsImgImageView.left,goodsNameLabelGapFromTop, goodsNameLabelWidth, goodsNameLblWidthSize.height);
+    _goodsNameLabel.frame = CGRectMake(_goodsImgImageView.left,_goodsImgImageView.bottom + goodsNameLabelGapFromTop, goodsNameLabelWidth, goodsNameLblWidthSize.height);
     _goodsNameLabel.text = goodsNameStr;
     [_goodsNameLabel sizeToFit];
     //3.
@@ -66,7 +66,6 @@
     _goodsPriceLabel.frame = CGRectMake(_goodsNameLabel.left, _goodsNameLabel.bottom, goodsPriceLblWidthSize.width, goodsPriceLabelHeight);
     NSMutableAttributedString *attr2 = [[NSMutableAttributedString alloc] initWithString:profitStr];
     [attr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15.f] range:NSMakeRange(0, 1)];
-    [attr2 addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"#FF6600"] range:NSMakeRange(0, 1)];
 //    [attr2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.f] range:NSMakeRange(1, attr2.length - 1)];
     _goodsPriceLabel.attributedText = attr2;
     [_goodsPriceLabel sizeToFit];

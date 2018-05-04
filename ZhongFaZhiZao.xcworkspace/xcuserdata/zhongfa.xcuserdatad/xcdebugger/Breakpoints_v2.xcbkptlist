@@ -36,12 +36,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZhongFaZhiZao/Classes/Main/Tools/TNetworking.m"
-            timestampString = "544964391.71703"
+            timestampString = "545033920.1061161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
             endingLineNumber = "176"
             landmarkName = "+baseRequestType:url:params:success:fail:showHUD:resopnseJson:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/NewHomePageHeaderView.m"
+            timestampString = "545042859.809665"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-mainButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

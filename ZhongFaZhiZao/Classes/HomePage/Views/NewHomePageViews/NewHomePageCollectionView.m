@@ -15,7 +15,8 @@
 #import "SolveCell.h"
 #import "ElectronicCollectionViewCell.h"
 #import "NewHomePageCollectionSectionHeaderView.h"
-#import "ScienceResultFuctionView.h"
+#import "SolveView.h"
+
 
 @interface NewHomePageCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
     
@@ -244,8 +245,12 @@
         return cell;
     }else if (indexPath.section == 1 && indexPath.row >= 2){
         //科技成果
+        NSArray *titles = @[@"评估评价",@"专利申请",@"商标注册",@"项目申报",@"高新认定"];
+        NSArray *imageNames = @[@"NewHomePageEnvaluationIcon",@"NewHomePageApplyIcon",@"NewHomePageTrademarkRegistrationIcon",@"NewHomePageProjectApplicationIcon",@"NewHomePageHighRecognitionIcon"];
         static NSString *knowCellIdent = @"scienceResultFunctionCell";
         ScienceResultFunctionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:knowCellIdent forIndexPath:indexPath];
+        cell.title = titles[indexPath.row - 2];
+        cell.titleImage = imageNames[indexPath.row - 2];
         // 让系统调用layoutSubView方法
         [cell setNeedsLayout];
         return cell;
@@ -260,13 +265,12 @@
         _scrollView.userInteractionEnabled = YES;
         //    _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.backgroundColor = BACK_COLOR;
-        _scrollView.contentSize = CGSizeMake(21/2.0 * KWidth_ScaleW * 3 + 2 * (kScreenWidth-(32 * 2/2 * KWidth_ScaleW))/2.0, 0);
+        _scrollView.contentSize = CGSizeMake(32/2.0 * KWidth_ScaleW * 2 + 21/2.0 * KWidth_ScaleW + 2 * (569/2.0 * KWidth_ScaleW), 0);
         [cell addSubview:_scrollView];
         
         for (int i = 0; i < 2; i++) {
-            ScienceResultFuctionView *fuctionView = [[ScienceResultFuctionView alloc] init];
-            fuctionView.frame = CGRectMake(32/2.0 * KWidth_ScaleW * (i+1)+i * (kScreenWidth-24)/2.0, 0, 569/2.0 * KWidth_ScaleW, 396/2.0 * KWidth_ScaleH);
-            [_scrollView addSubview:fuctionView];
+            SolveView *solveView = [[SolveView alloc] initWithFrame:CGRectMake(32/2.0 * KWidth_ScaleW + i * ((569 + 21)/2.0 * KWidth_ScaleW), 0, 569/2.0 * KWidth_ScaleW, 396/2.0 * KWidth_ScaleH)];
+            [_scrollView addSubview:solveView];
         }
         // 让系统调用layoutSubView方法
         [cell setNeedsLayout];
@@ -293,22 +297,23 @@
 {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            return CGSizeMake(373/2.0 * KWidth_ScaleW, 342/2.0 * KWidth_ScaleH);
+            return CGSizeMake(373/2.0 * KWidth_ScaleW - 1, 342/2.0 * KWidth_ScaleH);
         }else if (indexPath.row == 1){
-            return CGSizeMake(377/2.0 * KWidth_ScaleW, 165/2.0 * KWidth_ScaleH);
-        }else{
-            return CGSizeMake(188/2.0 * KWidth_ScaleW, 176/2.0 * KWidth_ScaleH);
+            return CGSizeMake(377/2.0 * KWidth_ScaleW, 165/2.0 * KWidth_ScaleH - 1);
         }
+        CGFloat itemWidth = (377/2.0 * KWidth_ScaleW - 1) / 2.0;
+        CGFloat itemHeight = (342 - 165)/2.0 * KWidth_ScaleH - 1;
+        return CGSizeMake(itemWidth, itemHeight);
     }else if (indexPath.section == 1){
         
         if (indexPath.row < 2){
             
-            return CGSizeMake(kScreenWidth, 200/2.0 * KWidth_ScaleH);
+            return CGSizeMake(kScreenWidth, (200/2.0 - 1)* KWidth_ScaleH);
         }
-        return CGSizeMake(kScreenWidth / 5, 153/2.0 * KWidth_ScaleH);
+        return CGSizeMake((kScreenWidth - 4) / 5, 203/2.0 * KWidth_ScaleH);
     }else if (indexPath.section == 2){
         
-        return CGSizeMake(569/2.0 * KWidth_ScaleW, 396/2.0 * KWidth_ScaleH);
+        return CGSizeMake(kScreenWidth, 396/2.0 * KWidth_ScaleH);
     }else if (indexPath.section == 3){
         
         return CGSizeMake(kScreenWidth, 141*KWidth_ScaleH);
@@ -391,9 +396,9 @@
         return CGSizeMake(kScreenWidth, headerViewHeight);
     }else if (section == 3){
         
-        return CGSizeMake(kScreenWidth, 80*KWidth_ScaleH+53);
+        return CGSizeMake(kScreenWidth, 80/2.0 * KWidth_ScaleH+53);
     }
-    return CGSizeMake(kScreenWidth, 80*KWidth_ScaleH);
+    return CGSizeMake(kScreenWidth, 80/2.0 * KWidth_ScaleH);
 }
 
 //设置页尾高度
@@ -409,7 +414,7 @@
 //    return 10;
 //}
 
-//设置每个item垂直间距
+//cell的最小行间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 1;
@@ -422,7 +427,7 @@
 //}
 
 
-//设置collectionView间距最小值
+//cell的最小列间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 1.0f;

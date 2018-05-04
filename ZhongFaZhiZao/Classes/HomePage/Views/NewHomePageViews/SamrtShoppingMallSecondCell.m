@@ -12,7 +12,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor orangeColor];
+        self.backgroundColor = [UIColor whiteColor];
         [self setUpCell];
     }
     return self;
@@ -46,10 +46,9 @@
     //2.
     CGFloat goodsImgWidth = 170/2.0 * KWidth_ScaleW;
     CGFloat goodsImgHeight = 138/2.0 * KWidth_ScaleH;
-    CGFloat goodsImgGapFromRight = 18/2.0 * KWidth_ScaleH;
-    _goodsImgImageView.frame = CGRectMake(0, 0, goodsImgWidth, goodsImgHeight);
-    _goodsImgImageView.right = self.frame.size.height - goodsImgGapFromRight;
+    CGFloat goodsImgGapFromRight = 16/2.0 * KWidth_ScaleW;
+    _goodsImgImageView.frame = CGRectMake(_goodsNameLabel.right + goodsImgGapFromRight, 0, goodsImgWidth, goodsImgHeight);
     _goodsImgImageView.centerY = self.frame.size.height / 2.0;
-    _goodsImgImageView.image = [UIImage imageNamed:@"NewHomePageAuxiliaryIcon"];
+    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
 }
 @end

@@ -12,7 +12,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor yellowColor];
+        self.backgroundColor = [UIColor whiteColor];
         [self setUpCell];
     }
     return self;
@@ -37,7 +37,7 @@
     CGFloat goodsImgHeight = 78/2.0 * KWidth_ScaleH;
     CGFloat goodsImgGapFromTop = 15/2.0 * KWidth_ScaleH;
     _goodsImgImageView.frame = CGRectMake(0, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
-    _goodsImgImageView.image = [UIImage imageNamed:@"NewHomePageAuxiliaryIcon"];
+    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
     _goodsImgImageView.centerX = self.frame.size.width / 2.0;
     //2.
     NSString *goodsNameStr = @"标准电机";
