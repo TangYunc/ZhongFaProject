@@ -122,7 +122,7 @@ static NSMutableDictionary<NSString*, LXURLSessionTask*> *tasks;
     }
     
     if (type != 3) {
-        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     }else {
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }
@@ -380,6 +380,8 @@ static NSMutableDictionary<NSString*, LXURLSessionTask*> *tasks;
     }
     NSLog(@"theTokenTN:%@,%@",[KUserDefault objectForKey:@"token"],token);
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"zfa_token"];
+    //将Cookie绑定request请求
+    [manager.requestSerializer setValue:[KUserDefault objectForKey:@"token"] forHTTPHeaderField:@"Cookie"];
     //    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     //    [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     

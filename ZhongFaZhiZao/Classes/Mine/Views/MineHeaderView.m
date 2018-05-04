@@ -90,7 +90,7 @@
     
     //    最多三个标签
     _bqLbl = [[UILabel alloc]initWithFrame:CGRectMake(0, 5*KWidth_ScaleH+CGRectGetMaxY(_headerPortraitImageView.frame)+13*KWidth_ScaleH+21, kScreenWidth, 14)];
-    _bqLbl.backgroundColor = [UIColor redColor];
+//    _bqLbl.backgroundColor = [UIColor redColor];
     if ([KUserDefault objectForKey:@"token"]) {
         _bqLbl.hidden = NO;
     }else{
@@ -164,6 +164,7 @@
     _bottomView = [[UIView alloc] initWithFrame:CGRectMake( 0, _gapLine2View.bottom, self.width, 10)];
     _bottomView.backgroundColor = UIColorFromRGBA(238, 238, 238, 1.0);
     [self addSubview:_bottomView];
+    
 }
 
 - (void)setPersonalInformation:(MinePersonalInfoDatas *)personalInformation{

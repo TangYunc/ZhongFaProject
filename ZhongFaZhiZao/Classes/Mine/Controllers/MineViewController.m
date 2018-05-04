@@ -33,10 +33,10 @@
     // 初始化TableView
     [self setupTableView];
     NSLog(@"theTokenMine:%@",[KUserDefault objectForKey:@"token"]);
-//    if ([KUserDefault objectForKey:@"token"]) {
-//
-//        [self loadData];
-//    }
+    if ([KUserDefault objectForKey:@"token"]) {
+
+        [self loadData];
+    }
     
     //    定义通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"sucess" object:nil];
@@ -45,7 +45,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self loadData];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -93,14 +92,10 @@
             _contentView.loginBtn.hidden = NO;
             _contentView.nameLabel.hidden = YES;
             _contentView.informationBtn.hidden = YES;
-//            _exitBtn.hidden = YES;
-//            [KUserDefault removeObjectForKey:@"uid"];
-//            [KUserDefault removeObjectForKey:@"token"];
-//            [KUserDefault removeObjectForKey:@"uname"];
-//            [KUserDefault removeObjectForKey:@"contacts"];
-//            [KUserDefault removeObjectForKey:@"mobile"];
-//            [KUserDefault synchronize];
-//            [self.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"NoLogin" object:nil];
+            });
 //            _redLbl1.hidden = YES;
 //            _redLbl2.hidden = YES;
 //            _redLbl3.hidden = YES;

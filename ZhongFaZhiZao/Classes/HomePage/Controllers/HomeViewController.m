@@ -386,7 +386,6 @@
 - (void)loadClassifyPopViewDate{
     
     //获取与接口约定的Token
-    
     NSString *apiToken = [KUserDefault objectForKey:APIToken];
     if (apiToken == nil) {
         return;
@@ -419,9 +418,10 @@
     NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
     [tempPara setObject:@"admin" forKey:@"username"];
     [tempPara setObject:@"admin" forKey:@"password"];
-    [TNetworking postWithUrl:accessToken_API params:tempPara success:^(id response) {
+    NSString *url = [NSString stringWithFormat:@"%@%@",BaseTwoApi,accessToken_API];
+    [TNetworking postWithUrl:url params:tempPara success:^(id response) {
         if ([response[@"success"] boolValue]) {
-            NSString *theAPIToken = response[@"data"][@"token"];
+            NSString *theAPIToken = response[@"data"][@"datas"][@"token"];
             [KUserDefault setObject:theAPIToken forKey:APIToken];
             [KUserDefault synchronize];
             [self allLoadDataAPI];

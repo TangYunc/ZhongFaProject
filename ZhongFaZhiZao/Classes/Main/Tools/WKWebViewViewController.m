@@ -181,12 +181,11 @@
             [cookieValue appendString:appendString];
         }
 
-
         WKUserContentController *userContentController = _webView.configuration.userContentController;
         WKUserScript *script = [[WKUserScript alloc] initWithSource:cookieValue injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
         [userContentController addUserScript:script];
+        NSLog(@"cookieValue1:%@",cookieValue);
         [request addValue:cookieValue forHTTPHeaderField:@"Cookie"];
-
         [request addValue:@"ios" forHTTPHeaderField:@"app"];
         [self.webView loadRequest:request];
     }else{
@@ -226,7 +225,7 @@
         WKUserContentController *userContentController = _webView.configuration.userContentController;
         WKUserScript *script = [[WKUserScript alloc] initWithSource:cookieValue injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
         [userContentController addUserScript:script];
-        
+        NSLog(@"cookieValue2:%@",cookieValue);
         [request addValue:cookieValue forHTTPHeaderField:@"Cookie"];
 //        NSLog(@"添加cookie");
         [self.webView loadRequest:request];

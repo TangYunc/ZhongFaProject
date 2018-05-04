@@ -70,8 +70,8 @@
 //        [images addObject:dataListItem.image];
 //    }
     NSArray *tempImageArr = images;
-//    NSInteger temptCount = tempImageArr.count;
-    NSInteger temptCount = 4;
+    NSInteger temptCount = tempImageArr.count;
+//    NSInteger temptCount = 4;
     CGFloat collectionHeight = 0;
     if (temptCount == 2){
         collectionHeight = itemHeight;

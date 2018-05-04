@@ -65,7 +65,7 @@
     CGFloat goodsNameLabelGapFromTop = 20/2.0 * KWidth_ScaleH;
     CGFloat goodsNameLabelWidth = self.frame.size.width - 110/2.0 * KWidth_ScaleW - 10/2.0 * KWidth_ScaleW * 2;
     CGSize goodsNameStrSize =[goodsNameStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:KFloat(12.f)]}];
-    _goodsNameLabel.frame = CGRectMake(10/2.0 * KWidth_ScaleW,_goodsImgImageView.bottom + goodsNameLabelGapFromTop, goodsNameLabelWidth, goodsNameStrSize.height);
+    _goodsNameLabel.frame = CGRectMake(10/2.0 * KWidth_ScaleW, goodsNameLabelGapFromTop, goodsNameLabelWidth, goodsNameStrSize.height);
     _goodsNameLabel.text = goodsNameStr;
 
     

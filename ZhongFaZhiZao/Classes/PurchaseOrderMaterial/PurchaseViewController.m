@@ -97,7 +97,7 @@
         NSString *appendString = [NSString stringWithFormat:@"%@=%@;", key, [cookieDic valueForKey:key]];
         [cookieValue appendString:appendString];
     }
-    
+    NSLog(@"cookieValue3:%@",cookieValue);
     [request addValue:cookieValue forHTTPHeaderField:@"Cookie"];
     NSLog(@"添加cookie");
     

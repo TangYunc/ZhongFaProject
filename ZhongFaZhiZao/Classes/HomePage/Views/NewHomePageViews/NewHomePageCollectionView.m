@@ -7,9 +7,6 @@
 //
 
 #import "NewHomePageCollectionView.h"
-//#import "SamrtShoppingMallFirstCell.h"
-//#import "SamrtShoppingMallSecondCell.h"
-//#import "SamrtShoppingMallThirdCell.h"
 #import "ScienceResultGoodsCell.h"
 #import "ScienceResultFunctionCell.h"
 #import "SolveCell.h"
@@ -79,11 +76,6 @@
         //注册cell
         [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
         [self registerClass:[SamrtShoppingMallCell class] forCellWithReuseIdentifier:@"samrtShoppingMallCell"];
-        /*
-        [self registerClass:[SamrtShoppingMallFirstCell class] forCellWithReuseIdentifier:@"samrtShoppingMallFirstCell"];
-        [self registerClass:[SamrtShoppingMallSecondCell class] forCellWithReuseIdentifier:@"samrtShoppingMallSecondCell"];
-        [self registerClass:[SamrtShoppingMallThirdCell class] forCellWithReuseIdentifier:@"samrtShoppingMallThirdCell"];
-         */
         [self registerClass:[ScienceResultGoodsCell class] forCellWithReuseIdentifier:@"scienceResultGoodsCell"];
         [self registerClass:[ScienceResultFunctionCell class] forCellWithReuseIdentifier:@"scienceResultFunctionCell"];
         [self registerClass:[SolveCell class] forCellWithReuseIdentifier:@"solveCell"];
@@ -231,7 +223,7 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 7;
+        return self.scienceResultArr.count + 5;
     }else if (section == 2){
         return 1;
     }else if (section == 3){
@@ -271,13 +263,16 @@
         [cell setNeedsLayout];
         return cell;
     }else if (indexPath.section == 1 && indexPath.row < 2){
-        //科技成果
-        static NSString * CellIdentifier = @"scienceResultGoodsCell";
-        ScienceResultGoodsCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.datas = self.scienceResultArr[indexPath.row];
-        // 让系统调用layoutSubView方法
-        [cell setNeedsLayout];
-        return cell;
+        if (self.scienceResultArr.count > 0) {
+            //科技成果
+            static NSString * CellIdentifier = @"scienceResultGoodsCell";
+            ScienceResultGoodsCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+            cell.datas = self.scienceResultArr[indexPath.row];
+            // 让系统调用layoutSubView方法
+            [cell setNeedsLayout];
+            return cell;
+        }
+        
     }else if (indexPath.section == 1 && indexPath.row >= 2){
         //科技成果
         NSArray *titles = @[@"评估评价",@"专利申请",@"商标注册",@"项目申报",@"高新认定"];
@@ -302,7 +297,7 @@
         _solveScrollView.backgroundColor = BACK_COLOR;
         _solveScrollView.contentSize = CGSizeMake(32/2.0 * KWidth_ScaleW * 2 + 21/2.0 * KWidth_ScaleW + 2 * (569/2.0 * KWidth_ScaleW), 0);
         [cell addSubview:_solveScrollView];
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < self.solveArr.count; i++) {
             
             SolveView *solveView = [[SolveView alloc] initWithFrame:CGRectMake(32/2.0 * KWidth_ScaleW + i * ((569 + 21)/2.0 * KWidth_ScaleW), 0, 569/2.0 * KWidth_ScaleW, 396/2.0 * KWidth_ScaleH)];
             solveView.solveDatas = self.solveArr[i];
@@ -323,7 +318,7 @@
     
     static NSString * CellIdentifier = @"cell";
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor whiteColor];
     // 让系统调用layoutSubView方法
     [cell setNeedsLayout];
     return cell;

@@ -9,16 +9,18 @@
 //正式环境
 NSString *const BaseApi = @"http://wap.cecb2b.com";
 
-NSString *const BaseTwoApi = @"http://api.nzfa.com";
+NSString *const BaseTwoApi = @"http://relapp.cecb2b.com/194api";
+
 
 //生产环境
 //NSString *const BaseApi = @"http://www.121mai.com/appv2.2";
 
 //测试环境
+//NSString *const BaseTwoApi = @"http://api.nzfa.com";
 //NSString *const BaseApi = @"http://cectest.cecb2b.com/waps";
 
 //***************************APIToken************************//
-NSString *const accessToken_API = @"http://api.nzfa.com/users/login";
+NSString *const accessToken_API = @"/users/login";
 
 
 //***************************首页************************//

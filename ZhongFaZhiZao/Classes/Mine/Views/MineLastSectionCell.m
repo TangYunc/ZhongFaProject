@@ -19,6 +19,7 @@
         self.backgroundView = nil;
         //初始化子视图
         [self initSubviews];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NoLogin) name:@"NoLogin" object:nil];
     }
     return self;
 }
@@ -66,5 +67,16 @@
     NSLog(@"%@",[KUserDefault objectForKey:@"token"]);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"loginOut" object:nil];
     _exitBtn.hidden = YES;
+}
+
+#pragma mark -- 通知
+- (void)NoLogin{
+    
+    _exitBtn.hidden = YES;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
