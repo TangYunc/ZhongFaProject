@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSMTableResult.h"
 
 @interface SSMTableViewCell : UITableViewCell
 {
@@ -19,6 +20,6 @@
     UILabel *_locationLabel;
     UIView *_bottomGapLineView;
 }
-
+@property (nonatomic, strong) SSMTableItems *theItems;
 @property (nonatomic, assign) NSInteger theRecordCurrentIndex;                   // 记录当前单元格在数据数组中的位置
 @end

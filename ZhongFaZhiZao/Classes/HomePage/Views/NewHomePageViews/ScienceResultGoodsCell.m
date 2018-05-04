@@ -115,4 +115,5 @@
     _locationImageView.right = _locationLabel.left - locationImgGapFromRight;
     _locationImageView.image = [UIImage imageNamed:@"NewHomePageLocationIcon"];
 }
+
 @end

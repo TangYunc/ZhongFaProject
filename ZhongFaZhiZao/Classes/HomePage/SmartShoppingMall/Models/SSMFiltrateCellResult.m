@@ -10,4 +10,24 @@
 
 @implementation SSMFiltrateCellResult
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
++ (SSMFiltrateCellResult *)shareService{
+    
+    static SSMFiltrateCellResult *shareService = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shareService = [[self alloc] init];
+    });
+    
+    return shareService;
+}
+
 @end

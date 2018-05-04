@@ -97,5 +97,13 @@
     if (self.block) {
         self.block(button);
     }
+    [self choiceTheImageUrl:self.items.click_link];
+}
+
+#pragma mark -- method
+- (void)choiceTheImageUrl:(NSString *)url{
+    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",url] title:@"商品详情"];
+    
+    [self.viewControler.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -87,18 +87,18 @@
     CGFloat fromTopGapDistance = 30/2.0 * KWidth_ScaleW;
     //1.
     _goodsImageView.frame = CGRectMake(fromLeftGapDistance, fromTopGapDistance, imageHeight, imageHeight);
-    NSString *goodImageUrlStr = @"";
+    NSString *goodImageUrlStr = self.theItems.image_path;
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodImageUrlStr] placeholderImage:[UIImage imageNamed:@"DefaultMediumIcon"] options:SDWebImageRefreshCached];
-    //2.
-    NSString *goodsNameStr = @"ZA28-12.5全新现货滚丝机各种型号滚丝机滚轧机";
+    //2.ZA28-12.5全新现货滚丝机各种型号滚丝机滚轧机
+    NSString *goodsNameStr = self.theItems.name;
     CGFloat goodsNameLabelGapFromLeft = 28/2.0 * KWidth_ScaleW;
     CGFloat goodsNameLabelWidth = kScreenWidth - _goodsImageView.right - (28 + 53)/2.0 *  KWidth_ScaleW;
     CGSize goodsNameLblWidthSize = [_goodsNameLabel sizeThatFits:CGSizeMake(goodsNameLabelWidth,MAXFLOAT)];
     _goodsNameLabel.frame = CGRectMake(_goodsImageView.right + goodsNameLabelGapFromLeft,_goodsImageView.top, goodsNameLabelWidth, goodsNameLblWidthSize.height);
     _goodsNameLabel.text = goodsNameStr;
     [_goodsNameLabel sizeToFit];
-    //3.
-    NSString *goodsPriceStr = @"6,2000.00";
+    //3.6,2000.00
+    NSString *goodsPriceStr = self.theItems.price;
     if (goodsPriceStr == nil || goodsPriceStr == Nil) {
         goodsPriceStr = @"";
     }
@@ -112,8 +112,8 @@
     //4.
     _gapLineView.frame = CGRectMake(_goodsNameLabel.left, 0, _goodsNameLabel.width, 0.5);
     _gapLineView.bottom = _goodsImageView.bottom;
-    //5.
-    NSString *companyNameeStr = @"北京南士电子科技有限公司";
+    //5.北京南士电子科技有限公司
+    NSString *companyNameeStr = self.theItems.corp_name;
     CGFloat companyNameLabelGapFromTop = 26/2.0 * KWidth_ScaleW;
     CGFloat companyNameLabelHeight = 33 * KWidth_ScaleW;
     CGSize companyNameLblWidthSize = [_companyNameLabel sizeThatFits:CGSizeMake(MAXFLOAT,companyNameLabelHeight)];
@@ -121,8 +121,8 @@
     _companyNameLabel.text = companyNameeStr;
     [_companyNameLabel sizeToFit];
     
-    //6.
-    NSString *locationStr = @"北京";
+    //6.北京
+    NSString *locationStr = self.theItems.location;
     CGFloat locationLabelGapFromRight = 41/2.0 * KWidth_ScaleW;
     CGFloat locationLabelHeight = 33/2.0 * KWidth_ScaleH;
     CGSize locationLblWidthSize = [_locationLabel sizeThatFits:CGSizeMake(MAXFLOAT,locationLabelHeight)];

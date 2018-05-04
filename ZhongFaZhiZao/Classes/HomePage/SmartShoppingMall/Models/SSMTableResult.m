@@ -21,14 +21,14 @@
 @implementation SSMTableDatas
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"location":[SSMTableLocation class],@"brand":[SSMTableBrand class],@"items":[SSMTableItems class]};
+    return @{/*@"location":[SSMTableLocation class],*/@"brand":[SSMTableBrand class],@"items":[SSMTableItems class]};
 }
 
 @end
-
-@implementation SSMTableLocation
-
-@end
+//
+//@implementation SSMTableLocation
+//
+//@end
 
 @implementation SSMTableBrand
 

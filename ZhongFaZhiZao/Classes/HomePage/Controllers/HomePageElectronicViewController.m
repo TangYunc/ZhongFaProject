@@ -66,7 +66,7 @@
 #pragma mark -初始化导航栏
 - (void)setupNavigationBar {
     
-    NavigationControllerView *navView = [[NavigationControllerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andLeftBtn:@"发布需求"];
+    NavigationControllerView *navView = [[NavigationControllerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andLeftBtn:@"电子市场"];
     navView.viewController = self;
     [self.view addSubview:navView];
 }

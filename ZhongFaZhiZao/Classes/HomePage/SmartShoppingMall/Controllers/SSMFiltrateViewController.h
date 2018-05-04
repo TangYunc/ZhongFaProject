@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "SSMTableResult.h"
 
+typedef void(^SSMFiltrateViewControllerBlock)(NSString *locationStr,NSString *brandStr,NSString *minPriceStr,NSString *maxPriceStr);
 @interface SSMFiltrateViewController : BaseViewController
 
+@property (nonatomic, copy)SSMFiltrateViewControllerBlock block;
+@property (nonatomic, strong)SSMTableDatas *theDatas;
 @end

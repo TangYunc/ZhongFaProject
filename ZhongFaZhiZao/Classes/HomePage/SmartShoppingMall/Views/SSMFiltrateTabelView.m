@@ -36,7 +36,7 @@
 }
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -46,8 +46,23 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 3) {
+    if (indexPath.section == 0) {
+        static NSString *identifier = @"SSMFiltrateCellLocationId";
+        SSMFiltrateCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[SSMFiltrateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.datas = self.theDatas.location;
+        return cell;
+    }else if (indexPath.section == 1){
+        static NSString *identifier = @"SSMFiltrateCellBrandId";
+        SSMFiltrateCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[SSMFiltrateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.datas = self.theDatas.brand;
+        return cell;
+    }else {
         static NSString *identifier = @"SSMFiltratePriceCellId";
         SSMFiltratePriceCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
@@ -55,27 +70,19 @@
         }
         return cell;
     }
-    static NSString *identifier = @"SSMFiltrateCellId";
-    SSMFiltrateCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[SSMFiltrateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    cell.datas = @[@"通信电子",@"通信电子,通信电子,通信电子,通信电子,通信电子",@"通信",@"通信电sdfgSGDFSGSDG子",@"通信电子"];
-    cell.block = ^(CGFloat cellHeight) {
-        self.cellHeight = cellHeight;
-        
-    };
-    return cell;
 }
 
 // 单元格高度的设置
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat cellHeight = 0;
-    if (indexPath.section == 3) {
+    if (indexPath.section == 2) {
         cellHeight = 141/2.0 * KWidth_ScaleH;
+    }else if (indexPath.section == 0){
+        cellHeight = 65;
     }else{
-        cellHeight = 175;        
+        NSLog(@"self.cellHeight:%f",[SSMFiltrateCellResult shareService].cellHeight);
+        cellHeight = [SSMFiltrateCellResult shareService].cellHeight;
     }
     return cellHeight;
     
@@ -104,7 +111,7 @@
     titleView.tag = 100 + section;
     titleView.userInteractionEnabled = YES;
     
-    NSArray *sectionTitleArr = @[@"全部分类",@"智能控制",@"工业软件",@"智能制造装备",@"3D打印",];
+    NSArray *sectionTitleArr = @[@"所在地",@"品牌",@"价格区间"];
     titleLabel.text = sectionTitleArr[section];
     return titleView;
 }
@@ -124,11 +131,14 @@
     
 }
 
-
-
 - (void)todoSomething:(id)sender
 {
     
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    [self endEditing:YES];
 }
 
 @end

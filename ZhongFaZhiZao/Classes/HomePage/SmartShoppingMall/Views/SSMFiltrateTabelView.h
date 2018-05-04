@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SSMFiltrateCellResult.h"
+#import "SSMTableResult.h"
 
 @interface SSMFiltrateTabelView : UITableView
+
+@property (nonatomic, strong)SSMTableDatas *theDatas;
 
 @property (nonatomic, strong)SSMFiltrateCellResult *result;
 @end

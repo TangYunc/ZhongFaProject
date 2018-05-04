@@ -7,6 +7,7 @@
 //
 
 #import "SSMFiltratePriceCell.h"
+#import "SSMFiltrateCellResult.h"
 
 @interface SSMFiltratePriceCell ()<UITextFieldDelegate>
 
@@ -40,7 +41,7 @@
     [_minValueTF setValue:[UIColor colorWithHexString:@"#999999"] forKeyPath:@"_placeholderLabel.textColor"];
     _minValueTF.borderStyle = UITextBorderStyleRoundedRect;
     _minValueTF.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-//    _minValueTF.delegate = self;
+    _minValueTF.delegate = self;
     [self.contentView addSubview:_minValueTF];
     
     _gapView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -55,7 +56,7 @@
     [_maxValueTF setValue:[UIColor colorWithHexString:@"#999999"] forKeyPath:@"_placeholderLabel.textColor"];
     _maxValueTF.borderStyle = UITextBorderStyleRoundedRect;
     _maxValueTF.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-//    _maxValueTF.delegate = self;
+    _maxValueTF.delegate = self;
     [self.contentView addSubview:_maxValueTF];
     
     _bottomView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -83,10 +84,37 @@
     _bottomView.frame = CGRectMake(0, self.frame.size.height - bottomViewHeight, kScreenWidth, bottomViewHeight);
 }
 
+//内容发生改变编辑
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    NSString *text = textField.text;
+    NSString *text2 = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    if([text2 isEqual:@""]){
+        return;
+    }
+    
+    if (textField == _minValueTF) {
+
+        [SSMFiltrateCellResult shareService].minPrice = text2;
+    }else if (textField == _maxValueTF){
+        [SSMFiltrateCellResult shareService].maxPrice = text2;
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSLog(@"%@",textField.text);
+    
+    BOOL isIntType = [textField.text mj_isPureInt];
+    if (!isIntType) {
+        [MBProgressHUD showError:@"请输入数字"];
+        return NO;
+    }
+    return YES;
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [_minValueTF resignFirstResponder];
-    [_maxValueTF resignFirstResponder];
+    [self endEditing:YES];
 }
 
 @end

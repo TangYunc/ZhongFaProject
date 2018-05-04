@@ -22,6 +22,9 @@
 @property (nonatomic, strong) NSNumber *pageTotal;
 @property (nonatomic, strong) NSNumber *numberPage;
 @property (nonatomic, strong) NSMutableArray *searchResultGoodsArr;
+@property (nonatomic, strong) SSMTableDatas *theTableDatas;
+@property (nonatomic, strong) NSIndexPath *theIndexPath;
+
 @end
 
 @implementation SSMTableViewController
@@ -42,10 +45,12 @@
     [self setupNavigationBar];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    [self headerRereshing];
     
 }
 
 - (void)headerRereshing{
+    self.numberPage = @1;
     //下拉刷新
     [self loadSSMTableData];
 }
@@ -112,7 +117,7 @@
 #pragma mark -初始化导航栏
 - (void)setupNavigationBar {
     
-    NavigationControllerView *navView = [[NavigationControllerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andLeftBtn:@"智造商城"];
+    NavigationControllerView *navView = [[NavigationControllerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, SafeAreaTopHeight) andLeftBtn:self.titleStr];
     navView.viewController = self;
     NSArray *imageNames = @[@"SSMRightNavSearchIcon",@"SSMRightNavClassifyIcon"];
     CGFloat gapWidth = 24/2.0 * KWidth_ScaleW;
@@ -141,14 +146,36 @@
     if (apiToken == nil) {
         return;
     }
+    if (self.sort == nil) {
+        self.sort = @"";
+    }
+    if (self.classid == nil) {
+        self.classid = @"";
+    }
+    if (self.min_price == nil) {
+        self.min_price = @"";
+    }
+    if (self.max_price == nil) {
+        self.max_price = @"";
+    }
+    if (self.location == nil) {
+        self.location = @"";
+    }
+    if (self.brand_id == nil) {
+        self.brand_id = @"";
+    }
+    if (self.level == nil) {
+        self.level = @"";
+    }
+    
     NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
-    [tempPara setObject:@"" forKey:@"sort"];
-    [tempPara setObject:@"" forKey:@"classid"];
-    [tempPara setObject:@"" forKey:@"min_price"];
-    [tempPara setObject:@"" forKey:@"max_price"];
-    [tempPara setObject:@"" forKey:@"location"];
-    [tempPara setObject:@"" forKey:@"brand_id"];
-    [tempPara setObject:@"" forKey:@"level"];
+    [tempPara setObject:self.sort forKey:@"sort"];
+    [tempPara setObject:self.classid forKey:@"classid"];
+    [tempPara setObject:self.min_price forKey:@"min_price"];
+    [tempPara setObject:self.max_price forKey:@"max_price"];
+    [tempPara setObject:self.location forKey:@"location"];
+    [tempPara setObject:self.brand_id forKey:@"brand_id"];
+    [tempPara setObject:self.level forKey:@"level"];
     [tempPara setObject:self.numberPage forKey:@"page"];
     
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSSMTable_API,apiToken];
@@ -169,7 +196,7 @@
         
         SSMTableResult *result = [SSMTableResult mj_objectWithKeyValues:response];
         if(result.success){
-            
+            self.theTableDatas = result.data.datas;
             self.searchResultGoodsArr = nil;
             [self.searchResultGoodsArr addObjectsFromArray:result.data.datas.items];
             
@@ -203,22 +230,53 @@
     if (apiToken == nil) {
         return;
     }
+    if (self.sort == nil) {
+        self.sort = @"";
+    }
+    if (self.classid == nil) {
+        self.classid = @"";
+    }
+    if (self.min_price == nil) {
+        self.min_price = @"";
+    }
+    if (self.max_price == nil) {
+        self.max_price = @"";
+    }
+    if (self.location == nil) {
+        self.location = @"";
+    }
+    if (self.brand_id == nil) {
+        self.brand_id = @"";
+    }
+    if (self.level == nil) {
+        self.level = @"";
+    }
+    
     
     NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
-    [tempPara setObject:@"" forKey:@"sort"];
-    [tempPara setObject:@"" forKey:@"classid"];
-    [tempPara setObject:@"" forKey:@"min_price"];
-    [tempPara setObject:@"" forKey:@"max_price"];
-    [tempPara setObject:@"" forKey:@"location"];
-    [tempPara setObject:@"" forKey:@"brand_id"];
-    [tempPara setObject:@"" forKey:@"level"];
+    [tempPara setObject:self.sort forKey:@"sort"];
+    [tempPara setObject:self.classid forKey:@"classid"];
+    [tempPara setObject:self.min_price forKey:@"min_price"];
+    [tempPara setObject:self.max_price forKey:@"max_price"];
+    [tempPara setObject:self.location forKey:@"location"];
+    [tempPara setObject:self.brand_id forKey:@"brand_id"];
+    [tempPara setObject:self.level forKey:@"level"];
     [tempPara setObject:self.numberPage forKey:@"page"];
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSSMTable_API,apiToken];
     
     // 发送请求
     [TNetworking getWithUrl:url params:tempPara success:^(id response) {
         [_tableView.mj_footer endRefreshing];
-        
+        [SSMTableBrand mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"tableBrandId" : @"id"
+                     };
+        }];
+        [SSMTableItems mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"tableItemsId" : @"id"
+                     };
+        }];
         SSMTableResult *result = [SSMTableResult mj_objectWithKeyValues:response];
         if(result.success){
             [self.searchResultGoodsArr addObjectsFromArray:result.data.datas.items];
@@ -239,9 +297,16 @@
     } showHUD:NO];
 }
 
+- (NSMutableArray *)searchResultGoodsArr{
+    if (!_searchResultGoodsArr) {
+        _searchResultGoodsArr = [NSMutableArray array];
+    }
+    return _searchResultGoodsArr;
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.searchResultGoodsArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -251,6 +316,7 @@
     if (!cell) {
         cell = [[SSMTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    cell.theItems = self.searchResultGoodsArr[indexPath.row];
     return cell;
 }
 
@@ -264,7 +330,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //    self.theIndexPath = indexPath;
+    self.theIndexPath = indexPath;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //先将未到时间执行前的任务取消。
     [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(todoSomething:) object:cell];
@@ -274,6 +340,9 @@
 - (void)todoSomething:(id)sender
 {
     //    NSLog(@"点击率");
+    SSMTableItems *theItems = self.searchResultGoodsArr[self.theIndexPath.row];
+    NSString *url = [NSString stringWithFormat:@"http://wap.cecb2b.com/corp/nicInfo/%@?corpId=123",theItems.tableItemsId];
+    [self choiceTheImageUrl:url];
 }
 
 #pragma mark -- 按钮事件
@@ -304,9 +373,18 @@
 
     if (button.tag == 20) {
         NSLog(@"点击的是默认");
+        defaultBtn.selected = YES;
         priceBtn.selected = NO;
         filtrateBtn.selected = NO;
         self.isSelectedPriceBtn = NO;
+        self.sort = @"";
+        self.classid = @"";
+        self.min_price = @"";
+        self.max_price = @"";
+        self.location = @"";
+        self.brand_id = @"";
+        self.level = @"";
+        [self loadSSMTableData];
     }else if (button.tag == 21){
         NSLog(@"点击的是价格");
         defaultBtn.selected = NO;
@@ -319,6 +397,15 @@
         priceBtn.selected = NO;
         self.isSelectedPriceBtn = NO;
         SSMFiltrateViewController *filtrateVC = [[SSMFiltrateViewController alloc] init];
+        filtrateVC.theDatas = self.theTableDatas;
+        WS(weakSelf);
+        filtrateVC.block = ^(NSString *locationStr, NSString *brandStr, NSString *minPriceStr, NSString *maxPriceStr) {
+            weakSelf.location = locationStr;
+            weakSelf.brand_id = brandStr;
+            weakSelf.max_price = maxPriceStr;
+            weakSelf.min_price = minPriceStr;
+            [weakSelf loadSSMTableData];
+        };
         [self.navigationController pushViewController:filtrateVC animated:YES];
     }
 }
@@ -329,10 +416,20 @@
          UIButton *priceBtn = (UIButton *)[_headerBJView viewWithTag:21];
         if (!self.isSelectedPriceBtn) {
             [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceRiseBtnIcon"] forState:UIControlStateSelected];
+            self.sort = @"price asc";
         }else{
             [priceBtn setImage:[UIImage imageNamed:@"SSMHeaderPriceDownBtnIcon"] forState:UIControlStateSelected];
+            self.sort = @"price desc";
         }
+        [self loadSSMTableData];
     }
+}
+
+#pragma mark -- method
+- (void)choiceTheImageUrl:(NSString *)url{
+    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",url] title:@"商品详情"];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

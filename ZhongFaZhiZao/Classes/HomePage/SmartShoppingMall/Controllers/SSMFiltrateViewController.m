@@ -10,6 +10,7 @@
 #import "SSMFiltrateTabelView.h"
 #import "SSMClassifyViewController.h"
 #import "SSMSearchViewController.h"
+#import "SSMTableViewController.h"
 
 @interface SSMFiltrateViewController ()
 {
@@ -44,7 +45,14 @@
     CGFloat btnWidth = kScreenWidth / tempCount;
     CGFloat btnHeight = 128 / 2.0 * KWidth_ScaleH;
     
+    [SSMFiltrateCellResult shareService].location = nil;
+    [SSMFiltrateCellResult shareService].brandId = nil;
+    [SSMFiltrateCellResult shareService].maxPrice = nil;
+    [SSMFiltrateCellResult shareService].minPrice = nil;
+    
+    
     _filtrateTableView = [[SSMFiltrateTabelView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, kScreenWidth, kScreenHeight - SafeAreaTopHeight - btnHeight - SafeAreaBottomHeight) style:UITableViewStylePlain];
+    _filtrateTableView.theDatas = self.theDatas;
     _filtrateTableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:_filtrateTableView];
     
@@ -101,12 +109,23 @@
 }
 
 - (void)bottomClick:(UIButton *)button{
+    
     if (button.tag == 10) {
         NSLog(@"点击重置");
+        [SSMFiltrateCellResult shareService].location = nil;
+        [SSMFiltrateCellResult shareService].brandId = nil;
+        [SSMFiltrateCellResult shareService].maxPrice = nil;
+        [SSMFiltrateCellResult shareService].minPrice = nil;
+        [_filtrateTableView reloadData];
     }else if (button.tag == 11){
         NSLog(@"点击确认");
+        if (self.block) {
+            self.block([SSMFiltrateCellResult shareService].location, [SSMFiltrateCellResult shareService].brandId, [SSMFiltrateCellResult shareService].maxPrice, [SSMFiltrateCellResult shareService].minPrice);
+        };
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

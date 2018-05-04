@@ -19,6 +19,7 @@
 #import "SamrtShoppingMallView.h"
 #import "SamrtShoppingMallCell.h"
 
+
 @interface NewHomePageCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>{
     
     UICollectionViewFlowLayout *_flowLayout;
@@ -384,13 +385,17 @@
             
         }
     }else if (indexPath.section == 1){
+        NewHomePageScienceResultDatas *datas = self.scienceResultArr[indexPath.row];
         
         if (indexPath.row == 0) {
-            
             NSLog(@"科技成果商品1");
-        }else if (indexPath.row == 1){
+            NSString *url = [NSString stringWithFormat:@"http://wap.cecb2b.com/corp/nicInfo/%@?corpId=123",datas.scienceResultId];
             
+            [self pushToWKWebViewCtrlUrl:url withTitle:@"商品详情"];
+        }else if (indexPath.row == 1){
             NSLog(@"科技成果商品2");
+            NSString *url = [NSString stringWithFormat:@"http://wap.cecb2b.com/corp/nicInfo/%@?corpId=123",datas.scienceResultId];
+            [self pushToWKWebViewCtrlUrl:url withTitle:@"商品详情"];
         }else if (indexPath.row >= 2){
             
             NSLog(@"科技成果功能按钮");
@@ -526,8 +531,10 @@
         NSLog(@"智造商城手势");
     }else if (tap.view.tag == 2001){
         NSLog(@"科技成果手势");
+        [self pushToWKWebViewCtrlUrl:[NSString stringWithFormat:@"%@%@",BaseApi,HomePageScienceList_API] withTitle:@"科技成果"];
     }else if (tap.view.tag == 2002){
         NSLog(@"解决方案手势");
+        [self pushToWKWebViewCtrlUrl:[NSString stringWithFormat:@"%@%@",BaseApi,HomePageSolutionList_API] withTitle:@"解决方案"];
     }else if (tap.view.tag == 2003){
         NSLog(@"电子市场手势");
     }

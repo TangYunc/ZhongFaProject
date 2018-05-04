@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class SSMTableResult,SSMTableData,SSMTableDatas,SSMTableLocation,SSMTableBrand,SSMTableItems,SSMTablePage;
+@class SSMTableResult,SSMTableData,SSMTableDatas,/*SSMTableLocation,*/SSMTableBrand,SSMTableItems,SSMTablePage;
 
 @interface SSMTableResult : NSObject
 
@@ -35,12 +35,12 @@
 
 @end
 
-@interface SSMTableLocation : NSObject
-
-@property (nonatomic, copy) NSString *firstLocation;
-@property (nonatomic, copy) NSString *secondLocation;
-
-@end
+//@interface SSMTableLocation : NSObject
+//
+//@property (nonatomic, copy) NSString *firstLocation;
+//@property (nonatomic, copy) NSString *secondLocation;
+//
+//@end
 
 @interface SSMTableBrand : NSObject
 

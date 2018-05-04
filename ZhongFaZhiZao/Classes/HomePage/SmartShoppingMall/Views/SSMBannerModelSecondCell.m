@@ -104,13 +104,14 @@
 - (void)itemImageViewTapAction:(UITapGestureRecognizer *)tap{
     
     NSLog(@"点击了第%ld个图片",tap.view.tag);
-
+    SSMDatasGoodProduct *goodsProduct = self.theDatas[tap.view.tag];
+    [self choiceTheImageUrl:goodsProduct.click_link];
 }
 
 #pragma mark -- 手势
 - (void)headerViewClick{
-    NSLog(@"商品详情");
-    [self choiceTheImageUrl:@""];
+    NSLog(@"源头好货商品详情");
+//    [self choiceTheImageUrl:@""];
 }
 
 #pragma mark -- method

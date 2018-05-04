@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSMClassifyResult.h"
 
 @interface SSMClassifyCell : UITableViewCell
 {
     UIView *_bjView;
     
 }
-@property (nonatomic, strong)NSArray *datas;
+@property (nonatomic, strong)SSMClassifyDatas *datas;
 @end

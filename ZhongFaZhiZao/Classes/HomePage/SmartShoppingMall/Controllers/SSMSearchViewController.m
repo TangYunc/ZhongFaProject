@@ -106,6 +106,7 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
+    /*
     self.headerView = [[UIView alloc] init];
     self.headerView.mj_x = 0;
     self.headerView.mj_y = 0;
@@ -135,6 +136,7 @@
 //    self.tableView.backgroundColor = [UIColor greenColor];
     
     self.tableView.tableHeaderView = self.headerView;
+     */
     
     UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
     UILabel *footLabel = [[UILabel alloc] initWithFrame:footView.frame];

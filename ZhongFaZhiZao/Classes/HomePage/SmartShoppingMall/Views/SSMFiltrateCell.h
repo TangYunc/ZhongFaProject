@@ -18,5 +18,4 @@ typedef void(^SSMFiltrateCellBlock)(CGFloat cellHeight);
 @property (nonatomic, copy)SSMFiltrateCellBlock block;
 @property (nonatomic, strong)UIView *bjView;
 @property (nonatomic, strong)NSArray *datas;
-@property (nonatomic, strong)SSMFiltrateCellResult *result;
 @end

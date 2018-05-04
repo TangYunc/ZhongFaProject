@@ -120,7 +120,6 @@
     if (button.tag == 10) {
         NSLog(@"点击的是搜索");
         SSMSearchViewController *searchVC = [[SSMSearchViewController alloc] init];
-        searchVC.tagsArray = @[@"卜卜芥", @"卜人参", @"卜卜人发", @"儿茶", @"八角", @"三卜七", @"广白", @"大黄", @"大黄", @"广卜卜卜丹",@"卜卜芥", @"卜人参", @"卜卜人发", @"儿茶", @"八角"];
         [self.navigationController pushViewController:searchVC animated:YES];
     }else if (button.tag == 11){
         NSLog(@"点击的是分类");

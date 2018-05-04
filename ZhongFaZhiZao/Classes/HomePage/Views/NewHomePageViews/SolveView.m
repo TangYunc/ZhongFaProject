@@ -120,6 +120,12 @@
             solvePriceLabel.text = solvePriceProfitStr;
             [_solutionBJView addSubview:solvePriceLabel];
             
+            UIButton *solveCoverBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            solveCoverBtn.frame = CGRectMake(0, i * _solutionBJView.height / 2.0, _solutionBJView.width, _solutionBJView.height / 2.0);
+            solveCoverBtn.tag = 500 + i;
+            [solveCoverBtn addTarget:self action:@selector(solveCoverClick:) forControlEvents:UIControlEventTouchUpInside
+             ];
+            [_solutionBJView addSubview:solveCoverBtn];
         }
         UILabel *solvePriceLabel1 = (UILabel *)[_solutionBJView viewWithTag:100];
         //7.分割线
@@ -132,7 +138,25 @@
         }
     }
 }
+
+#pragma mark -- 按钮事件
+- (void)solveCoverClick:(UIButton *)button{
+    
+    NewHomePageSolution_data *solutionData = self.solveDatas.solution_data[button.tag - 500];
+    NSString *url = [NSString stringWithFormat:@"http://wap.cecb2b.com/corp/nicInfo/%@?corpId=%@",solutionData.solutionDataId,self.solveDatas.uid];
+    [self pushToWKWebViewCtrlUrl:url withTitle:solutionData.name];
+}
+
+
 #pragma mark -- method
+
+- (void)pushToWKWebViewCtrlUrl:(NSString *)urlStr withTitle:(NSString *)title{
+    
+    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:urlStr title:title];
+    [self.viewControler.navigationController pushViewController:vc animated:YES];
+}
+
+
 - (void)viewColorChangeFromCoror:(UIColor *)fromColor toColor:(UIColor *)toColor withTheView:(UIView *)view{
     
     //初始化CAGradientlayer对象，使它的大小为UIView的大小

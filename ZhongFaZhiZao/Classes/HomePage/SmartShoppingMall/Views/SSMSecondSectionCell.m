@@ -8,6 +8,7 @@
 
 #import "SSMSecondSectionCell.h"
 #import "SSMSecondSectionView.h"
+#import "SSMTableViewController.h"
 
 @interface SSMSecondSectionCell ()
 {
@@ -103,6 +104,11 @@
 #pragma mark -- 按钮事件
 - (void)moreButtonClick:(UIButton *)button{
     NSLog(@"点击更多按钮");
+    SSMTableViewController *tableVC = [[SSMTableViewController alloc] init];
+    tableVC.level = @"1";
+    tableVC.classid = self.cates.cate_id;
+    tableVC.titleStr = self.titleName;
+    [self.viewControler.navigationController pushViewController:tableVC animated:YES];
 }
 
 

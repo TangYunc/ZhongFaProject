@@ -11,4 +11,11 @@
 @interface SSMFiltrateCellResult : NSObject
 
 @property (nonatomic, assign) CGFloat cellHeight;
+@property (nonatomic, copy) NSString *location;
+@property (nonatomic, copy) NSString *brandId;
+
+@property (nonatomic, copy) NSString *minPrice;
+@property (nonatomic, copy) NSString *maxPrice;
+
++ (SSMFiltrateCellResult *)shareService;
 @end

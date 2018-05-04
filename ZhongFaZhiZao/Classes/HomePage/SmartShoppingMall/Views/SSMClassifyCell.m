@@ -45,13 +45,13 @@
     CGFloat itemWidth = (kScreenWidth - gapWidth) / 2.0;
     CGFloat itemHeight = 80/2.0 * KWidth_ScaleH;
     
-    NSInteger tempCount = self.datas.count;
+    NSInteger tempCount = self.datas.subclass.count;
     for (NSInteger i = 0; i < tempCount; i++) {
-        SSMClassifySubclass *classifySubClasss = self.datas[i];
+        SSMClassifySubclass *classifySubClasss = self.datas.subclass[i];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((i % 2) * (itemWidth + gapWidth), (i / 2) * (itemHeight + gapWidth), itemWidth, itemHeight)];
-        titleLabel.tag = [classifySubClasss.classifySubclassId integerValue];
+        titleLabel.tag = [classifySubClasss.classifySubclassId integerValue] + 10;
         titleLabel.textAlignment = NSTextAlignmentLeft;
-        [self setAttributeStringForPriceLabel:titleLabel text:self.datas[i]];
+        [self setAttributeStringForPriceLabel:titleLabel text:classifySubClasss.name];
         titleLabel.font = [UIFont systemFontOfSize:KFloat(14)];
         titleLabel.textColor = [UIColor colorWithHexString:@"#1C1C1C"];
         titleLabel.backgroundColor = [UIColor colorWithHexString:@"#F4F4F4"];
@@ -67,7 +67,12 @@
 #pragma mark -- 手势
 - (void)tapTitleClick:(UITapGestureRecognizer *)tap{
     NSLog(@"点击了%ld",tap.view.tag);
+    UILabel *currentLabel = (UILabel *)tap.view;
     SSMTableViewController *tableVC = [[SSMTableViewController alloc] init];
+    tableVC.titleStr = currentLabel.text;
+    tableVC.level = @"2";
+    NSString *tagStr = [NSString stringWithFormat:@"%ld",(currentLabel.tag - 10)];
+    tableVC.classid = tagStr;
     [self.viewControler.navigationController pushViewController:tableVC animated:YES];
 }
 

@@ -9,6 +9,7 @@
 #import "HeaderBJView.h"
 #import "NewHomePageCollectionSectionHeaderView.h"
 #import "NewHomePageSmartShoppingMallResult.h"
+#import "SSMViewController.h"
 
 @interface HeaderBJView ()
 {
@@ -118,6 +119,8 @@
 - (void)headerViewClick{
     
     NSLog(@"点击的是智造商城");
+    SSMViewController *vc = [[SSMViewController alloc]init];
+    [self.viewControler.navigationController pushViewController:vc animated:YES];
 }
 - (void)titleLabelClicked:(UITapGestureRecognizer*)sender{
     UILabel *titleLabel = (UILabel*)sender.view;

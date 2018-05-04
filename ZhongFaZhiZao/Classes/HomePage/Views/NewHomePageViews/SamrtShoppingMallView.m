@@ -28,6 +28,7 @@
     _firstGoodsImgImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _firstGoodsImgImageView.contentMode = UIViewContentModeScaleAspectFit;
     [_firstBJView addSubview:_firstGoodsImgImageView];
+    _firstGoodsImgImageView.userInteractionEnabled = YES;
     //2.商品名
     
     _firstGoodsNameLabel = [[UILabel alloc] init];
@@ -58,6 +59,7 @@
     _secondGoodsImgImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _secondGoodsImgImageView.contentMode = UIViewContentModeScaleAspectFit;
     [_secondBJView addSubview:_secondGoodsImgImageView];
+    _secondGoodsImgImageView.userInteractionEnabled = YES;
     
     //三、
     _thirdBJView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -67,6 +69,7 @@
     _thirdGoodsImgImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _thirdGoodsImgImageView.contentMode = UIViewContentModeScaleAspectFit;
     [_thirdBJView addSubview:_thirdGoodsImgImageView];
+    _thirdBJView.userInteractionEnabled = YES;
     //2.商品名
     _thirdGoodsNameLabel = [[UILabel alloc] init];
     _thirdGoodsNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -82,6 +85,7 @@
     _fourGoodsImgImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     _fourGoodsImgImageView.contentMode = UIViewContentModeScaleAspectFit;
     [_fourBJView addSubview:_fourGoodsImgImageView];
+    _fourBJView.userInteractionEnabled = YES;
     //2.商品名
     _fourGoodsNameLabel = [[UILabel alloc] init];
     _fourGoodsNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -130,6 +134,8 @@
         CGFloat firstBJViewWidth = 373/2.0 * KWidth_ScaleW;
         CGFloat firstBJViewHeight = 342/2.0 * KWidth_ScaleH;
         _firstBJView.frame = CGRectMake(0, 0, firstBJViewWidth, firstBJViewHeight);
+        UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [_firstBJView addGestureRecognizer:tap1];
         //1.
         CGFloat goodsImgWidth = 298/2.0 * KWidth_ScaleW;
         CGFloat goodsImgHeight = 179/2.0 * KWidth_ScaleH;
@@ -137,6 +143,7 @@
         CGFloat goodsImgGapFromTop = 18/2.0 * KWidth_ScaleH;
         _firstGoodsImgImageView.frame = CGRectMake(goodsImgGapFromLeft, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
         [_firstGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList1.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        
         //2.
         NSString *goodsNameStr = adList1.name;
         CGFloat goodsNameLabelGapFromTop = 6/2.0 * KWidth_ScaleH;
@@ -166,6 +173,8 @@
         CGFloat secondBJViewWidth = 377/2.0 * KWidth_ScaleW;
         CGFloat secondBJViewHeight = 165/2.0 * KWidth_ScaleH;
         _secondBJView.frame = CGRectMake(_firstBJView.right + 1, 0, secondBJViewWidth, secondBJViewHeight);
+        UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [_secondBJView addGestureRecognizer:tap2];
         //1.
         NSString *secondGoodsNameStr = adList2.name;
         //    CGFloat goodsNameLabelGapFromTop = 43/2.0 * KWidth_ScaleH;
@@ -189,6 +198,8 @@
         CGFloat thirdBJViewWidth = 188/2.0 * KWidth_ScaleW;
         CGFloat thirdBJViewHeight = 176/2.0 * KWidth_ScaleH;
         _thirdBJView.frame = CGRectMake(_secondBJView.left, _secondBJView.bottom + 1, thirdBJViewWidth, thirdBJViewHeight);
+        UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [_thirdBJView addGestureRecognizer:tap3];
         //1.
         CGFloat thirdGoodsImgWidth = 102/2.0 * KWidth_ScaleW;
         CGFloat thirdGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
@@ -211,6 +222,8 @@
         CGFloat fourBJViewWidth = 188/2.0 * KWidth_ScaleW;
         CGFloat fourBJViewHeight = 176/2.0 * KWidth_ScaleH;
         _fourBJView.frame = CGRectMake(_thirdBJView.right + 1, _thirdBJView.top, fourBJViewWidth, fourBJViewHeight);
+        UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [_fourBJView addGestureRecognizer:tap4];
         //1.
         CGFloat fourGoodsImgWidth = 102/2.0 * KWidth_ScaleW;
         CGFloat fourGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
@@ -229,5 +242,64 @@
         _fourGoodsNameLabel.bottom = _fourBJView.frame.size.height - fourGoodsNameLabelGapFromBottom;
         _fourGoodsNameLabel.centerX = _fourBJView.frame.size.width / 2.0;
     }
+}
+
+#pragma mark -- 手势
+- (void)tapAction:(UITapGestureRecognizer *)tap{
+    
+    NSString *url;
+    NSString *title = @"商品详情";
+    
+    NSArray *lists = _theDatas.ad_list;
+    NewHomePageSmartShoppingMallAd_list *adList1;
+    NewHomePageSmartShoppingMallAd_list *adList2;
+    NewHomePageSmartShoppingMallAd_list *adList3;
+    NewHomePageSmartShoppingMallAd_list *adList4;
+    if (lists.count == 0) {
+        adList1 = nil;
+        adList2 = nil;
+        adList3 = nil;
+        adList4 = nil;
+    }
+    if (lists.count == 1) {
+        adList1 = lists[0];
+        adList2 = nil;
+        adList3 = nil;
+        adList4 = nil;
+    }else if (lists.count == 2){
+        adList1 = lists[0];
+        adList2 = lists[1];
+        adList3 = nil;
+        adList4 = nil;
+    }else if (lists.count == 3){
+        adList1 = lists[0];
+        adList2 = lists[1];
+        adList3 = lists[2];
+        adList4 = nil;
+    }else if (lists.count == 4){
+        adList1 = lists[0];
+        adList2 = lists[1];
+        adList3 = lists[2];
+        adList4 = lists[3];
+    }
+    
+    if (tap.view == _firstBJView) {
+        url = adList1.click_link;
+    }else if (tap.view == _secondBJView){
+        url = adList2.click_link;
+    }else if (tap.view == _thirdBJView){
+        url = adList3.click_link;
+    }else if (tap.view == _fourBJView){
+        url = adList4.click_link;
+    }
+    [self pushWkWebViewWithAPIString:url withTitle:title];
+}
+
+#pragma mark -- 方法
+- (void)pushWkWebViewWithAPIString:(NSString *)apiString withTitle:(NSString *)title{
+    
+    WKWebViewViewController *wkvc = [[WKWebViewViewController alloc]initWithUrlStr:apiString title:title];
+    //        wkvc.hidesBottomBarWhenPushed = YES;
+    [self.viewControler.navigationController pushViewController:wkvc animated:YES];
 }
 @end

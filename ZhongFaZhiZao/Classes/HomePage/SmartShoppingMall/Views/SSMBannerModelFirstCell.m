@@ -129,28 +129,39 @@
 - (void)imageViewTapAction:(UITapGestureRecognizer *)tap{
     
 //    NSArray *items;
-    NSString *tempDataStr = nil;
-    NSString *tempTpyeStr = nil;
+    SSMDatasBusiness *businessLarge;
+    SSMDatasBusiness *businessSmall1;
+    SSMDatasBusiness *businessSmall2;
+    if (self.theDatas.count == 3) {
+        
+        businessLarge = self.theDatas[0];
+        businessSmall1 = self.theDatas[1];
+        businessSmall2 = self.theDatas[2];
+    }else if (self.theDatas.count == 2){
+        businessLarge = self.theDatas[0];
+        businessSmall1 = self.theDatas[1];
+        businessSmall2 = nil;
+    }else if (self.theDatas.count == 1){
+        businessLarge = self.theDatas[0];
+        businessSmall1 = nil;
+        businessSmall2 = nil;
+    }else if (self.theDatas.count == 0){
+        businessLarge = nil;
+        businessSmall1 = nil;
+        businessSmall2 = nil;
+    }
+    NSString *urlStr = nil;
     if (tap.view == _largeZoneImageView) {
         NSLog(@"大图模块");
-        tempDataStr = @"";
-        tempTpyeStr = @"";
+        urlStr = businessLarge.click_link;
     }else if (tap.view == _small1ZoneImageView){
         NSLog(@"模块1");
-        tempDataStr = @"";
-        tempTpyeStr = @"";
+        urlStr = businessSmall1.click_link;
     }else if (tap.view == _small2ZoneImageView){
         NSLog(@"模块2");
-        tempDataStr = @"";
-        tempTpyeStr = @"";
+        urlStr = businessSmall2.click_link;
     }
-    if ([tempTpyeStr isEqualToString:@"url"]) {
-        //进入webView页面
-//        [self goToMarketCarouselWebViewControllerWapUrl:tempDataStr];
-    }else if ([tempTpyeStr isEqualToString:@"special"]){
-        //调到专题页签去
-//        [self goToOtherSpecialId:tempDataStr];
-    }
+    [self choiceTheImageUrl:urlStr];
 }
 
 #pragma mark -- 手势
@@ -161,7 +172,7 @@
 
 #pragma mark -- method
 - (void)choiceTheImageUrl:(NSString *)url{
-    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",url] title:@"商品详情"];
+    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",url] title:@"广告"];
     
     [self.viewControler.navigationController pushViewController:vc animated:YES];
 }
