@@ -299,7 +299,7 @@
 - (void)itemViewTapAction:(UITapGestureRecognizer *)tap{
     NewHomePageRecommendDatas *recommedDatas = self.recommendArr[tap.view.tag - 10];
     [self choiceTheImageUrl:recommedDatas.click_link];
-//    NSLog(@"点击了第%ld个视图",tap.view.tag);
+    NSLog(@"为你推荐点击了第%ld个视图",tap.view.tag);
 }
 
 #pragma mark -- method

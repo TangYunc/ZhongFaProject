@@ -112,11 +112,8 @@
     
     if (button.tag == 10) {
         NSLog(@"点击重置");
-        [SSMFiltrateCellResult shareService].location = nil;
-        [SSMFiltrateCellResult shareService].brandId = nil;
-        [SSMFiltrateCellResult shareService].maxPrice = nil;
-        [SSMFiltrateCellResult shareService].minPrice = nil;
         [_filtrateTableView reloadData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reset" object:nil];
     }else if (button.tag == 11){
         NSLog(@"点击确认");
         if (self.block) {

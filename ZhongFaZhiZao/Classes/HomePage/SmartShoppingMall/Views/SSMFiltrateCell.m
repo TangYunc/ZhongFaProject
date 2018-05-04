@@ -29,6 +29,7 @@
         
         //初始化子视图
         [self setUpSubViews];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reset) name:@"reset" object:nil];
         
     }
     return self;
@@ -105,7 +106,7 @@
         CGFloat lastBtnGapFrombottom = 35/2.0 * KWidth_ScaleH;
         UIButton *lastBtn = (UIButton *)[_bjView viewWithTag: (self.datas.count+10+itemTag - 1)];
         CGFloat cellHeight = lastBtn.bottom + lastBtnGapFrombottom;
-        NSLog(@"");
+        NSLog(@"cellHeight:%f",cellHeight);
         [SSMFiltrateCellResult shareService].cellHeight = cellHeight;
     
     }else {
@@ -160,5 +161,19 @@
 {
     NSDictionary *attrs = @{NSFontAttributeName : font};
     return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+}
+
+#pragma mark -- 通知
+- (void)reset{
+    self.choiceCategoryNum = @0;
+    [SSMFiltrateCellResult shareService].location = nil;
+    [SSMFiltrateCellResult shareService].brandId = nil;
+    [SSMFiltrateCellResult shareService].maxPrice = nil;
+    [SSMFiltrateCellResult shareService].minPrice = nil;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

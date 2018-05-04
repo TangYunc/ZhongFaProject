@@ -44,5 +44,25 @@
 - (void)customBtnAction:(ScienceResultCustomFounctionBtn *)btn{
     
     NSLog(@"点击的是%@",self.titleImage);
+    NSString *url;
+    if ([self.title isEqualToString:@"评估评价"]) {
+        url = AssessmentReview_API;
+    }else if ([self.title isEqualToString:@"专利申请"]){
+        url = PatentApplication_API;
+    }else if ([self.title isEqualToString:@"商标注册"]){
+        url = TrademarkRegistration_API;
+    }else if ([self.title isEqualToString:@"项目申报"]){
+        url = ProjectApplication_API;
+    }else if ([self.title isEqualToString:@"高新认定"]){
+        url = HighRecognition_API;
+    }
+    [self pushToWKWebViewCtrlUrl:url withTitle:self.title];
+}
+
+#pragma mark -- method
+- (void)pushToWKWebViewCtrlUrl:(NSString *)urlStr withTitle:(NSString *)title{
+    
+    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:urlStr title:title];
+    [self.viewControler.navigationController pushViewController:vc animated:YES];
 }
 @end

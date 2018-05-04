@@ -105,9 +105,9 @@
     
     NSLog(@"点击了第%ld个图片",tap.view.tag);
     SSMDatasGoodProduct *goodsProduct = self.theDatas[tap.view.tag - 10];
-//    [self choiceTheImageUrl:goodsProduct.click_link];
-    [self choiceTheImageUrl:@"http://wap.cecb2b.com/corp/nicInfo/4993348?corpId=205170"];
-    //http://wap.cecb2b.com/corp/nicInfo/4993348?corpId=205170
+    [self choiceTheImageUrl:goodsProduct.click_link];
+//    [self choiceTheImageUrl:@"http://wap.cecb2b.com/corp/nicInfo/4993348?corpId=205170"];
+
 }
 
 #pragma mark -- 手势

@@ -104,13 +104,22 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     NSLog(@"%@",textField.text);
     
-    BOOL isIntType = [textField.text mj_isPureInt];
+    BOOL isIntType = [self isNum:textField.text];
     if (!isIntType) {
         [MBProgressHUD showError:@"请输入数字"];
         return NO;
     }
     return YES;
 }
+
+- (BOOL)isNum:(NSString *)checkedNumString {
+    checkedNumString = [checkedNumString stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+    if(checkedNumString.length > 0) {
+        return NO;
+    }
+    return YES;
+}
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     

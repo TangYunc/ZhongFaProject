@@ -114,3 +114,11 @@ NSString *const APIToken = @"APIToken";
 NSString *const historySearch = @"HistorySearch";
 
 NSString *const RRCityDataOnCurrentProvince_API = @"/regions/city?access-token=";
+
+NSString *const AssessmentReview_API = @"http://192.168.1.223/index.php?r=project-info%2Fservice&id=395696247";
+NSString *const  PatentApplication_API = @"http://192.168.1.223/index.php?r=project-info%2Fservice&id=395696165";
+NSString *const TrademarkRegistration_API = @"http://192.168.1.223/index.php?r=project-info%2Fservice&id=395696241";
+NSString *const ProjectApplication_API = @"http://192.168.1.223/index.php?r=project-info%2Fservice&id=395696245";
+NSString *const HighRecognition_API = @"http://192.168.1.223/index.php?r=project-info%2Fservice&id=395696242";
+NSString *const GuidViewHide = @"GuidViewHide";
+

@@ -99,5 +99,11 @@ extern NSString *const APIToken;  //token获取
 extern NSString *const historySearch;                    // 历史搜索字符串
 
 extern NSString *const RRCityDataOnCurrentProvince_API;                    // 市获取
+extern NSString *const GuidViewHide;  //引导页隐藏
+extern NSString *const AssessmentReview_API;  //评估评测
+extern NSString *const PatentApplication_API;  //专利申请
+extern NSString *const TrademarkRegistration_API;  //商标注册
+extern NSString *const ProjectApplication_API;  //项目申报
+extern NSString *const HighRecognition_API;  //高新认定
 
 

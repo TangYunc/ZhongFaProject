@@ -153,7 +153,7 @@
     for (UIView *subView in bjView.subviews) {
         [subView removeFromSuperview];
     }
-//    self.filtrateTextBtnMaxX = 0;
+    self.filtrateTextBtnMaxX = 0;
     CGFloat filtrateItemTextBtnFromLeft = 30/2.0 * KWidth_ScaleH;
     CGFloat filtrateItemTextBtnFromTop = 30/2.0 * KWidth_ScaleH;
     CGFloat filtrateItemGapWithOther = 15/2.0 * KWidth_ScaleW;

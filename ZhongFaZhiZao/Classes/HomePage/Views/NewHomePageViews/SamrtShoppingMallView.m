@@ -293,6 +293,7 @@
         url = adList4.click_link;
     }
     [self pushWkWebViewWithAPIString:url withTitle:title];
+    NSLog(@"点击的是智造商城视图");
 }
 
 #pragma mark -- 方法

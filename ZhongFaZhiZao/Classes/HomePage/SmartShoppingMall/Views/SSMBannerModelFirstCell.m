@@ -167,7 +167,7 @@
 #pragma mark -- 手势
 - (void)headerViewClick{
     NSLog(@"商品详情");
-    [self choiceTheImageUrl:@""];
+//    [self choiceTheImageUrl:@""];
 }
 
 #pragma mark -- method

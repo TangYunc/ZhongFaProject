@@ -150,13 +150,18 @@
 
 - (void)showClassifyPopView{
     BOOL isShowClassify = [KUserDefault objectForKey:ShowClassifyPopView];
+//    BOOL isGuidViewHide = [KUserDefault objectForKey:GuidViewHide];
     if (!isShowClassify) {
         
         ClassifyPopView *classifyPopView = [[ClassifyPopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         classifyPopView.alertVC = self;
         classifyPopView.classifyResultArr = self.classifyResultArr;
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        [window addSubview:classifyPopView];
+//        [self.view addSubview:classifyPopView];
+//        if (isGuidViewHide) {
+        
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            [window addSubview:classifyPopView];
+//        }
     }
 }
 

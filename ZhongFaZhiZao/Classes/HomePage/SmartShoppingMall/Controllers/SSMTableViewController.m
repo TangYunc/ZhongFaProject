@@ -12,6 +12,7 @@
 #import "SSMFiltrateViewController.h"
 #import "SSMSearchViewController.h"
 #import "SSMTableResult.h"
+#import "SSMSearchNoResultCell.h"
 
 @interface SSMTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -307,11 +308,22 @@
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.searchResultGoodsArr.count == 0) {
+        return 1;
+    }
     return self.searchResultGoodsArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (self.searchResultGoodsArr.count == 0) {
+        static NSString *identifier = @"SSMSearchNoResultCellID";
+        SSMSearchNoResultCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[SSMSearchNoResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        return cell;
+    }
     static NSString *identifier = @"SSMTableViewCellId";
     SSMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -325,7 +337,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    NSInteger section = indexPath.section;
     CGFloat height = 0.;
-    height = 280/2.0 * KWidth_ScaleH;
+    if (self.searchResultGoodsArr.count == 0) {
+        return kScreenHeight - SafeAreaTopHeight - 106/2.0 * KWidth_ScaleH;
+    }else{
+        height = 280/2.0 * KWidth_ScaleH;        
+    }
     return height;
 }
 

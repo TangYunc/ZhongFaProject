@@ -31,6 +31,8 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
 @property (nonatomic,weak) UIButton * selectedBtn;
 
 @property (nonatomic,strong) NSArray *citys;
+@property (nonatomic,assign) BOOL requestEndFlag;//定义一个BOOL类型的requestEndFlag，当网络数据回来的时候将endFlag置为YES
+
 @end
 
 @implementation ChooseLocationView
@@ -157,7 +159,8 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
 
         //1.1 获取下一级别的数据源(市级别,如果是直辖市时,下级则为区级别)
         AddressItem * provinceItem = self.dataSouce[indexPath.row];
-       self.cityDataSouce = [self loadCityDataOnCurrentProvince:provinceItem.sheng];
+        self.cityDataSouce = [self loadCityDataOnCurrentProvince:provinceItem.sheng];
+        self.requestEndFlag = NO;
 //        self.cityDataSouce = [[CitiesDataTool sharedManager] queryAllRecordWithSheng:provinceItem.sheng];
         if(self.cityDataSouce.count == 0){
             for (int i = 0; i < self.tableViews.count && self.tableViews.count != 1; i++) {
@@ -222,6 +225,8 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
         [self addTopBarItem];
         [self addTableView];
          */
+        AddressItem * provinceItem = self.dataSouce[indexPath.row];
+        self.provinceId = provinceItem.sheng;
         AddressItem * item = self.cityDataSouce[indexPath.row];
         [self setUpAddress:item.name];
         self.cityId = item.sheng;
@@ -388,6 +393,18 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
         }
         
         _dataSouce = [mArr copy];
+        /*
+        WS(weakSelf);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSArray *citysArr = [NSArray array];
+            for (AddressItem *model in _dataSouce) {
+                citysArr = [weakSelf loadCityDataOnCurrentProvince:model.sheng];
+            }
+            weakSelf.cityDataSouce = citysArr;
+        });
+         */
+        
     }
     return _dataSouce;
 }
@@ -427,7 +444,7 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
     [TNetworking getWithUrl:url params:param success:^(id response) {
         
         if (response[@"success"]) {
-            weakSelf.citys = response[@"data"];
+            weakSelf.citys = response[@"data"][@"datas"];
             NSMutableArray *mArr = [NSMutableArray array];
             for (NSDictionary *tempDic in weakSelf.citys) {
                 AddressItem *model = [[AddressItem alloc] init];
@@ -440,36 +457,32 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
                 [mArr addObject:model];
             }
             weakSelf.citys = [mArr copy];
+            self.requestEndFlag = YES;
         }else{
             
             NSLog(@"%@",response[@"message"]);
-//            return self.citys;
         }
     } fail:^(NSError *error) {
         NSLog(@"error = %@",error);
         [WKProgressHUD popMessage:@"请检查网络连接" inView:weakSelf.superview duration:HUD_DURATION animated:YES];
     } showHUD:NO];
-//    [NSThread sleepForTimeInterval:1];
+    [self waitingRequestEnd];
     return self.citys;
 }
-/*
-- (void)setCitys:(NSArray *)citys{
-    
-    if (_citys != citys) {
-        _citys = citys;
-        NSMutableArray *mArr = [NSMutableArray array];
-        for (NSDictionary *tempDic in _citys) {
-            AddressItem *model = [[AddressItem alloc] init];
-            model.code = tempDic[@"id"];
-            model.sheng = tempDic[@"id"];
-            model.di = @"00";
-            model.xian = @"00";
-            model.name = tempDic[@"name"];
-            model.level = @"1";
-            [mArr addObject:model];
+
+- (void)waitingRequestEnd
+{
+    if ([NSThread currentThread] == [NSThread mainThread]) {
+        while (!self.requestEndFlag) {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.3]];
         }
-        self.cityDataSouce = nil;
-        self.cityDataSouce = [mArr copy];
+    } else {
+        @autoreleasepool {
+            while (self.requestEndFlag) {
+                [NSThread sleepForTimeInterval:0.3];
+            }
+        }
     }
-}*/
+}
+
 @end

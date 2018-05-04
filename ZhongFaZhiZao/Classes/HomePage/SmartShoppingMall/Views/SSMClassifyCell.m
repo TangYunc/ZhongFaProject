@@ -78,8 +78,7 @@
 
 - (void)setAttributeStringForPriceLabel:(UILabel *)label text:(NSString *)text
 {
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString
-                                              alloc] initWithString:text];
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:text];
     NSUInteger length = [text length];
     NSMutableParagraphStyle *
     style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];

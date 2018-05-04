@@ -43,7 +43,7 @@
     [_bjImageView addSubview:_goodsImgImageView];
     
     //5.购买
-    _purchaseLabel = [[UILabel alloc] init];
+    _purchaseLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _purchaseLabel.textAlignment = NSTextAlignmentLeft;
     _purchaseLabel.textColor = [UIColor whiteColor];
     _purchaseLabel.font = [UIFont systemFontOfSize:KFloat(12.f)];

@@ -141,7 +141,7 @@
 
 #pragma mark -- 按钮事件
 - (void)solveCoverClick:(UIButton *)button{
-    
+    NSLog(@"解决方案商品点击事件，这里的链接需要拼接店铺ID和商品ID");
     NewHomePageSolution_data *solutionData = self.solveDatas.solution_data[button.tag - 500];
     NSString *url = [NSString stringWithFormat:@"http://wap.cecb2b.com/corp/nicInfo/%@?corpId=%@",solutionData.solutionDataId,self.solveDatas.uid];
     [self pushToWKWebViewCtrlUrl:url withTitle:solutionData.name];

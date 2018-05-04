@@ -7,9 +7,9 @@
 //
 
 #import "NewHomePageCollectionView.h"
-#import "SamrtShoppingMallFirstCell.h"
-#import "SamrtShoppingMallSecondCell.h"
-#import "SamrtShoppingMallThirdCell.h"
+//#import "SamrtShoppingMallFirstCell.h"
+//#import "SamrtShoppingMallSecondCell.h"
+//#import "SamrtShoppingMallThirdCell.h"
 #import "ScienceResultGoodsCell.h"
 #import "ScienceResultFunctionCell.h"
 #import "SolveCell.h"
@@ -78,7 +78,7 @@
         
         //注册cell
         [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
-        [self registerClass:[SamrtShoppingMallFirstCell class] forCellWithReuseIdentifier:@"samrtShoppingMallCell"];
+        [self registerClass:[SamrtShoppingMallCell class] forCellWithReuseIdentifier:@"samrtShoppingMallCell"];
         /*
         [self registerClass:[SamrtShoppingMallFirstCell class] forCellWithReuseIdentifier:@"samrtShoppingMallFirstCell"];
         [self registerClass:[SamrtShoppingMallSecondCell class] forCellWithReuseIdentifier:@"samrtShoppingMallSecondCell"];
