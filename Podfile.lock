@@ -1,0 +1,109 @@
+PODS:
+  - AFNetworking (3.2.0):
+    - AFNetworking/NSURLSession (= 3.2.0)
+    - AFNetworking/Reachability (= 3.2.0)
+    - AFNetworking/Security (= 3.2.0)
+    - AFNetworking/Serialization (= 3.2.0)
+    - AFNetworking/UIKit (= 3.2.0)
+  - AFNetworking/NSURLSession (3.2.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.0)
+  - AFNetworking/Security (3.2.0)
+  - AFNetworking/Serialization (3.2.0)
+  - AFNetworking/UIKit (3.2.0):
+    - AFNetworking/NSURLSession
+  - Bugly (2.5.0)
+  - FDFullscreenPopGesture (1.1)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - JCore (1.1.7)
+  - JPush (3.0.8):
+    - JCore (~> 1.1.7)
+  - JSONModel (1.7.0)
+  - Masonry (1.1.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.15.3)
+  - QRCodeReaderViewController (4.0.2)
+  - RongCloudIM/IMKit (2.8.28):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.8.28)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
+  - UMCAnalytics (5.4.1):
+    - UMCCommon
+  - UMCCommon (1.4.2)
+  - UMCShare/Core (6.8.2):
+    - UMCCommon
+  - UMCShare/Social/QQ (6.8.2):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedQQ (6.8.2):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.8.2):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.8.2):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/Sina (6.8.2):
+    - UMCCommon
+    - UMCShare/Core
+    - UMCShare/Social/ReducedSina
+  - UMCShare/Social/SMS (6.8.2):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/UI (6.8.2):
+    - UMCCommon
+    - UMCShare/Core
+  - WechatOpenSDK (1.8.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Bugly
+  - FDFullscreenPopGesture
+  - FMDB
+  - JPush
+  - JSONModel
+  - Masonry
+  - MJExtension
+  - MJRefresh
+  - QRCodeReaderViewController
+  - RongCloudIM/IMKit (~> 2.8.3)
+  - RongCloudIM/IMLib (~> 2.8.3)
+  - SDWebImage
+  - UMCAnalytics
+  - UMCShare/Social/QQ
+  - UMCShare/Social/ReducedWeChat
+  - UMCShare/Social/Sina
+  - UMCShare/Social/SMS
+  - UMCShare/UI
+  - WechatOpenSDK
+
+SPEC CHECKSUMS:
+  AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  JCore: f7459c81c135281a874a6beafdd321666adcc834
+  JPush: 9574d072cc37e93fa293ba69b43ce763c440943a
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
+  RongCloudIM: 04fe5f4db26de404a1b648700a7099d87bedc4dc
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  UMCAnalytics: 44e0bb2f442b7aaf97d1c924b58798b612f2c13d
+  UMCCommon: 19f09b4c67b6007837f70f321fe091e5814d49b1
+  UMCShare: ab74e3c818cd305846609b15b0daf36872213c28
+  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
+
+PODFILE CHECKSUM: 83516cd0b69edbf708b12c4a1534e80711e1b1e0
+
+COCOAPODS: 1.4.0

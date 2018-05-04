@@ -1,0 +1,22 @@
+{
+  "name": "TYCTools",
+  "version": "0.1.0",
+  "summary": "A short description of TYCTools.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/TangYunc/TYCTools",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "TangYunc": "18242312660@163.com"
+  },
+  "source": {
+    "git": "https://github.com/TangYunc/TYCTools.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "TYCTools/Classes/**/*"
+}
