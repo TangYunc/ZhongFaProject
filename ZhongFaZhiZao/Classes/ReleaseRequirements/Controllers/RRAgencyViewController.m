@@ -47,7 +47,7 @@
         return;
     }
     
-    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,RRRecruits_API,apiToken];
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,RRAgency_API,apiToken];
     [TNetworking getWithUrl:url params:nil success:^(id response) {
         [RRAgencyIndustryCate mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
@@ -59,7 +59,16 @@
                      @"investmentPriceTypeId" : @"id"
                      };
         }];
-        
+        [RRAgencyProvinceList mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"provinceListId" : @"id"
+                     };
+        }];
+        [RRAgencyCooperationList mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"one" : @"1",@"two" : @"2",@"three" : @"3",@"four" : @"4"
+                     };
+        }];
         RRAgencyResult *result = [RRAgencyResult mj_objectWithKeyValues:response];
         if (result.success) {
             _agencyScr.datas = result.data.datas;

@@ -49,6 +49,16 @@
 		2D592EEC20871F2300FD1410 /* SSMSearchNoResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EEB20871F2300FD1410 /* SSMSearchNoResultCell.m */; };
 		2D592EEF2087309700FD1410 /* HomePageElectronicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EEE2087309700FD1410 /* HomePageElectronicViewController.m */; };
 		2D592EF220874F7400FD1410 /* SSMResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592EF120874F7400FD1410 /* SSMResult.m */; };
+		2D592F0B20886CED00FD1410 /* AddressItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F0220886CED00FD1410 /* AddressItem.m */; };
+		2D592F0C20886CED00FD1410 /* ChooseLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F0620886CED00FD1410 /* ChooseLocationView.m */; };
+		2D592F0D20886CED00FD1410 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D592F0720886CED00FD1410 /* AddressTableViewCell.xib */; };
+		2D592F0E20886CED00FD1410 /* AddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F0820886CED00FD1410 /* AddressView.m */; };
+		2D592F0F20886CED00FD1410 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F0A20886CED00FD1410 /* AddressTableViewCell.m */; };
+		2D592F1220886D4F00FD1410 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F1120886D4F00FD1410 /* UIView+Frame.m */; };
+		2D592F15208875EE00FD1410 /* RRCityResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F14208875EE00FD1410 /* RRCityResult.m */; };
+		2D592F182088972200FD1410 /* SSMBannerModelSecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F172088972200FD1410 /* SSMBannerModelSecondView.m */; };
+		2D592F1B2088A8BB00FD1410 /* SSMClassifyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F1A2088A8BB00FD1410 /* SSMClassifyResult.m */; };
+		2D592F1E2088B1BD00FD1410 /* SSMTableResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D592F1D2088B1BD00FD1410 /* SSMTableResult.m */; };
 		2D5D575120478AAB00F683F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D575020478AAB00F683F4 /* AppDelegate.m */; };
 		2D5D575420478AAB00F683F4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D575320478AAB00F683F4 /* ViewController.m */; };
 		2D5D575720478AAB00F683F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5D575520478AAB00F683F4 /* Main.storyboard */; };
@@ -261,6 +271,25 @@
 		2D592EEE2087309700FD1410 /* HomePageElectronicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageElectronicViewController.m; sourceTree = "<group>"; };
 		2D592EF020874F7400FD1410 /* SSMResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMResult.h; sourceTree = "<group>"; };
 		2D592EF120874F7400FD1410 /* SSMResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMResult.m; sourceTree = "<group>"; };
+		2D592F0120886CED00FD1410 /* AddressItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressItem.h; sourceTree = "<group>"; };
+		2D592F0220886CED00FD1410 /* AddressItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressItem.m; sourceTree = "<group>"; };
+		2D592F0420886CED00FD1410 /* AddressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressView.h; sourceTree = "<group>"; };
+		2D592F0520886CED00FD1410 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
+		2D592F0620886CED00FD1410 /* ChooseLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationView.m; sourceTree = "<group>"; };
+		2D592F0720886CED00FD1410 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
+		2D592F0820886CED00FD1410 /* AddressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressView.m; sourceTree = "<group>"; };
+		2D592F0920886CED00FD1410 /* ChooseLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationView.h; sourceTree = "<group>"; };
+		2D592F0A20886CED00FD1410 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
+		2D592F1020886D4D00FD1410 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		2D592F1120886D4F00FD1410 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		2D592F13208875EE00FD1410 /* RRCityResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRCityResult.h; sourceTree = "<group>"; };
+		2D592F14208875EE00FD1410 /* RRCityResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRCityResult.m; sourceTree = "<group>"; };
+		2D592F162088972200FD1410 /* SSMBannerModelSecondView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMBannerModelSecondView.h; sourceTree = "<group>"; };
+		2D592F172088972200FD1410 /* SSMBannerModelSecondView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMBannerModelSecondView.m; sourceTree = "<group>"; };
+		2D592F192088A8BB00FD1410 /* SSMClassifyResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMClassifyResult.h; sourceTree = "<group>"; };
+		2D592F1A2088A8BB00FD1410 /* SSMClassifyResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMClassifyResult.m; sourceTree = "<group>"; };
+		2D592F1C2088B1BD00FD1410 /* SSMTableResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSMTableResult.h; sourceTree = "<group>"; };
+		2D592F1D2088B1BD00FD1410 /* SSMTableResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSMTableResult.m; sourceTree = "<group>"; };
 		2D5D574C20478AAB00F683F4 /* ZhongFaZhiZao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhongFaZhiZao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5D574F20478AAB00F683F4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D5D575020478AAB00F683F4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -609,6 +638,40 @@
 			path = HeadLineView;
 			sourceTree = "<group>";
 		};
+		2D592EFF20886CED00FD1410 /* ChooseLocation */ = {
+			isa = PBXGroup;
+			children = (
+				2D592F0020886CED00FD1410 /* Model */,
+				2D592F0320886CED00FD1410 /* View */,
+			);
+			path = ChooseLocation;
+			sourceTree = "<group>";
+		};
+		2D592F0020886CED00FD1410 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D592F0120886CED00FD1410 /* AddressItem.h */,
+				2D592F0220886CED00FD1410 /* AddressItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D592F0320886CED00FD1410 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D592F1020886D4D00FD1410 /* UIView+Frame.h */,
+				2D592F1120886D4F00FD1410 /* UIView+Frame.m */,
+				2D592F0420886CED00FD1410 /* AddressView.h */,
+				2D592F0820886CED00FD1410 /* AddressView.m */,
+				2D592F0920886CED00FD1410 /* ChooseLocationView.h */,
+				2D592F0620886CED00FD1410 /* ChooseLocationView.m */,
+				2D592F0520886CED00FD1410 /* AddressTableViewCell.h */,
+				2D592F0A20886CED00FD1410 /* AddressTableViewCell.m */,
+				2D592F0720886CED00FD1410 /* AddressTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2D5D574320478AAA00F683F4 = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +866,8 @@
 				2D592ED9208610B400FD1410 /* RRRecruitmentResult.m */,
 				2D592EDB208610C200FD1410 /* RRAgencyResult.h */,
 				2D592EDC208610C200FD1410 /* RRAgencyResult.m */,
+				2D592F13208875EE00FD1410 /* RRCityResult.h */,
+				2D592F14208875EE00FD1410 /* RRCityResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -820,6 +885,7 @@
 		2DB5683620804E4100EC28C2 /* 城市选择器 */ = {
 			isa = PBXGroup;
 			children = (
+				2D592EFF20886CED00FD1410 /* ChooseLocation */,
 				2DF2830D208059B00048E340 /* City.plist */,
 				2DB5683F20804EE500EC28C2 /* CityPickView.h */,
 				2DB5684020804EE500EC28C2 /* CityPickView.m */,
@@ -1153,6 +1219,10 @@
 				2DF1C74D2084BED400710B9B /* SSMFiltrateCellResult.m */,
 				2D592EF020874F7400FD1410 /* SSMResult.h */,
 				2D592EF120874F7400FD1410 /* SSMResult.m */,
+				2D592F192088A8BB00FD1410 /* SSMClassifyResult.h */,
+				2D592F1A2088A8BB00FD1410 /* SSMClassifyResult.m */,
+				2D592F1C2088B1BD00FD1410 /* SSMTableResult.h */,
+				2D592F1D2088B1BD00FD1410 /* SSMTableResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1168,6 +1238,8 @@
 				2DF1C7202081B03B00710B9B /* SSMBannerModelFirstCell.m */,
 				2DF1C7222081B06400710B9B /* SSMBannerModelSecondCell.h */,
 				2DF1C7232081B06400710B9B /* SSMBannerModelSecondCell.m */,
+				2D592F162088972200FD1410 /* SSMBannerModelSecondView.h */,
+				2D592F172088972200FD1410 /* SSMBannerModelSecondView.m */,
 				2DF1C7252081F94000710B9B /* SSMSecondSectionCell.h */,
 				2DF1C7262081F94000710B9B /* SSMSecondSectionCell.m */,
 				2DF1C7282081FEA500710B9B /* SSMSecondSectionView.h */,
@@ -1315,6 +1387,7 @@
 				2DF2830E208059B00048E340 /* City.plist in Resources */,
 				2DD3E84D2048022D00199AB6 /* MBProgressHUD.bundle in Resources */,
 				2D5D575920478AAB00F683F4 /* Assets.xcassets in Resources */,
+				2D592F0D20886CED00FD1410 /* AddressTableViewCell.xib in Resources */,
 				2D5D575720478AAB00F683F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1420,10 +1493,12 @@
 				2D15B24F207B75B5001E45F0 /* HeaderBJView.m in Sources */,
 				2DB56834207F687A00EC28C2 /* RRTextViewEditSubview.m in Sources */,
 				2DF1C7212081B03B00710B9B /* SSMBannerModelFirstCell.m in Sources */,
+				2D592F0B20886CED00FD1410 /* AddressItem.m in Sources */,
 				2DD3E87A204934BC00199AB6 /* UMengShareViewController.m in Sources */,
 				2DB5681F207F2D2300EC28C2 /* RRSegmentView.m in Sources */,
 				2DD3E80020479D8A00199AB6 /* UIBarButtonItem+TYC.m in Sources */,
 				2DD3E7F620479C8B00199AB6 /* BaseViewController.m in Sources */,
+				2D592F15208875EE00FD1410 /* RRCityResult.m in Sources */,
 				2DD3E877204921D800199AB6 /* MineOrderCustomBtn.m in Sources */,
 				2DD3E8352047E68D00199AB6 /* MessageLoginScrollView.m in Sources */,
 				2D456CED204FDF6E002F2FB5 /* WXPayViewController.m in Sources */,
@@ -1435,6 +1510,7 @@
 				2DD3E83C2047F3E600199AB6 /* NavigationControllerView.m in Sources */,
 				2DD3E84E2048022D00199AB6 /* WKProgressHUD.m in Sources */,
 				2DB56810207EF7E500EC28C2 /* RRViewController.m in Sources */,
+				2D592F1220886D4F00FD1410 /* UIView+Frame.m in Sources */,
 				2DB5682B207F3C8300EC28C2 /* RRCustomSubview.m in Sources */,
 				2DD3E7FA20479D5300199AB6 /* CustomBarButton.m in Sources */,
 				2DD3E8392047E8C300199AB6 /* UIImage+Extension.m in Sources */,
@@ -1467,6 +1543,7 @@
 				2D15B231207A1C35001E45F0 /* NewHomePageHeaderResult.m in Sources */,
 				2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */,
 				2DE8DB8D204D4DB6008C70D2 /* SupplyCollectionViewCell.m in Sources */,
+				2D592F1B2088A8BB00FD1410 /* SSMClassifyResult.m in Sources */,
 				2DD3E8592048ED2C00199AB6 /* ForgetPwViewController.m in Sources */,
 				2DF28311208073FA0048E340 /* SexPickView.m in Sources */,
 				2DB56813207F2B7200EC28C2 /* RRCustomizedViewController.m in Sources */,
@@ -1474,6 +1551,7 @@
 				2D5D575420478AAB00F683F4 /* ViewController.m in Sources */,
 				2DD3E84B2048022D00199AB6 /* MBProgressHUD.m in Sources */,
 				2DD3E853204808AC00199AB6 /* UserInfo.m in Sources */,
+				2D592F1E2088B1BD00FD1410 /* SSMTableResult.m in Sources */,
 				2DF1C73C208450FD00710B9B /* SSMClassifyCell.m in Sources */,
 				2DB5684120804EE500EC28C2 /* CityPickView.m in Sources */,
 				2DD3E874204920F300199AB6 /* MineFirstSectionCell.m in Sources */,
@@ -1511,6 +1589,7 @@
 				2DF1C71B2081A86900710B9B /* SSMTableView.m in Sources */,
 				2DD3E8192047A94A00199AB6 /* UIColor+Hex.m in Sources */,
 				2DF283172080A61B0048E340 /* NewHomeSolveResult.m in Sources */,
+				2D592F0C20886CED00FD1410 /* ChooseLocationView.m in Sources */,
 				2DE8DB9C204D4DF8008C70D2 /* ElectronicCollectionViewCell.m in Sources */,
 				2DD3E8652049151900199AB6 /* WKWebViewViewController.m in Sources */,
 				2D5D575F20478AAB00F683F4 /* main.m in Sources */,
@@ -1525,9 +1604,11 @@
 				2DB56825207F3C1200EC28C2 /* RRRecruitmentScrollView.m in Sources */,
 				2D592EE62086DD0500FD1410 /* CustomSearchBar.m in Sources */,
 				2D15B243207B1060001E45F0 /* NewHomePageCustomRecommendGapView.m in Sources */,
+				2D592F182088972200FD1410 /* SSMBannerModelSecondView.m in Sources */,
 				2D15B240207A2582001E45F0 /* ScienceResultFunctionCell.m in Sources */,
 				2DD3E81F2047D2BA00199AB6 /* MineHeaderView.m in Sources */,
 				2DE8DB84204D48A4008C70D2 /* HomePageCollectionView.m in Sources */,
+				2D592F0E20886CED00FD1410 /* AddressView.m in Sources */,
 				2D592EEF2087309700FD1410 /* HomePageElectronicViewController.m in Sources */,
 				2DF1C73F20847AE800710B9B /* SSMTableViewController.m in Sources */,
 				2DE8DB93204D4DD2008C70D2 /* ScienceCollectionViewCell.m in Sources */,
@@ -1553,6 +1634,7 @@
 				2D15B234207A24BB001E45F0 /* SamrtShoppingMallFirstCell.m in Sources */,
 				2DB56800207DB65800EC28C2 /* SamrtShoppingMallView.m in Sources */,
 				2DB56803207DBD9700EC28C2 /* SamrtShoppingMallCell.m in Sources */,
+				2D592F0F20886CED00FD1410 /* AddressTableViewCell.m in Sources */,
 				2DD3E82C2047E36900199AB6 /* AccountAndPWLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,16 +47,18 @@
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.font = [UIFont systemFontOfSize:KFloat(18)];
-    [_bjView addSubview:_titleLabel];
+    [self.contentView addSubview:_titleLabel];
     //3.
     _moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _moreBtn.frame = CGRectZero;
     [_moreBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_moreBtn setTitle:@"更多" forState:UIControlStateNormal];
     [_moreBtn setImage:[UIImage imageNamed:@"SSMMoreIcon"] forState:UIControlStateNormal];
-    _moreBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
-    _moreBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -40);
+    [_moreBtn setTitle:@"更多" forState:UIControlStateNormal];
+    _moreBtn.titleLabel.font = [UIFont systemFontOfSize:KFloat(12.f)];
+    _moreBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
+    _moreBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -30);
     [_moreBtn addTarget:self action:@selector(moreButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [_bjView addSubview:_moreBtn];
+    [self.contentView addSubview:_moreBtn];
     
 }
 
@@ -67,26 +69,30 @@
     _bjView.frame = CGRectMake(0, 0, kScreenWidth, bjViewHeight);
     
 //    _bjView.frame = _bjImgView.frame;
-    [self viewColorChangeFromCoror:[UIColor colorWithHexString:@"#75A1D1"] toColor:[UIColor colorWithHexString:@"#F4F4F4"] withTheView:_bjView];
+    [self viewColorChangeFromCoror:[UIColor colorWithHexString:self.fromColorName] toColor:[UIColor colorWithHexString:@"#F4F4F4"] withTheView:_bjView];
 //    _bjImgView.image = [self convertViewToImage:_bjView];
     
-    NSString *titleStr = @"智能制造装备";
+    NSString *titleStr = self.cates.cate_name;
     CGSize titleStrSize =[titleStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:KFloat(18)]}];
     _titleLabel.frame = CGRectMake(0, 25/2.0 * KWidth_ScaleH, titleStrSize.width, 50/2.0 * KWidth_ScaleH);
     _titleLabel.centerX = _bjView.centerX;
     _titleLabel.text = titleStr;
     
-    _moreBtn.frame = CGRectMake(0, 0, 66/2.0 * KWidth_ScaleW, 33/2.0 * KWidth_ScaleH);
+    NSString *moreBtnStr = @"更多";
+    CGSize moreBtnSize =[moreBtnStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:KFloat(12.f)]}];
+    _moreBtn.frame = CGRectMake(0, 0, moreBtnSize.width + 10, 33/2.0 * KWidth_ScaleH);
     _moreBtn.left = _bjView.width - (29.4 + 66)/2.0;
     _moreBtn.centerY = _titleLabel.centerY;
     
-    NSInteger tempCount = 3;
+//    self.cates.items.count = 3;
+    NSInteger tempCount = self.cates.items.count;
     
     CGFloat sectionViewWidth = 230/2.0 * KWidth_ScaleW;
     CGFloat sectionViewHeight = 423/2.0 * KWidth_ScaleH;
     for (NSInteger i = 0; i < tempCount; i++) {
         SSMSecondSectionView *sectionView = [[SSMSecondSectionView alloc] initWithFrame:CGRectMake(30/2.0 * KWidth_ScaleW + i * (sectionViewWidth + 0.5), _titleLabel.bottom + 32/2.0 * KWidth_ScaleH, sectionViewWidth, sectionViewHeight)];
         sectionView.tag = 30 + i;
+        sectionView.items = self.cates.items[i];
         sectionView.block = ^(UIButton *button) {
             NSLog(@"点击了第%ld个视图",button.tag);
         };

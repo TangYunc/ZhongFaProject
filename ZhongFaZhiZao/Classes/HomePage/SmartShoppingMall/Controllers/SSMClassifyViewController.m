@@ -9,6 +9,7 @@
 #import "SSMClassifyViewController.h"
 #import "SSMClassifyCell.h"
 #import "SSMSearchViewController.h"
+#import "SSMClassifyResult.h"
 
 @interface SSMClassifyViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -19,6 +20,7 @@
 @property (nonatomic, copy) NSString *imageNameStr;
 @property (nonatomic,strong)UIImageView *openOrCloseFounctionManagerImg;
 
+@property (nonatomic,strong)NSArray *theDatas;
 @end
 
 @implementation SSMClassifyViewController
@@ -36,6 +38,8 @@
     [self setUpUI];
     // 初始化导航栏
     [self setupNavigationBar];
+    [self loadSSMClassifyData];
+    
 }
 
 #pragma mark -初始化子视图
@@ -79,11 +83,46 @@
     }
 }
 
+#pragma mark -- loadData
+- (void)loadSSMClassifyData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSSMClassify_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        [SSMClassifySubclass mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"classifySubclassId" : @"id"
+                     };
+        }];
+        [SSMClassifyDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"classifyId" : @"id"
+                     };
+        }];
+        
+        SSMClassifyResult *result = [SSMClassifyResult mj_objectWithKeyValues:response];
+        if (result.success) {
+            self.theDatas = result.data.datas;
+            [_tableView reloadData];
+        }else{
+            
+            NSLog(@"%@",result.message);
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
 
 #pragma mark - Table view data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return self.theDatas.count;
 }
 
 
@@ -99,7 +138,7 @@
         cell = [[SSMClassifyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.clipsToBounds = YES;
-    cell.datas = @[@"全部分类",@"智能控制",@"工业软件",@"智能制造装备",@"3D打印",];
+    cell.datas = self.theDatas[indexPath.section];
     
     return cell;
 }
@@ -149,8 +188,10 @@
         
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(sectionClick:)];
     [titleView addGestureRecognizer:tap];
-    NSArray *sectionTitleArr = @[@"全部分类",@"智能控制",@"工业软件",@"智能制造装备",@"3D打印",];
-    titleLabel.text = sectionTitleArr[section];
+    
+//    NSArray *sectionTitleArr = @[@"全部分类",@"智能控制",@"工业软件",@"智能制造装备",@"3D打印",];
+    SSMClassifyDatas *classifyDatas = self.theDatas[section];
+    titleLabel.text = classifyDatas.name;
         return titleView;
 }
 
@@ -172,6 +213,7 @@
 {
 //    NSLog(@"点击率");
 }
+
 
 #pragma mark -- 按钮事件
 - (void)BarButtonItemClick:(UIButton *)button{

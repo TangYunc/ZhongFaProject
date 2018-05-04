@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSMResult.h"
 
 typedef void(^SSMSecondSectionViewBlock)(UIButton *button);
 @interface SSMSecondSectionView : UIView
@@ -18,4 +19,5 @@ typedef void(^SSMSecondSectionViewBlock)(UIButton *button);
     UIButton *_coverBtn;
 }
 @property (nonatomic, copy) SSMSecondSectionViewBlock block;
+@property (nonatomic, strong) SSMDatasCatesItems *items;
 @end

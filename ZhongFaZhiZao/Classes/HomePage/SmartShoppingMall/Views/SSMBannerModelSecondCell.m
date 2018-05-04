@@ -8,6 +8,7 @@
 
 #import "SSMBannerModelSecondCell.h"
 #import "NewHomePageCollectionSectionHeaderView.h"
+#import "SSMBannerModelSecondView.h"
 
 @interface SSMBannerModelSecondCell ()
 {
@@ -81,11 +82,13 @@
         [subView removeFromSuperview];
     }
     _pictureView.frame = CGRectMake(gapWidth, _headerView.bottom, self.width - gapWidth * 2, collectionHeight) ;
+    NSArray *itemBJImageArr = @[@"SSMBannerModelSecondCellPictureOne",@"SSMBannerModelSecondCellPictureTwo",@"SSMBannerModelSecondCellPictureThree",@"SSMBannerModelSecondCellPictureFour"];
     for (NSInteger i = 0; i < temptCount; i++) {
-        UIImageView *itemImageView = [[UIImageView alloc] initWithFrame:CGRectMake((i % 2) * (itemWidth + viewGapWidth), (i / 2) * (itemHeight + viewGapWidth), itemWidth, itemHeight)];
+        SSMBannerModelSecondView *itemImageView = [[SSMBannerModelSecondView alloc] initWithFrame:CGRectMake((i % 2) * (itemWidth + viewGapWidth), (i / 2) * (itemHeight + viewGapWidth), itemWidth, itemHeight)];
         itemImageView.layer.cornerRadius = 5 * KWidth_ScaleW;
         itemImageView.clipsToBounds = YES;
-        [itemImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultLargeIcon"] options:SDWebImageRetryFailed];
+        itemImageView.itemBJImageName = itemBJImageArr[i];
+        itemImageView.items = self.theDatas[0];
         itemImageView.tag = 10 + i;
         [_pictureView addSubview:itemImageView];
         itemImageView.userInteractionEnabled = YES;

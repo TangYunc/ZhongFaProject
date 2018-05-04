@@ -57,23 +57,23 @@
 //    CGFloat goodsImgGapFromLeft = 0;
 //    CGFloat goodsImgGapFromTop = 22/2.0 * KWidth_ScaleH;
     _goodsImgImageView.frame = CGRectMake(0, 0, goodsImgWidth, goodsImgHeight);
-    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+    [_goodsImgImageView sd_setImageWithURL:[NSURL URLWithString:self.items.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
     //2.
-    NSString *goodsNameStr = @"施耐德ZA28-12.53 3123底轮二轴";
+    NSString *goodsNameStr = self.items.name;
     CGFloat goodsNameLabelGapFromTop = 13/2.0 * KWidth_ScaleH;
     CGFloat goodsNameLabelWidth = self.frame.size.width;
     CGSize goodsNameLblWidthSize = [_goodsNameLabel sizeThatFits:CGSizeMake(goodsNameLabelWidth,MAXFLOAT)];
     _goodsNameLabel.frame = CGRectMake(18/2.0 * KWidth_ScaleW,_goodsImgImageView.bottom + goodsNameLabelGapFromTop, goodsNameLabelWidth, goodsNameLblWidthSize.height);
     _goodsNameLabel.text = goodsNameStr;
     [_goodsNameLabel sizeToFit];
-    //3.
-    NSString *salesVolumeStr = @"月销:1000";
+    //3.月销:1000
+    NSString *salesVolumeStr = [NSString stringWithFormat:@"月销:%@",self.items.sales_volume];
     CGSize salesVolumeStrSize =[salesVolumeStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:KFloat(11.f)]}];
     _salesVolumeLabel.frame = CGRectMake(_goodsNameLabel.left, _goodsNameLabel.bottom + 5/2.0 * KWidth_ScaleH, salesVolumeStrSize.width, 30/2.0 * KWidth_ScaleH);
     _salesVolumeLabel.text = salesVolumeStr;
     
-    //3.
-    NSString *goodsPriceStr = @"500.00";
+    //3.500.00
+    NSString *goodsPriceStr = self.items.price;
     if (goodsPriceStr == nil || goodsPriceStr == Nil) {
         goodsPriceStr = @"";
     }

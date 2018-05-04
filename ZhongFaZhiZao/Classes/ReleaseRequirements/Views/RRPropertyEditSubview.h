@@ -11,6 +11,7 @@
 #import "RRSubRequestResult.h"
 
 typedef void(^RRPropertyEditSubviewBlock)(NSInteger itemId, NSString *itemName);
+typedef void(^RRPropertyEditSubviewCityBlock)(NSString *provinceId, NSString *cityId);
 @interface RRPropertyEditSubview : UIView
 {
     UILabel *_titleLabel;
@@ -20,7 +21,9 @@ typedef void(^RRPropertyEditSubviewBlock)(NSInteger itemId, NSString *itemName);
     UIButton *_coverBtn;
 }
 
+@property(nonatomic,copy)UILabel *contentLabel;
 @property(nonatomic,copy)RRPropertyEditSubviewBlock block;
+@property(nonatomic,copy)RRPropertyEditSubviewCityBlock cityBlock;
 @property(nonatomic,copy)NSString *titleStr;
 @property(nonatomic,assign)BOOL showAuxiliaryIcon;//是否显示右侧的辅助图标
 @property(nonatomic,assign)BOOL showScroll;//显示滚动视图还是城市选择视图
@@ -28,4 +31,5 @@ typedef void(^RRPropertyEditSubviewBlock)(NSInteger itemId, NSString *itemName);
 
 @property (nonatomic, strong) NSArray *theNameDatas;
 @property (nonatomic, strong) NSArray *theIdDatas;
+@property (nonatomic, strong) NSArray *theProvinceDatas;
 @end

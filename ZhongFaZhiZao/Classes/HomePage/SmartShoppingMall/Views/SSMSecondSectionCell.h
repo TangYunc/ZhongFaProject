@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSMResult.h"
 
 @interface SSMSecondSectionCell : UITableViewCell
 {
@@ -15,4 +16,8 @@
     UILabel *_titleLabel;
     UIButton *_moreBtn;
 }
+
+@property (nonatomic, copy) NSString *fromColorName;
+@property (nonatomic, copy) NSString *titleName;
+@property (nonatomic, strong) SSMDatasCates *cates;
 @end

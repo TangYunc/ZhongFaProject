@@ -22,7 +22,7 @@
 - (void)setUpSubViews{
     //1.公司背景视图
     _companyBJView = [[UIView alloc] initWithFrame:CGRectZero];
-    _companyBJView.backgroundColor = UIColorFromRGBA(250, 59, 37, 1.0);
+//    _companyBJView.backgroundColor = UIColorFromRGBA(250, 59, 37, 1.0);
     [self addSubview:_companyBJView];
     //2.公司logo
     _companyLogoImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
@@ -30,19 +30,19 @@
     _companyLogoImageView.layer.masksToBounds = YES;
     _companyLogoImageView.layer.borderWidth = 1.0f;
     _companyLogoImageView.layer.borderColor = [UIColor clearColor].CGColor;
-    [_companyBJView addSubview:_companyLogoImageView];
+    [self addSubview:_companyLogoImageView];
     //3.公司名字
     _companyNameLabel = [[UILabel alloc] init];
     _companyNameLabel.textAlignment = NSTextAlignmentLeft;
     _companyNameLabel.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
     _companyNameLabel.font = [UIFont boldSystemFontOfSize:12.f];
-    [_companyBJView addSubview:_companyNameLabel];
+    [self addSubview:_companyNameLabel];
     //4.公司简介
     _companyInfoLabel = [[UILabel alloc] init];
     _companyInfoLabel.textAlignment = NSTextAlignmentLeft;
     _companyInfoLabel.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
     _companyInfoLabel.font = [UIFont systemFontOfSize:10.f];
-    [_companyBJView addSubview:_companyInfoLabel];
+    [self addSubview:_companyInfoLabel];
     
     //5.公司解决方案背景视图
     _solutionBJView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -60,7 +60,7 @@
         //1.公司背景视图
         CGFloat companyBJViewHeight = 123/2.0 * KWidth_ScaleH;
         _companyBJView.frame = CGRectMake(0, 0, self.frame.size.width, companyBJViewHeight);
-//        [self viewColorChangeFromCoror:UIColorFromRGBA(49, 22, 181, 0.6754) toColor:UIColorFromRGBA(160, 21, 63, 0.6754) withTheView:_companyBJView];
+        [self viewColorChangeFromCoror:UIColorFromRGBA(49, 22, 181, 0.6754) toColor:UIColorFromRGBA(160, 21, 63, 0.6754) withTheView:_companyBJView];
         //2.公司logo
         CGFloat companyLogoImageWidth = 87/2.0 * KWidth_ScaleH;
         CGFloat companyLogoImageGapFromLeft = 19/2.0 * KWidth_ScaleH;

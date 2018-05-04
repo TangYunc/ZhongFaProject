@@ -10,4 +10,5 @@
 
 @interface SSMBannerModelSecondCell : UITableViewCell
 
+@property (nonatomic, strong) NSArray *theDatas;
 @end

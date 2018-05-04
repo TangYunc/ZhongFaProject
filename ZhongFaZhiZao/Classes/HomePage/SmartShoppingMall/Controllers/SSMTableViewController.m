@@ -11,6 +11,7 @@
 #import "SSMTableViewCell.h"
 #import "SSMFiltrateViewController.h"
 #import "SSMSearchViewController.h"
+#import "SSMTableResult.h"
 
 @interface SSMTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -18,6 +19,9 @@
     UIView *_headerBJView;
 }
 @property (nonatomic, assign) BOOL isSelectedPriceBtn;
+@property (nonatomic, strong) NSNumber *pageTotal;
+@property (nonatomic, strong) NSNumber *numberPage;
+@property (nonatomic, strong) NSMutableArray *searchResultGoodsArr;
 @end
 
 @implementation SSMTableViewController
@@ -32,11 +36,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.isSelectedPriceBtn = NO;
+    self.numberPage = @1;
     [self setUpUI];
     // 初始化导航栏
     [self setupNavigationBar];
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
     
 }
+
+- (void)headerRereshing{
+    //下拉刷新
+    [self loadSSMTableData];
+}
+- (void)footerRereshing{
+    //上拉加载
+    self.numberPage = [NSNumber numberWithDouble:[self.numberPage intValue] + 1];
+    [self loadSSMTableDownDatas];
+}
+
 
 #pragma mark -初始化子视图
 - (void)setUpUI{
@@ -113,6 +131,112 @@
         [navView addSubview:rightBtn];
     }
     [self.view addSubview:navView];
+}
+
+
+#pragma mark -- loadData
+- (void)loadSSMTableData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
+    [tempPara setObject:@"" forKey:@"sort"];
+    [tempPara setObject:@"" forKey:@"classid"];
+    [tempPara setObject:@"" forKey:@"min_price"];
+    [tempPara setObject:@"" forKey:@"max_price"];
+    [tempPara setObject:@"" forKey:@"location"];
+    [tempPara setObject:@"" forKey:@"brand_id"];
+    [tempPara setObject:@"" forKey:@"level"];
+    [tempPara setObject:self.numberPage forKey:@"page"];
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSSMTable_API,apiToken];
+    [TNetworking getWithUrl:url params:tempPara success:^(id response) {
+        
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+        [SSMTableBrand mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"tableBrandId" : @"id"
+                     };
+        }];
+        [SSMTableItems mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"tableItemsId" : @"id"
+                     };
+        }];
+        
+        SSMTableResult *result = [SSMTableResult mj_objectWithKeyValues:response];
+        if(result.success){
+            
+            self.searchResultGoodsArr = nil;
+            [self.searchResultGoodsArr addObjectsFromArray:result.data.datas.items];
+            
+            self.pageTotal = result.data.datas.page.pageCount;
+            if (self.searchResultGoodsArr.count == 0) {
+                [_tableView.mj_footer setHidden:YES];
+            }
+            
+            [_tableView reloadData];
+            
+            if ([result.data.datas.page.pageCount isEqual:self.numberPage]) {
+                [_tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            
+        }else {
+            NSLog(@"%@",result.message);
+        }
+
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
+
+-(void)loadSSMTableDownDatas
+{
+    // 1.请求参数
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    
+    NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
+    [tempPara setObject:@"" forKey:@"sort"];
+    [tempPara setObject:@"" forKey:@"classid"];
+    [tempPara setObject:@"" forKey:@"min_price"];
+    [tempPara setObject:@"" forKey:@"max_price"];
+    [tempPara setObject:@"" forKey:@"location"];
+    [tempPara setObject:@"" forKey:@"brand_id"];
+    [tempPara setObject:@"" forKey:@"level"];
+    [tempPara setObject:self.numberPage forKey:@"page"];
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSSMTable_API,apiToken];
+    
+    // 发送请求
+    [TNetworking getWithUrl:url params:tempPara success:^(id response) {
+        [_tableView.mj_footer endRefreshing];
+        
+        SSMTableResult *result = [SSMTableResult mj_objectWithKeyValues:response];
+        if(result.success){
+            [self.searchResultGoodsArr addObjectsFromArray:result.data.datas.items];
+            
+            self.pageTotal = result.data.datas.page.pageCount;
+            
+            [_tableView reloadData];
+            
+            if ([result.data.datas.page.pageCount isEqual:self.numberPage]) {
+                [_tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+        }else{
+            NSLog(@"%@",result.message);
+            self.numberPage = [NSNumber numberWithDouble:[self.numberPage intValue] - 1];
+        }
+    } fail:^(NSError *error) {
+        [_tableView.mj_footer endRefreshing];
+    } showHUD:NO];
 }
 
 #pragma mark - Table view data source

@@ -8,6 +8,7 @@
 
 #import "SSMClassifyCell.h"
 #import "SSMTableViewController.h"
+#import "SSMClassifyResult.h"
 
 @implementation SSMClassifyCell
 
@@ -46,13 +47,15 @@
     
     NSInteger tempCount = self.datas.count;
     for (NSInteger i = 0; i < tempCount; i++) {
+        SSMClassifySubclass *classifySubClasss = self.datas[i];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((i % 2) * (itemWidth + gapWidth), (i / 2) * (itemHeight + gapWidth), itemWidth, itemHeight)];
+        titleLabel.tag = [classifySubClasss.classifySubclassId integerValue];
         titleLabel.textAlignment = NSTextAlignmentLeft;
         [self setAttributeStringForPriceLabel:titleLabel text:self.datas[i]];
         titleLabel.font = [UIFont systemFontOfSize:KFloat(14)];
         titleLabel.textColor = [UIColor colorWithHexString:@"#1C1C1C"];
         titleLabel.backgroundColor = [UIColor colorWithHexString:@"#F4F4F4"];
-        titleLabel.text = self.datas[i];
+        titleLabel.text = classifySubClasss.name;
         [_bjView addSubview:titleLabel];
         titleLabel.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTitleClick:)];

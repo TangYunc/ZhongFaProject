@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class RRAgencyResult,RRAgencyData,RRAgencyDatas,RRAgencyCooperationList,RRAgencyInvestmentPriceType,RRAgencyIndustryCate;
+@class RRAgencyResult,RRAgencyData,RRAgencyDatas,RRAgencyCooperationList,RRAgencyInvestmentPriceType,RRAgencyProvinceList,RRAgencyIndustryCate;
 
 @interface RRAgencyResult : NSObject
 
@@ -31,11 +31,11 @@
 @property (nonatomic, strong) NSArray *industry_cate;
 @property (nonatomic, strong) RRAgencyCooperationList *cooperation_list;
 @property (nonatomic, strong) NSArray *investment_price_type;
+@property (nonatomic, strong) NSArray *province_list;
 
 @end
 
 @interface RRAgencyCooperationList : NSObject
-
 
 @property (nonatomic, copy) NSString *one;
 @property (nonatomic, copy) NSString *two;
@@ -50,6 +50,14 @@
 @property (nonatomic, copy) NSString *name;
 
 @end
+
+@interface RRAgencyProvinceList : NSObject
+
+@property (nonatomic, copy) NSString *provinceListId;
+@property (nonatomic, copy) NSString *name;
+
+@end
+
 
 @interface RRAgencyIndustryCate : NSObject
 

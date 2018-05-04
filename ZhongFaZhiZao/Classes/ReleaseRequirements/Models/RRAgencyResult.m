@@ -20,7 +20,7 @@
 @implementation RRAgencyDatas
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"investment_price_type":[RRAgencyInvestmentPriceType class],@"industry_cate":[RRAgencyIndustryCate class]};
+    return @{@"investment_price_type":[RRAgencyInvestmentPriceType class],@"industry_cate":[RRAgencyIndustryCate class],@"province_list":[RRAgencyProvinceList class]};
 }
 @end
 
@@ -29,6 +29,10 @@
 @end
 
 @implementation RRAgencyInvestmentPriceType
+
+@end
+
+@implementation RRAgencyProvinceList
 
 @end
 

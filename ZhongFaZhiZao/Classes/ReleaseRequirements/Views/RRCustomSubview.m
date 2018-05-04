@@ -202,15 +202,14 @@
     self.phoneNum = _phoneNumTF.text;
     self.vfCode = _vericationCodeTF.text;
     self.userNameStr = _userNameTF.text;
-    
-    if ([self.phoneNum isEqualToString:@""]) {
+    if ([self.userNameStr isEqualToString:@""]){
+        [WKProgressHUD popMessage:@"请输入联系人" inView:self.superview duration:HUD_DURATION animated:YES];
+    }else if ([self.phoneNum isEqualToString:@""]) {
         [WKProgressHUD popMessage:@"请输入手机号" inView:self.superview duration:HUD_DURATION animated:YES];
     }else if ([self.vfCode isEqualToString:@""]){
         [WKProgressHUD popMessage:@"请输入验证码" inView:self.superview duration:HUD_DURATION animated:YES];
     }else if (![self.phoneNum isMobileNumber]){
         [WKProgressHUD popMessage:@"请输入正确的手机号" inView:self.superview duration:HUD_DURATION animated:YES];
-    }else if ([self.userNameStr isEqualToString:@""]){
-        [WKProgressHUD popMessage:@"请输入联系人" inView:self.superview duration:HUD_DURATION animated:YES];
     }else{
         if (self.block) {
             self.block(button, self.phoneNum, self.userNameStr, self.vfCode);
@@ -221,7 +220,7 @@
 }
 
 //内容发生改变编辑
-- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason{
+- (void)textFieldDidEndEditing:(UITextField *)textField{
     
     NSString *text = textField.text;
     NSString *text2 = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

@@ -8,6 +8,7 @@
 
 #import "SSMBannerModelFirstCell.h"
 #import "NewHomePageCollectionSectionHeaderView.h"
+#import "SSMResult.h"
 
 @interface SSMBannerModelFirstCell ()
 {
@@ -83,23 +84,43 @@
     _headerView.frame = CGRectMake(0, 0, kScreenWidth, 80/2.0 * KWidth_ScaleH);
     _headerView.sectionType = @"SSMBannerModelCell";
     _headerView.title = @"实力商家";
-    
+    SSMDatasBusiness *businessLarge;
+    SSMDatasBusiness *businessSmall1;
+    SSMDatasBusiness *businessSmall2;
+    if (self.theDatas.count == 3) {
+        
+        businessLarge = self.theDatas[0];
+        businessSmall1 = self.theDatas[1];
+        businessSmall2 = self.theDatas[2];
+    }else if (self.theDatas.count == 2){
+        businessLarge = self.theDatas[0];
+        businessSmall1 = self.theDatas[1];
+        businessSmall2 = nil;
+    }else if (self.theDatas.count == 1){
+        businessLarge = self.theDatas[0];
+        businessSmall1 = nil;
+        businessSmall2 = nil;
+    }else if (self.theDatas.count == 0){
+        businessLarge = nil;
+        businessSmall1 = nil;
+        businessSmall2 = nil;
+    }
     CGFloat fromLeftGapWidth = 22/2.0 * KWidth_ScaleW;
     CGFloat itemWidth = 339/2.0 * KWidth_ScaleW;
     CGFloat itemHeight = 390/2.0 * KWidth_ScaleH;
     
     _largeZoneImageView.frame = CGRectMake(fromLeftGapWidth, _headerView.bottom, itemWidth, itemHeight);
-    [_largeZoneImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultLargeIcon"] options:SDWebImageRetryFailed];
+    [_largeZoneImageView sd_setImageWithURL:[NSURL URLWithString:businessLarge.res_path] placeholderImage:[UIImage imageNamed:@"DefaultLargeIcon"] options:SDWebImageRetryFailed];
     
     CGFloat itemSmallWidth = 355/2.0 * KWidth_ScaleW;
     CGFloat itemSmallHeight = 190/2.0 * KWidth_ScaleH;
     CGFloat small1ZoneImageViewGapfromLeft = 8/2.0 * KWidth_ScaleW;
     _small1ZoneImageView.frame = CGRectMake(_largeZoneImageView.right + small1ZoneImageViewGapfromLeft, _largeZoneImageView.top, itemSmallWidth, itemSmallHeight);
-    [_small1ZoneImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultLargeIcon"] options:SDWebImageRetryFailed];
+    [_small1ZoneImageView sd_setImageWithURL:[NSURL URLWithString:businessSmall1.res_path] placeholderImage:[UIImage imageNamed:@"DefaultLargeIcon"] options:SDWebImageRetryFailed];
     
     
     _small2ZoneImageView.frame = CGRectMake(_small1ZoneImageView.left, _small1ZoneImageView.bottom + small1ZoneImageViewGapfromLeft, _small1ZoneImageView.width, _small1ZoneImageView.height);
-    [_small2ZoneImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"DefaultLargeIcon"] options:SDWebImageRetryFailed];
+    [_small2ZoneImageView sd_setImageWithURL:[NSURL URLWithString:businessSmall2.res_path] placeholderImage:[UIImage imageNamed:@"DefaultLargeIcon"] options:SDWebImageRetryFailed];
     
     CGFloat gapViewHeight = 20/2.0 * KWidth_ScaleH;
     _gapView.frame = CGRectMake(0, self.height - gapViewHeight, self.width, gapViewHeight);

@@ -37,12 +37,20 @@ NSString *const HomePageScienceResult_API = @"/indexs/tech?access-token=";
 NSString *const HomePageSolve_API = @"/indexs/solution?access-token=";
 NSString *const HomePageSmartShoppingMall_API = @"/indexs/shop?access-token=";
 NSString *const HomePageSSM_API = @"/shops?access-token=";
+NSString *const HomePageSSMClassify_API = @"/shops/cate?access-token=";
+NSString *const HomePageSSMTable_API = @"/shops/search?access-token=";
 
 //***************************发布需求************************//
 NSString *const RRCustomized_API = @"/recruits?access-token=";
 NSString *const RRSubCustomized_API = @"/recruits/subclass?access-token=";
-NSString *const RRCustomizedConfirmRelease_API = @"/recruits?access-token=";
+NSString *const RRCustomizedConfirmRelease_API = @"/recruits?access-token=";//这里RRCustomized_API与RRCustomizedConfirmRelease_API接口是一样的，但是为了区别发布与表单获取，所以用了两个字段
 NSString *const RRRecruits_API = @"/recruit-agents?access-token=";
+NSString *const RRRecruitsConfirmRelease_API = @"/recruit-agents?access-token=";//这里RRRecruits_API与RRRecruitsConfirmRelease_API接口是一样的，但是为了区别发布与表单获取，所以用了两个字段
+NSString *const RRAgency_API = @"/search-agents?access-token=";
+NSString *const RRAgencyConfirmRelease_API = @"/search-agents?access-token=";//这里RRAgency_API与RRAgencyConfirmRelease_API接口是一样的，但是为了区别发布与表单获取，所以用了两个字段
+
+
+
 //***************************推送************************//
 
 
@@ -104,3 +112,5 @@ NSString *const memberIndex_api = @"/made/index";
 //other
 NSString *const APIToken = @"APIToken";
 NSString *const historySearch = @"HistorySearch";
+
+NSString *const RRCityDataOnCurrentProvince_API = @"/regions/city?access-token=";

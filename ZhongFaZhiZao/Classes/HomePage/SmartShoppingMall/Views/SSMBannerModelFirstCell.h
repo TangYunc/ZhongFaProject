@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface SSMBannerModelFirstCell : UITableViewCell
+
+@property (nonatomic, strong) NSArray *theDatas;
 
 @end

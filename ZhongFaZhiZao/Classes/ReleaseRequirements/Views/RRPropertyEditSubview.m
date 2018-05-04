@@ -10,8 +10,12 @@
 #import "ScrollPickView.h"
 #import "CityPickView.h"
 #import "NSString+Mobile.h"
+#import "ChooseLocationView.h"
 
-@interface RRPropertyEditSubview ()
+@interface RRPropertyEditSubview ()<UIGestureRecognizerDelegate>
+
+@property (nonatomic,strong) ChooseLocationView *chooseLocationView;
+@property (nonatomic,strong) UIView  *cover;
 
 @end
 
@@ -121,7 +125,7 @@
     [scrollPickView showView];
     WS(weakSelf);
     scrollPickView.confirmBlock = ^(NSInteger selectedQuestion) {
-        _contentLabel.text = questionArray[selectedQuestion];
+        weakSelf.contentLabel.text = questionArray[selectedQuestion];
         NSInteger tagId = [[weakSelf.theIdDatas copy][selectedQuestion] integerValue];
 //        _contentLabel.tag = tagId;
         if (weakSelf.block) {
@@ -129,8 +133,8 @@
         }
     };
 }
-
-- (void)setUpCityPickView{
+/*
+- (void)setUpCityPickView1{
     //城市样式的选择器
     [CityPickView showPickViewWithComplete:^(NSArray *arr) {
         
@@ -138,4 +142,56 @@
         _contentLabel.text = str;
     } withProvince:nil withCity:nil withTown:nil withThreeScroll:YES];
 }
+*/
+- (void)setUpCityPickView{
+    self.cover.hidden = !self.cover.hidden;
+    self.chooseLocationView.hidden = self.cover.hidden;
+}
+
+- (UIView *)cover{
+    
+    if (!_cover) {
+        _cover = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+        _cover.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
+        
+        [[UIApplication sharedApplication].keyWindow addSubview:_cover];
+        _chooseLocationView = [[ChooseLocationView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 350, [UIScreen mainScreen].bounds.size.width, 350)];
+        _chooseLocationView.theProvinceDatas = self.theProvinceDatas;
+        [_cover addSubview:_chooseLocationView];
+        __weak typeof (self) weakSelf = self;
+        _chooseLocationView.chooseFinish = ^{
+            
+            [UIView animateWithDuration:0.25 animations:^{
+                weakSelf.contentLabel.text = weakSelf.chooseLocationView.address;
+                if (weakSelf.cityBlock) {
+                    weakSelf.cityBlock(weakSelf.chooseLocationView.provinceId, weakSelf.chooseLocationView.cityId);
+                }
+                weakSelf.cover.hidden = YES;
+            }];
+        };
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapCover:)];
+        [_cover addGestureRecognizer:tap];
+        tap.delegate = self;
+        _cover.hidden = YES;
+    }
+    return _cover;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    
+    CGPoint point = [gestureRecognizer locationInView:gestureRecognizer.view];
+    if (CGRectContainsPoint(_chooseLocationView.frame, point)){
+        return NO;
+    }
+    return YES;
+}
+
+
+- (void)tapCover:(UITapGestureRecognizer *)tap{
+    
+    if (_chooseLocationView.chooseFinish) {
+        _chooseLocationView.chooseFinish();
+    }
+}
+
 @end

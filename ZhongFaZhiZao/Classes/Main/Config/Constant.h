@@ -29,13 +29,17 @@ extern NSString *const HomePageScienceResult_API;//首页科技推荐(科技成�
 extern NSString *const HomePageSolve_API;//首页解决方案
 extern NSString *const HomePageSmartShoppingMall_API;//首页智造商城数据
 extern NSString *const HomePageSSM_API;//智造商城列表页
+extern NSString *const HomePageSSMClassify_API;//智造商城分类
+extern NSString *const HomePageSSMTable_API;//智造商城搜索页和列表页
 
 //***************************发布需求************************//
 extern NSString *const RRCustomized_API;//定制需求表单页面
 extern NSString *const RRSubCustomized_API;//定制需求子分类获取
 extern NSString *const RRCustomizedConfirmRelease_API;//定制需求表单提交接口
 extern NSString *const RRRecruits_API;//招代理表单页面
-
+extern NSString *const RRRecruitsConfirmRelease_API;//招代理表单提交接口
+extern NSString *const RRAgency_API;//找代理表单页面
+extern NSString *const RRAgencyConfirmRelease_API;//找代理表单提交接口
 
 
 //***************************推送************************//
@@ -93,5 +97,7 @@ extern NSString *const memberIndex_api;  //注册
 //other
 extern NSString *const APIToken;  //token获取
 extern NSString *const historySearch;                    // 历史搜索字符串
+
+extern NSString *const RRCityDataOnCurrentProvince_API;                    // 市获取
 
 
