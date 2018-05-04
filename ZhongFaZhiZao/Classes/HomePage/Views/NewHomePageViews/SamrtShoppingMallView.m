@@ -142,7 +142,11 @@
         CGFloat goodsImgGapFromLeft = 44/2.0 * KWidth_ScaleW;
         CGFloat goodsImgGapFromTop = 18/2.0 * KWidth_ScaleH;
         _firstGoodsImgImageView.frame = CGRectMake(goodsImgGapFromLeft, goodsImgGapFromTop, goodsImgWidth, goodsImgHeight);
-        [_firstGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList1.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        NSString *firstGoodsUrlStr = adList1.res_path;
+        if (firstGoodsUrlStr == nil) {
+            firstGoodsUrlStr = @"";
+        }
+        [_firstGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:firstGoodsUrlStr] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
         
         //2.
         NSString *goodsNameStr = adList1.name;
@@ -191,7 +195,11 @@
         CGFloat secondGoodsImgGapFromRight = 16/2.0 * KWidth_ScaleW;
         _secondGoodsImgImageView.frame = CGRectMake(_secondGoodsNameLabel.right + secondGoodsImgGapFromRight, 0, secondGoodsImgWidth, secondGoodsImgHeight);
         _secondGoodsImgImageView.centerY = _secondBJView.frame.size.height / 2.0;
-        [_secondGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList2.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        NSString *secondGoodsUrlStr = adList2.res_path;
+        if (secondGoodsUrlStr == nil) {
+            secondGoodsUrlStr = @"";
+        }
+        [_secondGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:secondGoodsUrlStr] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
         
         
         //三、
@@ -205,7 +213,11 @@
         CGFloat thirdGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
         CGFloat thirdGoodsImgGapFromTop = 15/2.0 * KWidth_ScaleH;
         _thirdGoodsImgImageView.frame = CGRectMake(0, thirdGoodsImgGapFromTop, thirdGoodsImgWidth, thirdGoodsImgHeight);
-        [_thirdGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList3.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        NSString *thirdGoodsUrlStr = adList3.res_path;
+        if (thirdGoodsUrlStr == nil) {
+            thirdGoodsUrlStr = @"";
+        }
+        [_thirdGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:thirdGoodsUrlStr] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
         _thirdGoodsImgImageView.centerX = _thirdBJView.frame.size.width / 2.0;
         //2.
         NSString *thirdGoodsNameStr = adList3.name;
@@ -229,7 +241,11 @@
         CGFloat fourGoodsImgHeight = 78/2.0 * KWidth_ScaleH;
         CGFloat fourGoodsImgGapFromTop = 15/2.0 * KWidth_ScaleH;
         _fourGoodsImgImageView.frame = CGRectMake(0, fourGoodsImgGapFromTop, fourGoodsImgWidth, fourGoodsImgHeight);
-        [_fourGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:adList4.res_path] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
+        NSString *fourGoodsUrlStr = adList4.res_path;
+        if (fourGoodsUrlStr == nil) {
+            fourGoodsUrlStr = @"";
+        }
+        [_fourGoodsImgImageView sd_setImageWithURL:[NSURL URLWithString:fourGoodsUrlStr] placeholderImage:[UIImage imageNamed:@"DefaultSmallIcon"]];
         _fourGoodsImgImageView.centerX = _fourBJView.frame.size.width / 2.0;
         //2.
         NSString *fourGoodsNameStr = adList4.name;

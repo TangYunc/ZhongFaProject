@@ -101,6 +101,6 @@
         _auxiliaryView.hidden = YES;
     }
     _titleLabel.text = title;
-    _subtitleLabel.text = @"聚全球最优科技资源";
+    _subtitleLabel.text = subtitle;
 }
 @end

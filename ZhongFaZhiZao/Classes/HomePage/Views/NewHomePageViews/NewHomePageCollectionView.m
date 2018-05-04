@@ -221,11 +221,20 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 1;
+        if (self.smartShoppingMallArr.count > 0) {
+            return 1;
+        }
+        return 0;
     }else if (section == 1){
-        return self.scienceResultArr.count + 5;
+        if (self.scienceResultArr.count > 0) {
+            return 7;
+        }
+        return 0;
     }else if (section == 2){
-        return 1;
+        if (self.solveArr.count > 0) {
+            return 1;
+        }
+        return 0;
     }else if (section == 3){
         return _cityArray.count;
     }

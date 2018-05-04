@@ -70,6 +70,7 @@
     [self setupSubViews];
     [self setUpNavgationView];
     NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    NSLog(@"API请求0");
     if (apiToken == nil) {
         [self loadDateAPIToken];
     }else{
@@ -169,6 +170,7 @@
 - (void)loadadData{
     //轮播图
     [TNetworking postWithUrl:[NSString stringWithFormat:@"%@%@",BaseApi,HomePageadInfo_API] params:nil success:^(id response) {
+        NSLog(@"API请求3轮播图及推荐");
         HomePageHeaderModel *result = [HomePageHeaderModel mj_objectWithKeyValues:response];
         if (result.resultCode == 1000) {
             
@@ -193,6 +195,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageRecommend_API,apiToken];
     [TNetworking getWithUrl:url params:nil success:^(id response) {
+        NSLog(@"API请求6推荐商品");
         [NewHomePageRecommendDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"RecommendId" : @"id",@"RecommendDescription" : @"description"
@@ -223,7 +226,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSmartHeadlineNews_API,apiToken];
     [TNetworking getWithUrl:url params:nil success:^(id response) {
-        
+        NSLog(@"API请求4智造资讯");
         NewHomePageSmartHeadlineNewsResult *result = [NewHomePageSmartHeadlineNewsResult mj_objectWithKeyValues:response];
         if (result.success) {
             
@@ -251,6 +254,7 @@
     }
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSmartShoppingMall_API,apiToken];
     [TNetworking getWithUrl:url params:nil success:^(id response) {
+        NSLog(@"API请求5智造商城");
         [NewHomePageSmartShoppingMallDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"smartMallId" : @"id"
@@ -286,6 +290,7 @@
     }
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageScienceResult_API,apiToken];
     [TNetworking getWithUrl:url params:nil success:^(id response) {
+        NSLog(@"API请求6科技成果");
         [NewHomePageScienceResultDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"scienceResultId" : @"id"
@@ -316,6 +321,7 @@
     }
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSolve_API,apiToken];
     [TNetworking getWithUrl:url params:nil success:^(id response) {
+        NSLog(@"API请求8解决方案");
         [NewHomePageSolveDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                     @"solveDatasDescription":@"description"
@@ -346,6 +352,7 @@
 - (void)loadCityData{
     
     [TNetworking postWithUrl:[NSString stringWithFormat:@"%@%@",BaseApi,electronic_API] params:nil success:^(id response) {
+        NSLog(@"API请求9城市");
         if ([response[@"resultCode"]integerValue] == 1000) {
             
             _cityDict = [NSMutableDictionary dictionaryWithDictionary:response[@"data"]];
@@ -407,7 +414,13 @@
 //            [_collectionView reloadSections:indexSet];
         }
     } fail:^(NSError *error) {
-        
+        NSLog(@"%ld---%@",(long)error.code,error.localizedDescription);
+        NSString *errorStr = error.localizedDescription;
+        NSRange rang = [errorStr rangeOfString:@"401"];
+        if (rang.location != NSNotFound) {
+            //401需要重新请求API Token
+            [self loadDateAPIToken];
+        }
     } showHUD:NO];
 }
 
@@ -419,7 +432,9 @@
     [tempPara setObject:@"admin" forKey:@"username"];
     [tempPara setObject:@"admin" forKey:@"password"];
     NSString *url = [NSString stringWithFormat:@"%@%@",BaseTwoApi,accessToken_API];
+    NSLog(@"API请求1");
     [TNetworking postWithUrl:url params:tempPara success:^(id response) {
+        NSLog(@"API请求2");
         if ([response[@"success"] boolValue]) {
             NSString *theAPIToken = response[@"data"][@"datas"][@"token"];
             [KUserDefault setObject:theAPIToken forKey:APIToken];

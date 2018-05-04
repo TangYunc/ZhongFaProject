@@ -419,6 +419,8 @@
         [SSKeychain setPassword: [NSString stringWithFormat:@"%@", uuidStr] forService:@"com.cecbb.app"account:@"user"];
         identifierNumber = [SSKeychain passwordForService:@"com.cecbb.app"account:@"user"];
     }
+    CFRelease(uuid);
+    CFRelease(uuidStr);
     return identifierNumber;
 }
 @end

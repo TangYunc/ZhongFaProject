@@ -19,7 +19,6 @@
 
 @property (nonatomic, assign) CGFloat filtrateTextBtnMaxX;
 @property (strong, nonatomic) NSLayoutConstraint *filtrateHeight;
-
 @end
 
 @implementation SSMFiltrateTabelView
@@ -56,6 +55,7 @@
             cell = [[SSMFiltrateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         cell.datas = self.theDatas.location;
+        
         return cell;
     }else if (indexPath.section == 1){
         static NSString *identifier = @"SSMFiltrateCellBrandId";

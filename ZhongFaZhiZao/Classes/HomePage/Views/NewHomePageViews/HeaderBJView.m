@@ -131,7 +131,7 @@
                 label.textColor = UIColorFromRGBA(233, 46, 46, 1.0);
                 label.userInteractionEnabled = NO;
                 CGRect imageViewRect = _line.frame;
-                CGFloat X = imageViewRect.origin.x;
+                CGFloat X;
                 X = label.center.x;
                 
                 imageViewRect.origin.x = X - (titleLabel.width -  20)/2.0;
