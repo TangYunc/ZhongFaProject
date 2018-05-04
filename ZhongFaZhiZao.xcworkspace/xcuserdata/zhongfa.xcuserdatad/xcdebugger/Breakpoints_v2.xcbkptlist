@@ -67,22 +67,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/NewHomePageHeaderView.m"
-            timestampString = "546170254.319084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "-itemViewTapAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ZhongFaZhiZao/Classes/HomePage/Views/NewHomePageViews/NewHomePageCollectionView.m"
             timestampString = "546330407.798488"
             startingColumnNumber = "9223372036854775807"

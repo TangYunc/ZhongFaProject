@@ -371,11 +371,11 @@
     }
     if ([self.choiceCategoryNum intValue] > 4) {
         button.layer.borderColor = [UIColor colorWithHexString:@"#999999"].CGColor;
-        button.enabled = NO;
+        button.selected = NO;
         [MBProgressHUD showError:@"最多只能选四个哦!"];
         self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] - 1];
-        return;
     }
+    
 }
 
 #pragma mark -- 手势

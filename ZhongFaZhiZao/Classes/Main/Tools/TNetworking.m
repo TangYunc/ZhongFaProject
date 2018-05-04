@@ -368,7 +368,7 @@ static NSMutableDictionary<NSString*, LXURLSessionTask*> *tasks;
     
     //默认responseSerializer = AFJSONResponseSerializer
     //默认requestSerializer = AFHTTPRequestSerializer
-    AFHTTPSessionManager *manager = manager = [AFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     //
