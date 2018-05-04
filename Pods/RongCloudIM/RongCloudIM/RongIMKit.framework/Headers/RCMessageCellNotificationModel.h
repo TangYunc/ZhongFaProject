@@ -39,6 +39,7 @@ UIKIT_EXTERN NSString *const CONVERSATION_CELL_STATUS_SEND_READCOUNT; //已读�
 /*!
  进度
  */
+//TYC修改
+//@property(nonatomic) NSInteger progress;
 @property(nonatomic) float progress;
-
 @end

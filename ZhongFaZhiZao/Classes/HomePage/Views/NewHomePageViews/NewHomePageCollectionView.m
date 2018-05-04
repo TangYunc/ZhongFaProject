@@ -112,6 +112,20 @@
 //        self.headerView.model = _model;
     }
 }
+- (void)setAdResultArr:(NSArray *)adResultArr{
+    if (_adResultArr != adResultArr) {
+        _adResultArr = adResultArr;
+        self.headerView.adResultArr = _adResultArr;
+    }
+}
+
+- (void)setSmartHeadlineNewsResultArr:(NSArray *)smartHeadlineNewsResultArr{
+    if (_smartHeadlineNewsResultArr != smartHeadlineNewsResultArr) {
+        _smartHeadlineNewsResultArr = smartHeadlineNewsResultArr;
+        self.headerView.smartHeadlineNewsResultArr = smartHeadlineNewsResultArr;
+    }
+}
+
 //collectionHeaderView
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
 {

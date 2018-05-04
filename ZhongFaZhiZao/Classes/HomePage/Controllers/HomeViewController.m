@@ -13,6 +13,10 @@
 #import "HomePageHeaderModel.h"
 #import "WXPayViewController.h"
 #import "MessageCenterViewController.h"
+#import "NewHomePageClassifyResult.h"
+#import "ClassifyPopView.h"
+#import "NewHomePageADResult.h"
+#import "NewHomePageSmartHeadlineNewsResult.h"
 
 @interface HomeViewController ()
 
@@ -32,6 +36,9 @@
 //导航栏view
 @property (nonatomic,strong) UIView *navigationView;
 
+@property (nonatomic,strong) NSArray *classifyResultArr;
+@property (nonatomic,strong) NSArray *adResultArr;
+@property (nonatomic,strong) NSArray *smartHeadlineNewsResultArr;
 @end
 
 @implementation HomeViewController
@@ -54,11 +61,15 @@
     // 控制某个tabbar 不可以侧滑
     self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
     [self setNavigationBarTitle:@"首页"];
-    [self loadadData];
+//    [self loadadData];
 //    [self loadCityData];
+    [self loadTheADData];
+    [self loadSmartHeadlineNewsData];
     // 初始化子视图
     [self setupSubViews];
     [self setUpNavgationView];
+    [self loadClassifyPopViewDate];
+    
 }
 
 - (void)setupSubViews{
@@ -118,6 +129,17 @@
     [self.navigationView addSubview:pushBtn];*/
 }
 
+- (void)showClassifyPopView{
+    BOOL isShowClassify = [KUserDefault objectForKey:ShowClassifyPopView];
+    if (!isShowClassify) {
+        
+        ClassifyPopView *classifyPopView = [[ClassifyPopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        classifyPopView.alertVC = self;
+        classifyPopView.classifyResultArr = self.classifyResultArr;
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window addSubview:classifyPopView];
+    }
+}
 #pragma mark-获取数据
 #pragma mark - loadData
 - (void)loadadData{
@@ -138,6 +160,68 @@
     } showHUD:NO];
 }
 
+- (void)loadTheADData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageAD_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        [NewHomePageADDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"adId" : @"id",@"adDescription" : @"description"
+                     };
+        }];
+
+        NewHomePageADResult *result = [NewHomePageADResult mj_objectWithKeyValues:response];
+        if ([result.message isEqualToString:@"OK"]) {
+            
+            self.adResultArr = [NSArray array];
+            self.adResultArr = result.data.datas;
+            _collectionView.adResultArr = self.adResultArr;
+            [_collectionView reloadData];
+            
+        }else{
+            
+            [WKProgressHUD popMessage:@"广告位请求失败" inView:self.view duration:HUD_DURATION animated:YES];
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
+
+- (void)loadSmartHeadlineNewsData{
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSmartHeadlineNews_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        
+        NewHomePageSmartHeadlineNewsResult *result = [NewHomePageSmartHeadlineNewsResult mj_objectWithKeyValues:response];
+        if (result.success) {
+            
+            self.smartHeadlineNewsResultArr = [NSArray array];
+            self.smartHeadlineNewsResultArr = result.data.datas;
+            _collectionView.smartHeadlineNewsResultArr = self.smartHeadlineNewsResultArr;
+            [_collectionView reloadData];
+            
+        }else{
+            
+            [WKProgressHUD popMessage:@"广告位请求失败" inView:self.view duration:HUD_DURATION animated:YES];
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"error = %@",error);
+        
+        [WKProgressHUD popMessage:@"请检查网络连接" inView:self.view duration:HUD_DURATION animated:YES];
+    } showHUD:NO];
+}
 - (void)loadCityData{
     
     [TNetworking postWithUrl:[NSString stringWithFormat:@"%@%@",BaseApi,electronic_API] params:nil success:^(id response) {
@@ -178,6 +262,34 @@
     } showHUD:NO];
 }
 
+- (void)loadClassifyPopViewDate{
+    
+    //获取与接口约定的Token
+    
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageGetClassify_API,apiToken];
+    [TNetworking getWithUrl:url params:nil success:^(id response) {
+        [NewHomePageClassifyDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"classifyId" : @"id"
+                     };
+        }];
+        NewHomePageClassifyResult *result = [NewHomePageClassifyResult mj_objectWithKeyValues:response];
+        if (result.success) {
+            self.classifyResultArr = [NSArray array];
+            self.classifyResultArr = result.data.datas;
+            [self showClassifyPopView];
+//            NSIndexSet *indexSet=[[NSIndexSet alloc] initWithIndex:0];
+//            [_collectionView reloadSections:indexSet];
+        }
+    } fail:^(NSError *error) {
+        
+    } showHUD:NO];
+}
 #pragma mark -- 按钮事件
 //扫一扫
 - (void)scanning{

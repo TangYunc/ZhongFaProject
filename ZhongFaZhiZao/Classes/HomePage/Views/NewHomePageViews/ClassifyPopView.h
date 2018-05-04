@@ -15,4 +15,6 @@
 }
 
 @property(nonatomic,strong)UIViewController *alertVC;
+@property (nonatomic,strong) NSArray *classifyResultArr;
+
 @end

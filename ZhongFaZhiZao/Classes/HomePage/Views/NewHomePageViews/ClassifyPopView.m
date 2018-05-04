@@ -9,6 +9,8 @@
 #import "ClassifyPopView.h"
 #import "ClassifyMenuTableCell.h"
 #import "ClassifyMenuResult.h"
+#import "NewHomePageClassifyResult.h"
+#import "SSKeychain.h"
 
 @interface ClassifyPopView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -17,6 +19,8 @@
 @property (nonatomic,strong) UIButton *cancelBtn;
 @property (nonatomic, strong) UITableView *menuTableView;
 @property (nonatomic, strong) UIButton *roleBtn;
+@property (nonatomic, strong) UILabel *tipLabel;
+
 @property (nonatomic, strong) NSMutableArray *menuArr;
 @property (nonatomic, strong) NSMutableArray *choiceRoleResult;
 @property (nonatomic, strong) NSMutableDictionary *choiceResultDic;
@@ -136,29 +140,9 @@
         tipLabel.attributedText = attr2;
         [_bjView addSubview:tipLabel];
         [tipLabel sizeToFit];
+        self.tipLabel = tipLabel;
         //4.
-        NSArray *titleArr = @[@"通信电子",@"交通工具",@"能源化工",@"仪表仪器,通信电子",@"交通工具",@"能源化工",@"仪表仪器,通信电子",@"交通工具",@"能源化工",@"仪表仪器"];
-        NSInteger tempCount = titleArr.count;
-        CGFloat categoryBtnGapFromLeft = 33/2.0 * KWidth_ScaleW;
-        CGFloat categoryBtnGapFromTop = 25/2.0 * KWidth_ScaleW;
-        CGFloat categoryBtnGapHorizonWithOther = 12/2.0 * KWidth_ScaleW;
-        CGFloat categoryBtnGapVerticalWithOther = 14/2.0 * KWidth_ScaleW;
-        CGFloat categoryBtnWidth = (_bjView.width - categoryBtnGapFromLeft * 2 - categoryBtnGapHorizonWithOther * 3) / 4;
-        CGFloat categoryBtnHeight = 50/2.0 * KWidth_ScaleH;
-        for (NSInteger i = 0; i < tempCount; i++) {
-            UIButton *categoryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            categoryBtn.frame = CGRectMake(categoryBtnGapFromLeft + (i % 4) * (categoryBtnWidth + categoryBtnGapHorizonWithOther),tipLabel.bottom + categoryBtnGapFromTop +  (i / 4) * (categoryBtnHeight + categoryBtnGapVerticalWithOther), categoryBtnWidth, categoryBtnHeight);
-            categoryBtn.layer.borderColor = [UIColor colorWithHexString:@"#999999"].CGColor;
-            categoryBtn.layer.borderWidth = 1;
-            categoryBtn.layer.cornerRadius = 3;
-            categoryBtn.tag = 10 + i;
-            categoryBtn.titleLabel.font = [UIFont systemFontOfSize:11.f];
-            [categoryBtn setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
-            [categoryBtn setTitleColor:[UIColor colorWithHexString:@"#31B3EF"] forState:UIControlStateSelected];
-            [categoryBtn setTitle:titleArr[i] forState:UIControlStateNormal];
-            [categoryBtn addTarget:self action:@selector(categoryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-            [_bjView addSubview:categoryBtn];
-        }
+        
         //5.
         CGFloat confirmBtnWidth = 296/2.0 * KWidth_ScaleW;
         CGFloat confirmBtnHeight = 68/2.0 * KWidth_ScaleH;
@@ -220,6 +204,35 @@
     return _choiceResultDic;
 }
 
+- (void)setClassifyResultArr:(NSArray *)classifyResultArr{
+    if (_classifyResultArr != classifyResultArr) {
+        _classifyResultArr = classifyResultArr;
+        NSArray *titleArr = _classifyResultArr;
+        NSInteger tempCount = titleArr.count;
+        CGFloat categoryBtnGapFromLeft = 33/2.0 * KWidth_ScaleW;
+        CGFloat categoryBtnGapFromTop = 25/2.0 * KWidth_ScaleW;
+        CGFloat categoryBtnGapHorizonWithOther = 12/2.0 * KWidth_ScaleW;
+        CGFloat categoryBtnGapVerticalWithOther = 14/2.0 * KWidth_ScaleW;
+        CGFloat categoryBtnWidth = (_bjView.width - categoryBtnGapFromLeft * 2 - categoryBtnGapHorizonWithOther * 3) / 4;
+        CGFloat categoryBtnHeight = 50/2.0 * KWidth_ScaleH;
+        for (NSInteger i = 0; i < tempCount; i++) {
+            NewHomePageClassifyDatas *datas = titleArr[i];
+            UIButton *categoryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            categoryBtn.frame = CGRectMake(categoryBtnGapFromLeft + (i % 4) * (categoryBtnWidth + categoryBtnGapHorizonWithOther),self.tipLabel.bottom + categoryBtnGapFromTop +  (i / 4) * (categoryBtnHeight + categoryBtnGapVerticalWithOther), categoryBtnWidth, categoryBtnHeight);
+            categoryBtn.layer.borderColor = [UIColor colorWithHexString:@"#999999"].CGColor;
+            categoryBtn.layer.borderWidth = 1;
+            categoryBtn.layer.cornerRadius = 3;
+            categoryBtn.tag = [datas.classifyId integerValue];
+            categoryBtn.titleLabel.font = [UIFont systemFontOfSize:11.f];
+            [categoryBtn setTitleColor:[UIColor colorWithHexString:@"#999999"] forState:UIControlStateNormal];
+            [categoryBtn setTitleColor:[UIColor colorWithHexString:@"#31B3EF"] forState:UIControlStateSelected];
+            [categoryBtn setTitle:datas.name forState:UIControlStateNormal];
+            [categoryBtn addTarget:self action:@selector(categoryBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            [_bjView addSubview:categoryBtn];
+        }
+    }
+}
+
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -261,11 +274,43 @@
 
     return 60/2.0 * KWidth_ScaleH;
 }
+
+#pragma mark -- 上传选择的分类
+- (void)loadClassifyPopViewDate:(NSString *)classifyId{
+    
+    //获取与接口约定的Token
+    NSString *apiToken = [KUserDefault objectForKey:APIToken];
+    if (apiToken == nil) {
+        return;
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSubmitClassify_API,apiToken];
+    
+    NSString *uuidStr = [self getUUID];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:uuidStr forKey:@"uuid"];
+    [params setObject:classifyId forKey:@"interested"];
+    [params setObject:@1 forKey:@"access_type"];
+    [TNetworking postWithUrl:url params:params success:^(id response) {
+        
+    } fail:^(NSError *error) {
+        
+    } showHUD:NO];
+}
+
 #pragma mark -- 按钮事件
 - (void)confirmClick:(UIButton *)button{
     
     NSLog(@"点击确认按钮");
     [self.choiceResultDic setObject:self.choiceRoleResult forKey:@"roleType"];
+    
+    if (self.choiceResultDic == nil) {
+        button.enabled = NO;
+        [MBProgressHUD showError:@"请选择您的角色或您偏爱的职业!"];
+        return;
+    }
+    NSString *classifyId = [self.choiceRoleResult componentsJoinedByString:@","];
+    [self loadClassifyPopViewDate:classifyId];
     [KUserDefault setObject:@YES forKey:ShowClassifyPopView];
     [self removeFromSuperview];
 }
@@ -289,23 +334,22 @@
 - (void)categoryBtnClick:(UIButton *)button{
     
     button.selected = !button.selected;
-    if ([self.choiceCategoryNum intValue] > 3) {
-        button.enabled = NO;
-        [MBProgressHUD showError:@"最多只能选四个哦!"];
-        return;
-    }
+    NSString *classifyId = [NSString stringWithFormat:@"%ld",(long)button.tag];
+    
     if (button.selected) {
         button.layer.borderColor = [UIColor colorWithHexString:@"#31B3EF"].CGColor;
         self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] + 1];
-        [self.choiceRoleResult addObject:button.currentTitle];
+        [self.choiceRoleResult addObject:classifyId];
     }else{
         button.layer.borderColor = [UIColor colorWithHexString:@"#999999"].CGColor;
         self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] - 1];
-        [self.choiceRoleResult removeObject:button.currentTitle];
+        [self.choiceRoleResult removeObject:classifyId];
     }
-    
-    if (button.tag == 10) {
-        NSLog(@"通信电子");
+    if ([self.choiceCategoryNum intValue] > 4) {
+        button.layer.borderColor = [UIColor colorWithHexString:@"#999999"].CGColor;
+        button.enabled = NO;
+        [MBProgressHUD showError:@"最多只能选四个哦!"];
+        return;
     }
 }
 #pragma mark -- 手势
@@ -336,5 +380,19 @@
     [alert addAction:confirm];
     
     [self.alertVC presentViewController:alert animated:YES completion:nil];
+}
+
+- (NSString *)getUUID{
+    //获取UUID
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    assert(uuid != NULL);
+    CFStringRef uuidStr = CFUUIDCreateString(NULL, uuid);
+    NSString *identifierNumber = [SSKeychain passwordForService:@"com.cecbb.app"account:@"user"];
+    
+    if (!identifierNumber){
+        [SSKeychain setPassword: [NSString stringWithFormat:@"%@", uuidStr] forService:@"com.cecbb.app"account:@"user"];
+        identifierNumber = [SSKeychain passwordForService:@"com.cecbb.app"account:@"user"];
+    }
+    return identifierNumber;
 }
 @end

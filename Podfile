@@ -17,6 +17,7 @@ source 'https://github.com/CocoaPods/Specs.git'
               pod 'RongCloudIM/IMLib', '~> 2.8.3'
               pod 'RongCloudIM/IMKit', '~> 2.8.3'
               pod 'JPush'
+              pod 'SSKeychain'
                             
               # 友盟基础库
               # 友盟统计

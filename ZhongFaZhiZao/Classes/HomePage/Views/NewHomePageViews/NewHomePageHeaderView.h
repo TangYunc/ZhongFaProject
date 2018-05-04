@@ -18,4 +18,7 @@ typedef NS_ENUM(int,ZF){
 };
 @interface NewHomePageHeaderView : UIView
 
+@property (nonatomic,strong) NSArray *adResultArr;
+@property (nonatomic,strong) NSArray *smartHeadlineNewsResultArr;
+
 @end

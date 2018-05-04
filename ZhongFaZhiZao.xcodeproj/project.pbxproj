@@ -55,6 +55,9 @@
 		2DB567FD207CBEDE00EC28C2 /* ClassifyMenuResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567FC207CBEDE00EC28C2 /* ClassifyMenuResult.m */; };
 		2DB56800207DB65800EC28C2 /* SamrtShoppingMallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB567FF207DB65800EC28C2 /* SamrtShoppingMallView.m */; };
 		2DB56803207DBD9700EC28C2 /* SamrtShoppingMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56802207DBD9700EC28C2 /* SamrtShoppingMallCell.m */; };
+		2DB56806207DF0F800EC28C2 /* NewHomePageClassifyResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56805207DF0F800EC28C2 /* NewHomePageClassifyResult.m */; };
+		2DB56809207E155800EC28C2 /* NewHomePageADResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB56808207E155800EC28C2 /* NewHomePageADResult.m */; };
+		2DB5680C207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */; };
 		2DD3E7EC204799BC00199AB6 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EB204799BC00199AB6 /* Constant.m */; };
 		2DD3E7F020479C2B00199AB6 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7EF20479C2B00199AB6 /* RootTabBarController.m */; };
 		2DD3E7F320479C7900199AB6 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3E7F220479C7900199AB6 /* BaseNavigationController.m */; };
@@ -228,6 +231,12 @@
 		2DB567FF207DB65800EC28C2 /* SamrtShoppingMallView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallView.m; sourceTree = "<group>"; };
 		2DB56801207DBD9700EC28C2 /* SamrtShoppingMallCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamrtShoppingMallCell.h; sourceTree = "<group>"; };
 		2DB56802207DBD9700EC28C2 /* SamrtShoppingMallCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SamrtShoppingMallCell.m; sourceTree = "<group>"; };
+		2DB56804207DF0F800EC28C2 /* NewHomePageClassifyResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageClassifyResult.h; sourceTree = "<group>"; };
+		2DB56805207DF0F800EC28C2 /* NewHomePageClassifyResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageClassifyResult.m; sourceTree = "<group>"; };
+		2DB56807207E155800EC28C2 /* NewHomePageADResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageADResult.h; sourceTree = "<group>"; };
+		2DB56808207E155800EC28C2 /* NewHomePageADResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageADResult.m; sourceTree = "<group>"; };
+		2DB5680A207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewHomePageSmartHeadlineNewsResult.h; sourceTree = "<group>"; };
+		2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewHomePageSmartHeadlineNewsResult.m; sourceTree = "<group>"; };
 		2DC353AB2050D9FE00F498C3 /* JPUSHService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JPUSHService.h; path = Pods/JPush/JPUSHService.h; sourceTree = "<group>"; };
 		2DC353AD2050DA2600F498C3 /* libjpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libjpush-ios-3.0.8.a"; path = "Pods/JPush/libjpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		2DC353AF2050DAB100F498C3 /* ZhongFaZhiZao.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZhongFaZhiZao.entitlements; sourceTree = "<group>"; };
@@ -841,6 +850,12 @@
 				2D12B40D205A17F700FA0F0C /* ArchiverAndUnArchiver.m */,
 				2D15B22F207A1C35001E45F0 /* NewHomePageHeaderResult.h */,
 				2D15B230207A1C35001E45F0 /* NewHomePageHeaderResult.m */,
+				2DB56804207DF0F800EC28C2 /* NewHomePageClassifyResult.h */,
+				2DB56805207DF0F800EC28C2 /* NewHomePageClassifyResult.m */,
+				2DB56807207E155800EC28C2 /* NewHomePageADResult.h */,
+				2DB56808207E155800EC28C2 /* NewHomePageADResult.m */,
+				2DB5680A207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.h */,
+				2DB5680B207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1032,7 +1047,7 @@
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
-				"${PODS_ROOT}/UMCShare/UMShare/UMSocialSDKPlugin/UMSocialSDKPromptResources.bundle",
+				"${PODS_ROOT}/SSKeychain/Support/SSKeychain.bundle",
 				"${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/QQ/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
 				"${PODS_ROOT}/UMCShare/UMShare/SocialLibraries/Sina/SinaSDK/WeiboSDK.bundle",
 				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
@@ -1045,7 +1060,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SSKeychain.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TencentOpenApi_IOS_Bundle.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
@@ -1139,11 +1154,13 @@
 				2D15B21F2079DB7F001E45F0 /* NewHomePageCollectionView.m in Sources */,
 				2D12B40E205A17F700FA0F0C /* ArchiverAndUnArchiver.m in Sources */,
 				2DD3E8162047A1AE00199AB6 /* MineViewController.m in Sources */,
+				2DB56809207E155800EC28C2 /* NewHomePageADResult.m in Sources */,
 				2DD3E8192047A94A00199AB6 /* UIColor+Hex.m in Sources */,
 				2DE8DB9C204D4DF8008C70D2 /* ElectronicCollectionViewCell.m in Sources */,
 				2DD3E8652049151900199AB6 /* WKWebViewViewController.m in Sources */,
 				2D5D575F20478AAB00F683F4 /* main.m in Sources */,
 				2DE8DBA2204D4EF2008C70D2 /* KnowLedgeCustomCollectionViewCell.m in Sources */,
+				2DB56806207DF0F800EC28C2 /* NewHomePageClassifyResult.m in Sources */,
 				2DD3E8132047A19B00199AB6 /* PurchaseViewController.m in Sources */,
 				2DD3E8222047D7A700199AB6 /* MineCustomCollectionBtn.m in Sources */,
 				2D5D575120478AAB00F683F4 /* AppDelegate.m in Sources */,
@@ -1155,6 +1172,7 @@
 				2DE8DB84204D48A4008C70D2 /* HomePageCollectionView.m in Sources */,
 				2DE8DB93204D4DD2008C70D2 /* ScienceCollectionViewCell.m in Sources */,
 				2DD3E8622048FD1500199AB6 /* RegisterScrollView.m in Sources */,
+				2DB5680C207E1EF700EC28C2 /* NewHomePageSmartHeadlineNewsResult.m in Sources */,
 				2DD3E8292047E34700199AB6 /* MessageLoginViewController.m in Sources */,
 				2D2755CC2049470400D7E791 /* IMDetailViewController.m in Sources */,
 				2D2755C9204945FA00D7E791 /* MessageCenterCell.m in Sources */,

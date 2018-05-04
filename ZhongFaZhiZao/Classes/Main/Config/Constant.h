@@ -8,14 +8,23 @@
 
 extern NSString *const BaseApi;                        // api服务器
 
+extern NSString *const BaseTwoApi;                        // api服务器
+
+//***************************APIToken************************//
+extern NSString *const accessToken_API;   // 获取授权access-token
+
 //***************************首页************************//
-extern NSString *const electronic_API;                     // 收支流水
+extern NSString *const electronic_API;              // 收支流水
 extern NSString *const HomePageSupplyChainList_API;
 extern NSString *const HomePageScienceList_API;
 extern NSString *const HomePageIntelligenceList_API;
 extern NSString *const HomePageSolutionList_API;
 extern NSString *const HomePageadInfo_API;
 extern NSString *const HomePageSearch_API;//搜索
+extern NSString *const HomePageGetClassify_API;//首页弹窗分类获取
+extern NSString *const HomePageSubmitClassify_API;//首页弹窗分类提交
+extern NSString *const HomePageAD_API;//为您推荐（广告）
+extern NSString *const HomePageSmartHeadlineNews_API;//智造头条
 
 
 //***************************推送************************//
@@ -69,4 +78,8 @@ extern NSString *const register_api;  //注册
 extern NSString *const memberHome_api;  //注册
 extern NSString *const memberLogin_api;  //注册
 extern NSString *const memberIndex_api;  //注册
+
+//other
+extern NSString *const APIToken;  //token获取
+
 

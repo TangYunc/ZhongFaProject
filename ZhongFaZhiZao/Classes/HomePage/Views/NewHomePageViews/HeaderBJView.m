@@ -8,7 +8,6 @@
 
 #import "HeaderBJView.h"
 #import "NewHomePageCollectionSectionHeaderView.h"
-#import "ClassifyPopView.h"
 @interface HeaderBJView ()
 {
     UIView *_line;
@@ -103,14 +102,6 @@
 - (void)headerViewClick{
     
     NSLog(@"点击的是智造商城");
-    BOOL isShowClassify = [KUserDefault objectForKey:ShowClassifyPopView];
-    if (!isShowClassify) {
-        
-        ClassifyPopView *classifyPopView = [[ClassifyPopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-        classifyPopView.alertVC = self.viewControler;
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        [window addSubview:classifyPopView];
-    }
 }
 - (void)titleLabelClicked:(UITapGestureRecognizer*)sender{
     UILabel *titleLabel = (UILabel*)sender.view;

@@ -34,6 +34,7 @@
     self.customTabBar = customTabBar;
     
     self.customTabBar.delegate = self;
+    [self loadDateAPIToken];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -110,6 +111,23 @@
     
 }
 
+#pragma mark -- 加载数据
+- (void)loadDateAPIToken{
+    
+    //获取与接口约定的Token
+    NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
+    [tempPara setObject:@"admin" forKey:@"username"];
+    [tempPara setObject:@"admin" forKey:@"password"];
+    [TNetworking postWithUrl:accessToken_API params:tempPara success:^(id response) {
+        if ([response[@"success"] boolValue]) {
+            NSString *theAPIToken = response[@"data"][@"token"];
+            [KUserDefault setObject:theAPIToken forKey:APIToken];
+            [KUserDefault synchronize];
+        }
+    } fail:^(NSError *error) {
+        
+    } showHUD:NO];
+}
 
 #pragma mark - YDTabBarDelegate
 -(void)tabBar:(CustomTabBar *)tabBar from:(NSInteger)from to:(NSInteger)to

@@ -13,6 +13,8 @@
 #import "NewHomePageCustomRecommendView.h"
 #import "NewHomePageCustomRecommendGapView.h"
 #import "HeaderBJView.h"
+#import "NewHomePageADResult.h"
+#import "NewHomePageSmartHeadlineNewsResult.h"
 
 @interface NewHomePageHeaderView (){
     HomePageImgRunLoopView *_imgRunView;
@@ -27,7 +29,6 @@
 /** 图片数组*/
 @property (nonatomic, strong) NSMutableArray *imgMarr;
 /** 文字数组*/
-@property (nonatomic, strong) NSMutableArray *textMarr;
 @property(nonatomic, strong) NSMutableArray *dataArr;
 
 
@@ -42,7 +43,6 @@
         _dataArr=[[NSMutableArray alloc] init];
         //初始化子视图
         [self _initSubViews];
-        [self getData];
     }
     return self;
 }
@@ -187,18 +187,44 @@
     
 }
 
-#pragma mark-获取数据
-- (void)getData
-{
-    NSArray *arr1 = @[@"HOT",@"HOT",@"HOT",@"HOT",@"HOT"];
-    NSArray *arr2 = @[@"大降价了啊",@"iPhone7分期",@"这个苹果蛮脆的",@"来尝个香蕉吧",@"越来越香了啊你的秀发"];
-    for (int i=0; i<arr2.count; i++) {
-        ZYJHeadLineModel *model = [[ZYJHeadLineModel alloc]init];
-        model.type = arr1[i];
-        model.title = arr2[i];
-        [_dataArr addObject:model];
+- (NSMutableArray *)imgMarr{
+    if (!_imgMarr) {
+        //        NSString *urlStr = @"http://pic.121mai.com/s28_05460157903471942.gif";
+        _imgMarr = [NSMutableArray arrayWithCapacity:8];
     }
-    [_TopLineView setVerticalShowDataArr:_dataArr];
+    return _imgMarr;
+}
+
+#pragma mark-获取数据
+- (void)setAdResultArr:(NSArray *)adResultArr{
+    if (_adResultArr != adResultArr) {
+        _adResultArr = adResultArr;
+        for (NewHomePageADDatas *tempData in _adResultArr) {
+            [self.imgMarr addObject:tempData.res_path];
+        }
+        _imgRunView.imgUrlArray = self.imgMarr;
+        WS(weakself);
+        [_imgRunView  touchImageIndexBlock:^(NSInteger index) {
+            NSLog(@"%ld",(long)index);
+            NewHomePageADDatas *tempData = self.adResultArr[index];
+            [weakself choiceTheImageUrl:tempData.click_link];
+        }];
+    }
+}
+
+- (void)setSmartHeadlineNewsResultArr:(NSArray *)smartHeadlineNewsResultArr{
+    if (_smartHeadlineNewsResultArr != smartHeadlineNewsResultArr) {
+        _smartHeadlineNewsResultArr = smartHeadlineNewsResultArr;
+        [self getHotData:_smartHeadlineNewsResultArr];
+        WS(weakself);
+        _TopLineView.clickBlock = ^(NSInteger index){
+            ZYJHeadLineModel *model = weakself.dataArr[index];
+            NSLog(@"%@,%@",model.type,model.title);
+            
+            NewHomePageSmartHeadlineNewsDatas *datas = weakself.smartHeadlineNewsResultArr[index];
+            [weakself choiceTheImageUrl:datas.url];
+        };
+    }
 }
 #pragma mark -- 按钮事件
 //6个圆形按钮点击事件
@@ -242,17 +268,43 @@
     
 }
 
+
 #pragma mark -- 手势
 - (void)itemViewTapAction:(UITapGestureRecognizer *)tap{
     
     NSLog(@"点击了第%ld个视图",tap.view.tag);
 }
 
+#pragma mark -- method
+- (void)choiceTheImageIndex:(NSInteger)index{
+    NewHomePageADDatas *tempData = self.adResultArr[index];
+    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",tempData.click_link] title:@"广告"];
+    
+    [self.viewControler.navigationController pushViewController:vc animated:YES];
+}
 
+- (void)choiceTheImageUrl:(NSString *)url{
+    WKWebViewViewController *vc = [[WKWebViewViewController alloc]initWithUrlStr:[NSString stringWithFormat:@"%@",url] title:@"广告"];
+    
+    [self.viewControler.navigationController pushViewController:vc animated:YES];
+}
 - (void)pushWkWebViewWithAPIString:(NSString *)apiString withTitle:(NSString *)title{
     
     WKWebViewViewController *wkvc = [[WKWebViewViewController alloc]initWithUrlStr:apiString title:title];
     //        wkvc.hidesBottomBarWhenPushed = YES;
     [self.viewControler.navigationController pushViewController:wkvc animated:YES];
+}
+
+- (void)getHotData:(NSArray *)newsArr
+{
+    NSInteger tempCount = newsArr.count;
+    for (int i=0; i<tempCount; i++) {
+        NewHomePageSmartHeadlineNewsDatas *tempData = newsArr[i];
+        ZYJHeadLineModel *model = [[ZYJHeadLineModel alloc] init];
+        model.type = @"HOT";
+        model.title = tempData.title;
+        [_dataArr addObject:model];
+    }
+    [_TopLineView setVerticalShowDataArr:_dataArr];
 }
 @end

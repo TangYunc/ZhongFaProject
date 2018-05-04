@@ -27,41 +27,42 @@ PODS:
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15.3)
   - QRCodeReaderViewController (4.0.2)
-  - RongCloudIM/IMKit (2.8.28):
+  - RongCloudIM/IMKit (2.8.30):
     - RongCloudIM/IMLib
-  - RongCloudIM/IMLib (2.8.28)
+  - RongCloudIM/IMLib (2.8.30)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
-  - UMCAnalytics (5.4.1):
+  - SSKeychain (1.4.1)
+  - UMCAnalytics (5.5.0):
     - UMCCommon
-  - UMCCommon (1.4.2)
-  - UMCShare/Core (6.8.2):
+  - UMCCommon (1.5.0)
+  - UMCShare/Core (6.9.0):
     - UMCCommon
-  - UMCShare/Social/QQ (6.8.2):
+  - UMCShare/Social/QQ (6.9.0):
     - UMCCommon
     - UMCShare/Core
     - UMCShare/Social/ReducedQQ
-  - UMCShare/Social/ReducedQQ (6.8.2):
+  - UMCShare/Social/ReducedQQ (6.9.0):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/ReducedSina (6.8.2):
+  - UMCShare/Social/ReducedSina (6.9.0):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/ReducedWeChat (6.8.2):
+  - UMCShare/Social/ReducedWeChat (6.9.0):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/Sina (6.8.2):
+  - UMCShare/Social/Sina (6.9.0):
     - UMCCommon
     - UMCShare/Core
     - UMCShare/Social/ReducedSina
-  - UMCShare/Social/SMS (6.8.2):
+  - UMCShare/Social/SMS (6.9.0):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/UI (6.8.2):
+  - UMCShare/UI (6.9.0):
     - UMCCommon
     - UMCShare/Core
-  - WechatOpenSDK (1.8.1)
+  - WechatOpenSDK (1.8.2)
 
 DEPENDENCIES:
   - AFNetworking
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - RongCloudIM/IMKit (~> 2.8.3)
   - RongCloudIM/IMLib (~> 2.8.3)
   - SDWebImage
+  - SSKeychain
   - UMCAnalytics
   - UMCShare/Social/QQ
   - UMCShare/Social/ReducedWeChat
@@ -97,13 +99,14 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
-  RongCloudIM: 04fe5f4db26de404a1b648700a7099d87bedc4dc
+  RongCloudIM: ccf8cde8c7938f8a3ae464533413defed7b926bd
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
-  UMCAnalytics: 44e0bb2f442b7aaf97d1c924b58798b612f2c13d
-  UMCCommon: 19f09b4c67b6007837f70f321fe091e5814d49b1
-  UMCShare: ab74e3c818cd305846609b15b0daf36872213c28
-  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
+  SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
+  UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
+  UMCCommon: 82d21f4bb9532a5472cc533bbd8ed48aff376a14
+  UMCShare: 0c406a22c874fe6c9c97784a71db349e7fcea0eb
+  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
 
-PODFILE CHECKSUM: 83516cd0b69edbf708b12c4a1534e80711e1b1e0
+PODFILE CHECKSUM: 62d11bb5efd67f423e1a5bcaff1fd086c6993db6
 
 COCOAPODS: 1.4.0

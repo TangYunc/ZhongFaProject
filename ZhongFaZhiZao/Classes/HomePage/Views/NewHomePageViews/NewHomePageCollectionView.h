@@ -15,4 +15,8 @@
 @property (nonatomic, strong) NewHomePageHeaderView *headerView;
 @property (nonatomic, strong) NewHomePageHeaderResult *model;
 @property (nonatomic,strong) NSMutableArray *cityArray;
+
+@property (nonatomic,strong) NSArray *adResultArr;
+@property (nonatomic,strong) NSArray *smartHeadlineNewsResultArr;
+
 @end

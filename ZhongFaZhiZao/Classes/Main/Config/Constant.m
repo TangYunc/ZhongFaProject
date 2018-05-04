@@ -9,11 +9,16 @@
 //正式环境
 NSString *const BaseApi = @"http://wap.cecb2b.com";
 
+NSString *const BaseTwoApi = @"http://api.nzfa.com";
+
 //生产环境
 //NSString *const BaseApi = @"http://www.121mai.com/appv2.2";
 
 //测试环境
 //NSString *const BaseApi = @"http://cectest.cecb2b.com/waps";
+
+//***************************APIToken************************//
+NSString *const accessToken_API = @"http://api.nzfa.com/users/login";
 
 
 //***************************首页************************//
@@ -24,7 +29,10 @@ NSString *const HomePageIntelligenceList_API = @"/made/intelligence/list";
 NSString *const HomePageSolutionList_API = @"/made/solution/list";
 NSString *const HomePageadInfo_API = @"/api/adInfo/41,44";
 NSString *const HomePageSearch_API = @"/made/search?q=&isFirst=true&icNum=0&nicNum=0&icUsedNum=0&nicUsedNum=0";
-
+NSString *const HomePageGetClassify_API = @"/popups?access-token=";
+NSString *const HomePageSubmitClassify_API = @"/popups?access-token=";
+NSString *const HomePageAD_API = @"/recommends?access-token=";
+NSString *const HomePageSmartHeadlineNews_API = @"/news/tt?access-token=";
 //***************************推送************************//
 
 
@@ -83,4 +91,5 @@ NSString *const memberHome_api = @"/member/home";
 NSString *const memberLogin_api = @"/member/login";
 NSString *const memberIndex_api = @"/made/index";
 
-
+//other
+NSString *const APIToken = @"APIToken";

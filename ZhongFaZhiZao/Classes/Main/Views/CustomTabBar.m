@@ -5,7 +5,35 @@
 //  Created by 中发 on 2018/3/1.
 //  Copyright © 2018年 中发. All rights reserved.
 //
-
+/*
+ - (void)loadClassifyPopViewDate{
+ 
+ //获取与接口约定的Token
+ NSString *url = [NSString stringWithFormat:@"%@%@",BaseTwoApi,HomePageGetClassify_API];
+ NSString *apiToken = [KUserDefault objectForKey:APIToken];
+ if (apiToken == nil) {
+ return;
+ }
+ NSMutableDictionary *tempPara = [NSMutableDictionary dictionary];
+ [tempPara setObject:apiToken forKey:@"access-token"];
+ 
+ [TNetworking postWithUrl:url params:tempPara success:^(id response) {
+ [NewHomePageClassifyDatas mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+ return @{
+ @"classifyId" : @"id"
+ };
+ }];
+ NewHomePageClassifyResult *result = [NewHomePageClassifyResult mj_objectWithKeyValues:response];
+ if (result.success) {
+ self.classifyResultArr = [NSArray array];
+ self.classifyResultArr = result.data.datas;
+ }
+ } fail:^(NSError *error) {
+ 
+ } showHUD:NO];
+ }
+ 
+ */
 #import "CustomTabBar.h"
 #import "CustomBarButton.h"
 

@@ -49,4 +49,7 @@
 //Bugly
 #import <Bugly/Bugly.h>
 
+//TYC修改了RCMessageCellNotificationModel
+//@property(nonatomic) NSInteger progress;
+//@property(nonatomic) float progress;
 
