@@ -356,7 +356,7 @@
 }
 
 - (void)categoryBtnClick:(UIButton *)button{
-    
+
     button.selected = !button.selected;
     NSString *classifyId = [NSString stringWithFormat:@"%ld",(long)button.tag];
     
@@ -373,9 +373,11 @@
         button.layer.borderColor = [UIColor colorWithHexString:@"#999999"].CGColor;
         button.enabled = NO;
         [MBProgressHUD showError:@"最多只能选四个哦!"];
+        self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] - 1];
         return;
     }
 }
+
 #pragma mark -- 手势
 
 #pragma 自定义处理函数 -- 解析出有序的json 字符串

@@ -46,7 +46,7 @@
 - (void)layoutSubviews{
     
     [super layoutSubviews];
-    _bjView.frame = self.frame;
+    _bjView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     
     CGFloat tioImageViewWidht = 414/2.0 * KWidth_ScaleW;
     CGFloat tioImageViewHeight = 332/2.0 * KWidth_ScaleH;

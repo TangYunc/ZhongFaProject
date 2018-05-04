@@ -179,6 +179,7 @@
     [tempPara setObject:self.numberPage forKey:@"page"];
     
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSSMTable_API,apiToken];
+    [TNetworking removeTask:url];
     [TNetworking getWithUrl:url params:tempPara success:^(id response) {
         
         [_tableView.mj_header endRefreshing];
@@ -263,7 +264,7 @@
     [tempPara setObject:self.level forKey:@"level"];
     [tempPara setObject:self.numberPage forKey:@"page"];
     NSString *url = [NSString stringWithFormat:@"%@%@%@",BaseTwoApi,HomePageSSMTable_API,apiToken];
-    
+    [TNetworking removeTask:url];
     // 发送请求
     [TNetworking getWithUrl:url params:tempPara success:^(id response) {
         [_tableView.mj_footer endRefreshing];

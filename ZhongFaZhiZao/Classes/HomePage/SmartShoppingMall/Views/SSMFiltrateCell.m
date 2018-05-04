@@ -13,6 +13,7 @@
 
 @property (nonatomic, assign) CGFloat filtrateTextBtnMaxX;
 @property (strong, nonatomic) NSLayoutConstraint *filtrateHeight;
+@property (nonatomic, strong) NSNumber *choiceCategoryNum;
 
 @end
 
@@ -22,7 +23,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
+        self.choiceCategoryNum = @0;
         self.backgroundColor = [UIColor whiteColor];
         self.backgroundView = nil;
         
@@ -49,7 +50,7 @@
     for (UIView *subView in _bjView.subviews) {
         [subView removeFromSuperview];
     }
-//    self.filtrateTextBtnMaxX = 0;
+    self.filtrateTextBtnMaxX = 0;
     CGFloat filtrateItemTextBtnFromLeft = 30/2.0 * KWidth_ScaleH;
     CGFloat filtrateItemTextBtnFromTop = 30/2.0 * KWidth_ScaleH;
     CGFloat filtrateItemGapWithOther = 15/2.0 * KWidth_ScaleW;
@@ -59,13 +60,13 @@
         
         int rows = 0;
 
+        NSInteger itemTag = 0;
         for (NSInteger i = 0; i < self.datas.count; i ++) {
             
             NSString *filtrateTitleStr;
-            NSInteger itemTag = 0;
             if ([self.reuseIdentifier isEqualToString:@"SSMFiltrateCellLocationId"]) {
                 filtrateTitleStr = self.datas[i];
-                itemTag = i;
+                itemTag = 0;
             }else if ([self.reuseIdentifier isEqualToString:@"SSMFiltrateCellBrandId"]){
                 SSMTableBrand *tableBrand = self.datas[i];
                 filtrateTitleStr = tableBrand.name;
@@ -87,13 +88,14 @@
             self.filtrateHeight.constant = (rows + 1) * 30 + rows * filtrateItemGapWithOther;
             filtrateItemTextBtn.frame = CGRectMake(filtrateTextBtnX, filtrateTextBtnY, filtrateTextBtnW, filtrateTextBtnH);
             filtrateItemTextBtn.clipsToBounds = YES;
+            filtrateItemTextBtn.enabled = YES;
             filtrateItemTextBtn.layer.cornerRadius = 3;
             filtrateItemTextBtn.layer.borderWidth = 0.5;
             filtrateItemTextBtn.layer.borderColor = [UIColor colorWithHexString:@"#4A4A4A"].CGColor;
             filtrateItemTextBtn.titleLabel.font = [UIFont systemFontOfSize:KFloat(14.f)];
             [filtrateItemTextBtn setTitleColor:[UIColor colorWithHexString:@"#4A4A4A"] forState:UIControlStateNormal];
             [filtrateItemTextBtn setTitleColor:[UIColor colorWithHexString:@"#31B3EF"] forState:UIControlStateSelected];
-            filtrateItemTextBtn.tag = 10 + itemTag;
+            filtrateItemTextBtn.tag = 10 + itemTag + i;
             [filtrateItemTextBtn addTarget:self action:@selector(filtrateResultClicked:) forControlEvents:UIControlEventTouchUpInside];
             [filtrateItemTextBtn setTitle:filtrateTitleStr forState:UIControlStateNormal];
             self.filtrateTextBtnMaxX = CGRectGetMaxX(filtrateItemTextBtn.frame);
@@ -101,8 +103,9 @@
             
         }
         CGFloat lastBtnGapFrombottom = 35/2.0 * KWidth_ScaleH;
-        UIButton *lastBtn = (UIButton *)[_bjView viewWithTag: (self.datas.count+10 - 1)];
+        UIButton *lastBtn = (UIButton *)[_bjView viewWithTag: (self.datas.count+10+itemTag - 1)];
         CGFloat cellHeight = lastBtn.bottom + lastBtnGapFrombottom;
+        NSLog(@"");
         [SSMFiltrateCellResult shareService].cellHeight = cellHeight;
     
     }else {
@@ -122,25 +125,33 @@
         if (btn.selected) {
             btn.layer.borderColor = [UIColor colorWithHexString:@"#31B3EF"].CGColor;
             locationCityStr = btn.currentTitle;
+            self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] + 1];
         }else{
             btn.layer.borderColor = [UIColor colorWithHexString:@"#4A4A4A"].CGColor;
             locationCityStr = @"";
+            self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] - 1];
         }
         [SSMFiltrateCellResult shareService].location = locationCityStr;
     }else if ([self.reuseIdentifier isEqualToString:@"SSMFiltrateCellBrandId"]){
         if (btn.selected) {
             btn.layer.borderColor = [UIColor colorWithHexString:@"#31B3EF"].CGColor;
             brandID = [NSString stringWithFormat:@"%ld",btn.tag - 10];
+            self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] + 1];
         }else{
             btn.layer.borderColor = [UIColor colorWithHexString:@"#4A4A4A"].CGColor;
             brandID = @"";
+            self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] - 1];
         }
         [SSMFiltrateCellResult shareService].brandId = brandID;
     }
     
-    
-    
-    
+    if ([self.choiceCategoryNum intValue] > 1) {
+        btn.layer.borderColor = [UIColor colorWithHexString:@"#4A4A4A"].CGColor;
+        self.choiceCategoryNum = [NSNumber numberWithDouble:[self.choiceCategoryNum intValue] - 1];
+        btn.enabled = NO;
+        [MBProgressHUD showError:@"最多只能选一个哦!"];
+        return;
+    }
 }
 
 #pragma mark -- method

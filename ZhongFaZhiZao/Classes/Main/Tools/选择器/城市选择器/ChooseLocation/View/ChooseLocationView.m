@@ -154,7 +154,6 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if([self.tableViews indexOfObject:tableView] == 0){
-        
 
         //1.1 获取下一级别的数据源(市级别,如果是直辖市时,下级则为区级别)
         AddressItem * provinceItem = self.dataSouce[indexPath.row];
@@ -441,7 +440,6 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
                 [mArr addObject:model];
             }
             weakSelf.citys = [mArr copy];
-            
         }else{
             
             NSLog(@"%@",response[@"message"]);
@@ -451,6 +449,7 @@ static  CGFloat  const  kHYTopTabbarHeight = 30; //地址标签栏的高度
         NSLog(@"error = %@",error);
         [WKProgressHUD popMessage:@"请检查网络连接" inView:weakSelf.superview duration:HUD_DURATION animated:YES];
     } showHUD:NO];
+//    [NSThread sleepForTimeInterval:1];
     return self.citys;
 }
 /*

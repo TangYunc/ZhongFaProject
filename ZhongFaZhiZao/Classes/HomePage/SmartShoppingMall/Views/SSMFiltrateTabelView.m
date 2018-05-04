@@ -17,6 +17,9 @@
 @property (nonatomic, strong) NSIndexPath *theIndexPath;
 @property (nonatomic, assign) CGFloat cellHeight;
 
+@property (nonatomic, assign) CGFloat filtrateTextBtnMaxX;
+@property (strong, nonatomic) NSLayoutConstraint *filtrateHeight;
+
 @end
 
 @implementation SSMFiltrateTabelView
@@ -76,13 +79,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat cellHeight = 0;
-    if (indexPath.section == 2) {
-        cellHeight = 141/2.0 * KWidth_ScaleH;
-    }else if (indexPath.section == 0){
-        cellHeight = 65;
+    if (indexPath.section == 0) {
+        cellHeight = [self heightInCurrentCell:self.theDatas.location withCellType:@"SSMFiltrateCellLocationId"];
+//        cellHeight = [SSMFiltrateCellResult shareService].cellHeight;
+        
+    }else if (indexPath.section == 1){
+        cellHeight = [self heightInCurrentCell:self.theDatas.brand withCellType:@"SSMFiltrateCellBrandId"];
+//        cellHeight = [SSMFiltrateCellResult shareService].cellHeight;
     }else{
-        NSLog(@"self.cellHeight:%f",[SSMFiltrateCellResult shareService].cellHeight);
-        cellHeight = [SSMFiltrateCellResult shareService].cellHeight;
+        cellHeight = 141/2.0 * KWidth_ScaleH;
     }
     return cellHeight;
     
@@ -139,6 +144,72 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self endEditing:YES];
+}
+
+
+- (CGFloat)heightInCurrentCell:(NSArray *)datas withCellType:(NSString *)cellType{
+    
+    UIView *bjView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 500)];
+    for (UIView *subView in bjView.subviews) {
+        [subView removeFromSuperview];
+    }
+//    self.filtrateTextBtnMaxX = 0;
+    CGFloat filtrateItemTextBtnFromLeft = 30/2.0 * KWidth_ScaleH;
+    CGFloat filtrateItemTextBtnFromTop = 30/2.0 * KWidth_ScaleH;
+    CGFloat filtrateItemGapWithOther = 15/2.0 * KWidth_ScaleW;
+    int rows = 0;
+    NSInteger itemTag = 0;
+    for (NSInteger i = 0; i < datas.count; i ++) {
+        
+        NSString *filtrateTitleStr;
+        if ([cellType isEqualToString:@"SSMFiltrateCellLocationId"]) {
+            filtrateTitleStr = datas[i];
+            itemTag = 0;
+        }else if ([cellType isEqualToString:@"SSMFiltrateCellBrandId"]){
+            SSMTableBrand *tableBrand = datas[i];
+            filtrateTitleStr = tableBrand.name;
+            itemTag = [tableBrand.tableBrandId integerValue];
+        }
+        CGSize filtrateItemSize = [self sizeWithText:filtrateTitleStr font:[UIFont systemFontOfSize:KFloat(14.f)] maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+        UIButton *filtrateItemTextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        filtrateItemTextBtn.backgroundColor = [UIColor whiteColor];
+        CGFloat filtrateTextBtnX = self.filtrateTextBtnMaxX + filtrateItemTextBtnFromLeft;
+        CGFloat filtrateTextBtnY = 0;
+        CGFloat filtrateTextBtnW = filtrateItemSize.width + 30;
+        CGFloat filtrateTextBtnH = 30;
+        if ((filtrateTextBtnX + filtrateTextBtnW) > (kScreenWidth - filtrateItemTextBtnFromLeft * 2) ) {
+            self.filtrateTextBtnMaxX = 0;
+            filtrateTextBtnX = self.filtrateTextBtnMaxX + filtrateItemTextBtnFromLeft;
+            rows = rows + 1;
+        }
+        filtrateTextBtnY = filtrateItemTextBtnFromTop + (30 + filtrateItemGapWithOther) * rows;
+        self.filtrateHeight.constant = (rows + 1) * 30 + rows * filtrateItemGapWithOther;
+        filtrateItemTextBtn.frame = CGRectMake(filtrateTextBtnX, filtrateTextBtnY, filtrateTextBtnW, filtrateTextBtnH);
+        filtrateItemTextBtn.clipsToBounds = YES;
+        filtrateItemTextBtn.layer.cornerRadius = 3;
+        filtrateItemTextBtn.layer.borderWidth = 0.5;
+        filtrateItemTextBtn.layer.borderColor = [UIColor colorWithHexString:@"#4A4A4A"].CGColor;
+        filtrateItemTextBtn.titleLabel.font = [UIFont systemFontOfSize:KFloat(14.f)];
+        [filtrateItemTextBtn setTitleColor:[UIColor colorWithHexString:@"#4A4A4A"] forState:UIControlStateNormal];
+        [filtrateItemTextBtn setTitleColor:[UIColor colorWithHexString:@"#31B3EF"] forState:UIControlStateSelected];
+        filtrateItemTextBtn.tag = 10 + itemTag + i;
+        [filtrateItemTextBtn setTitle:filtrateTitleStr forState:UIControlStateNormal];
+        self.filtrateTextBtnMaxX = CGRectGetMaxX(filtrateItemTextBtn.frame);
+        
+        [bjView addSubview:filtrateItemTextBtn];
+    }
+    CGFloat lastBtnGapFrombottom = 35/2.0 * KWidth_ScaleH;
+    UIButton *lastBtn = (UIButton *)[bjView viewWithTag: (datas.count+10+itemTag - 1)];
+    CGFloat cellHeight = lastBtn.bottom + lastBtnGapFrombottom;
+    return cellHeight;
+}
+
+#pragma mark -- method
+// 计算文字尺寸
+- (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxSize:(CGSize)maxSize
+{
+    NSDictionary *attrs = @{NSFontAttributeName : font};
+    return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
 }
 
 @end

@@ -58,7 +58,7 @@
                 [_weakSelf saveSearchCacheAndRefreshView];
             }
         };
-        searchSuggestionVC.view.frame = CGRectMake(0, 64, self.view.mj_w, self.view.mj_h);
+        searchSuggestionVC.view.frame = CGRectMake(0, SafeAreaTopHeight, self.view.mj_w, self.view.mj_h - SafeAreaTopHeight);
         searchSuggestionVC.view.backgroundColor = [UIColor whiteColor];
         
         [self.view addSubview:searchSuggestionVC.view];
@@ -283,7 +283,7 @@
     }
     // 保存搜索信息
     [NSKeyedArchiver archiveRootObject:self.searchHistories toFile:self.searchHistoriesCachePath];
-    
+    self.searchSuggestionVC.name = searchBar.text;
     [self.tableView reloadData];
 }
 
@@ -389,6 +389,10 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     
+    NSLog(@"搜索%@",searchBar.text);
+    self.searchSuggestionVC.name = searchBar.text;
+    //发送消息
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"searchBarDidChange" object:nil userInfo:@{@"searchText":searchBar.text}];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText

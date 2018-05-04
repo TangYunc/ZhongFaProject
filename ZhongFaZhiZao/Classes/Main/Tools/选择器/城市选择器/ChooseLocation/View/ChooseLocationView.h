@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+//typedef void(^ChooseLocationViewCompletedBlock)(NSArray *citys);
+
 @interface ChooseLocationView : UIView
 
 @property (nonatomic, copy) NSString * address;
@@ -16,4 +18,5 @@
 @property (nonatomic, strong) NSArray *theProvinceDatas;
 @property (nonatomic, copy) void(^chooseFinish)(void);
 
+//- (NSArray *)loadCityDataOnCurrentProvince:(NSString *)provinceId completedBlock:(ChooseLocationViewCompletedBlock)completedBlock;
 @end

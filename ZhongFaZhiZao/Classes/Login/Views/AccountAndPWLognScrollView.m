@@ -149,7 +149,7 @@
     self.closeBtn = [[UIButton alloc]init];
     [self.closeBtn setBackgroundImage:[UIImage imageNamed:@"chahao_"] forState:UIControlStateNormal];
     [self addSubview:self.closeBtn];
-    
+    /*
     //  第三方 登录
     self.QQbutton = [[UIButton alloc]init];
     [self.QQbutton setBackgroundImage:[UIImage imageNamed:@"ShareQQIcon"] forState:UIControlStateNormal];
@@ -204,6 +204,7 @@
     self.sinaLbl.textColor = TEXT_GREY_COLOR;
     self.sinaLbl.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.sinaLbl];
+     */
 }
 
 -(void)layoutSubviews{
